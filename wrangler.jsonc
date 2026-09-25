@@ -1,0 +1,9 @@
+{
+  "$schema": "./node_modules/wrangler/config-schema.json",
+  "name": "petit",
+  "compatibility_date": "2026-09-25",
+  "assets": {
+    "directory": "./.output/public",
+    "not_found_handling": "404-page",
+  },
+}

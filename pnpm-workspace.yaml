@@ -1,0 +1,15 @@
+allowBuilds:
+  # 校验构建工具的本地二进制。
+  esbuild: true
+  # Git hooks 由项目的 prepare 安装。
+  simple-git-hooks: false
+  # 为 Reka UI 的依赖选择 Vue 3 适配代码。
+  vue-demi: true
+  # 校验 Wrangler 本地预览使用的 Workers 运行时。
+  workerd: true
+minimumReleaseAgeExclude:
+  - "@vitest/mocker@5.0.2"
+  - "@vitest/spy@5.0.2"
+  - miniflare@5.20260923.0-alpha
+  - vitest@5.0.2
+  - wrangler@4.140.0
