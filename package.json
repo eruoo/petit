@@ -1,0 +1,53 @@
+{
+  "name": "petit",
+  "version": "0.0.0",
+  "private": true,
+  "type": "module",
+  "scripts": {
+    "dev": "nuxt dev",
+    "build": "nuxt generate",
+    "preview": "wrangler dev --ip 127.0.0.1",
+    "check": "pnpm lint && pnpm format:check && pnpm typecheck && pnpm test",
+    "lint": "oxlint --deny-warnings .",
+    "lint:fix": "oxlint --deny-warnings --fix .",
+    "format": "oxfmt .",
+    "format:check": "oxfmt --check .",
+    "typecheck": "nuxt typecheck",
+    "test": "vitest run --passWithNoTests",
+    "test:watch": "vitest",
+    "test:e2e": "playwright test --pass-with-no-tests",
+    "prepare": "nuxt prepare && simple-git-hooks"
+  },
+  "dependencies": {
+    "nuxt": "4.5.2",
+    "petit-ui": "0.0.1",
+    "reka-ui": "2.10.5",
+    "vue": "3.5.43",
+    "vue-router": "5.3.1",
+    "zod": "4.6.5"
+  },
+  "devDependencies": {
+    "@nuxt/test-utils": "4.3.2",
+    "@playwright/test": "1.63.0",
+    "@tailwindcss/vite": "4.3.3",
+    "@types/node": "24.13.6",
+    "@vue/test-utils": "2.5.1",
+    "happy-dom": "20.14.5",
+    "oxfmt": "0.70.0",
+    "oxlint": "1.85.0",
+    "simple-git-hooks": "2.14.0",
+    "tailwindcss": "4.3.3",
+    "typescript": "6.0.3",
+    "vitest": "5.0.2",
+    "vue-tsc": "3.3.11",
+    "wrangler": "4.140.0"
+  },
+  "simple-git-hooks": {
+    "pre-commit": "pnpm check",
+    "preserveUnused": true
+  },
+  "engines": {
+    "node": "24.x"
+  },
+  "packageManager": "pnpm@11.25.0"
+}
