@@ -15,7 +15,12 @@ export default defineNuxtConfig({
   },
   typescript: {
     nodeTsConfig: {
-      include: ["../*.config.ts", "../tests/unit/**/*.ts", "../tests/e2e/**/*.ts"],
+      include: [
+        "../*.config.ts",
+        "../scripts/**/*.ts",
+        "../tests/unit/**/*.ts",
+        "../tests/e2e/**/*.ts",
+      ],
     },
   },
   nitro: {

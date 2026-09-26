@@ -13,7 +13,7 @@
 | 测试         | Vitest、Nuxt Test Utils、Vue Test Utils、happy-dom、Playwright。      |
 | 静态托管准备 | Wrangler、Cloudflare Workers Static Assets，配置见 `wrangler.jsonc`。 |
 
-依赖的准确版本由 `package.json` 和锁文件维护。当前页面仅保留 Petit 入口；菜谱数据和 schema 随实际数据接入，不预设业务结构。后续客户端筛选使用 Vue 响应式状态与 URL 参数，暂不引入 Pinia、数据库或 CMS。
+依赖的准确版本由 `package.json` 和锁文件维护。当前页面仅保留 Petit 入口；本地菜谱 JSON、Zod schema、读取边界与来源资料见[菜谱数据约定](recipes.md)。后续客户端筛选使用 Vue 响应式状态与 URL 参数，暂不引入 Pinia、数据库或 CMS。
 
 Tailwind 按[官方 Nuxt 指南](https://tailwindcss.com/docs/installation/framework-guides/nuxt)使用 Vite 插件。petit-ui 提供设计 token，样式入口先导入 Tailwind，再导入 `petit-ui/tailwind.css`；Reka UI 提供需要自行添加样式的交互组件。
 
@@ -35,24 +35,25 @@ Nuxt 开发服务默认运行在 `http://localhost:3000`。应用入口是 `app/
 
 ## 日常检查
 
-| 命令                | 用途                                              |
-| ------------------- | ------------------------------------------------- |
-| `pnpm check`        | 依次执行代码检查、格式检查、类型检查和 Vitest。   |
-| `pnpm lint`         | 使用 Oxlint 检查代码，警告也会使检查失败。        |
-| `pnpm lint:fix`     | 应用 Oxlint 的自动修复。                          |
-| `pnpm format`       | 使用 Oxfmt 格式化文件。                           |
-| `pnpm format:check` | 检查格式，不修改文件。                            |
-| `pnpm typecheck`    | 检查 Vue、TypeScript 和 Nuxt 类型。               |
-| `pnpm test`         | 运行 Vitest。                                     |
-| `pnpm test:watch`   | 以监听模式运行 Vitest。                           |
-| `pnpm test:e2e`     | 构建静态站点后运行 Chromium 端到端测试。          |
-| `pnpm build`        | 生成静态站点到 `.output/public`。                 |
-| `pnpm preview`      | 使用 Wrangler 在本地预览静态产物，默认端口 8787。 |
-| `pnpm prepare`      | 生成 Nuxt 类型并安装或更新 Git hooks。            |
+| 命令                | 用途                                                                  |
+| ------------------- | --------------------------------------------------------------------- |
+| `pnpm check`        | 依次执行代码、格式、类型、菜谱数据检查和 Vitest。                     |
+| `pnpm data:check`   | 校验菜谱、独立清点覆盖率与原图文件；追加 `--details` 查看待核对字段。 |
+| `pnpm lint`         | 使用 Oxlint 检查代码，警告也会使检查失败。                            |
+| `pnpm lint:fix`     | 应用 Oxlint 的自动修复。                                              |
+| `pnpm format`       | 使用 Oxfmt 格式化文件。                                               |
+| `pnpm format:check` | 检查格式，不修改文件。                                                |
+| `pnpm typecheck`    | 检查 Vue、TypeScript 和 Nuxt 类型。                                   |
+| `pnpm test`         | 运行 Vitest。                                                         |
+| `pnpm test:watch`   | 以监听模式运行 Vitest。                                               |
+| `pnpm test:e2e`     | 构建静态站点后运行 Chromium 端到端测试。                              |
+| `pnpm build`        | 生成静态站点到 `.output/public`。                                     |
+| `pnpm preview`      | 使用 Wrangler 在本地预览静态产物，默认端口 8787。                     |
+| `pnpm prepare`      | 生成 Nuxt 类型并安装或更新 Git hooks。                                |
 
 Oxlint 配置见 `oxlint.config.ts`，启用 TypeScript、Vue 等内置规则插件。Oxfmt 配置见 `.oxfmtrc.json`，采用默认格式规则，并排除由 pnpm 管理的锁文件。生成目录通过 `.gitignore` 排除。
 
-Oxlint 对 Vue 文件的检查范围为脚本部分，`pnpm typecheck` 补充 Vue 模板与 TypeScript 类型检查。`nuxt.config.ts` 中的 `typescript.nodeTsConfig` 将根目录工具配置、`tests/unit` 与 `tests/e2e` 纳入同一检查；Nuxt 开发、构建与测试转译不代替类型检查。
+Oxlint 对 Vue 文件的检查范围为脚本部分，`pnpm typecheck` 补充 Vue 模板与 TypeScript 类型检查。`nuxt.config.ts` 中的 `typescript.nodeTsConfig` 将根目录工具配置、`scripts`、`tests/unit` 与 `tests/e2e` 纳入同一检查；Nuxt 默认检查 `shared`。Nuxt 开发、构建与测试转译不代替类型检查。菜谱脚本直接使用 Node.js 24 的 TypeScript 支持，无额外运行器依赖。
 
 TypeScript 暂固定在 6.x，以兼容当前 vue-tsc 所需的编译器 API；升级大版本前须验证 `pnpm typecheck`。
 
@@ -64,7 +65,7 @@ TypeScript 暂固定在 6.x，以兼容当前 vue-tsc 所需的编译器 API；�
 - `tests/nuxt/**/*.test.ts`：需要 Nuxt 自动导入、路由或组件挂载的测试，使用 Nuxt 与 happy-dom 环境。
 - `tests/e2e/**/*.spec.ts`：Playwright 测试，针对构建后的静态站点运行。
 
-目前尚无业务测试，`pnpm test` 与 `pnpm test:e2e` 显式允许空测试集。新增测试后会自动收集并执行。首次运行端到端测试前安装浏览器：
+`tests/unit/recipes.test.ts` 已覆盖菜谱数据、附件完整性、来源引用和关键转录行为；当前没有 Nuxt 组件或端到端业务测试。`pnpm test` 与 `pnpm test:e2e` 仍允许空测试集，各目录新增测试后会自动收集。首次运行端到端测试前安装浏览器：
 
 ```sh
 pnpm exec playwright install chromium

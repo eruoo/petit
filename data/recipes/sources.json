@@ -1,0 +1,66 @@
+[
+  {
+    "id": "tomorrow-20260923-image",
+    "titleRaw": "明天攻略组 星布谷地菜谱图鉴",
+    "creator": "明天攻略组",
+    "imageDate": {
+      "raw": "2026.9.23",
+      "value": "2026-09-23"
+    },
+    "origin": {
+      "kind": "user-provided-image",
+      "label": "用户提供图片",
+      "originalPostUrl": {
+        "status": "unknown",
+        "raw": "",
+        "reason": "原帖链接尚未确认"
+      }
+    },
+    "publishedAt": {
+      "status": "not-stated",
+      "raw": ""
+    },
+    "gameVersion": {
+      "status": "not-stated",
+      "raw": ""
+    },
+    "asset": {
+      "path": "docs/references/recipes/tomorrow-2026-09-23.png",
+      "originalFilename": "codex-clipboard-c819afa6-9613-4f98-b5d9-9ecc40846d9f.png",
+      "mimeType": "image/png",
+      "width": 4355,
+      "height": 2189,
+      "bytes": 6625241,
+      "sha256": "c979910ccec1052f98f7a50b2b071ca82e7fe68742c661d8e3a97d9ce4fc28f7"
+    },
+    "evidence": "player-record",
+    "visualLegend": {
+      "status": "not-stated",
+      "raw": "",
+      "reason": "图片未提供颜色或加粗的明确图例；不据此确认食材品质或菜品分类。"
+    },
+    "notes": [
+      {
+        "id": "shrimp-exclusion",
+        "raw": "tips: 虾类不包含螯虾",
+        "bounds": [810, 60, 390, 60],
+        "appliesTo": ["simple", "signature", "guest", "free", "neighbor"],
+        "evidence": "player-record"
+      },
+      {
+        "id": "free-cooking-access",
+        "raw": "只能通过自由烹饪得到，不在菜谱内显示",
+        "bounds": [2812, 969, 1169, 53],
+        "appliesTo": ["free"],
+        "evidence": "player-record"
+      },
+      {
+        "id": "neighbor-unlock",
+        "raw": "友邻秘方，只能通过友邻赠送获得，且只能在配方解锁后用配方制作",
+        "bounds": [2812, 1605, 1169, 53],
+        "appliesTo": ["neighbor"],
+        "evidence": "player-record"
+      }
+    ]
+  }
+]
