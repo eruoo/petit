@@ -2,6 +2,7 @@ import { expect, test } from "@playwright/test";
 
 test("列表与详情显示具体食材的品质要求，重复槽位和候选文字独立保留", async ({ page }) => {
   await page.goto("/?q=美味");
+  await page.getByRole("button", { name: "列表视图", exact: true }).click();
   const pizza = page.getByRole("button", { name: "查看美味海风披萨配方", exact: true });
   await expect(
     pizza.getByRole("list", { name: "有序食材" }).getByRole("listitem").nth(2),
@@ -32,6 +33,7 @@ test("列表与详情显示具体食材的品质要求，重复槽位和候选�
 test("手机四槽食材品质与未知食材不会溢出或混成菜品品质", async ({ page }) => {
   await page.setViewportSize({ width: 390, height: 844 });
   await page.goto("/?q=时蔬烧烤派对");
+  await page.getByRole("button", { name: "列表视图", exact: true }).click();
   const party = page.getByRole("button", { name: "查看时蔬烧烤派对配方", exact: true });
   await expect(party.getByText("需紫色品质", { exact: true })).toHaveCount(4);
   expect(await page.evaluate(() => document.documentElement.scrollWidth)).toBeLessThanOrEqual(390);

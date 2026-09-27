@@ -2,13 +2,14 @@
 import { computed } from "vue";
 import type { Recipe } from "../../../shared/recipes/schema";
 import { effectSummary, hasUncertainRecipe, regionLabels } from "../../utils/recipes";
+import type { RecipeView } from "../../utils/recipes";
 import { getRecipeImage } from "../../utils/recipe-images";
 import { recipeQualitiesById } from "#shared/recipes/qualities";
 import IngredientSlots from "./IngredientSlots.vue";
 import RecipeIcon from "./RecipeIcon.vue";
 import RecipeImage from "./RecipeImage.vue";
 import RecipeQualityBadge from "./RecipeQualityBadge.vue";
-const props = defineProps<{ recipes: Recipe[]; disabled: boolean }>();
+const props = defineProps<{ recipes: Recipe[]; disabled: boolean; view: RecipeView }>();
 const emit = defineEmits<{ select: [recipe: Recipe, trigger: HTMLButtonElement]; reset: [] }>();
 const rows = computed(() =>
   props.recipes.map((recipe) => ({
@@ -22,8 +23,8 @@ const rows = computed(() =>
 </script>
 
 <template>
-  <div v-if="rows.length" class="recipe-list">
-    <div class="list-head recipe-columns" aria-hidden="true">
+  <div v-if="rows.length" class="recipe-list" :data-view="view">
+    <div v-if="view === 'list'" class="list-head recipe-columns" aria-hidden="true">
       <span>配图</span><span>菜名</span><span>食材</span><span>方式</span
       ><span class="energy-heading">力气</span><span class="effect-column">效果与产出</span><span />
     </div>
@@ -50,18 +51,18 @@ const rows = computed(() =>
               <span v-if="row.uncertain" class="uncertain-label">待确认</span></span
             ></span
           >
-          <IngredientSlots class="row-ingredients" :recipe="row.recipe" />
+          <IngredientSlots v-if="view === 'list'" class="row-ingredients" :recipe="row.recipe" />
           <span class="row-method">{{ row.recipe.cookingMethod.raw }}</span>
           <span class="row-energy" :class="{ unknown: row.recipe.energy.status !== 'recorded' }"
             ><template v-if="row.recipe.energy.status === 'recorded'"
               ><span class="energy-plus">+</span>{{ row.recipe.energy.value }}</template
             ><template v-else>未知</template><span class="sr-only">力气</span></span
           >
-          <span class="row-effect effect-column"
+          <span v-if="view === 'list'" class="row-effect effect-column"
             ><span>{{ row.effect.label }}</span
             ><span class="effect-note">{{ row.effect.note }}</span></span
           >
-          <RecipeIcon class="row-arrow" name="chevron" />
+          <RecipeIcon v-if="view === 'list'" class="row-arrow" name="chevron" />
         </button>
       </li>
     </ul>
@@ -258,6 +259,72 @@ const rows = computed(() =>
   .row-method {
     grid-column: 2;
     grid-row: 3;
+  }
+}
+
+.recipe-list[data-view="grid"] {
+  border-top: 0;
+}
+.recipe-list[data-view="grid"] > ul {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(154px, 1fr));
+  gap: 0.7rem;
+}
+.recipe-list[data-view="grid"] .recipe-row {
+  grid-template-columns: minmax(0, 1fr) auto;
+  grid-template-rows: auto 1fr auto;
+  align-items: start;
+  gap: 0.75rem 0.3rem;
+  height: 100%;
+  min-height: 0;
+  padding: 0.8rem 0.65rem;
+  border: 1px solid transparent;
+  border-radius: 0.8rem;
+}
+.recipe-list[data-view="grid"] .recipe-row:hover {
+  border-color: color-mix(in srgb, var(--petit-color-border-strong) 25%, transparent);
+}
+.recipe-list[data-view="grid"] .row-image {
+  grid-column: 1 / -1;
+  grid-row: 1;
+  justify-self: center;
+  width: min(100%, 156px);
+}
+.recipe-list[data-view="grid"] .recipe-title {
+  grid-column: 1 / -1;
+  grid-row: 2;
+  gap: 0.3rem;
+  text-align: center;
+}
+.recipe-list[data-view="grid"] .recipe-name {
+  font-size: 0.88rem;
+  overflow-wrap: anywhere;
+}
+.recipe-list[data-view="grid"] .recipe-meta {
+  justify-content: center;
+  gap: 0.15rem 0.45rem;
+}
+.recipe-list[data-view="grid"] .uncertain-label::before {
+  margin-right: 0.35rem;
+}
+.recipe-list[data-view="grid"] .row-method {
+  grid-column: 1;
+  grid-row: 3;
+  align-self: center;
+}
+.recipe-list[data-view="grid"] .row-energy {
+  grid-column: 2;
+  grid-row: 3;
+  font-size: 1rem;
+  padding: 0;
+}
+@media (max-width: 600px) {
+  .recipe-list[data-view="grid"] > ul {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 0.5rem;
+  }
+  .recipe-list[data-view="grid"] .recipe-row {
+    padding: 0.65rem 0.4rem;
   }
 }
 </style>

@@ -11,6 +11,8 @@ const paths = {
   check: ["m5 12 4 4L19 6"],
   external: ["M14 3h7v7", "M21 3 11 13", "M10 3H3v18h18v-7"],
   reset: ["M3 10a9 9 0 1 1 2 9", "M3 3v7h7"],
+  grid: ["M3 3h7v7H3V3Zm11 0h7v7h-7V3ZM3 14h7v7H3v-7Zm11 0h7v7h-7v-7Z"],
+  list: ["M9 5h12M9 12h12M9 19h12", "M3 5h.1M3 12h.1M3 19h.1"],
 } as const;
 defineProps<{ name: keyof typeof paths }>();
 </script>

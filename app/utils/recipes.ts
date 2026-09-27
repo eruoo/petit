@@ -3,6 +3,7 @@ import type { Recipe } from "../../shared/recipes/schema";
 export type ImageRegion = Recipe["source"]["region"];
 export type CookingMethod = Extract<Recipe["cookingMethod"], { status: "recorded" }>["value"];
 export type RecipeSort = "source" | "energy-desc" | "energy-asc";
+export type RecipeView = "grid" | "list";
 export interface RecipeFilters {
   query: string;
   region: ImageRegion | "all";

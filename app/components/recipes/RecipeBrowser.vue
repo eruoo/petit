@@ -3,11 +3,12 @@ import { computed, nextTick, shallowRef } from "vue";
 import { recipeDataset } from "#shared/recipes/index";
 import type { Recipe } from "../../../shared/recipes/schema";
 import { useRecipeBrowser } from "../../composables/useRecipeBrowser";
-import type { RecipeSort } from "../../utils/recipes";
+import type { RecipeSort, RecipeView } from "../../utils/recipes";
 import RecipeFilters from "./RecipeFilters.vue";
 import RecipeList from "./RecipeList.vue";
 import RecipeDetails from "./RecipeDetails.vue";
 import RecipeIcon from "./RecipeIcon.vue";
+import RecipeViewToggle from "./RecipeViewToggle.vue";
 
 const {
   ready,
@@ -28,6 +29,7 @@ const searchQuery = computed({
 const selectedRecipe = shallowRef<Recipe | null>(null);
 const detailsOpen = shallowRef(false);
 const filtersExpanded = shallowRef(false);
+const view = shallowRef<RecipeView>("grid");
 const detailTrigger = shallowRef<HTMLButtonElement | null>(null);
 function openRecipe(recipe: Recipe, trigger: HTMLButtonElement) {
   detailTrigger.value = trigger;
@@ -121,20 +123,26 @@ async function restoreFocus() {
                 >筛选结果</span
               >
             </h2>
-            <label class="sort-label"
-              >排序<select
-                aria-label="菜谱排序"
-                :disabled="!ready"
-                :value="filters.sort"
-                @change="
-                  updateFilters({ sort: ($event.target as HTMLSelectElement).value as RecipeSort })
-                "
+            <div class="results-actions">
+              <RecipeViewToggle v-model="view" :disabled="!ready" />
+              <label class="sort-label"
+                ><span>排序</span
+                ><select
+                  aria-label="菜谱排序"
+                  :disabled="!ready"
+                  :value="filters.sort"
+                  @change="
+                    updateFilters({
+                      sort: ($event.target as HTMLSelectElement).value as RecipeSort,
+                    })
+                  "
+                >
+                  <option value="source">原图顺序</option>
+                  <option value="energy-desc">力气由高到低</option>
+                  <option value="energy-asc">力气由低到高</option>
+                </select></label
               >
-                <option value="source">原图顺序</option>
-                <option value="energy-desc">力气由高到低</option>
-                <option value="energy-asc">力气由低到高</option>
-              </select></label
-            >
+            </div>
           </div>
           <p class="sr-only" role="status" aria-live="polite">共找到 {{ recipes.length }} 道菜谱</p>
           <div v-if="activeFilterCount" class="active-filter-bar">
@@ -145,6 +153,7 @@ async function restoreFocus() {
           </div>
           <RecipeList
             :recipes="recipes"
+            :view="view"
             :disabled="!ready"
             @select="openRecipe"
             @reset="resetFilters"
@@ -277,10 +286,16 @@ async function restoreFocus() {
 }
 .results-toolbar {
   display: flex;
+  flex-wrap: wrap;
   justify-content: space-between;
   align-items: center;
   gap: 1rem;
-  margin: 1.6rem 0 0.4rem;
+  margin: 1.6rem 0 0.9rem;
+}
+.results-actions {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
 }
 .results-toolbar h2 {
   font-size: 0.83rem;
@@ -426,6 +441,15 @@ async function restoreFocus() {
   }
   .results-toolbar {
     margin-top: 1.2rem;
+    gap: 0.6rem;
+  }
+  .results-actions {
+    width: 100%;
+    justify-content: space-between;
+    gap: 0.5rem;
+  }
+  .sort-label > span {
+    display: none;
   }
   .filtered-label {
     display: none;
