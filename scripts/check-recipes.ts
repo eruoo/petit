@@ -8,6 +8,14 @@ import {
 } from "../shared/recipes/history.ts";
 import type { RecipeSource } from "../shared/recipes/schema.ts";
 import { recipeQualityDataset } from "../shared/recipes/qualities.ts";
+import {
+  currentRecipes,
+  currentRecipeQualitiesById,
+  getRecipeDifferences,
+} from "../shared/recipes/current.ts";
+import { primaryRecipeDataset, supplementalRecipeDataset } from "../shared/recipes/primary.ts";
+import { gameEffectEvidence, collectCurrentEvidenceConflicts } from "../shared/recipes/effects.ts";
+import { recipeDecisions } from "../shared/recipes/decisions.ts";
 
 function readImageDimensions(bytes: Buffer, mimeType: RecipeSource["asset"]["mimeType"]) {
   if (mimeType === "image/png") {
@@ -41,7 +49,7 @@ function readImageDimensions(bytes: Buffer, mimeType: RecipeSource["asset"]["mim
   throw new Error("原始 JPEG 附件缺少有效尺寸帧头");
 }
 
-export function verifySourceAssets(sources: RecipeSource[]) {
+export function verifySourceAssets(sources: Pick<RecipeSource, "id" | "asset">[]) {
   const root = new URL("../", import.meta.url);
   for (const source of sources) {
     const { asset } = source;
@@ -61,17 +69,18 @@ export function verifySourceAssets(sources: RecipeSource[]) {
 
 if (import.meta.main) {
   verifySourceAssets(recipeDataset.sources);
+  verifySourceAssets(gameEffectEvidence.screenshots);
   verifyPreviousRecipeReferences(recipeDataset, previousRecipeDataset);
   console.log(
-    `原始附件校验通过：${recipeDataset.sources.length} 张；当前转录依据：${recipeDataset.inventory.sourceId}。`,
+    `来源附件校验通过；当前主体：${primaryRecipeDataset.inventory.sourceId}；补充：${supplementalRecipeDataset.inventory.sourceId}。`,
   );
-  for (const region of recipeDataset.inventory.regions) {
-    const count = recipeDataset.recipes.filter(
+  for (const region of primaryRecipeDataset.inventory.regions) {
+    const count = primaryRecipeDataset.recipes.filter(
       (recipe) => recipe.source.region === region.id,
     ).length;
     console.log(`${region.id}: ${count}/${region.expectedRows}`);
   }
-  const reviewItems = collectRecipeReviewItems(recipeDataset.recipes);
+  const reviewItems = collectRecipeReviewItems(currentRecipes);
   const counts = Object.fromEntries(
     ["tentative", "unknown", "unresolved", "review-note"].map((status) => [
       status,
@@ -79,9 +88,12 @@ if (import.meta.main) {
     ]),
   );
   console.log(
-    `菜谱与附件校验通过：${recipeDataset.recipes.length}/${recipeDataset.inventory.expectedTotal} 行。待核对字段：${JSON.stringify(counts)}`,
+    `主体 ${primaryRecipeDataset.recipes.length}/${primaryRecipeDataset.inventory.expectedTotal} 行、补充 ${supplementalRecipeDataset.recipes.length}/${supplementalRecipeDataset.inventory.expectedTotal} 行独立校验通过。当前待核对字段：${JSON.stringify(counts)}`,
   );
   console.log(`旧版快照与跨版本引用校验通过：${previousRecipeDataset.recipes.length} 条历史记录。`);
+  console.log(
+    `用户逐项决定及原文、来源引用校验通过：${recipeDecisions.decisions.length} 条；不代表游戏实测。`,
+  );
   const qualityCounts = Object.fromEntries(
     ["blue", "purple", "gold", "unknown"].map((color) => [
       color,
@@ -90,8 +102,17 @@ if (import.meta.main) {
       ).length,
     ]),
   );
-  console.log(`独立菜品品质资料与引用校验通过：${JSON.stringify(qualityCounts)}。`);
-  const ingredientQualities = recipeDataset.recipes.flatMap((recipe) =>
+  console.log(`历史 TapTap 品质资料与引用校验通过：${JSON.stringify(qualityCounts)}。`);
+  const currentQualityCounts = Object.fromEntries(
+    ["blue", "purple", "gold", "unknown"].map((color) => [
+      color,
+      [...currentRecipeQualitiesById.values()].filter((quality) =>
+        quality.status === "unknown" ? color === "unknown" : quality.color === color,
+      ).length,
+    ]),
+  );
+  console.log(`当前主体／参考菜品品质校验通过：${JSON.stringify(currentQualityCounts)}。`);
+  const ingredientQualities = currentRecipes.flatMap((recipe) =>
     recipe.ingredients.map((slot) => slot.quality),
   );
   const ingredientQualityCounts = Object.fromEntries(
@@ -103,11 +124,26 @@ if (import.meta.main) {
     ]),
   );
   console.log(`食材品质底色与用户解释引用校验通过：${JSON.stringify(ingredientQualityCounts)}。`);
-  console.log("全部为玩家资料；游戏内验证：0。未标底色的食材品质、游戏内分类与概率数值仍未说明。");
+  console.log(
+    `当前 ${currentRecipes.length} 道：明天主体 ${primaryRecipeDataset.recipes.length} 道、小铭新增 ${currentRecipes.filter((recipe) => recipe.source.sourceId === supplementalRecipeDataset.inventory.sourceId).length} 道；独立游戏截图 ${gameEffectEvidence.screenshots.length} 张、用户文字确认 ${gameEffectEvidence.confirmations.length} 条。`,
+  );
+  const conflicts = collectCurrentEvidenceConflicts(currentRecipes);
+  console.log(
+    `主体图与已录入截图／文字补充的力气、效果冲突：${conflicts.length}；来源差异单独保留，不声明游戏实测。`,
+  );
+  for (const conflict of conflicts) console.log(`待核对：${conflict}`);
+  console.log(
+    "原始转录与补充资料分别校验；图文核对不等于游戏实测。未标底色的品质、未列出的效果阶级与概率数值不推算。",
+  );
   if (process.argv.includes("--details")) {
     for (const item of reviewItems)
       console.log(
         `${item.region}/${item.row} ${item.field} [${item.status}] ${item.raw} ${item.reason}`,
       );
+    for (const recipe of currentRecipes)
+      for (const difference of getRecipeDifferences(recipe.id))
+        console.log(
+          `${recipe.name.raw} ${difference.label} [${difference.kind}] 小铭 9/27：${difference.previous} → 当前网站：${difference.current}`,
+        );
   }
 }

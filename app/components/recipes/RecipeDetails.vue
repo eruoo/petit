@@ -1,5 +1,5 @@
 <script setup lang="ts">
-import { computed, shallowRef, watch } from "vue";
+import { computed } from "vue";
 import {
   DialogRoot,
   DialogPortal,
@@ -10,71 +10,35 @@ import {
   DialogClose,
 } from "reka-ui";
 import type { Recipe } from "../../../shared/recipes/schema";
-import { recipeDataset } from "#shared/recipes/index";
-import { collectRecipeReviewItems } from "#shared/recipes/review";
-import { imageStatusLabels } from "#shared/recipes/images";
-import { recipeQualitiesById } from "#shared/recipes/qualities";
-import { getRecipeSourceImageUrl } from "../../utils/recipe-sources";
+import { currentRecipeSources, currentRecipeQualitiesById } from "#shared/recipes/current";
+import { getEffectEvidence } from "#shared/recipes/effects";
 import { effectSummary, regionLabels } from "../../utils/recipes";
 import { getRecipeImage } from "../../utils/recipe-images";
 import IngredientSlots from "./IngredientSlots.vue";
 import RecipeIcon from "./RecipeIcon.vue";
 import RecipeImage from "./RecipeImage.vue";
 import RecipeQualityBadge from "./RecipeQualityBadge.vue";
-import RecipeQualityDetails from "./RecipeQualityDetails.vue";
+import RecipeEffectEvidence from "./RecipeEffectEvidence.vue";
 
 const props = defineProps<{ recipe: Recipe | null; open: boolean }>();
 const emit = defineEmits<{ "update:open": [open: boolean]; restoreFocus: [] }>();
-const sourceExpanded = shallowRef(false);
-watch(
-  () => props.recipe?.id,
-  () => {
-    sourceExpanded.value = false;
-  },
+const effect = computed(() =>
+  props.recipe ? effectSummary(props.recipe, getEffectEvidence(props.recipe)) : null,
 );
-const source = computed(() =>
-  recipeDataset.sources.find((item) => item.id === props.recipe?.source.sourceId),
-);
-const originalImageUrl = computed(() =>
-  source.value ? getRecipeSourceImageUrl(source.value) : undefined,
-);
-const sourceRow = computed(() =>
-  recipeDataset.inventory.regions
-    .find((region) => region.id === props.recipe?.source.region)
-    ?.rows.find((row) => row.row === props.recipe?.source.row),
-);
-const effect = computed(() => (props.recipe ? effectSummary(props.recipe) : null));
 const dishImage = computed(() => (props.recipe ? getRecipeImage(props.recipe.id) : undefined));
 const dishQuality = computed(() =>
-  props.recipe ? recipeQualitiesById.get(props.recipe.id) : undefined,
+  props.recipe ? currentRecipeQualitiesById.get(props.recipe.id) : undefined,
 );
-const notes = computed(
-  () => source.value?.notes.filter((note) => props.recipe?.noteIds.includes(note.id)) ?? [],
+const recipeNotes = computed(() => {
+  const source = currentRecipeSources.find((item) => item.id === props.recipe?.source.sourceId);
+  return source?.notes.filter((note) => props.recipe?.noteIds.includes(note.id)) ?? [];
+});
+const accessNotes = computed(() =>
+  // 原始玩家注释随采用的配方来源读取；自由烹饪说明在效果区展示。
+  recipeNotes.value.filter(
+    (note) => note.appliesTo.length === 1 && note.appliesTo.includes("neighbor"),
+  ),
 );
-const accessNotes = computed(() => notes.value.filter((note) => note.appliesTo.length === 1));
-const reviews = computed(() =>
-  props.recipe
-    ? collectRecipeReviewItems([props.recipe])
-        .filter((item) => item.status !== "unresolved")
-        .map((item) => ({ ...item, label: fieldLabel(item.field) }))
-    : [],
-);
-const colorLabels = { blue: "蓝色底", purple: "紫色底", yellow: "黄色底" };
-function fieldLabel(field: string) {
-  const ingredient = /^ingredients\.(\d+)/u.exec(field);
-  if (ingredient) return `食材 ${Number(ingredient[1]) + 1}`;
-  return (
-    (
-      {
-        name: "菜名",
-        cookingMethod: "烹饪方式",
-        energy: "增加力气",
-        specialEffect: "特殊效果",
-        tags: "词条",
-      } as Record<string, string>
-    )[field] ?? "配方"
-  );
-}
 function restoreFocus(event: Event) {
   event.preventDefault();
   emit("restoreFocus");
@@ -86,7 +50,7 @@ function restoreFocus(event: Event) {
     <DialogPortal>
       <DialogOverlay class="recipe-overlay" />
       <DialogContent class="recipe-dialog" @close-auto-focus="restoreFocus">
-        <template v-if="recipe && source">
+        <template v-if="recipe">
           <div class="dialog-header">
             <RecipeImage
               class="detail-image"
@@ -96,33 +60,30 @@ function restoreFocus(event: Event) {
               eager
             />
             <div class="dialog-heading">
-              <span class="dialog-eyebrow"
-                >{{ regionLabels[recipe.source.region] }}<span> / </span>第
-                {{ recipe.source.row }} 行</span
-              >
+              <span class="dialog-eyebrow">{{ regionLabels[recipe.source.region] }}</span>
               <DialogTitle class="dialog-title">{{ recipe.name.raw }}</DialogTitle>
               <RecipeQualityBadge :quality="dishQuality" />
-              <DialogDescription class="dialog-description"
-                >玩家图片转录 · 尚未在游戏中验证</DialogDescription
-              >
+              <DialogDescription class="sr-only">
+                查看{{ recipe.name.raw }}的食材、烹饪方式和特殊效果。
+              </DialogDescription>
             </div>
             <DialogClose class="icon-button dialog-close" aria-label="关闭配方详情"
               ><RecipeIcon name="close"
             /></DialogClose>
           </div>
           <div class="dialog-body">
+            <div v-if="recipe.guideDetails?.acquisitionRaw" class="access-note">
+              配方获取：{{ recipe.guideDetails.acquisitionRaw }}
+            </div>
             <div v-for="note in accessNotes" :key="note.id" class="access-note">
-              <span>玩家记录</span>{{ note.raw }}
+              {{ note.raw }}
             </div>
             <section class="detail-section">
               <div class="section-title">
                 <h3>所需食材</h3>
-                <span>{{ recipe.ingredients.length }} 个槽位 · 按原图顺序</span>
+                <span>{{ recipe.ingredients.length }} 个食材槽位</span>
               </div>
               <IngredientSlots :recipe="recipe" expanded />
-              <p v-if="source.ingredientQualityInterpretation" class="detail-muted">
-                品质要求按原图食材底色标注；无底色的食材品质未说明。
-              </p>
             </section>
             <dl class="recipe-facts">
               <div>
@@ -134,9 +95,7 @@ function restoreFocus(event: Event) {
                 <dd v-if="recipe.energy.status === 'recorded'" class="energy-value">
                   +{{ recipe.energy.value }}
                 </dd>
-                <dd v-else class="pending-text">
-                  未知 <small>（原文 {{ recipe.energy.raw || "空白" }}）</small>
-                </dd>
+                <dd v-else class="pending-text">未知</dd>
               </div>
               <div class="fact-tags">
                 <dt>词条</dt>
@@ -152,132 +111,9 @@ function restoreFocus(event: Event) {
                 }}
               </h3>
               <p class="effect-name">{{ effect?.label }}</p>
-              <p class="detail-muted">
-                {{ effect?.note || "图片未说明特殊效果。"
-                }}<template v-if="recipe.productionChance.status === 'unspecified-probability'">
-                  · 原文“概率出”描述菜品产出，不是效果触发。</template
-                >
-              </p>
-              <p v-if="recipe.specialEffect.status === 'recorded'" class="raw-effect">
-                原文：{{ recipe.specialEffect.raw }}
-              </p>
+              <p v-if="effect?.note" class="detail-muted">{{ effect.note }}</p>
+              <RecipeEffectEvidence :recipe="recipe" />
             </section>
-            <section v-if="reviews.length" class="review-section detail-section">
-              <h3>待核对信息</h3>
-              <ul>
-                <li v-for="(review, index) in reviews" :key="index">
-                  <span class="review-field"
-                    >{{ review.label
-                    }}<template v-if="review.raw"> · {{ review.raw }}</template></span
-                  >
-                  <p>{{ review.reason }}</p>
-                </li>
-              </ul>
-            </section>
-            <section class="source-section">
-              <h3>配方来源</h3>
-              <NuxtLink class="source-link source-about-link" :to="`/about#${source.id}`">
-                查看资料说明与来源<RecipeIcon name="arrow" />
-              </NuxtLink>
-              <p class="detail-muted">
-                {{ regionLabels[recipe.source.region] }}，第 {{ recipe.source.row }} 行 · 图片日期
-                {{ source.imageDate.value }}。
-              </p>
-              <ul class="player-notes">
-                <li v-for="note in notes" :key="note.id">玩家记录：{{ note.raw }}</li>
-              </ul>
-              <details
-                :open="sourceExpanded"
-                class="source-disclosure"
-                @toggle="sourceExpanded = ($event.target as HTMLDetailsElement).open"
-              >
-                <summary>核对原图这一行</summary>
-                <template v-if="sourceExpanded && sourceRow">
-                  <p class="detail-muted preview-hint">保留原尺寸，可横向滚动查看整行。</p>
-                  <div class="source-row-scroll" tabindex="0" aria-label="原图行，可横向滚动">
-                    <div
-                      class="source-row-crop"
-                      :style="{
-                        width: `${sourceRow.bounds[2]}px`,
-                        height: `${sourceRow.bounds[3]}px`,
-                      }"
-                    >
-                      <img
-                        :src="originalImageUrl"
-                        :alt="`原图${regionLabels[recipe.source.region]}第${recipe.source.row}行：${recipe.name.raw}`"
-                        :width="source.asset.width"
-                        :height="source.asset.height"
-                        :style="{
-                          left: `-${sourceRow.bounds[0]}px`,
-                          top: `-${sourceRow.bounds[1]}px`,
-                        }"
-                      />
-                    </div>
-                  </div>
-                  <a class="source-link" :href="originalImageUrl" target="_blank" rel="noopener"
-                    >打开完整原图<RecipeIcon name="external"
-                  /></a>
-                </template>
-              </details>
-              <details class="source-disclosure">
-                <summary>原图颜色与加粗</summary>
-                <p v-if="source.ingredientQualityInterpretation" class="detail-muted preview-hint">
-                  食材底色按用户于
-                  {{ source.ingredientQualityInterpretation.confirmedOn }} 补充的规则解释：“{{
-                    source.ingredientQualityInterpretation.statementRaw
-                  }}”。 黄色底色标为金色品质；无底色与加粗不作为品质要求。菜品品质另据 TapTap
-                  图标圆底记录。
-                </p>
-                <p v-else class="detail-muted preview-hint">
-                  配方附件中的表格底色与加粗尚无明确图例，食材品质保持未说明。菜品品质另据 TapTap
-                  图标圆底记录。
-                </p>
-                <ul class="visual-cues">
-                  <li v-for="(cue, index) in recipe.visualCues" :key="index">
-                    <span>{{ fieldLabel(cue.field) }}</span
-                    ><span v-if="cue.background" class="color-cue" :data-color="cue.background">{{
-                      colorLabels[cue.background]
-                    }}</span
-                    ><span v-if="cue.bold">加粗</span>
-                  </li>
-                </ul>
-              </details>
-            </section>
-            <section v-if="dishImage" class="image-source-section" aria-label="配图来源">
-              <h3>
-                配图来源 <span>{{ imageStatusLabels[dishImage.status] }}</span>
-              </h3>
-              <p class="detail-muted">
-                {{ dishImage.sourceLabel
-                }}<template v-if="dishImage.sourceLocation">
-                  · {{ dishImage.sourceLocation }}</template
-                >
-              </p>
-              <p
-                v-if="dishImage.guideNameRaw && dishImage.guideNameRaw !== recipe.name.raw"
-                class="detail-muted"
-              >
-                攻略图标注“{{ dishImage.guideNameRaw }}”，菜谱保留附件原文“{{ recipe.name.raw }}”。
-              </p>
-              <p v-for="note in dishImage.notes" :key="note" class="detail-muted">{{ note }}</p>
-              <p class="detail-muted">配图对应关系尚未在游戏中验证。</p>
-              <div class="image-source-links">
-                <a
-                  class="source-link"
-                  :href="dishImage.sourceUrl"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                >
-                  {{ dishImage.provider === "wiki" ? "Wiki 文件页" : "TapTap 原帖"
-                  }}<RecipeIcon name="external" />
-                </a>
-                <a class="source-link" :href="dishImage.url" target="_blank" rel="noopener">
-                  {{ dishImage.displayRegion ? "打开完整攻略图" : "打开配图原文件"
-                  }}<RecipeIcon name="external" />
-                </a>
-              </div>
-            </section>
-            <RecipeQualityDetails :quality="dishQuality" />
           </div>
         </template>
       </DialogContent>
@@ -342,10 +178,6 @@ function restoreFocus(event: Event) {
   font-size: 0.7rem;
   letter-spacing: 0.07em;
 }
-.dialog-eyebrow > span {
-  margin: 0 0.4rem;
-  opacity: 0.5;
-}
 .dialog-title {
   margin-top: 0.55rem;
   font-size: clamp(1.3rem, 4vw, 1.7rem);
@@ -353,11 +185,6 @@ function restoreFocus(event: Event) {
   color: var(--petit-color-foreground-heading);
   letter-spacing: -0.035em;
   line-height: 1.45;
-}
-.dialog-description {
-  margin-top: 0.5rem;
-  color: var(--petit-color-foreground-muted);
-  font-size: 0.73rem;
 }
 .dialog-close {
   flex-shrink: 0;
@@ -371,9 +198,7 @@ function restoreFocus(event: Event) {
 .detail-section {
   margin-bottom: 1.8rem;
 }
-.detail-section h3,
-.source-section h3,
-.image-source-section h3 {
+.detail-section h3 {
   font-size: 0.85rem;
   font-weight: 750;
 }
@@ -412,9 +237,6 @@ function restoreFocus(event: Event) {
 .pending-text {
   color: var(--petit-color-warning);
 }
-.pending-text small {
-  font-size: 0.73rem;
-}
 .effect-detail {
   padding: 1.2rem 1.3rem;
   background: var(--petit-color-surface-hover);
@@ -431,11 +253,6 @@ function restoreFocus(event: Event) {
   color: var(--petit-color-foreground-muted);
   margin-top: 0.35rem;
 }
-.raw-effect {
-  margin-top: 0.6rem;
-  font-size: 0.7rem;
-  color: var(--petit-color-foreground-muted);
-}
 .access-note {
   padding: 0.85rem 1rem;
   border-left: 3px solid var(--petit-color-border-selected);
@@ -443,132 +260,6 @@ function restoreFocus(event: Event) {
   font-size: 0.8rem;
   line-height: 1.8;
   margin-bottom: 1.6rem;
-}
-.access-note > span {
-  display: block;
-  font-size: 0.67rem;
-  color: var(--petit-color-foreground-muted);
-  margin-bottom: 0.3rem;
-}
-.review-section {
-  padding-top: 0.2rem;
-}
-.review-section h3 {
-  color: var(--petit-color-warning);
-}
-.review-section li {
-  margin-top: 0.9rem;
-  font-size: 0.76rem;
-  line-height: 1.8;
-}
-.review-field {
-  font-weight: 700;
-}
-.review-section li p {
-  color: var(--petit-color-foreground-muted);
-}
-.source-section {
-  border-top: 1px solid color-mix(in srgb, var(--petit-color-border-strong) 25%, transparent);
-  padding-top: 1.5rem;
-}
-.image-source-section {
-  border-top: 1px solid color-mix(in srgb, var(--petit-color-border-strong) 25%, transparent);
-  padding-top: 1.3rem;
-  margin-top: 0.5rem;
-}
-.image-source-section h3 > span {
-  display: inline-block;
-  margin-left: 0.5rem;
-  color: var(--petit-color-foreground-muted);
-  font-size: 0.68rem;
-  font-weight: 400;
-}
-.image-source-links {
-  display: flex;
-  flex-wrap: wrap;
-  gap: 0.7rem 1.25rem;
-  margin-top: 0.85rem;
-}
-.source-about-link {
-  margin-top: 0.8rem;
-}
-.player-notes {
-  margin: 1rem 0;
-  font-size: 0.73rem;
-  line-height: 1.8;
-  color: var(--petit-color-foreground-muted);
-}
-.player-notes li + li {
-  margin-top: 0.35rem;
-}
-.source-disclosure {
-  border-top: 1px solid color-mix(in srgb, var(--petit-color-border-strong) 18%, transparent);
-  padding: 0.9rem 0;
-  font-size: 0.77rem;
-}
-.source-disclosure summary {
-  cursor: pointer;
-  font-weight: 600;
-}
-.preview-hint {
-  margin-top: 0.75rem;
-}
-.source-row-scroll {
-  margin: 0.75rem 0;
-  overflow-x: auto;
-  border: 1px solid color-mix(in srgb, var(--petit-color-border-strong) 25%, transparent);
-  background: white;
-}
-.source-row-crop {
-  position: relative;
-  overflow: hidden;
-}
-.source-row-crop img {
-  position: absolute;
-  max-width: none;
-}
-.source-link {
-  display: inline-flex;
-  align-items: center;
-  gap: 0.4rem;
-  color: var(--petit-color-link);
-  text-decoration: underline;
-  text-underline-offset: 4px;
-  font-size: 0.75rem;
-}
-.source-link svg {
-  width: 13px;
-  height: 13px;
-}
-.visual-cues {
-  display: flex;
-  flex-wrap: wrap;
-  gap: 0.6rem 1.5rem;
-  margin-top: 0.7rem;
-  font-size: 0.73rem;
-}
-.visual-cues li {
-  display: flex;
-  align-items: center;
-  gap: 0.5rem;
-}
-.color-cue::before {
-  content: "";
-  display: inline-block;
-  width: 0.55rem;
-  height: 0.55rem;
-  border: 1px solid rgb(0 0 0 / 12%);
-  border-radius: 50%;
-  margin-right: 0.3rem;
-}
-.color-cue[data-color="purple"]::before {
-  background: #f5eafa;
-}
-.color-cue[data-color="blue"]::before {
-  background: #dfebf4;
-}
-.color-cue[data-color="yellow"]::before {
-  background: #f8fdcd;
 }
 @keyframes overlay-in {
   from {
@@ -621,9 +312,6 @@ function restoreFocus(event: Event) {
   .detail-image {
     width: 76px;
     flex-basis: 76px;
-  }
-  .dialog-description {
-    line-height: 1.7;
   }
   .dialog-body {
     padding: 1.35rem 1.25rem calc(1.5rem + env(safe-area-inset-bottom));

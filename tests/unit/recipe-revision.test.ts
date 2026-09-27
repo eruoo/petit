@@ -7,7 +7,8 @@ import {
   verifyPreviousRecipeReferences,
 } from "../../shared/recipes/history.ts";
 import { collectRecipeReviewItems } from "../../shared/recipes/review.ts";
-import { recipeDatasetSchema, recipeSchema } from "../../shared/recipes/schema.ts";
+import { recipeDatasetSchema, recipeSchema, sourceSchema } from "../../shared/recipes/schema.ts";
+import { verifySourceAssets } from "../../scripts/check-recipes.ts";
 import wikiArchive from "../../docs/references/recipes/wiki-dish-icons-2026-09-26.json";
 
 const byName = (name: string) => {
@@ -15,6 +16,30 @@ const byName = (name: string) => {
   if (!recipe) throw new Error(`Missing recipe: ${name}`);
   return recipe;
 };
+
+describe("小铭图来源元数据", () => {
+  it("只记录图中月日，不补全年份、发布时间或游戏版本，并校验原始附件", () => {
+    const source = recipeDataset.sources.find((entry) => entry.id === "xiaoming-0927-image")!;
+    expect(source.imageDate).toEqual({
+      raw: "9月27日",
+      value: null,
+      reason: "图片未注明年份，不能据接收日期补全年份。",
+    });
+    expect(source.publishedAt.status).toBe("not-stated");
+    expect(source.gameVersion.status).toBe("not-stated");
+    expect(source.origin.originalPostUrl.status).toBe("unknown");
+    expect(() => verifySourceAssets([source])).not.toThrow();
+    expect(recipeDataset.recipes.some((recipe) => recipe.source.sourceId === source.id)).toBe(
+      false,
+    );
+    expect(
+      sourceSchema.safeParse({ ...source, imageDate: { raw: "9月27日", value: null } }).success,
+    ).toBe(false);
+    expect(
+      sourceSchema.safeParse({ ...source, imageDate: { raw: "9月27日", value: "09-27" } }).success,
+    ).toBe(false);
+  });
+});
 
 describe("9 月 24 日转录与版本对照", () => {
   it("拒绝确定食材的原文与筛选名称错配", () => {

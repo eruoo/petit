@@ -3,13 +3,15 @@
 ## 文档导航
 
 - [开发指南](development.md)：技术栈、环境安装、本地开发、检查与测试、静态构建和 Git hooks。
-- [菜谱数据约定](recipes.md)：JSON、Zod schema、字段状态、食材原文一致性、来源引用、食材品质要求、独立菜品品质、视觉线索与维护方式。
-- [本地菜谱速查页面](specs/recipe-browser.md)：默认图标视图与列表切换、菜名与食材统一搜索、分区与方式筛选、旧链接兼容、按候选清单构建配图、关于页的分项来源与致谢、最新版图鉴、详情溯源、组件边界与页面验收。
+- [菜谱数据约定](recipes.md)：明天主体与小铭补充 JSON、Zod schema、当前读取视图、用户逐项确认与采用决定、字段状态、来源引用、食材品质、菜品品质与增益证据。
+- [本地菜谱速查页面](specs/recipe-browser.md)：默认图标视图与列表切换、菜名／食材／词条／烹饪方式统一搜索、宽窄屏共用的单一搜索入口、旧筛选参数清理与旧食材链接兼容、按候选清单构建配图、关于页的分项来源与致谢、两份图鉴与 Viewer.js 预览、精简料理详情、组件边界与页面验收。
 - [2026-09-23 图片转录报告](references/recipes/tomorrow-2026-09-23.md)：原图来源、独立分区清点、录入覆盖率、待核对字段与验证结果。
-- [2026-09-24 转录与版本差异](references/recipes/tomorrow-2026-09-24.md)：当前 94 条的独立清点、新增 4 道菜、既有配方变化、待核对字段及旧版快照。
-- [菜品图片候选索引](references/recipes/dish-image-candidates.md)：Wiki 独立 PNG 来源、TapTap 图鉴的旧版 90 条核对，以及新增四道宴客菜的来源与显示区域；六张 TapTap 原图分目录归档，当前 94 条均接入候选配图。
+- [2026-09-24 转录与版本差异](references/recipes/tomorrow-2026-09-24.md)：94 条基线的独立清点、新增 4 道菜、既有配方变化、待核对字段及旧版快照。
+- [小铭同学 9 月 27 日补充图](references/recipes/xiaoming-09-27.md)：99 行独立转录、五道补充秘制菜及问号与未知字段；当前采用规则见菜谱数据约定。
+- [当前网站与小铭图的差异 diff](references/recipes/current-xiaoming-diff.md)：以明天为主体并应用用户逐项决定后，逐菜列出与小铭图不同的字段，再列补充信息和展示文案差异。
+- [菜品图片候选索引](references/recipes/dish-image-candidates.md)：Wiki 独立 PNG 来源、TapTap 图鉴的旧版 90 条核对，以及新增四道宴客菜的来源与显示区域；六张 TapTap 原图分目录归档，既有 94 条候选配图；小铭新增五道暂缺图。
 - [Wiki 图标覆盖核对与本地原图](references/recipes/wiki-dish-icons-2026-09-26.md)：已保存的 95 张原始 PNG、来源与校验清单、90 条菜谱的逐项候选、3 条缺图及共用图形。
-- [Wiki 与 TapTap 图片对比](references/recipes/wiki-taptap-image-comparison-2026-09-26.md)：当前 94 条的双源覆盖、86 组主体图形比对、什锦料理的底色差异与单方缺图名单。
+- [Wiki 与 TapTap 图片对比](references/recipes/wiki-taptap-image-comparison-2026-09-26.md)：既有 94 条的双源覆盖、86 组主体图形比对、什锦料理的底色差异与单方缺图名单。
 
 ## 目录约定
 

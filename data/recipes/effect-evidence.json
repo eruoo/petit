@@ -1,0 +1,447 @@
+{
+  "checkedOn": "2026-09-27",
+  "screenshots": [
+    {
+      "id": "user-game-effect-01",
+      "recipeId": "mt-20260924-simple-011",
+      "receivedOn": "2026-09-27",
+      "capturedOn": null,
+      "gameVersion": null,
+      "asset": {
+        "path": "docs/references/recipes/user-game-effect-01.png",
+        "originalFilename": "codex-clipboard-ae27b366-bec3-4c1b-8756-bfbaabe078b1.png",
+        "mimeType": "image/png",
+        "width": 507,
+        "height": 835,
+        "bytes": 316862,
+        "sha256": "96586e4e1ba61363e5d129500034d284760a0060f0c7aedd9560d10256f2c32d"
+      },
+      "nameRaw": "谷物粥",
+      "quality": "blue",
+      "acquisitionRaw": "可能获得",
+      "effectRaw": "大力敲伐 一阶",
+      "effectName": "大力敲伐",
+      "tier": 1,
+      "descriptionRaw": "食用后增强了力量。单次伐木或挖矿，即可使当前树木或矿石立即掉落全部产物。",
+      "descriptionComplete": true,
+      "limit": {
+        "status": "recorded",
+        "unit": "uses",
+        "value": 6,
+        "raw": "6次内有效。"
+      },
+      "energy": {
+        "status": "recorded",
+        "raw": "40",
+        "value": 40
+      }
+    },
+    {
+      "id": "user-game-effect-02",
+      "recipeId": "mt-20260924-simple-012",
+      "receivedOn": "2026-09-27",
+      "capturedOn": null,
+      "gameVersion": null,
+      "asset": {
+        "path": "docs/references/recipes/user-game-effect-02.png",
+        "originalFilename": "codex-clipboard-a9799c20-87e6-4cb9-9ce0-4574f5ae9d09.png",
+        "mimeType": "image/png",
+        "width": 495,
+        "height": 730,
+        "bytes": 246970,
+        "sha256": "03cc3246e84f65ee13bc7100d1cb0f90bf44d125b3d989880d1c11a95390dbdc"
+      },
+      "nameRaw": "炒鲜蔬",
+      "quality": "blue",
+      "acquisitionRaw": "可能获得",
+      "effectRaw": "大力播洒 一阶",
+      "effectName": "大力播洒",
+      "tier": 1,
+      "descriptionRaw": "食用后增强了力量。单次浇水或施肥，最多可覆盖附近9块田地。",
+      "descriptionComplete": true,
+      "limit": {
+        "status": "recorded",
+        "unit": "seconds",
+        "value": 10,
+        "raw": "生效时长：10秒。"
+      },
+      "energy": {
+        "status": "recorded",
+        "raw": "40",
+        "value": 40
+      }
+    },
+    {
+      "id": "user-game-effect-03",
+      "recipeId": "mt-20260924-signature-004",
+      "receivedOn": "2026-09-27",
+      "capturedOn": null,
+      "gameVersion": null,
+      "asset": {
+        "path": "docs/references/recipes/user-game-effect-03.png",
+        "originalFilename": "codex-clipboard-d0933ad4-2cf7-4851-8b8d-24b0d76766cf.png",
+        "mimeType": "image/png",
+        "width": 534,
+        "height": 813,
+        "bytes": 327236,
+        "sha256": "18e5e02d226f3ff7f1f470af919044b690d9c3a2d8ecfc1781952aa0a1cc2a04"
+      },
+      "nameRaw": "茄茄擂辣饭",
+      "quality": "purple",
+      "acquisitionRaw": "可能获得",
+      "effectRaw": "大力播洒 一阶",
+      "effectName": "大力播洒",
+      "tier": 1,
+      "descriptionRaw": "食用后增强了力量。单次浇水或施肥，最多可覆盖附近9块田地。",
+      "descriptionComplete": true,
+      "limit": {
+        "status": "recorded",
+        "unit": "seconds",
+        "value": 10,
+        "raw": "生效时长：10秒。"
+      },
+      "energy": {
+        "status": "unknown",
+        "raw": "",
+        "reason": "力气行被滚动区域遮挡，未按其他资料补填截图观察值。"
+      }
+    },
+    {
+      "id": "user-game-effect-04",
+      "recipeId": "mt-20260924-simple-028",
+      "receivedOn": "2026-09-27",
+      "capturedOn": null,
+      "gameVersion": null,
+      "asset": {
+        "path": "docs/references/recipes/user-game-effect-04.png",
+        "originalFilename": "codex-clipboard-ed46552a-5c6b-4eed-ab63-49cdd94707e9.png",
+        "mimeType": "image/png",
+        "width": 498,
+        "height": 758,
+        "bytes": 246659,
+        "sha256": "739558b762ebb18646aa5b5b5568cd167f8640b5b7c8fd5959d92cbf3d347b2f"
+      },
+      "nameRaw": "绵绵麦奶",
+      "quality": "purple",
+      "acquisitionRaw": "可能获得",
+      "effectRaw": "快速翻土 一阶",
+      "effectName": "快速翻土",
+      "tier": 1,
+      "descriptionRaw": "食用后增强了力量。开垦田地或移植时的速度提升。",
+      "descriptionComplete": true,
+      "limit": {
+        "status": "recorded",
+        "unit": "seconds",
+        "value": 40,
+        "raw": "生效时长：40秒。"
+      },
+      "energy": {
+        "status": "unknown",
+        "raw": "",
+        "reason": "力气行被滚动区域遮挡，未按其他资料补填截图观察值。"
+      }
+    },
+    {
+      "id": "user-game-effect-05",
+      "recipeId": "mt-20260924-simple-022",
+      "receivedOn": "2026-09-27",
+      "capturedOn": null,
+      "gameVersion": null,
+      "asset": {
+        "path": "docs/references/recipes/user-game-effect-05.png",
+        "originalFilename": "codex-clipboard-aa869e42-dfce-44af-82e7-1a4c5ea9ad64.png",
+        "mimeType": "image/png",
+        "width": 472,
+        "height": 756,
+        "bytes": 246590,
+        "sha256": "5117f4a3b61a820ce60e90d2ba7c3c0e6c116a3e2b2305db0cec6de46c49278f"
+      },
+      "nameRaw": "果香鱼壶",
+      "quality": "purple",
+      "acquisitionRaw": "可能获得",
+      "effectRaw": "钓鱼之力 一阶",
+      "effectName": "钓鱼之力",
+      "tier": 1,
+      "descriptionRaw": "食用后掌握了钓鱼的技巧。钓取更难的河鱼时，更易咬钩。钓取更难的海鱼时，更易拉回钓竿。",
+      "descriptionComplete": true,
+      "limit": {
+        "status": "obscured",
+        "reason": "截图底部遮挡，不能据此读取完整时长。"
+      },
+      "energy": {
+        "status": "unknown",
+        "raw": "",
+        "reason": "力气行被滚动区域遮挡，未按其他资料补填截图观察值。"
+      }
+    },
+    {
+      "id": "user-game-effect-06",
+      "recipeId": "mt-20260924-simple-037",
+      "receivedOn": "2026-09-27",
+      "capturedOn": null,
+      "gameVersion": null,
+      "asset": {
+        "path": "docs/references/recipes/user-game-effect-06.png",
+        "originalFilename": "codex-clipboard-a20eff60-8510-4208-ad89-9347324c000c.png",
+        "mimeType": "image/png",
+        "width": 471,
+        "height": 763,
+        "bytes": 249738,
+        "sha256": "0a149a431e989b83f58d5c240aea71da1937dd8883aa22f59cd2dd0d4ca1a3f0"
+      },
+      "nameRaw": "海烩焗饭",
+      "quality": "purple",
+      "acquisitionRaw": "可能获得",
+      "effectRaw": "轻盈潜行 一阶",
+      "effectName": "轻盈潜行",
+      "tier": 1,
+      "descriptionRaw": "食用后身体变得轻盈。更容易潜行，不易惊动生物，赶海和捕虫变得更容易。",
+      "descriptionComplete": true,
+      "limit": {
+        "status": "recorded",
+        "unit": "seconds",
+        "value": 25,
+        "raw": "生效时长：25秒。"
+      },
+      "energy": {
+        "status": "unknown",
+        "raw": "",
+        "reason": "力气行被滚动区域遮挡，未按其他资料补填截图观察值。"
+      }
+    },
+    {
+      "id": "user-game-effect-07",
+      "recipeId": "mt-20260924-guest-009",
+      "receivedOn": "2026-09-27",
+      "capturedOn": null,
+      "gameVersion": null,
+      "asset": {
+        "path": "docs/references/recipes/user-game-effect-07.png",
+        "originalFilename": "codex-clipboard-885abf7b-fab9-4196-91e2-dfd396b58d66.png",
+        "mimeType": "image/png",
+        "width": 480,
+        "height": 776,
+        "bytes": 253636,
+        "sha256": "10f12881268b9168bfa90f579960e26fe5f1ed8005c0e6996206579dc9ccfc46"
+      },
+      "nameRaw": "三色果米糕",
+      "quality": "purple",
+      "acquisitionRaw": "可能获得",
+      "effectRaw": "大力播洒 二阶",
+      "effectName": "大力播洒",
+      "tier": 2,
+      "descriptionRaw": "食用后增强了力量。单次浇水或施肥，最多可覆盖附近9块田地。",
+      "descriptionComplete": true,
+      "limit": {
+        "status": "recorded",
+        "unit": "seconds",
+        "value": 20,
+        "raw": "生效时长：20秒。"
+      },
+      "energy": {
+        "status": "recorded",
+        "raw": "100",
+        "value": 100
+      }
+    },
+    {
+      "id": "user-game-effect-08",
+      "recipeId": "mt-20260924-signature-025",
+      "receivedOn": "2026-09-27",
+      "capturedOn": null,
+      "gameVersion": null,
+      "asset": {
+        "path": "docs/references/recipes/user-game-effect-08.png",
+        "originalFilename": "codex-clipboard-83f937fc-4067-4a5f-9f84-544f1fc344e3.png",
+        "mimeType": "image/png",
+        "width": 468,
+        "height": 767,
+        "bytes": 226242,
+        "sha256": "179055b09bb3b0e61478258dae572a9fda330bcf988350a8521ace4c121132eb"
+      },
+      "nameRaw": "蒜香流心奶面包",
+      "quality": "purple",
+      "acquisitionRaw": "可能获得",
+      "effectRaw": "快速翻土 二阶",
+      "effectName": "快速翻土",
+      "tier": 2,
+      "descriptionRaw": "食用后增强了力量。开垦田地或移植时的速度提升。",
+      "descriptionComplete": true,
+      "limit": {
+        "status": "recorded",
+        "unit": "seconds",
+        "value": 70,
+        "raw": "生效时长：70秒。"
+      },
+      "energy": {
+        "status": "unknown",
+        "raw": "",
+        "reason": "力气行被滚动区域遮挡，未按其他资料补填截图观察值。"
+      }
+    },
+    {
+      "id": "user-game-effect-09",
+      "recipeId": "mt-20260924-signature-013",
+      "receivedOn": "2026-09-27",
+      "capturedOn": null,
+      "gameVersion": null,
+      "asset": {
+        "path": "docs/references/recipes/user-game-effect-09.png",
+        "originalFilename": "codex-clipboard-20cd7332-216f-4f40-a270-671c8bf1061b.png",
+        "mimeType": "image/png",
+        "width": 464,
+        "height": 755,
+        "bytes": 235115,
+        "sha256": "111dc8254d6eea7c9e8200f685104f749bb641960997d887ae6c87bbb1a66a3a"
+      },
+      "nameRaw": "晶彩蒸鱼饭",
+      "quality": "purple",
+      "acquisitionRaw": "可能获得",
+      "effectRaw": "钓鱼之力 二阶",
+      "effectName": "钓鱼之力",
+      "tier": 2,
+      "descriptionRaw": "食用后掌握了钓鱼的技巧。钓取更难的河鱼时，更易咬钩。钓取更难的海鱼时，更易拉回钓竿。",
+      "descriptionComplete": true,
+      "limit": {
+        "status": "recorded",
+        "unit": "seconds",
+        "value": 40,
+        "raw": "生效时长：40秒。"
+      },
+      "energy": {
+        "status": "unknown",
+        "raw": "",
+        "reason": "力气行被滚动区域遮挡，未按其他资料补填截图观察值。"
+      }
+    },
+    {
+      "id": "user-game-effect-10",
+      "recipeId": "mt-20260924-signature-032",
+      "receivedOn": "2026-09-27",
+      "capturedOn": null,
+      "gameVersion": null,
+      "asset": {
+        "path": "docs/references/recipes/user-game-effect-10.png",
+        "originalFilename": "codex-clipboard-b2bf763f-8e35-4ea6-92ae-fd415faf555e.png",
+        "mimeType": "image/png",
+        "width": 471,
+        "height": 769,
+        "bytes": 244187,
+        "sha256": "37c73b29fad9c7fbfd72cefea8b78ab142f87b2b147f96665ba3002a2c640565"
+      },
+      "nameRaw": "水果烤虾拼盘",
+      "quality": "gold",
+      "acquisitionRaw": "可能获得",
+      "effectRaw": "轻盈潜行 二阶",
+      "effectName": "轻盈潜行",
+      "tier": 2,
+      "descriptionRaw": "食用后身体变得轻盈。更容易潜行，不易惊动生物，赶海和捕虫变得更容易。",
+      "descriptionComplete": true,
+      "limit": {
+        "status": "recorded",
+        "unit": "seconds",
+        "value": 40,
+        "raw": "生效时长：40秒。"
+      },
+      "energy": {
+        "status": "unknown",
+        "raw": "",
+        "reason": "力气行被滚动区域遮挡，未按其他资料补填截图观察值。"
+      }
+    },
+    {
+      "id": "user-game-effect-11",
+      "recipeId": "mt-20260924-guest-005",
+      "receivedOn": "2026-09-27",
+      "capturedOn": null,
+      "gameVersion": null,
+      "asset": {
+        "path": "docs/references/recipes/user-game-effect-11.png",
+        "originalFilename": "codex-clipboard-3130d302-ddee-430b-937d-3344c4183a84.png",
+        "mimeType": "image/png",
+        "width": 481,
+        "height": 747,
+        "bytes": 235476,
+        "sha256": "160e2bd5ecca810d03182a507d929729da5d1dca8c38e58268aaa1ebf2eef1ae"
+      },
+      "nameRaw": "外婆菜饭",
+      "quality": "gold",
+      "acquisitionRaw": "可能获得",
+      "effectRaw": "快速翻土 三阶",
+      "effectName": "快速翻土",
+      "tier": 3,
+      "descriptionRaw": "食用后增强了力量。开垦田地或移植时的速度提升。",
+      "descriptionComplete": true,
+      "limit": {
+        "status": "recorded",
+        "unit": "seconds",
+        "value": 100,
+        "raw": "生效时长：100秒。"
+      },
+      "energy": {
+        "status": "recorded",
+        "raw": "160",
+        "value": 160
+      }
+    },
+    {
+      "id": "user-game-effect-12",
+      "recipeId": "mt-20260924-guest-008",
+      "receivedOn": "2026-09-27",
+      "capturedOn": null,
+      "gameVersion": null,
+      "asset": {
+        "path": "docs/references/recipes/user-game-effect-12.png",
+        "originalFilename": "codex-clipboard-d54b1864-85c8-455b-9cc8-c549078a7881.png",
+        "mimeType": "image/png",
+        "width": 462,
+        "height": 764,
+        "bytes": 241516,
+        "sha256": "29e2fe687196c5668b11834cc932ad993c6b203a37fab046183f4a334158c759"
+      },
+      "nameRaw": "梦幻鱼鲜寿司",
+      "quality": "gold",
+      "acquisitionRaw": "可能获得",
+      "effectRaw": "钓鱼之力 三阶",
+      "effectName": "钓鱼之力",
+      "tier": 3,
+      "descriptionRaw": "食用后掌握了钓鱼的技巧。钓取更难的河鱼时，更易咬钩。钓取更难的海鱼时，更易拉回钓竿",
+      "descriptionComplete": false,
+      "limit": {
+        "status": "obscured",
+        "reason": "截图底部遮挡，不能据此读取完整时长。"
+      },
+      "energy": {
+        "status": "recorded",
+        "raw": "180",
+        "value": 180
+      }
+    }
+  ],
+  "confirmations": [
+    {
+      "id": "user-fishing-duration-1",
+      "receivedOn": "2026-09-27",
+      "statementRaw": "2 3 和我还没实际截图，果香鱼壶是 25 秒，梦幻鱼鲜寿司是 60 秒",
+      "recipeId": "mt-20260924-simple-022",
+      "effectName": "钓鱼之力",
+      "tier": 1,
+      "limit": {
+        "unit": "seconds",
+        "value": 25
+      }
+    },
+    {
+      "id": "user-fishing-duration-3",
+      "receivedOn": "2026-09-27",
+      "statementRaw": "2 3 和我还没实际截图，果香鱼壶是 25 秒，梦幻鱼鲜寿司是 60 秒",
+      "recipeId": "mt-20260924-guest-008",
+      "effectName": "钓鱼之力",
+      "tier": 3,
+      "limit": {
+        "unit": "seconds",
+        "value": 60
+      }
+    }
+  ]
+}

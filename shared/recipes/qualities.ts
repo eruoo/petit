@@ -34,7 +34,16 @@ export const recipeQualitySchema = z
     z.strictObject({ recipeId: text, status: z.literal("unknown"), reason: text }),
   ])
   .superRefine((quality, context) => {
-    if (quality.status !== "unknown" && quality.backgroundRaw !== backgroundLabels[quality.color]) {
+    const tableBackgroundLabels = {
+      blue: "蓝色菜名单元格",
+      purple: "紫色菜名单元格",
+      gold: "金色菜名单元格",
+    };
+    if (
+      quality.status !== "unknown" &&
+      quality.backgroundRaw !== backgroundLabels[quality.color] &&
+      quality.backgroundRaw !== tableBackgroundLabels[quality.color]
+    ) {
       context.addIssue({ code: "custom", path: ["color"], message: "品质颜色与观察到的圆底不符" });
     }
   });

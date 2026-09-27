@@ -15,6 +15,9 @@ export default defineNuxtConfig({
   },
   typescript: {
     nodeTsConfig: {
+      compilerOptions: {
+        paths: { "#shared/*": ["../shared/*"] },
+      },
       include: [
         "../*.config.ts",
         "../scripts/**/*.ts",

@@ -1,0 +1,111 @@
+{
+  "id": "user-recipe-decisions-20260928",
+  "receivedOn": "2026-09-28",
+  "source": "user-message",
+  "statementRaw": "第一个表格中，前三个去掉问号，第四个采用小铭图\n第二个表格采用明天图\n第三个表格第一个用黄瓜不要加符号，第二个用明天\n梦幻海岸虾鱼筵保留问号",
+  "gameVerified": false,
+  "decisions": [
+    {
+      "recipeId": "mt-20260924-signature-004",
+      "nameRaw": "茄茄擂辣饭",
+      "action": "confirm-ingredient",
+      "slot": 0,
+      "previousRaw": "茄子?",
+      "raw": "茄子"
+    },
+    {
+      "recipeId": "mt-20260924-signature-006",
+      "nameRaw": "满满大烩菜",
+      "action": "confirm-ingredient",
+      "slot": 1,
+      "previousRaw": "玉米?",
+      "raw": "玉米"
+    },
+    {
+      "recipeId": "mt-20260924-signature-024",
+      "nameRaw": "草莓奶蛋糕",
+      "action": "confirm-ingredient",
+      "slot": 0,
+      "previousRaw": "草莓?",
+      "raw": "草莓"
+    },
+    {
+      "recipeId": "mt-20260924-signature-026",
+      "nameRaw": "田园蔬烩披萨",
+      "action": "confirm-ingredient",
+      "slot": 2,
+      "previousRaw": "黄瓜?",
+      "raw": "黄瓜"
+    },
+    {
+      "recipeId": "mt-20260924-guest-012",
+      "nameRaw": "梦幻草莓奶蛋糕",
+      "action": "use-ingredients",
+      "source": {
+        "sourceId": "xiaoming-0927-image",
+        "region": "guest",
+        "row": 12
+      }
+    },
+    {
+      "recipeId": "mt-20260924-signature-021",
+      "nameRaw": "漫香果麦奶",
+      "action": "keep-primary",
+      "reason": "第二个表格采用明天图"
+    },
+    {
+      "recipeId": "mt-20260924-signature-014",
+      "nameRaw": "梦幻锦绣香蔬宴",
+      "action": "keep-primary",
+      "reason": "第二个表格采用明天图"
+    },
+    {
+      "recipeId": "mt-20260924-guest-002",
+      "nameRaw": "多果流彩捞饭",
+      "action": "keep-primary",
+      "reason": "第二个表格采用明天图"
+    },
+    {
+      "recipeId": "mt-20260924-signature-015",
+      "nameRaw": "梦幻三仙过海鱼",
+      "action": "keep-primary",
+      "reason": "第二个表格采用明天图"
+    },
+    {
+      "recipeId": "mt-20260924-guest-005",
+      "nameRaw": "外婆菜饭",
+      "action": "keep-primary",
+      "reason": "第二个表格采用明天图"
+    },
+    {
+      "recipeId": "mt-20260924-guest-004",
+      "nameRaw": "梦幻金玉满堂饭",
+      "action": "keep-primary",
+      "reason": "第二个表格采用明天图"
+    },
+    {
+      "recipeId": "mt-20260924-guest-013",
+      "nameRaw": "梦幻星莓漫游派",
+      "action": "keep-primary",
+      "reason": "第二个表格采用明天图"
+    },
+    {
+      "recipeId": "mt-20260924-free-006",
+      "nameRaw": "梦幻什锦饮",
+      "action": "keep-primary",
+      "reason": "第二个表格采用明天图"
+    },
+    {
+      "recipeId": "mt-20260924-guest-014",
+      "nameRaw": "梦幻番茄汤汁面",
+      "action": "keep-primary",
+      "reason": "第三个表格第二个用明天"
+    },
+    {
+      "recipeId": "mt-20260924-guest-007",
+      "nameRaw": "梦幻海岸虾鱼筵",
+      "action": "keep-primary",
+      "reason": "保留问号"
+    }
+  ]
+}

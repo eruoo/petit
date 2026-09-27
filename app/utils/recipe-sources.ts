@@ -1,8 +1,11 @@
 import type { RecipeSource } from "../../shared/recipes/schema";
 
-// 站点只打包当前图鉴；更新转录依据时同步调整此资源入口，历史原图保留在资料目录。
+// 发布资源仅包含主体图和参考图；历史图鉴与游戏效果截图留在本地资料中。
 const sourceUrls = import.meta.glob<string>(
-  "../../docs/references/recipes/tomorrow-2026-09-24.jpg",
+  [
+    "../../docs/references/recipes/tomorrow-2026-09-24.jpg",
+    "../../docs/references/recipes/xiaoming-09-27.jpg",
+  ],
   {
     eager: true,
     query: "?url",
@@ -11,7 +14,8 @@ const sourceUrls = import.meta.glob<string>(
 );
 
 export function getRecipeSourceImageUrl(source: RecipeSource): string {
-  const url = sourceUrls[`../../${source.asset.path}`];
-  if (!url) throw new Error(`Missing recipe source image: ${source.asset.path}`);
+  const path = source.asset.path;
+  const url = sourceUrls[`../../${path}`];
+  if (!url) throw new Error(`Missing recipe source image: ${path}`);
   return url;
 }

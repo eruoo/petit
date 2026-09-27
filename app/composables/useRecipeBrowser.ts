@@ -1,55 +1,41 @@
 import { computed, onMounted, shallowRef } from "vue";
 import { useRoute, useRouter } from "#imports";
-import { recipeDataset } from "#shared/recipes/index";
-import { defaultFilters, filterRecipes, filtersFromQuery, filtersToQuery } from "../utils/recipes";
-import type { RecipeFilters } from "../utils/recipes";
+import { currentRecipes } from "#shared/recipes/current";
+import { searchRecipes, searchFromQuery, searchToQuery } from "../utils/recipes";
+import type { RecipeSearch } from "../utils/recipes";
 
 export function useRecipeBrowser() {
   const route = useRoute();
   const router = useRouter();
   const hydrated = shallowRef(false);
-  // SSG 首次水合与静态 HTML 保持一致，挂载后再读取当前 URL 的筛选条件。
+  // SSG 首次水合与静态 HTML 保持一致，挂载后再读取当前 URL。
   onMounted(() => {
     hydrated.value = true;
   });
-  const filters = computed(() => filtersFromQuery(hydrated.value ? route.query : {}));
-  const recipes = computed(() => filterRecipes(recipeDataset.recipes, filters.value));
-  const regionCounts = Object.fromEntries(
-    recipeDataset.inventory.regions.map((region) => [region.id, region.expectedRows]),
-  );
-  const activeFilterCount = computed(
-    () =>
-      Number(Boolean(filters.value.query)) +
-      Number(filters.value.region !== "all") +
-      Number(filters.value.method !== "all"),
-  );
+  const search = computed(() => searchFromQuery(hydrated.value ? route.query : {}));
+  const recipes = computed(() => searchRecipes(currentRecipes, search.value));
+  const hasSearchQuery = computed(() => Boolean(search.value.query.trim()));
 
-  let pendingFilters: RecipeFilters | undefined;
-  function updateFilters(patch: Partial<RecipeFilters>) {
-    // 连续操作可能早于上一次 URL 更新完成，须合并尚未落到路由的筛选请求。
-    const nextFilters = {
-      ...(pendingFilters ?? filtersFromQuery(router.currentRoute.value.query)),
+  let pendingSearch: RecipeSearch | undefined;
+  function updateSearch(patch: Partial<RecipeSearch>) {
+    // 连续输入或排序可能早于上一次 URL 更新完成，须合并尚未落到路由的请求。
+    const nextSearch = {
+      ...(pendingSearch ?? searchFromQuery(router.currentRoute.value.query)),
       ...patch,
     };
-    pendingFilters = nextFilters;
+    pendingSearch = nextSearch;
     return router
       .replace({
-        query: { ...router.currentRoute.value.query, ...filtersToQuery(nextFilters) },
+        // 保留页内定位，避免 Nuxt 将移除锚点解释为返回页顶。
+        hash: router.currentRoute.value.hash,
+        query: { ...router.currentRoute.value.query, ...searchToQuery(nextSearch) },
       })
       .finally(() => {
-        if (pendingFilters === nextFilters) pendingFilters = undefined;
+        if (pendingSearch === nextSearch) pendingSearch = undefined;
       });
   }
-  function resetFilters() {
-    return updateFilters(defaultFilters);
+  function clearSearch() {
+    return updateSearch({ query: "" });
   }
-  return {
-    ready: hydrated,
-    filters,
-    recipes,
-    regionCounts,
-    activeFilterCount,
-    updateFilters,
-    resetFilters,
-  };
+  return { ready: hydrated, search, recipes, hasSearchQuery, updateSearch, clearSearch };
 }

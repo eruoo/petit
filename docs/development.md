@@ -8,12 +8,13 @@
 | 渲染         | SSG，`pnpm build` 生成 `.output/public`。                             |
 | 样式         | Tailwind CSS 4、petit-ui，入口为 `app/assets/css/main.css`。          |
 | 交互组件     | Reka UI，通过 `reka-ui/nuxt` 按需自动导入。                           |
+| 图鉴预览     | Viewer.js，关于页首次预览时动态加载。                                 |
 | 数据校验     | Zod；JSON 数据接入时定义对应 schema，在读取边界校验。                 |
 | 代码检查     | Oxlint、Oxfmt、Nuxt 类型检查。                                        |
 | 测试         | Vitest、Nuxt Test Utils、Vue Test Utils、happy-dom、Playwright。      |
 | 静态托管准备 | Wrangler、Cloudflare Workers Static Assets，配置见 `wrangler.jsonc`。 |
 
-依赖的准确版本由 `package.json` 和锁文件维护。首页为[本地菜谱速查页面](specs/recipe-browser.md)，使用 Vue 响应式状态与 URL 参数筛选；本地菜谱 JSON、Zod schema、读取边界与来源资料见[菜谱数据约定](recipes.md)。暂不引入 Pinia、数据库或 CMS。
+依赖的准确版本由 `package.json` 和锁文件维护。首页为[本地菜谱速查页面](specs/recipe-browser.md)，使用 Vue 响应式状态与 URL 参数搜索；本地菜谱 JSON、Zod schema、读取边界与来源资料见[菜谱数据约定](recipes.md)。暂不引入 Pinia、数据库或 CMS。
 
 Tailwind 按[官方 Nuxt 指南](https://tailwindcss.com/docs/installation/framework-guides/nuxt)使用 Vite 插件。petit-ui 提供设计 token，样式入口先导入 Tailwind，再导入 `petit-ui/tailwind.css`；Reka UI 提供需要自行添加样式的交互组件。
 
@@ -33,7 +34,7 @@ pnpm dev
 
 Nuxt 开发服务默认运行在 `http://localhost:3000`。应用入口是 `app/app.vue`，页面放在 `app/pages/`，全局样式放在 `app/assets/css/`。Vue 组件有脚本逻辑时使用 `<script setup lang="ts">`。
 
-应用运行时通过 Nuxt 的 `#shared/` 别名导入共享模块。当前构建器会将 `shared/` 模块外置给 Nitro 处理；跨目录的相对导入可能在 SSR 产物中生成错误路径。直接由 Node.js 执行的校验脚本与单元测试继续使用相对路径。
+应用运行时通过 Nuxt 的 `#shared/` 别名导入共享模块。当前构建器会将 `shared/` 模块外置给 Nitro 处理；跨目录的相对导入可能在 SSR 产物中生成错误路径。直接由 Node.js 执行的校验脚本与单元测试入口继续使用相对路径；Vitest 单元测试配置和 `nodeTsConfig` 同步配置 `#shared/` 映射，供测试引用的应用工具函数使用。
 
 ## 日常检查
 
@@ -67,7 +68,7 @@ TypeScript 暂固定在 6.x，以兼容当前 vue-tsc 所需的编译器 API；�
 - `tests/nuxt/**/*.test.ts`：需要 Nuxt 自动导入、路由或组件挂载的测试，使用 Nuxt 与 happy-dom 环境。
 - `tests/e2e/**/*.spec.ts`：Playwright 测试，针对构建后的静态站点运行。
 
-`tests/unit/recipes.test.ts` 覆盖菜谱数据、附件完整性、来源引用和关键转录行为；`tests/unit/recipe-browser.test.ts` 覆盖筛选、排序和展示语义；`tests/unit/recipe-images.test.ts` 检查配图覆盖、归档文件哈希、来源与显示区域。`tests/e2e/recipe-browser.spec.ts` 验证静态页面的搜索、URL 恢复、详情、原图和手机操作；`recipe-images.spec.ts` 验证本地图片加载、攻略图区域、来源说明和加载失败占位；`about.spec.ts` 验证关于页导航、直接刷新与详情来源锚点。`recipe-qualities.test.ts` 校验独立品质状态、颜色与原底色、来源引用及未知值；`recipe-qualities.spec.ts` 验证品质底色、文字、候选状态和品质来源入口。`ingredient-qualities.test.ts` 校验食材品质与底色、用户解释引用及独立清点数量；`ingredient-qualities.spec.ts` 验证食材品质文字、重复槽位、待确认食材与手机布局。当前没有单独的 Nuxt 组件测试。首次运行端到端测试前安装浏览器：
+`tests/unit/recipes.test.ts` 覆盖菜谱数据、附件完整性、来源引用和关键转录行为；`tests/unit/recipe-browser.test.ts` 覆盖搜索、排序和展示语义；`tests/unit/recipe-images.test.ts` 检查配图覆盖、归档文件哈希、来源与显示区域。`tests/e2e/recipe-browser.spec.ts` 验证静态页面的搜索、URL 恢复、详情和手机操作；`recipe-images.spec.ts` 验证本地图片加载、攻略图区域和加载失败占位；`about.spec.ts` 验证关于页导航、直接刷新、分项来源与两位作者的图鉴。`recipe-qualities.test.ts` 校验独立品质状态、颜色与原底色、来源引用及未知值；`recipe-qualities.spec.ts` 验证品质底色、文字和未知状态。`ingredient-qualities.test.ts` 校验食材品质与底色、用户解释引用及独立清点数量；`ingredient-qualities.spec.ts` 验证食材品质文字、重复槽位、待确认食材与手机布局。当前没有单独的 Nuxt 组件测试。首次运行端到端测试前安装浏览器：
 
 ```sh
 pnpm exec playwright install chromium
@@ -76,7 +77,11 @@ pnpm test:e2e
 
 Playwright 默认使用 `127.0.0.1:4173` 启动独立预览服务，不复用已有服务。端口被占用时可运行 `PLAYWRIGHT_PORT=4175 pnpm test:e2e`。失败时在 `test-results/` 保留截图与 trace。端到端测试需要构建和浏览器，单独运行，不纳入提交 hook。
 
-`recipe-browser.test.ts` 与 `recipe-browser.spec.ts` 同时覆盖菜名与食材统一搜索，以及旧 `ingredient` 参数转为可见搜索词、编辑和清空后不再产生隐藏条件的兼容行为。
+`about.spec.ts` 同时验证图鉴预览的原尺寸、缩放、拖动、切图、打开原图、键盘与焦点返回，使用 Chromium 触摸模拟检查手机双指缩放与按钮布局，并验证禁用脚本时的原图回退；触摸模拟不等同于真实手机性能测试。
+
+`recipe-browser.test.ts` 与 `recipe-browser.spec.ts` 覆盖菜名、食材、词条与烹饪方式的混合搜索、部分词条匹配与完整词条边界、候选与未知、空白输入、排序、视图切换、URL 恢复和手机操作。页面只保留搜索；用例确认旧分区、方式、词条、多选食材及模式参数不再影响结果，编辑搜索或排序时会清理。旧 `ingredient` 参数继续转为可见搜索词，清空后没有隐藏条件。
+
+`recipe-primary.test.ts` 覆盖明天 94 行与小铭 99 行独立清点、当前 94 + 5 道、稳定 ID、主体／补充字段来源、重复槽位与合并格、未知值、品质及独立截图有效量，原件哈希及有效量边界由同一测试覆盖。用户逐项决定还检查原文、槽位、来源引用和重复 ID，并覆盖去问号、双奶、品质随槽位移动及原始转录不变。页面用例验证当前采用配方的厨具、效果与阶级、缺图占位和未知值，且不恢复已移除的来源核对面板。`pnpm data:check` 校验主体、参考及历史资料，包含原图与 12 张独立截图的哈希、尺寸、字节数；雪菜原图及其配套归档、专用校验已删除；关于页与发布图片只保留小铭及明天 9/24 两图。
 
 ## 静态构建与预览
 

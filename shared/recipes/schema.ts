@@ -4,7 +4,7 @@ const text = z.string().min(1);
 const id = z.string().regex(/^[a-z][a-z0-9-]*$/);
 const nonnegativeInteger = z.number().int().nonnegative().max(Number.MAX_SAFE_INTEGER);
 
-// recorded 只表示图片写明，不表示已经在游戏中验证。
+// recorded 表示所引资料或用户明确决定中的确定值，不表示已经在游戏中验证。
 function observation<T extends z.ZodType>(value: T) {
   return z.discriminatedUnion("status", [
     z.strictObject({
@@ -29,6 +29,21 @@ function observation<T extends z.ZodType>(value: T) {
 }
 
 export const imageRegionSchema = z.enum(["simple", "signature", "guest", "free", "neighbor"]);
+export const recipeTagSchema = z.enum([
+  "饮品",
+  "素菜",
+  "荤菜",
+  "荤素菜",
+  "汤羹",
+  "主食",
+  "炒菜",
+  "炖菜",
+  "炸物",
+  "甜点",
+  "烧烤",
+  "主菜",
+]);
+export type RecipeTag = z.infer<typeof recipeTagSchema>;
 const boundsSchema = z.tuple([
   nonnegativeInteger,
   nonnegativeInteger,
@@ -116,26 +131,7 @@ export const recipeSchema = z
     ingredients: z.array(ingredientSlotSchema).min(1),
     cookingMethod: observation(z.enum(["煮锅", "榨汁机", "烤箱"])),
     energy: energySchema,
-    tags: observation(
-      z
-        .array(
-          z.enum([
-            "饮品",
-            "素菜",
-            "荤菜",
-            "荤素菜",
-            "汤羹",
-            "主食",
-            "炒菜",
-            "炖菜",
-            "炸物",
-            "甜点",
-            "烧烤",
-            "主菜",
-          ]),
-        )
-        .min(1),
-    ),
+    tags: observation(z.array(recipeTagSchema).min(1)),
     specialEffect: observation(
       z.strictObject({ name: text, tier: z.union([z.literal(1), z.literal(2), z.literal(3)]) }),
     ),
@@ -152,8 +148,47 @@ export const recipeSchema = z
     ),
     noteIds: z.array(id),
     reviewNotes: z.array(z.strictObject({ field: text, reason: text })),
+    // 原图的等级与获取列单独保存，不推定为菜品品质、效果阶级或解锁条件。
+    guideDetails: z
+      .strictObject({
+        levelRaw: z.enum([
+          "",
+          "一级",
+          "二级",
+          "三级",
+          "四级",
+          "五级",
+          "六级",
+          "七级",
+          "八级",
+          "九级",
+        ]),
+        acquisitionRaw: z.string(),
+        // 同一原图格中列出的多个食材仍展开为独立有序槽位，并保留分组原文。
+        groupedIngredients: z.array(
+          z.strictObject({ raw: text, slots: z.array(nonnegativeInteger).min(2) }),
+        ),
+      })
+      .optional(),
   })
   .superRefine((recipe, context) => {
+    const groupedSlots = new Set<number>();
+    for (const group of recipe.guideDetails?.groupedIngredients ?? []) {
+      if (
+        group.slots.some((slot) => {
+          const invalid = slot >= recipe.ingredients.length || groupedSlots.has(slot);
+          groupedSlots.add(slot);
+          return invalid;
+        }) ||
+        group.raw !== group.slots.map((slot) => recipe.ingredients[slot]?.selection.raw).join("+")
+      ) {
+        context.addIssue({
+          code: "custom",
+          path: ["guideDetails", "groupedIngredients"],
+          message: "原图同格食材与有序槽位不符",
+        });
+      }
+    }
     if (recipe.specialEffect.status === "recorded") {
       const effect = recipe.specialEffect;
       const tierRaw = ["", "一阶", "二阶", "三阶"][effect.value.tier];
@@ -210,7 +245,11 @@ export const sourceSchema = z.strictObject({
   id,
   titleRaw: text,
   creator: text,
-  imageDate: z.strictObject({ raw: text, value: z.iso.date() }),
+  imageDate: z.union([
+    z.strictObject({ raw: text, value: z.iso.date() }),
+    // 只有月日时保留原文，不能把附件接收年份补成图片日期。
+    z.strictObject({ raw: text, value: z.null(), reason: text }),
+  ]),
   origin: z.strictObject({
     kind: z.literal("user-provided-image"),
     label: z.literal("用户提供图片"),
@@ -237,7 +276,7 @@ export const sourceSchema = z.strictObject({
   ingredientQualityInterpretation: z
     .strictObject({
       id,
-      kind: z.literal("user-confirmation"),
+      kind: z.enum(["user-confirmation", "image-legend"]),
       confirmedOn: z.iso.date(),
       statementRaw: text,
       backgroundToQuality: z.strictObject({

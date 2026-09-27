@@ -4,19 +4,24 @@ import type { Recipe } from "../../../shared/recipes/schema";
 import { effectSummary, hasUncertainRecipe, regionLabels } from "../../utils/recipes";
 import type { RecipeView } from "../../utils/recipes";
 import { getRecipeImage } from "../../utils/recipe-images";
-import { recipeQualitiesById } from "#shared/recipes/qualities";
+import { currentRecipeQualitiesById as recipeQualitiesById } from "#shared/recipes/current";
+import { getEffectEvidence } from "#shared/recipes/effects";
 import IngredientSlots from "./IngredientSlots.vue";
 import RecipeIcon from "./RecipeIcon.vue";
 import RecipeImage from "./RecipeImage.vue";
 import RecipeQualityBadge from "./RecipeQualityBadge.vue";
-const props = defineProps<{ recipes: Recipe[]; disabled: boolean; view: RecipeView }>();
+const props = defineProps<{
+  recipes: Recipe[];
+  disabled: boolean;
+  view: RecipeView;
+}>();
 const emit = defineEmits<{ select: [recipe: Recipe, trigger: HTMLButtonElement]; reset: [] }>();
 const rows = computed(() =>
   props.recipes.map((recipe) => ({
     recipe,
     image: getRecipeImage(recipe.id),
     quality: recipeQualitiesById.get(recipe.id),
-    effect: effectSummary(recipe),
+    effect: effectSummary(recipe, getEffectEvidence(recipe)),
     uncertain: hasUncertainRecipe(recipe),
   })),
 );
@@ -70,8 +75,8 @@ const rows = computed(() =>
   <div v-else class="empty-state" role="status">
     <RecipeIcon name="search" />
     <h3>没有找到匹配的菜谱</h3>
-    <p>试试换个菜名、食材，或清除当前筛选。</p>
-    <button type="button" class="primary-button" @click="emit('reset')">清除筛选</button>
+    <p>试试换个菜名、食材、词条或烹饪方式。</p>
+    <button type="button" class="primary-button" @click="emit('reset')">清除搜索条件</button>
   </div>
 </template>
 
@@ -148,10 +153,8 @@ const rows = computed(() =>
   padding-right: 5px;
 }
 .energy-plus {
-  font-weight: 400;
-  font-size: 0.78rem;
-  margin-right: 0.1rem;
-  color: var(--petit-color-foreground-muted);
+  font-weight: 500;
+  margin-right: 0.12em;
 }
 .row-energy.unknown {
   font-size: 0.78rem;
