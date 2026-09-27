@@ -1,0 +1,1219 @@
+{
+  "checkedOn": "2026-09-26",
+  "interpretation": {
+    "id": "user-20260926-dish-quality-colors",
+    "kind": "user-confirmation",
+    "confirmedOn": "2026-09-26",
+    "statementRaw": "不同背景底色代表了菜谱不同的品质，我觉得可以加一下",
+    "note": "按用户说明，将 TapTap 菜品图标圆底用于菜品品质展示；蓝灰、紫、橙金分别显示为蓝色、紫色、金色品质，不推定正式品质名称，不解释附件中的食材底色或加粗。"
+  },
+  "gameVerified": false,
+  "guides": [
+    {
+      "id": "simple-1",
+      "author": "阿Zz",
+      "section": "简单菜",
+      "imageNumber": 1,
+      "postUrl": "https://www.taptap.cn/moment/851862566224266917",
+      "imageUrl": "https://img2-tc.tapimg.com/moment/etag/Fs7A5l29coRYKj4okDiP94YUJdh-_20260923163604.jpg/_tap_ugc.jpg",
+      "sha256": "5e4fdc650b2f09cafa677594787fed045438a9e1dbf5fdeb5d6245974f92599a",
+      "rowCount": 6
+    },
+    {
+      "id": "simple-2",
+      "author": "阿Zz",
+      "section": "简单菜",
+      "imageNumber": 2,
+      "postUrl": "https://www.taptap.cn/moment/851862566224266917",
+      "imageUrl": "https://img2-tc.tapimg.com/moment/etag/FhnyhID0H5FTqrcX9vilV1zHJqgm_20260923163604.jpg/_tap_ugc.jpg",
+      "sha256": "5ceb5f8faefddfa5e8c7bb43de4cbefd09adaa6a0ab8060ad536afbfbc2fc82a",
+      "rowCount": 6
+    },
+    {
+      "id": "simple-3",
+      "author": "阿Zz",
+      "section": "简单菜",
+      "imageNumber": 3,
+      "postUrl": "https://www.taptap.cn/moment/851862566224266917",
+      "imageUrl": "https://img2-tc.tapimg.com/moment/etag/FthUg06JZnmKT4IjgqRTMC2Qb9e-_20260923163604.jpg/_tap_ugc.jpg",
+      "sha256": "799a2eb2c6e78e1e42737d442ef9cc754e6a1314f17995401af4464321eee71f",
+      "rowCount": 6
+    },
+    {
+      "id": "simple-4",
+      "author": "阿Zz",
+      "section": "简单菜",
+      "imageNumber": 4,
+      "postUrl": "https://www.taptap.cn/moment/851862566224266917",
+      "imageUrl": "https://img2-tc.tapimg.com/moment/etag/Fvz6kuXOGQtfFYjKQDDZR_Re_UUy_20260923163604.jpg/_tap_ugc.jpg",
+      "sha256": "3b5348e1b4e7f049509c41fe4543b85aed5ea0cb2454cc6b2c260b6a12c85457",
+      "rowCount": 6
+    },
+    {
+      "id": "simple-5",
+      "author": "阿Zz",
+      "section": "简单菜",
+      "imageNumber": 5,
+      "postUrl": "https://www.taptap.cn/moment/851862566224266917",
+      "imageUrl": "https://img2-tc.tapimg.com/moment/etag/Fh3DhqUtW7h9q1-pOEDN77iRCY9f_20260923163604.jpg/_tap_ugc.jpg",
+      "sha256": "34ce85bcebbca92ed5a6dbf8eb995774daa4038c4b50b7ac52f565e7557d5638",
+      "rowCount": 6
+    },
+    {
+      "id": "simple-6",
+      "author": "阿Zz",
+      "section": "简单菜",
+      "imageNumber": 6,
+      "postUrl": "https://www.taptap.cn/moment/851862566224266917",
+      "imageUrl": "https://img2-tc.tapimg.com/moment/etag/Fo4k57IyBb7wqrn32AqAkHbMG1eL_20260923163604.jpg/_tap_ugc.jpg",
+      "sha256": "2cc7f7e450e4bc1f435f568a56e634d3c568a55ccc62e84164ea400a9c1b0bcc",
+      "rowCount": 6
+    },
+    {
+      "id": "simple-7",
+      "author": "阿Zz",
+      "section": "简单菜",
+      "imageNumber": 7,
+      "postUrl": "https://www.taptap.cn/moment/851862566224266917",
+      "imageUrl": "https://img2-tc.tapimg.com/moment/etag/Fs8TowJboMhP38-ZQlB935PjG0qL_20260923163604.jpg/_tap_ugc.jpg",
+      "sha256": "e9f35da53d00e96761ab0dd068aa3853e472854300568a02c85dd2d303d5e774",
+      "rowCount": 6
+    },
+    {
+      "id": "simple-8",
+      "author": "阿Zz",
+      "section": "简单菜",
+      "imageNumber": 8,
+      "postUrl": "https://www.taptap.cn/moment/851862566224266917",
+      "imageUrl": "https://img2-tc.tapimg.com/moment/etag/FsnlbRDglFovPjJr290wMYJjLbjp_20260923163604.jpg/_tap_ugc.jpg",
+      "sha256": "3ec8cb92dbd01b631f232f2d4ab9b55cd16e05503470dbb5e15a82179db6741d",
+      "rowCount": 4
+    },
+    {
+      "id": "signature-1",
+      "author": "阿Zz",
+      "section": "招牌菜",
+      "imageNumber": 1,
+      "postUrl": "https://www.taptap.cn/moment/852148878751829285",
+      "imageUrl": "https://img2-tc.tapimg.com/moment/etag/FgaP2gm12_Wr6Y0eIpOrQ4X61OVE_20260924113429.jpg/_tap_ugc.jpg",
+      "sha256": "e9b66b10f6f5a0d4fd0f59956a84113c0187fa507e58ae3663e82efc36dd66f9",
+      "rowCount": 6
+    },
+    {
+      "id": "signature-2",
+      "author": "阿Zz",
+      "section": "招牌菜",
+      "imageNumber": 2,
+      "postUrl": "https://www.taptap.cn/moment/852148878751829285",
+      "imageUrl": "https://img2-tc.tapimg.com/moment/etag/Fqo8s6CxLrjmVUE8sbobPS1jGAz3_20260924113429.jpg/_tap_ugc.jpg",
+      "sha256": "fad7d922d1578ed54c1cf37ea7163d33b8f1a5d0147d8cd6c5657043dee1dc0a",
+      "rowCount": 6
+    },
+    {
+      "id": "signature-3",
+      "author": "阿Zz",
+      "section": "招牌菜",
+      "imageNumber": 3,
+      "postUrl": "https://www.taptap.cn/moment/852148878751829285",
+      "imageUrl": "https://img2-tc.tapimg.com/moment/etag/FsZYOwYgZaGn1z_GUd6Q6xFirI8v_20260924113429.jpg/_tap_ugc.jpg",
+      "sha256": "ad7c10b8cce1f630faa0d0fd5c0cd8abbf960769e4c63e1e0ecb3ca2c2b3716c",
+      "rowCount": 6
+    },
+    {
+      "id": "signature-4",
+      "author": "阿Zz",
+      "section": "招牌菜",
+      "imageNumber": 4,
+      "postUrl": "https://www.taptap.cn/moment/852148878751829285",
+      "imageUrl": "https://img2-tc.tapimg.com/moment/etag/FqqFF9li9lLBZZX2RvnhM1w4yr3W_20260924113429.jpg/_tap_ugc.jpg",
+      "sha256": "a36587cd3f5408a25e20c8d38c5d566ba753afaef5c2651ac08a7c17922ba8ab",
+      "rowCount": 6
+    },
+    {
+      "id": "signature-5",
+      "author": "阿Zz",
+      "section": "招牌菜",
+      "imageNumber": 5,
+      "postUrl": "https://www.taptap.cn/moment/852148878751829285",
+      "imageUrl": "https://img2-tc.tapimg.com/moment/etag/FmWxu_WAT6Wv8O6-Fe-LTsShjESS_20260924152509.jpg/_tap_ugc.jpg",
+      "sha256": "778986bf5ee6689010ee84400fb32a25b2d517f4f3c19ed3a888097e8daac892",
+      "rowCount": 6
+    },
+    {
+      "id": "signature-6",
+      "author": "阿Zz",
+      "section": "招牌菜",
+      "imageNumber": 6,
+      "postUrl": "https://www.taptap.cn/moment/852148878751829285",
+      "imageUrl": "https://img2-tc.tapimg.com/moment/etag/Fqcc_-gDkmNW_P8bWtkWXcuf5P9C_20260924113429.jpg/_tap_ugc.jpg",
+      "sha256": "fd3b5fb7b2452f11ebabf31b2c227a1f840bc8f498c26889de23e67f2a52da23",
+      "rowCount": 3
+    },
+    {
+      "id": "guest-1",
+      "author": "阿Zz",
+      "section": "宴客菜",
+      "imageNumber": 1,
+      "postUrl": "https://www.taptap.cn/moment/852582459005469363",
+      "imageUrl": "https://img2-tc.tapimg.com/moment/etag/FgPBZYSRsFoMtbeFUwLeh9LS-7fq_20260925161637.jpg/_tap_ugc.jpg",
+      "sha256": "06d6d6aa9ab16ddd4baaabe48cb1688ac459b1ae6fcea9e994ee636dbff65123",
+      "rowCount": 6
+    },
+    {
+      "id": "guest-2",
+      "author": "阿Zz",
+      "section": "宴客菜",
+      "imageNumber": 2,
+      "postUrl": "https://www.taptap.cn/moment/852582459005469363",
+      "imageUrl": "https://img2-tc.tapimg.com/moment/etag/FjYH8U-FerTjByEipRjQWxNz2r8B_20260925161637.jpg/_tap_ugc.jpg",
+      "sha256": "3ec492d483d58cbd7cae4f40d69ec43ae9d4895fff3f3fa35306aece22072005",
+      "rowCount": 6
+    },
+    {
+      "id": "guest-3",
+      "author": "阿Zz",
+      "section": "宴客菜",
+      "imageNumber": 3,
+      "postUrl": "https://www.taptap.cn/moment/852582459005469363",
+      "imageUrl": "https://img2-tc.tapimg.com/moment/etag/FiURXwk0DpWVZkvrDNlMq3G0X7vY_20260925161637.jpg/_tap_ugc.jpg",
+      "sha256": "9be0b062a48cbd6f61e29bb49af2d1ac73b747fb26f6b823fa10fd67c1d9f29c",
+      "rowCount": 2
+    }
+  ],
+  "recipes": [
+    {
+      "recipeId": "mt-20260924-simple-001",
+      "status": "recorded",
+      "color": "blue",
+      "backgroundRaw": "蓝灰色圆底",
+      "source": {
+        "guideId": "simple-5",
+        "row": 3,
+        "nameRaw": "和煦花果茶"
+      }
+    },
+    {
+      "recipeId": "mt-20260924-simple-002",
+      "status": "recorded",
+      "color": "blue",
+      "backgroundRaw": "蓝灰色圆底",
+      "source": {
+        "guideId": "simple-5",
+        "row": 4,
+        "nameRaw": "馥郁瓜果茶"
+      }
+    },
+    {
+      "recipeId": "mt-20260924-simple-003",
+      "status": "recorded",
+      "color": "blue",
+      "backgroundRaw": "蓝灰色圆底",
+      "source": {
+        "guideId": "simple-4",
+        "row": 4,
+        "nameRaw": "菌菇汤"
+      }
+    },
+    {
+      "recipeId": "mt-20260924-simple-004",
+      "status": "recorded",
+      "color": "blue",
+      "backgroundRaw": "蓝灰色圆底",
+      "source": {
+        "guideId": "simple-3",
+        "row": 6,
+        "nameRaw": "时鱼汤"
+      }
+    },
+    {
+      "recipeId": "mt-20260924-simple-005",
+      "status": "recorded",
+      "color": "blue",
+      "backgroundRaw": "蓝灰色圆底",
+      "source": {
+        "guideId": "simple-4",
+        "row": 2,
+        "nameRaw": "靓仔鱼虾汤"
+      }
+    },
+    {
+      "recipeId": "mt-20260924-simple-006",
+      "status": "recorded",
+      "color": "blue",
+      "backgroundRaw": "蓝灰色圆底",
+      "source": {
+        "guideId": "simple-4",
+        "row": 5,
+        "nameRaw": "海胆龙虾汤"
+      }
+    },
+    {
+      "recipeId": "mt-20260924-simple-007",
+      "status": "recorded",
+      "color": "blue",
+      "backgroundRaw": "蓝灰色圆底",
+      "source": {
+        "guideId": "simple-4",
+        "row": 3,
+        "nameRaw": "菌菇鲜鱼羹"
+      }
+    },
+    {
+      "recipeId": "mt-20260924-simple-008",
+      "status": "tentative",
+      "color": "blue",
+      "backgroundRaw": "蓝灰色圆底",
+      "source": {
+        "guideId": "simple-8",
+        "row": 3,
+        "nameRaw": "暖暖阳春面"
+      },
+      "reason": "攻略图标注“暖暖阳春面”，附件原文为“暖暖阳汤面”；底色可辨，但菜品对应仍待核对。"
+    },
+    {
+      "recipeId": "mt-20260924-simple-009",
+      "status": "recorded",
+      "color": "blue",
+      "backgroundRaw": "蓝灰色圆底",
+      "source": {
+        "guideId": "simple-8",
+        "row": 4,
+        "nameRaw": "乡蔬小麦面"
+      }
+    },
+    {
+      "recipeId": "mt-20260924-simple-010",
+      "status": "recorded",
+      "color": "blue",
+      "backgroundRaw": "蓝灰色圆底",
+      "source": {
+        "guideId": "simple-7",
+        "row": 2,
+        "nameRaw": "乡野粥"
+      }
+    },
+    {
+      "recipeId": "mt-20260924-simple-011",
+      "status": "recorded",
+      "color": "blue",
+      "backgroundRaw": "蓝灰色圆底",
+      "source": {
+        "guideId": "simple-7",
+        "row": 1,
+        "nameRaw": "谷物粥"
+      }
+    },
+    {
+      "recipeId": "mt-20260924-simple-012",
+      "status": "recorded",
+      "color": "blue",
+      "backgroundRaw": "蓝灰色圆底",
+      "source": {
+        "guideId": "simple-1",
+        "row": 1,
+        "nameRaw": "炒鲜蔬"
+      }
+    },
+    {
+      "recipeId": "mt-20260924-simple-013",
+      "status": "recorded",
+      "color": "blue",
+      "backgroundRaw": "蓝灰色圆底",
+      "source": {
+        "guideId": "simple-4",
+        "row": 1,
+        "nameRaw": "番茄龙虾汤"
+      }
+    },
+    {
+      "recipeId": "mt-20260924-simple-014",
+      "status": "recorded",
+      "color": "blue",
+      "backgroundRaw": "蓝灰色圆底",
+      "source": {
+        "guideId": "simple-1",
+        "row": 3,
+        "nameRaw": "汤汁番茄鱼"
+      }
+    },
+    {
+      "recipeId": "mt-20260924-simple-015",
+      "status": "recorded",
+      "color": "blue",
+      "backgroundRaw": "蓝灰色圆底",
+      "source": {
+        "guideId": "simple-1",
+        "row": 2,
+        "nameRaw": "炒蟹贝"
+      }
+    },
+    {
+      "recipeId": "mt-20260924-simple-016",
+      "status": "recorded",
+      "color": "blue",
+      "backgroundRaw": "蓝灰色圆底",
+      "source": {
+        "guideId": "simple-1",
+        "row": 4,
+        "nameRaw": "蒸海鲜"
+      }
+    },
+    {
+      "recipeId": "mt-20260924-simple-017",
+      "status": "recorded",
+      "color": "blue",
+      "backgroundRaw": "蓝灰色圆底",
+      "source": {
+        "guideId": "simple-7",
+        "row": 3,
+        "nameRaw": "拾贝粥"
+      }
+    },
+    {
+      "recipeId": "mt-20260924-simple-018",
+      "status": "recorded",
+      "color": "blue",
+      "backgroundRaw": "蓝灰色圆底",
+      "source": {
+        "guideId": "simple-7",
+        "row": 4,
+        "nameRaw": "海鲜粥"
+      }
+    },
+    {
+      "recipeId": "mt-20260924-simple-019",
+      "status": "recorded",
+      "color": "purple",
+      "backgroundRaw": "紫色圆底",
+      "source": {
+        "guideId": "simple-2",
+        "row": 3,
+        "nameRaw": "胡萝卜炖肉"
+      }
+    },
+    {
+      "recipeId": "mt-20260924-simple-020",
+      "status": "tentative",
+      "color": "purple",
+      "backgroundRaw": "紫色圆底",
+      "source": {
+        "guideId": "simple-4",
+        "row": 6,
+        "nameRaw": "四时果蔬汤"
+      },
+      "reason": "攻略图标注“四时果蔬汤”，附件原文为“四时蔬果汤”；底色可辨，但菜品对应仍待核对。"
+    },
+    {
+      "recipeId": "mt-20260924-simple-021",
+      "status": "recorded",
+      "color": "purple",
+      "backgroundRaw": "紫色圆底",
+      "source": {
+        "guideId": "simple-8",
+        "row": 2,
+        "nameRaw": "沁凉水果面"
+      }
+    },
+    {
+      "recipeId": "mt-20260924-simple-022",
+      "status": "recorded",
+      "color": "purple",
+      "backgroundRaw": "紫色圆底",
+      "source": {
+        "guideId": "simple-1",
+        "row": 5,
+        "nameRaw": "果香鱼壶"
+      }
+    },
+    {
+      "recipeId": "mt-20260924-simple-023",
+      "status": "recorded",
+      "color": "purple",
+      "backgroundRaw": "紫色圆底",
+      "source": {
+        "guideId": "simple-8",
+        "row": 1,
+        "nameRaw": "海鲜大铺面"
+      }
+    },
+    {
+      "recipeId": "mt-20260924-simple-024",
+      "status": "recorded",
+      "color": "blue",
+      "backgroundRaw": "蓝灰色圆底",
+      "source": {
+        "guideId": "simple-5",
+        "row": 5,
+        "nameRaw": "绚烂果汁"
+      }
+    },
+    {
+      "recipeId": "mt-20260924-simple-025",
+      "status": "recorded",
+      "color": "blue",
+      "backgroundRaw": "蓝灰色圆底",
+      "source": {
+        "guideId": "simple-5",
+        "row": 6,
+        "nameRaw": "恬恬莓米酿"
+      }
+    },
+    {
+      "recipeId": "mt-20260924-simple-026",
+      "status": "recorded",
+      "color": "blue",
+      "backgroundRaw": "蓝灰色圆底",
+      "source": {
+        "guideId": "simple-6",
+        "row": 1,
+        "nameRaw": "青蔬果汁"
+      }
+    },
+    {
+      "recipeId": "mt-20260924-simple-027",
+      "status": "recorded",
+      "color": "blue",
+      "backgroundRaw": "蓝灰色圆底",
+      "source": {
+        "guideId": "simple-6",
+        "row": 3,
+        "nameRaw": "甘蔬米酪"
+      }
+    },
+    {
+      "recipeId": "mt-20260924-simple-028",
+      "status": "recorded",
+      "color": "purple",
+      "backgroundRaw": "紫色圆底",
+      "source": {
+        "guideId": "simple-6",
+        "row": 2,
+        "nameRaw": "绵绵麦奶"
+      }
+    },
+    {
+      "recipeId": "mt-20260924-simple-029",
+      "status": "recorded",
+      "color": "blue",
+      "backgroundRaw": "蓝灰色圆底",
+      "source": {
+        "guideId": "simple-3",
+        "row": 1,
+        "nameRaw": "炽汁多果烤串"
+      }
+    },
+    {
+      "recipeId": "mt-20260924-simple-030",
+      "status": "recorded",
+      "color": "blue",
+      "backgroundRaw": "蓝灰色圆底",
+      "source": {
+        "guideId": "simple-5",
+        "row": 2,
+        "nameRaw": "烤米布丁"
+      }
+    },
+    {
+      "recipeId": "mt-20260924-simple-031",
+      "status": "recorded",
+      "color": "blue",
+      "backgroundRaw": "蓝灰色圆底",
+      "source": {
+        "guideId": "simple-5",
+        "row": 1,
+        "nameRaw": "麦烘蛋糕"
+      }
+    },
+    {
+      "recipeId": "mt-20260924-simple-032",
+      "status": "recorded",
+      "color": "blue",
+      "backgroundRaw": "蓝灰色圆底",
+      "source": {
+        "guideId": "simple-3",
+        "row": 2,
+        "nameRaw": "蘑菇果蔬烤串"
+      }
+    },
+    {
+      "recipeId": "mt-20260924-simple-033",
+      "status": "recorded",
+      "color": "blue",
+      "backgroundRaw": "蓝灰色圆底",
+      "source": {
+        "guideId": "simple-7",
+        "row": 5,
+        "nameRaw": "鱼香焗饭"
+      }
+    },
+    {
+      "recipeId": "mt-20260924-simple-034",
+      "status": "recorded",
+      "color": "blue",
+      "backgroundRaw": "蓝灰色圆底",
+      "source": {
+        "guideId": "simple-2",
+        "row": 4,
+        "nameRaw": "果酥烤鱼"
+      }
+    },
+    {
+      "recipeId": "mt-20260924-simple-035",
+      "status": "tentative",
+      "color": "blue",
+      "backgroundRaw": "蓝灰色圆底",
+      "source": {
+        "guideId": "simple-2",
+        "row": 5,
+        "nameRaw": "菠香烤鱼串"
+      },
+      "reason": "攻略图标注“菠香烤鱼串”，附件原文为“波香烤鱼串”；底色可辨，但菜品对应仍待核对。"
+    },
+    {
+      "recipeId": "mt-20260924-simple-036",
+      "status": "recorded",
+      "color": "blue",
+      "backgroundRaw": "蓝灰色圆底",
+      "source": {
+        "guideId": "simple-2",
+        "row": 6,
+        "nameRaw": "蔬风烤鱼"
+      }
+    },
+    {
+      "recipeId": "mt-20260924-simple-037",
+      "status": "recorded",
+      "color": "purple",
+      "backgroundRaw": "紫色圆底",
+      "source": {
+        "guideId": "simple-7",
+        "row": 6,
+        "nameRaw": "海烩焗饭"
+      }
+    },
+    {
+      "recipeId": "mt-20260924-signature-001",
+      "status": "recorded",
+      "color": "blue",
+      "backgroundRaw": "蓝灰色圆底",
+      "source": {
+        "guideId": "signature-3",
+        "row": 6,
+        "nameRaw": "甜瓜花茶"
+      }
+    },
+    {
+      "recipeId": "mt-20260924-signature-002",
+      "status": "recorded",
+      "color": "blue",
+      "backgroundRaw": "蓝灰色圆底",
+      "source": {
+        "guideId": "signature-5",
+        "row": 3,
+        "nameRaw": "果蔬沙拉"
+      }
+    },
+    {
+      "recipeId": "mt-20260924-signature-003",
+      "status": "recorded",
+      "color": "purple",
+      "backgroundRaw": "紫色圆底",
+      "source": {
+        "guideId": "signature-1",
+        "row": 6,
+        "nameRaw": "番笋红宋汤"
+      }
+    },
+    {
+      "recipeId": "mt-20260924-signature-004",
+      "status": "recorded",
+      "color": "purple",
+      "backgroundRaw": "紫色圆底",
+      "source": {
+        "guideId": "signature-1",
+        "row": 4,
+        "nameRaw": "茄茄擂辣饭"
+      }
+    },
+    {
+      "recipeId": "mt-20260924-signature-005",
+      "status": "recorded",
+      "color": "purple",
+      "backgroundRaw": "紫色圆底",
+      "source": {
+        "guideId": "signature-1",
+        "row": 1,
+        "nameRaw": "刺锅海胆蒸蛋"
+      }
+    },
+    {
+      "recipeId": "mt-20260924-signature-006",
+      "status": "recorded",
+      "color": "purple",
+      "backgroundRaw": "紫色圆底",
+      "source": {
+        "guideId": "signature-1",
+        "row": 2,
+        "nameRaw": "满满大烩菜"
+      }
+    },
+    {
+      "recipeId": "mt-20260924-signature-007",
+      "status": "recorded",
+      "color": "purple",
+      "backgroundRaw": "紫色圆底",
+      "source": {
+        "guideId": "signature-5",
+        "row": 1,
+        "nameRaw": "裹裹虾炸鱼"
+      }
+    },
+    {
+      "recipeId": "mt-20260924-signature-008",
+      "status": "recorded",
+      "color": "purple",
+      "backgroundRaw": "紫色圆底",
+      "source": {
+        "guideId": "signature-2",
+        "row": 6,
+        "nameRaw": "鲜笋鱼汤"
+      }
+    },
+    {
+      "recipeId": "mt-20260924-signature-009",
+      "status": "recorded",
+      "color": "purple",
+      "backgroundRaw": "紫色圆底",
+      "source": {
+        "guideId": "signature-3",
+        "row": 1,
+        "nameRaw": "珍蟹腌笃鲜"
+      }
+    },
+    {
+      "recipeId": "mt-20260924-signature-010",
+      "status": "recorded",
+      "color": "purple",
+      "backgroundRaw": "紫色圆底",
+      "source": {
+        "guideId": "signature-2",
+        "row": 1,
+        "nameRaw": "辣龙虾过海"
+      }
+    },
+    {
+      "recipeId": "mt-20260924-signature-011",
+      "status": "recorded",
+      "color": "purple",
+      "backgroundRaw": "紫色圆底",
+      "source": {
+        "guideId": "signature-5",
+        "row": 4,
+        "nameRaw": "握鱼大手卷"
+      }
+    },
+    {
+      "recipeId": "mt-20260924-signature-012",
+      "status": "recorded",
+      "color": "purple",
+      "backgroundRaw": "紫色圆底",
+      "source": {
+        "guideId": "signature-6",
+        "row": 3,
+        "nameRaw": "鱼蔬大拉面"
+      }
+    },
+    {
+      "recipeId": "mt-20260924-signature-013",
+      "status": "recorded",
+      "color": "purple",
+      "backgroundRaw": "紫色圆底",
+      "source": {
+        "guideId": "signature-5",
+        "row": 5,
+        "nameRaw": "晶彩蒸鱼饭"
+      }
+    },
+    {
+      "recipeId": "mt-20260924-signature-014",
+      "status": "recorded",
+      "color": "gold",
+      "backgroundRaw": "橙金色圆底",
+      "source": {
+        "guideId": "signature-1",
+        "row": 3,
+        "nameRaw": "梦幻锦绣香蔬宴"
+      }
+    },
+    {
+      "recipeId": "mt-20260924-signature-015",
+      "status": "recorded",
+      "color": "gold",
+      "backgroundRaw": "橙金色圆底",
+      "source": {
+        "guideId": "signature-5",
+        "row": 2,
+        "nameRaw": "梦幻三仙过海鱼"
+      }
+    },
+    {
+      "recipeId": "mt-20260924-signature-016",
+      "status": "recorded",
+      "color": "gold",
+      "backgroundRaw": "橙金色圆底",
+      "source": {
+        "guideId": "signature-1",
+        "row": 5,
+        "nameRaw": "梦幻双色升鱼宴"
+      }
+    },
+    {
+      "recipeId": "mt-20260924-signature-017",
+      "status": "recorded",
+      "color": "blue",
+      "backgroundRaw": "蓝灰色圆底",
+      "source": {
+        "guideId": "signature-4",
+        "row": 6,
+        "nameRaw": "塔法果一杯"
+      }
+    },
+    {
+      "recipeId": "mt-20260924-signature-018",
+      "status": "recorded",
+      "color": "blue",
+      "backgroundRaw": "蓝灰色圆底",
+      "source": {
+        "guideId": "signature-4",
+        "row": 2,
+        "nameRaw": "禾夏米麦奶"
+      }
+    },
+    {
+      "recipeId": "mt-20260924-signature-019",
+      "status": "recorded",
+      "color": "blue",
+      "backgroundRaw": "蓝灰色圆底",
+      "source": {
+        "guideId": "signature-4",
+        "row": 5,
+        "nameRaw": "多彩萃蔬汁"
+      }
+    },
+    {
+      "recipeId": "mt-20260924-signature-020",
+      "status": "recorded",
+      "color": "blue",
+      "backgroundRaw": "蓝灰色圆底",
+      "source": {
+        "guideId": "signature-4",
+        "row": 4,
+        "nameRaw": "禾夏果米酿"
+      }
+    },
+    {
+      "recipeId": "mt-20260924-signature-021",
+      "status": "recorded",
+      "color": "purple",
+      "backgroundRaw": "紫色圆底",
+      "source": {
+        "guideId": "signature-4",
+        "row": 1,
+        "nameRaw": "漫香果麦奶"
+      }
+    },
+    {
+      "recipeId": "mt-20260924-signature-022",
+      "status": "recorded",
+      "color": "purple",
+      "backgroundRaw": "紫色圆底",
+      "source": {
+        "guideId": "signature-4",
+        "row": 3,
+        "nameRaw": "珍蔬麦饮"
+      }
+    },
+    {
+      "recipeId": "mt-20260924-signature-023",
+      "status": "recorded",
+      "color": "blue",
+      "backgroundRaw": "蓝灰色圆底",
+      "source": {
+        "guideId": "signature-3",
+        "row": 4,
+        "nameRaw": "香米糕"
+      }
+    },
+    {
+      "recipeId": "mt-20260924-signature-024",
+      "status": "recorded",
+      "color": "blue",
+      "backgroundRaw": "蓝灰色圆底",
+      "source": {
+        "guideId": "signature-3",
+        "row": 3,
+        "nameRaw": "草莓奶蛋糕"
+      }
+    },
+    {
+      "recipeId": "mt-20260924-signature-025",
+      "status": "recorded",
+      "color": "purple",
+      "backgroundRaw": "紫色圆底",
+      "source": {
+        "guideId": "signature-3",
+        "row": 5,
+        "nameRaw": "蒜香流心奶面包"
+      }
+    },
+    {
+      "recipeId": "mt-20260924-signature-026",
+      "status": "tentative",
+      "color": "blue",
+      "backgroundRaw": "蓝灰色圆底",
+      "source": {
+        "guideId": "signature-6",
+        "row": 2,
+        "nameRaw": "田园蔬荟披萨"
+      },
+      "reason": "攻略图标注“田园蔬荟披萨”，附件原文为“田园蔬烩披萨”；底色可辨，但菜品对应仍待核对。"
+    },
+    {
+      "recipeId": "mt-20260924-signature-027",
+      "status": "recorded",
+      "color": "blue",
+      "backgroundRaw": "蓝灰色圆底",
+      "source": {
+        "guideId": "signature-5",
+        "row": 6,
+        "nameRaw": "番茄炸鱼披萨"
+      }
+    },
+    {
+      "recipeId": "mt-20260924-signature-028",
+      "status": "recorded",
+      "color": "purple",
+      "backgroundRaw": "紫色圆底",
+      "source": {
+        "guideId": "signature-3",
+        "row": 2,
+        "nameRaw": "花香蜜瓜派"
+      }
+    },
+    {
+      "recipeId": "mt-20260924-signature-029",
+      "status": "recorded",
+      "color": "purple",
+      "backgroundRaw": "紫色圆底",
+      "source": {
+        "guideId": "signature-2",
+        "row": 4,
+        "nameRaw": "海岸风情烤串"
+      }
+    },
+    {
+      "recipeId": "mt-20260924-signature-030",
+      "status": "recorded",
+      "color": "purple",
+      "backgroundRaw": "紫色圆底",
+      "source": {
+        "guideId": "signature-2",
+        "row": 2,
+        "nameRaw": "炙鱼烤虾贝"
+      }
+    },
+    {
+      "recipeId": "mt-20260924-signature-031",
+      "status": "recorded",
+      "color": "purple",
+      "backgroundRaw": "紫色圆底",
+      "source": {
+        "guideId": "signature-6",
+        "row": 1,
+        "nameRaw": "美味海风披萨"
+      }
+    },
+    {
+      "recipeId": "mt-20260924-signature-032",
+      "status": "recorded",
+      "color": "gold",
+      "backgroundRaw": "橙金色圆底",
+      "source": {
+        "guideId": "signature-2",
+        "row": 3,
+        "nameRaw": "水果烤虾拼盘"
+      }
+    },
+    {
+      "recipeId": "mt-20260924-signature-033",
+      "status": "recorded",
+      "color": "gold",
+      "backgroundRaw": "橙金色圆底",
+      "source": {
+        "guideId": "signature-2",
+        "row": 5,
+        "nameRaw": "梦幻奇迹蒜龙虾"
+      }
+    },
+    {
+      "recipeId": "mt-20260924-guest-001",
+      "status": "tentative",
+      "color": "blue",
+      "backgroundRaw": "蓝灰色圆底",
+      "source": {
+        "guideId": "guest-3",
+        "row": 1,
+        "nameRaw": "年糕菇蔬面"
+      },
+      "reason": "攻略图标注“年糕菇蔬面”，附件原文为“年糕蔬菇面”；底色可辨，但菜品对应仍待核对。"
+    },
+    {
+      "recipeId": "mt-20260924-guest-002",
+      "status": "recorded",
+      "color": "purple",
+      "backgroundRaw": "紫色圆底",
+      "source": {
+        "guideId": "guest-2",
+        "row": 2,
+        "nameRaw": "多果流彩捞饭"
+      }
+    },
+    {
+      "recipeId": "mt-20260924-guest-003",
+      "status": "tentative",
+      "color": "purple",
+      "backgroundRaw": "紫色圆底",
+      "source": {
+        "guideId": "guest-1",
+        "row": 2,
+        "nameRaw": "梦幻鲜风龙虾锅"
+      },
+      "reason": "攻略图标注“梦幻鲜风龙虾锅”，附件原文为“梦幻仙风龙虾锅”；底色可辨，但菜品对应仍待核对。"
+    },
+    {
+      "recipeId": "mt-20260924-guest-004",
+      "status": "recorded",
+      "color": "gold",
+      "backgroundRaw": "橙金色圆底",
+      "source": {
+        "guideId": "guest-2",
+        "row": 5,
+        "nameRaw": "梦幻金玉满堂饭"
+      }
+    },
+    {
+      "recipeId": "mt-20260924-guest-005",
+      "status": "recorded",
+      "color": "gold",
+      "backgroundRaw": "橙金色圆底",
+      "source": {
+        "guideId": "guest-2",
+        "row": 3,
+        "nameRaw": "外婆菜饭"
+      }
+    },
+    {
+      "recipeId": "mt-20260924-guest-006",
+      "status": "recorded",
+      "color": "gold",
+      "backgroundRaw": "橙金色圆底",
+      "source": {
+        "guideId": "guest-1",
+        "row": 3,
+        "nameRaw": "梦幻海贝海鲜烩"
+      }
+    },
+    {
+      "recipeId": "mt-20260924-guest-007",
+      "status": "recorded",
+      "color": "gold",
+      "backgroundRaw": "橙金色圆底",
+      "source": {
+        "guideId": "guest-1",
+        "row": 1,
+        "nameRaw": "梦幻海岸虾鱼筵"
+      }
+    },
+    {
+      "recipeId": "mt-20260924-guest-008",
+      "status": "recorded",
+      "color": "gold",
+      "backgroundRaw": "橙金色圆底",
+      "source": {
+        "guideId": "guest-2",
+        "row": 4,
+        "nameRaw": "梦幻鱼鲜寿司"
+      }
+    },
+    {
+      "recipeId": "mt-20260924-guest-009",
+      "status": "recorded",
+      "color": "purple",
+      "backgroundRaw": "紫色圆底",
+      "source": {
+        "guideId": "guest-1",
+        "row": 5,
+        "nameRaw": "三色果米糕"
+      }
+    },
+    {
+      "recipeId": "mt-20260924-guest-010",
+      "status": "recorded",
+      "color": "purple",
+      "backgroundRaw": "紫色圆底",
+      "source": {
+        "guideId": "guest-1",
+        "row": 4,
+        "nameRaw": "时蔬烧烤派对"
+      }
+    },
+    {
+      "recipeId": "mt-20260924-guest-011",
+      "status": "recorded",
+      "color": "purple",
+      "backgroundRaw": "紫色圆底",
+      "source": {
+        "guideId": "guest-2",
+        "row": 6,
+        "nameRaw": "三色蔬焗饭"
+      }
+    },
+    {
+      "recipeId": "mt-20260924-guest-012",
+      "status": "recorded",
+      "color": "gold",
+      "backgroundRaw": "橙金色圆底",
+      "source": {
+        "guideId": "guest-1",
+        "row": 6,
+        "nameRaw": "梦幻草莓奶蛋糕"
+      }
+    },
+    {
+      "recipeId": "mt-20260924-guest-013",
+      "status": "recorded",
+      "color": "gold",
+      "backgroundRaw": "橙金色圆底",
+      "source": {
+        "guideId": "guest-2",
+        "row": 1,
+        "nameRaw": "梦幻星莓漫游派"
+      }
+    },
+    {
+      "recipeId": "mt-20260924-guest-014",
+      "status": "recorded",
+      "color": "gold",
+      "backgroundRaw": "橙金色圆底",
+      "source": {
+        "guideId": "guest-3",
+        "row": 2,
+        "nameRaw": "梦幻番茄汤汁面"
+      }
+    },
+    {
+      "recipeId": "mt-20260924-free-001",
+      "status": "recorded",
+      "color": "blue",
+      "backgroundRaw": "蓝灰色圆底",
+      "source": {
+        "guideId": "simple-2",
+        "row": 1,
+        "nameRaw": "家常什锦砂锅"
+      }
+    },
+    {
+      "recipeId": "mt-20260924-free-002",
+      "status": "recorded",
+      "color": "purple",
+      "backgroundRaw": "紫色圆底",
+      "source": {
+        "guideId": "simple-1",
+        "row": 6,
+        "nameRaw": "珍稀什锦砂锅"
+      }
+    },
+    {
+      "recipeId": "mt-20260924-free-003",
+      "status": "recorded",
+      "color": "gold",
+      "backgroundRaw": "橙金色圆底",
+      "source": {
+        "guideId": "simple-2",
+        "row": 2,
+        "nameRaw": "梦幻什锦砂锅"
+      }
+    },
+    {
+      "recipeId": "mt-20260924-free-004",
+      "status": "recorded",
+      "color": "blue",
+      "backgroundRaw": "蓝灰色圆底",
+      "source": {
+        "guideId": "simple-6",
+        "row": 4,
+        "nameRaw": "家常什锦饮"
+      }
+    },
+    {
+      "recipeId": "mt-20260924-free-005",
+      "status": "recorded",
+      "color": "purple",
+      "backgroundRaw": "紫色圆底",
+      "source": {
+        "guideId": "simple-6",
+        "row": 5,
+        "nameRaw": "珍稀什锦饮"
+      }
+    },
+    {
+      "recipeId": "mt-20260924-free-006",
+      "status": "recorded",
+      "color": "gold",
+      "backgroundRaw": "橙金色圆底",
+      "source": {
+        "guideId": "simple-6",
+        "row": 6,
+        "nameRaw": "梦幻什锦饮"
+      }
+    },
+    {
+      "recipeId": "mt-20260924-free-007",
+      "status": "recorded",
+      "color": "blue",
+      "backgroundRaw": "蓝灰色圆底",
+      "source": {
+        "guideId": "simple-3",
+        "row": 3,
+        "nameRaw": "家常什锦烧烤"
+      }
+    },
+    {
+      "recipeId": "mt-20260924-free-008",
+      "status": "recorded",
+      "color": "purple",
+      "backgroundRaw": "紫色圆底",
+      "source": {
+        "guideId": "simple-3",
+        "row": 4,
+        "nameRaw": "珍稀什锦烧烤"
+      }
+    },
+    {
+      "recipeId": "mt-20260924-free-009",
+      "status": "recorded",
+      "color": "gold",
+      "backgroundRaw": "橙金色圆底",
+      "source": {
+        "guideId": "simple-3",
+        "row": 5,
+        "nameRaw": "梦幻什锦烧烤"
+      }
+    },
+    {
+      "recipeId": "mt-20260924-neighbor-001",
+      "status": "unknown",
+      "reason": "三篇 TapTap 图鉴中未找到对应菜品，Wiki 透明图标不能提供品质底色依据。"
+    }
+  ]
+}

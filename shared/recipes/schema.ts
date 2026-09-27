@@ -44,9 +44,33 @@ const ingredientSelectionSchema = z.union([
   z.strictObject({ kind: z.literal("any-of"), options: z.array(ingredientTermSchema).min(2) }),
 ]);
 
+export const ingredientQualityColorSchema = z.enum(["blue", "purple", "gold"]);
+export type IngredientQualityColor = z.infer<typeof ingredientQualityColorSchema>;
+
 export const ingredientSlotSchema = z.strictObject({
-  selection: observation(ingredientSelectionSchema),
-  quality: observation(text),
+  selection: observation(ingredientSelectionSchema).superRefine((selection, context) => {
+    // 候选与未知保留各自语义；只约束图片明确写出的名称，不推断别名。
+    if (selection.status !== "recorded") return;
+    const value = selection.value;
+    const expectedRaw =
+      value.kind === "any-of" ? value.options.map((option) => option.name).join("/") : value.name;
+    if (selection.raw !== expectedRaw) {
+      context.addIssue({
+        code: "custom",
+        path: ["value"],
+        message: "确定食材名称或可选项顺序与原文不符",
+      });
+    }
+  }),
+  quality: z.union([
+    observation(ingredientQualityColorSchema),
+    // 由食材格底色及用户补充规则解释，不能冒充图片写明的品质文字。
+    z.strictObject({
+      status: z.literal("interpreted"),
+      color: ingredientQualityColorSchema,
+      interpretationId: id,
+    }),
+  ]),
 });
 
 export const energySchema = observation(nonnegativeInteger).superRefine((energy, context) => {
@@ -79,6 +103,8 @@ const productionChanceSchema = z.union([
 export const recipeSchema = z
   .strictObject({
     id,
+    // 跨图片对应关系；旧记录与旧行号保留，不把两个来源合成一条已验证配方。
+    previousRecipeId: id.optional(),
     source: z.strictObject({
       sourceId: id,
       region: imageRegionSchema,
@@ -192,17 +218,36 @@ export const sourceSchema = z.strictObject({
   }),
   publishedAt: observation(z.iso.date()),
   gameVersion: observation(text),
-  asset: z.strictObject({
-    path: z.string().regex(/^docs\/references\/recipes\/[a-z0-9-]+\.png$/),
-    originalFilename: text,
-    mimeType: z.literal("image/png"),
-    width: z.number().int().positive(),
-    height: z.number().int().positive(),
-    bytes: z.number().int().positive(),
-    sha256: z.string().regex(/^[a-f0-9]{64}$/),
-  }),
+  asset: z
+    .strictObject({
+      path: z.string().regex(/^docs\/references\/recipes\/[a-z0-9-]+\.(png|jpe?g)$/),
+      originalFilename: text,
+      mimeType: z.enum(["image/png", "image/jpeg"]),
+      width: z.number().int().positive(),
+      height: z.number().int().positive(),
+      bytes: z.number().int().positive(),
+      sha256: z.string().regex(/^[a-f0-9]{64}$/),
+    })
+    .refine(
+      (asset) => asset.mimeType === (asset.path.endsWith(".png") ? "image/png" : "image/jpeg"),
+      { path: ["mimeType"], message: "附件扩展名与 MIME 类型不符" },
+    ),
   evidence: z.literal("player-record"),
   visualLegend: observation(text),
+  ingredientQualityInterpretation: z
+    .strictObject({
+      id,
+      kind: z.literal("user-confirmation"),
+      confirmedOn: z.iso.date(),
+      statementRaw: text,
+      backgroundToQuality: z.strictObject({
+        blue: z.literal("blue"),
+        purple: z.literal("purple"),
+        yellow: z.literal("gold"),
+      }),
+      note: text,
+    })
+    .optional(),
   notes: z.array(
     z.strictObject({
       id,
@@ -261,6 +306,10 @@ export const recipeDatasetSchema = z
       ["sources"],
     );
     unique(
+      sources.flatMap((source) => source.ingredientQualityInterpretation?.id ?? []),
+      ["sources", "ingredientQualityInterpretation"],
+    );
+    unique(
       recipes.map((recipe) => recipe.id),
       ["recipes"],
     );
@@ -309,6 +358,28 @@ export const recipeDatasetSchema = z
       for (const note of entry?.notes ?? []) {
         if (note.appliesTo.includes(ref.region) && !recipe.noteIds.includes(note.id))
           issue(["recipes", index, "noteIds"], `缺少适用的玩家注释：${note.id}`);
+      }
+      const interpretation = entry?.ingredientQualityInterpretation;
+      for (const [slotIndex, slot] of recipe.ingredients.entries()) {
+        const path = ["recipes", index, "ingredients", slotIndex, "quality"];
+        const backgrounds = recipe.visualCues.filter(
+          (cue) => cue.field === `ingredients.${slotIndex}` && cue.background,
+        );
+        const background = backgrounds[0]?.background;
+        if (backgrounds.length > 1) issue(path, "同一食材槽位的底色重复或冲突");
+        if (slot.quality.status === "interpreted") {
+          if (!interpretation || slot.quality.interpretationId !== interpretation.id)
+            issue(path, "食材品质解释引用不存在或不属于该图片来源");
+          if (!background) issue(path, "食材品质要求缺少对应槽位的底色依据");
+          if (
+            interpretation &&
+            background &&
+            slot.quality.color !== interpretation.backgroundToQuality[background]
+          )
+            issue(path, "食材品质与原图槽位底色不符");
+        } else if (interpretation && background) {
+          issue(path, "有底色的食材槽位缺少品质解释");
+        }
       }
     }
     let total = 0;

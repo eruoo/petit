@@ -1,12 +1,13 @@
 import { describe, expect, it } from "vitest";
 import { verifySourceAssets } from "../../scripts/check-recipes.ts";
-import { recipeDataset } from "../../shared/recipes/index.ts";
+import { previousRecipeDataset as recipeDataset } from "../../shared/recipes/history.ts";
 import { collectRecipeReviewItems } from "../../shared/recipes/review.ts";
 import {
   energySchema,
   ingredientSlotSchema,
   recipeDatasetSchema,
   recipeSchema,
+  sourceSchema,
 } from "../../shared/recipes/schema.ts";
 import type { Recipe, RecipeDataset } from "../../shared/recipes/schema.ts";
 
@@ -18,7 +19,7 @@ function at(region: Recipe["source"]["region"], row: number) {
   return recipe;
 }
 
-describe("图片转录与独立清点", () => {
+describe("9 月 23 日历史转录与独立清点", () => {
   it("按原图人工清点的五区数量覆盖每一行，并校验原尺寸附件", () => {
     // 独立读取原图得到的常量，不用待测数据计算预期数量。
     const counts = { simple: 37, signature: 33, guest: 10, free: 9, neighbor: 1 };
@@ -42,6 +43,34 @@ describe("图片转录与独立清点", () => {
     const sources = structuredClone(recipeDataset.sources);
     sources[0]!.asset.sha256 = "0".repeat(64);
     expect(() => verifySourceAssets(sources)).toThrow("SHA-256 不符");
+  });
+
+  it("新旧原图同时归档，历史记录继续对应旧图行号", () => {
+    const source = recipeDataset.sources.find((entry) => entry.id === "tomorrow-20260924-image")!;
+    expect(source.asset).toMatchObject({
+      mimeType: "image/jpeg",
+      width: 4355,
+      height: 2189,
+      bytes: 3013739,
+    });
+    expect(() => verifySourceAssets([source])).not.toThrow();
+    expect(recipeDataset.inventory.sourceId).toBe("tomorrow-20260923-image");
+    expect(new Set(recipeDataset.recipes.map((recipe) => recipe.source.sourceId))).toEqual(
+      new Set(["tomorrow-20260923-image"]),
+    );
+  });
+
+  it("拒绝 JPEG 的错误尺寸、哈希或文件类型", () => {
+    const source = recipeDataset.sources.find((entry) => entry.id === "tomorrow-20260924-image")!;
+    expect(() =>
+      verifySourceAssets([{ ...source, asset: { ...source.asset, width: 2048 } }]),
+    ).toThrow("尺寸不符");
+    expect(() =>
+      verifySourceAssets([{ ...source, asset: { ...source.asset, sha256: "0".repeat(64) } }]),
+    ).toThrow("SHA-256 不符");
+    const wrongType = { ...source, asset: { ...source.asset, mimeType: "image/png" as const } };
+    expect(sourceSchema.safeParse(wrongType).success).toBe(false);
+    expect(() => verifySourceAssets([wrongType])).toThrow("不是 PNG");
   });
 
   const brokenDatasets: [string, (data: RecipeDataset) => void][] = [
@@ -139,6 +168,21 @@ describe("容易失真的食材和字段", () => {
     expect(at("free", 1).ingredients[0]?.selection).toEqual(
       at("free", 1).ingredients[1]?.selection,
     );
+  });
+
+  it.each([
+    ["替换可选项", ["水果类", "蘑菇"]],
+    ["调换可选项顺序", ["鲜花", "水果类"]],
+  ] as const)("拒绝原文不变却%s", (_label, names) => {
+    const slot = structuredClone(at("simple", 1).ingredients[0]!);
+    const selection = slot.selection;
+    if (selection.status !== "recorded" || selection.value.kind !== "any-of") {
+      throw new Error("测试样本须为图片写明的可选食材");
+    }
+    selection.value.options.forEach((option, index) => {
+      option.name = names[index]!;
+    });
+    expect(ingredientSlotSchema.safeParse(slot).success).toBe(false);
   });
 
   it("招牌菜最后一行允许四个食材槽位，后续字段没有错位", () => {

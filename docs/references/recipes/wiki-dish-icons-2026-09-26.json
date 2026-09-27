@@ -1,0 +1,4102 @@
+{
+  "checkedOn": "2026-09-26",
+  "scope": "External image candidates only; recipe facts and original transcription remain unchanged.",
+  "localDataset": {
+    "path": "data/recipes/archive/2026-09-23.json",
+    "sha256": "a5a707eee3bcc9ddab68ecef86ff825ee7f17e0844cdf5120057503cd4959f47"
+  },
+  "independentCountSource": "docs/references/recipes/tomorrow-2026-09-23.inventory.json",
+  "wikiCatalogUrl": "https://petitplanet.wiki/Category:Dish_Icons",
+  "wikiDishTableUrl": "https://petitplanet.wiki/Dish",
+  "wikiMetadataApi": {
+    "url": "https://petitplanet.wiki/api.php",
+    "action": "query",
+    "prop": "imageinfo",
+    "iiprop": "url|size|sha1|timestamp"
+  },
+  "comparisonMethod": {
+    "description": "对 TapTap 中文标签图与 Wiki PNG 做辅助图形比较，再结合菜名/配方线索及重点视觉复核建立候选；不以相似度认定游戏内身份。",
+    "guideCropCenters": {
+      "x": 164,
+      "yByRow": [272, 455, 639, 824, 1007, 1189]
+    },
+    "guideCropSize": [145, 145],
+    "foreground": "背景取半径 62–67 像素环带的 RGB 中位数；前景为半径 <61 且任一 RGB 通道与背景差 >35 的像素。PNG 前景采用 alpha >180。",
+    "normalization": "分别取前景包围盒，白底等比缩至 60×60 内，居中于 64×64，计算 RGB 均方误差；候选得分只作为辅助证据。",
+    "limitations": "英文条目、攻略名称、配方与版本可能不同；共用或误标图标会产生歧义。所有对应均未在游戏中验证。"
+  },
+  "summary": {
+    "localRecipes": 90,
+    "wikiCatalogFiles": 95,
+    "downloadedAndDecodedFiles": 95,
+    "uniqueFileBytes": 87,
+    "uniqueDecodedRgbaImages": 86,
+    "candidateRecipes": 87,
+    "notFoundRecipes": 3,
+    "referencedFileNames": 86,
+    "unassignedFileNames": 9,
+    "referencedDecodedRgbaImages": 78,
+    "statusCounts": {
+      "visual-candidate": 79,
+      "name-variant-visual-candidate": 6,
+      "not-found": 3,
+      "shared-art-candidate": 1,
+      "english-entry-candidate": 1
+    },
+    "regions": [
+      {
+        "region": "simple",
+        "label": "简单菜",
+        "recipes": 37,
+        "candidates": 36,
+        "notFound": 1
+      },
+      {
+        "region": "signature",
+        "label": "招牌菜",
+        "recipes": 33,
+        "candidates": 31,
+        "notFound": 2
+      },
+      {
+        "region": "guest",
+        "label": "宴客菜",
+        "recipes": 10,
+        "candidates": 10,
+        "notFound": 0
+      },
+      {
+        "region": "free",
+        "label": "只能通过自由烹饪得到，不在菜谱内显示",
+        "recipes": 9,
+        "candidates": 9,
+        "notFound": 0
+      },
+      {
+        "region": "neighbor",
+        "label": "友邻秘方，只能通过友邻赠送获得，且只能在配方解锁后用配方制作",
+        "recipes": 1,
+        "candidates": 1,
+        "notFound": 0
+      }
+    ]
+  },
+  "files": [
+    {
+      "id": "petitplanet-wiki-file-789",
+      "title": "File:Aromatic Fruit Tea Icon.png",
+      "filePageUrl": "https://petitplanet.wiki/File:Aromatic_Fruit_Tea_Icon.png",
+      "originalUrl": "https://petitplanet.wiki/images/b/b5/Aromatic_Fruit_Tea_Icon.png",
+      "width": 512,
+      "height": 512,
+      "bytes": 113956,
+      "sha1": "115415fd510854770418ab03411d064c5e06d7db",
+      "sha256": "29a1f7ff2245518e4e2849b6803a0f3f510bf6b4fe473101cd6e6e7705e0fc5d",
+      "rgbaSha256": "0d6df94fee648b35fb4681b3a2ec4b9a031ff9800ab26b6b62bed52f3374313b",
+      "wikiUploadTimestamp": "2025-11-14T00:08:27Z",
+      "localPath": "docs/references/recipes/wiki-dish-icons-2026-09-26/Aromatic_Fruit_Tea_Icon.png"
+    },
+    {
+      "id": "petitplanet-wiki-file-3764",
+      "title": "File:Homestyle Assorted Claypot Stew Icon.png",
+      "filePageUrl": "https://petitplanet.wiki/File:Homestyle_Assorted_Claypot_Stew_Icon.png",
+      "originalUrl": "https://petitplanet.wiki/images/d/d2/Homestyle_Assorted_Claypot_Stew_Icon.png",
+      "width": 512,
+      "height": 512,
+      "bytes": 149939,
+      "sha1": "6c88d74e356720d6411f948178b61083e431d347",
+      "sha256": "930d0248bff5e0b5a5df836e33f5a4632232d1359509323e12aa9c2897341129",
+      "rgbaSha256": "0a599a5be11abad0f077baaca1242df3bc0ddcb733f5681888f3852a7ecc11b2",
+      "wikiUploadTimestamp": "2026-05-07T07:52:59Z",
+      "localPath": "docs/references/recipes/wiki-dish-icons-2026-09-26/Homestyle_Assorted_Claypot_Stew_Icon.png"
+    },
+    {
+      "id": "petitplanet-wiki-file-3794",
+      "title": "File:Blissful Floral & Fruit Tea Icon.png",
+      "filePageUrl": "https://petitplanet.wiki/File:Blissful_Floral_%26_Fruit_Tea_Icon.png",
+      "originalUrl": "https://petitplanet.wiki/images/7/7e/Blissful_Floral_%26_Fruit_Tea_Icon.png",
+      "width": 512,
+      "height": 512,
+      "bytes": 119142,
+      "sha1": "582cc1b5c87b7239f77dbe0ca0c31b57646c6980",
+      "sha256": "0b3f357e577a18d40817cdd0332e7bed9f87932b0f2c87dfd1feff66ef5c1a5e",
+      "rgbaSha256": "82552fd39d71b8598a87dfed33623e8b62a4c5697d5add344d09f3915c492b78",
+      "wikiUploadTimestamp": "2026-05-08T08:05:33Z",
+      "localPath": "docs/references/recipes/wiki-dish-icons-2026-09-26/Blissful_Floral_&_Fruit_Tea_Icon.png"
+    },
+    {
+      "id": "petitplanet-wiki-file-3798",
+      "title": "File:Floral Melon Tea Icon.png",
+      "filePageUrl": "https://petitplanet.wiki/File:Floral_Melon_Tea_Icon.png",
+      "originalUrl": "https://petitplanet.wiki/images/6/62/Floral_Melon_Tea_Icon.png",
+      "width": 512,
+      "height": 512,
+      "bytes": 112543,
+      "sha1": "aa4848c2c301eb4d88ee10b522826cf298236fa5",
+      "sha256": "bea03f6ffc50cd903bf0fe9d2279bba4f7533083522bf1ebd827a2ad4c29f256",
+      "rgbaSha256": "c3c97ef226a951e39270c54524e236311d050347161263c73ea1abb0707c5c7f",
+      "wikiUploadTimestamp": "2026-05-08T08:12:39Z",
+      "localPath": "docs/references/recipes/wiki-dish-icons-2026-09-26/Floral_Melon_Tea_Icon.png"
+    },
+    {
+      "id": "petitplanet-wiki-file-3804",
+      "title": "File:Catch of the Day Soup Icon.png",
+      "filePageUrl": "https://petitplanet.wiki/File:Catch_of_the_Day_Soup_Icon.png",
+      "originalUrl": "https://petitplanet.wiki/images/c/c1/Catch_of_the_Day_Soup_Icon.png",
+      "width": 512,
+      "height": 512,
+      "bytes": 148878,
+      "sha1": "c978f921d3972f9fdf277af73583739b74924b38",
+      "sha256": "e281c27397157ab14f49c91c5c4242bf38bf9eb1c2552ea75c48e1e5d3fa14c5",
+      "rgbaSha256": "5905dc5536c3db87013f03643aa06f1d1e573dba2070d1ec85e95e884bb78d65",
+      "wikiUploadTimestamp": "2026-05-08T10:38:34Z",
+      "localPath": "docs/references/recipes/wiki-dish-icons-2026-09-26/Catch_of_the_Day_Soup_Icon.png"
+    },
+    {
+      "id": "petitplanet-wiki-file-3813",
+      "title": "File:Grain Porridge Icon.png",
+      "filePageUrl": "https://petitplanet.wiki/File:Grain_Porridge_Icon.png",
+      "originalUrl": "https://petitplanet.wiki/images/6/6f/Grain_Porridge_Icon.png",
+      "width": 512,
+      "height": 512,
+      "bytes": 149212,
+      "sha1": "c9704c71964bce88654649b8c6de0d318825a65c",
+      "sha256": "78c231bcdaacc1295003803a7fba84d29e6af11552604142bf2445de4409f6de",
+      "rgbaSha256": "3eed5a0951fa168800dc74ab4a61aab92c753772e16273690887d5c536f956d2",
+      "wikiUploadTimestamp": "2026-05-08T10:46:48Z",
+      "localPath": "docs/references/recipes/wiki-dish-icons-2026-09-26/Grain_Porridge_Icon.png"
+    },
+    {
+      "id": "petitplanet-wiki-file-3825",
+      "title": "File:Field & Orchard Salad Icon.png",
+      "filePageUrl": "https://petitplanet.wiki/File:Field_%26_Orchard_Salad_Icon.png",
+      "originalUrl": "https://petitplanet.wiki/images/9/9b/Field_%26_Orchard_Salad_Icon.png",
+      "width": 512,
+      "height": 512,
+      "bytes": 175228,
+      "sha1": "2d569dbe6301573edcc7b04bbc00bf66bb20905d",
+      "sha256": "86d2988955b5203ad771a749dbe9cf73b1fed8ef16ba78c689d2ee1a10554e1b",
+      "rgbaSha256": "4fb3da6a4e63f7fcb9ca82ec14394b590b56b3f336abe3f99a87441afe1485b2",
+      "wikiUploadTimestamp": "2026-05-08T11:05:56Z",
+      "localPath": "docs/references/recipes/wiki-dish-icons-2026-09-26/Field_&_Orchard_Salad_Icon.png"
+    },
+    {
+      "id": "petitplanet-wiki-file-3829",
+      "title": "File:Country-Style Congee Icon.png",
+      "filePageUrl": "https://petitplanet.wiki/File:Country-Style_Congee_Icon.png",
+      "originalUrl": "https://petitplanet.wiki/images/5/50/Country-Style_Congee_Icon.png",
+      "width": 512,
+      "height": 512,
+      "bytes": 145997,
+      "sha1": "2d6c3cd1ba399e3dedce126a6f79e556538bebea",
+      "sha256": "1aa24d0dfaf0830ac4c7c7a2c1b8eda660815823b178b87b0f13efd7e1f3c851",
+      "rgbaSha256": "60081a72d38e88792c85d4e3388682bca2fb297b42bc224164a291c04d071056",
+      "wikiUploadTimestamp": "2026-05-08T11:08:54Z",
+      "localPath": "docs/references/recipes/wiki-dish-icons-2026-09-26/Country-Style_Congee_Icon.png"
+    },
+    {
+      "id": "petitplanet-wiki-file-3837",
+      "title": "File:Crab & Clam Stir-Fry Icon.png",
+      "filePageUrl": "https://petitplanet.wiki/File:Crab_%26_Clam_Stir-Fry_Icon.png",
+      "originalUrl": "https://petitplanet.wiki/images/1/17/Crab_%26_Clam_Stir-Fry_Icon.png",
+      "width": 512,
+      "height": 512,
+      "bytes": 144142,
+      "sha1": "2e6064bf2c1d7f4022b510727f843aa4b4c36273",
+      "sha256": "e45513fba0d1698f2185f99949ac89017c8a3a1633f60b9876ac3cb2dddceac0",
+      "rgbaSha256": "138eff68656556995561242ee4ff48017feaaccbc49b612c5540e8ec31642174",
+      "wikiUploadTimestamp": "2026-05-08T11:21:08Z",
+      "localPath": "docs/references/recipes/wiki-dish-icons-2026-09-26/Crab_&_Clam_Stir-Fry_Icon.png"
+    },
+    {
+      "id": "petitplanet-wiki-file-3839",
+      "title": "File:Full Sail Shrimp & Fish Soup Icon.png",
+      "filePageUrl": "https://petitplanet.wiki/File:Full_Sail_Shrimp_%26_Fish_Soup_Icon.png",
+      "originalUrl": "https://petitplanet.wiki/images/0/0f/Full_Sail_Shrimp_%26_Fish_Soup_Icon.png",
+      "width": 512,
+      "height": 512,
+      "bytes": 161307,
+      "sha1": "2b3cc44dd815c9092514aae384318ea54f7f7690",
+      "sha256": "30c44e82b5f05c31d1612db5a3b756664f46f9498068cc3dd4df1d27b15b198b",
+      "rgbaSha256": "cc7db35ad061b416d345a57966e1071ffe164b3e224f977dde2d8c01306197f7",
+      "wikiUploadTimestamp": "2026-05-08T11:23:25Z",
+      "localPath": "docs/references/recipes/wiki-dish-icons-2026-09-26/Full_Sail_Shrimp_&_Fish_Soup_Icon.png"
+    },
+    {
+      "id": "petitplanet-wiki-file-3847",
+      "title": "File:Fruity Crab & Sea Urchin Platter Icon.png",
+      "filePageUrl": "https://petitplanet.wiki/File:Fruity_Crab_%26_Sea_Urchin_Platter_Icon.png",
+      "originalUrl": "https://petitplanet.wiki/images/d/d5/Fruity_Crab_%26_Sea_Urchin_Platter_Icon.png",
+      "width": 512,
+      "height": 512,
+      "bytes": 132818,
+      "sha1": "d01881bca9c18f939561f9185063f5173de7392d",
+      "sha256": "5f288c33b483dbd6ed47bf556423e1961f11e0e10b9ab79e5dd8151933e6f116",
+      "rgbaSha256": "adfb2cce1a41969199d77b5a03f33624b18eee4ee000b8bf2e32c143459dd2e9",
+      "wikiUploadTimestamp": "2026-05-08T11:34:06Z",
+      "localPath": "docs/references/recipes/wiki-dish-icons-2026-09-26/Fruity_Crab_&_Sea_Urchin_Platter_Icon.png"
+    },
+    {
+      "id": "petitplanet-wiki-file-3852",
+      "title": "File:Corn, Mushroom & Vegetable Stir-Fry Icon.png",
+      "filePageUrl": "https://petitplanet.wiki/File:Corn,_Mushroom_%26_Vegetable_Stir-Fry_Icon.png",
+      "originalUrl": "https://petitplanet.wiki/images/b/b5/Corn%2C_Mushroom_%26_Vegetable_Stir-Fry_Icon.png",
+      "width": 512,
+      "height": 512,
+      "bytes": 153124,
+      "sha1": "69d64ee141d884f869ddfe60df5c38fb22d83848",
+      "sha256": "4aecd6b302ee6b5aae3f646881b9eac510f5f30b3236143824e2365fb1ef25cb",
+      "rgbaSha256": "240ffea296bdb6c7b2aeb590a1ec9bac0bd4760af9398a704327507e4a9c2d80",
+      "wikiUploadTimestamp": "2026-05-08T11:39:59Z",
+      "localPath": "docs/references/recipes/wiki-dish-icons-2026-09-26/Corn,_Mushroom_&_Vegetable_Stir-Fry_Icon.png"
+    },
+    {
+      "id": "petitplanet-wiki-file-3855",
+      "title": "File:Fruit Rice Bowl Icon.png",
+      "filePageUrl": "https://petitplanet.wiki/File:Fruit_Rice_Bowl_Icon.png",
+      "originalUrl": "https://petitplanet.wiki/images/d/df/Fruit_Rice_Bowl_Icon.png",
+      "width": 512,
+      "height": 512,
+      "bytes": 135058,
+      "sha1": "94c12c4b72318b114173a3245950e322ca9cab32",
+      "sha256": "2c8c9805c8ae54c445197458c434e0ce05fe18ceea30a55ef9533d78bb495bf1",
+      "rgbaSha256": "ec1f4f8624fef8f37b5392f1c7ecb39939bfdd1d0a73fd33d8542e482f29fe87",
+      "wikiUploadTimestamp": "2026-05-08T11:44:49Z",
+      "localPath": "docs/references/recipes/wiki-dish-icons-2026-09-26/Fruit_Rice_Bowl_Icon.png"
+    },
+    {
+      "id": "petitplanet-wiki-file-3857",
+      "title": "File:Crystal-Glazed Fish with Rice Icon.png",
+      "filePageUrl": "https://petitplanet.wiki/File:Crystal-Glazed_Fish_with_Rice_Icon.png",
+      "originalUrl": "https://petitplanet.wiki/images/8/84/Crystal-Glazed_Fish_with_Rice_Icon.png",
+      "width": 512,
+      "height": 512,
+      "bytes": 128417,
+      "sha1": "be4a6e3ba1bbc271313f06e4b9b02b14b7bc7fec",
+      "sha256": "3d9e616bd2aaa89a40966b90ab202d4dd481a1a1fa5a573d34b2ad5e7a30d48f",
+      "rgbaSha256": "9f8a4a0a29b7539f5174ffed864428ae032134c70dd41e5c7f68ac27ae093588",
+      "wikiUploadTimestamp": "2026-05-08T11:48:07Z",
+      "localPath": "docs/references/recipes/wiki-dish-icons-2026-09-26/Crystal-Glazed_Fish_with_Rice_Icon.png"
+    },
+    {
+      "id": "petitplanet-wiki-file-3862",
+      "title": "File:Greens & Shoots Medley Icon.png",
+      "filePageUrl": "https://petitplanet.wiki/File:Greens_%26_Shoots_Medley_Icon.png",
+      "originalUrl": "https://petitplanet.wiki/images/c/c1/Greens_%26_Shoots_Medley_Icon.png",
+      "width": 512,
+      "height": 512,
+      "bytes": 146769,
+      "sha1": "c0da8315d04f733d2f0af11a7e94a864b15105b5",
+      "sha256": "30334be7d19e813330dc3b31f07911e2da15ee0532153850191705262f4264bb",
+      "rgbaSha256": "61e0f78aebdce5eff83d72667d0506702e944317f1f7b8ad8729c2f35932dc11",
+      "wikiUploadTimestamp": "2026-05-08T11:53:21Z",
+      "localPath": "docs/references/recipes/wiki-dish-icons-2026-09-26/Greens_&_Shoots_Medley_Icon.png"
+    },
+    {
+      "id": "petitplanet-wiki-file-3868",
+      "title": "File:Fruit-Infused Fish Stew Icon.png",
+      "filePageUrl": "https://petitplanet.wiki/File:Fruit-Infused_Fish_Stew_Icon.png",
+      "originalUrl": "https://petitplanet.wiki/images/b/b3/Fruit-Infused_Fish_Stew_Icon.png",
+      "width": 256,
+      "height": 256,
+      "bytes": 40219,
+      "sha1": "f8cad9066afc40c519b6a359c916429a627648ac",
+      "sha256": "962299957b4277a2b89ea0963cbac598eae407f9fc26ac00b6d6d528871a9a98",
+      "rgbaSha256": "23a47184d1de6e3e317688cacaa0f0b365da9f14521681e9f882c4bacd2fbbd5",
+      "wikiUploadTimestamp": "2026-05-08T12:00:31Z",
+      "localPath": "docs/references/recipes/wiki-dish-icons-2026-09-26/Fruit-Infused_Fish_Stew_Icon.png"
+    },
+    {
+      "id": "petitplanet-wiki-file-3877",
+      "title": "File:Fish Soup with Bamboo Shoots Icon.png",
+      "filePageUrl": "https://petitplanet.wiki/File:Fish_Soup_with_Bamboo_Shoots_Icon.png",
+      "originalUrl": "https://petitplanet.wiki/images/3/30/Fish_Soup_with_Bamboo_Shoots_Icon.png",
+      "width": 512,
+      "height": 512,
+      "bytes": 140970,
+      "sha1": "d97e41a48fec01642efa2ca1359b48f3017cf15a",
+      "sha256": "7a94e71a09f08af891b33aae4526bedbbfaf682ffd4e640408b1a68176c737f6",
+      "rgbaSha256": "8a9dfb8c8a45ad7fffed221eb5b2738d8f69a45738a17d62c13446509844c4a6",
+      "wikiUploadTimestamp": "2026-05-08T12:14:15Z",
+      "localPath": "docs/references/recipes/wiki-dish-icons-2026-09-26/Fish_Soup_with_Bamboo_Shoots_Icon.png"
+    },
+    {
+      "id": "petitplanet-wiki-file-3881",
+      "title": "File:Golden Crab & Bamboo Shoot Soup Icon.png",
+      "filePageUrl": "https://petitplanet.wiki/File:Golden_Crab_%26_Bamboo_Shoot_Soup_Icon.png",
+      "originalUrl": "https://petitplanet.wiki/images/4/47/Golden_Crab_%26_Bamboo_Shoot_Soup_Icon.png",
+      "width": 512,
+      "height": 512,
+      "bytes": 145153,
+      "sha1": "f75ba15692f102c0d852d2599ae854afa1c1161d",
+      "sha256": "d61d7fb3074f11734b3388e8dcc9533aad7034884ba39597503dfad54950c8a2",
+      "rgbaSha256": "38356f8c46945ea3ba5c2d4be19ff758c126b5a0e761966e20bae0be2fcd7110",
+      "wikiUploadTimestamp": "2026-05-08T12:20:03Z",
+      "localPath": "docs/references/recipes/wiki-dish-icons-2026-09-26/Golden_Crab_&_Bamboo_Shoot_Soup_Icon.png"
+    },
+    {
+      "id": "petitplanet-wiki-file-3883",
+      "title": "File:Golden Fish & Mushroom Fry Icon.png",
+      "filePageUrl": "https://petitplanet.wiki/File:Golden_Fish_%26_Mushroom_Fry_Icon.png",
+      "originalUrl": "https://petitplanet.wiki/images/a/a7/Golden_Fish_%26_Mushroom_Fry_Icon.png",
+      "width": 512,
+      "height": 512,
+      "bytes": 130445,
+      "sha1": "9478bfba0dca6b95fbebd5278424b6c1f8352e30",
+      "sha256": "4f36b5bacd2e7bfbd672726fca7382100cf08ec7286d0a0f255ad186fa65da2b",
+      "rgbaSha256": "b89c8cd83aef5c50a60159e17f08472fc7b3e4b1c18dd020fa5c3b893d8980e6",
+      "wikiUploadTimestamp": "2026-05-08T12:22:40Z",
+      "localPath": "docs/references/recipes/wiki-dish-icons-2026-09-26/Golden_Fish_&_Mushroom_Fry_Icon.png"
+    },
+    {
+      "id": "petitplanet-wiki-file-3885",
+      "title": "File:Bamboo Apple Slushie Icon.png",
+      "filePageUrl": "https://petitplanet.wiki/File:Bamboo_Apple_Slushie_Icon.png",
+      "originalUrl": "https://petitplanet.wiki/images/2/25/Bamboo_Apple_Slushie_Icon.png",
+      "width": 512,
+      "height": 512,
+      "bytes": 116711,
+      "sha1": "ce2de06b8e29c914ce024b91f4eca2add6227156",
+      "sha256": "85d5776d4d34ddac2ecff88f2bc30bef8a10550566ae8983a6c815a41f6d4410",
+      "rgbaSha256": "854149e812dcd97a1506af9c4a78b1b932ed1d697adb8138e2f3ebe364f2b892",
+      "wikiUploadTimestamp": "2026-05-08T12:25:18Z",
+      "localPath": "docs/references/recipes/wiki-dish-icons-2026-09-26/Bamboo_Apple_Slushie_Icon.png"
+    },
+    {
+      "id": "petitplanet-wiki-file-3887",
+      "title": "File:Kabuto Rice Bun Icon.png",
+      "filePageUrl": "https://petitplanet.wiki/File:Kabuto_Rice_Bun_Icon.png",
+      "originalUrl": "https://petitplanet.wiki/images/c/ca/Kabuto_Rice_Bun_Icon.png",
+      "width": 512,
+      "height": 512,
+      "bytes": 127280,
+      "sha1": "30c5da9b88940094240ec819b3fa66bb66f64c35",
+      "sha256": "cac395ebc130320f799c2996411d77546f944a500f20169a1824e0f2e3c2fd8f",
+      "rgbaSha256": "541fe6817c4727ba58d9afe9b4da26f157b2e43efff68dc497e2f37cf2600160",
+      "wikiUploadTimestamp": "2026-05-08T12:27:34Z",
+      "localPath": "docs/references/recipes/wiki-dish-icons-2026-09-26/Kabuto_Rice_Bun_Icon.png"
+    },
+    {
+      "id": "petitplanet-wiki-file-3889",
+      "title": "File:BBQ Meatshrooms Icon.png",
+      "filePageUrl": "https://petitplanet.wiki/File:BBQ_Meatshrooms_Icon.png",
+      "originalUrl": "https://petitplanet.wiki/images/c/c8/BBQ_Meatshrooms_Icon.png",
+      "width": 512,
+      "height": 512,
+      "bytes": 131337,
+      "sha1": "8c7322b3d7dc378f4db88d0e4213881f25214f4f",
+      "sha256": "4abe80917ae8fe1dce1c7ace0233aad7fe1249918e3832cfc789c13004755ef0",
+      "rgbaSha256": "22bf96969bde626434c4b640825b48aed2c9e0e40b3d003763f2c682442381a1",
+      "wikiUploadTimestamp": "2026-05-08T12:29:58Z",
+      "localPath": "docs/references/recipes/wiki-dish-icons-2026-09-26/BBQ_Meatshrooms_Icon.png"
+    },
+    {
+      "id": "petitplanet-wiki-file-3891",
+      "title": "File:Caterpillar Fungus Herbal Remedy Icon.png",
+      "filePageUrl": "https://petitplanet.wiki/File:Caterpillar_Fungus_Herbal_Remedy_Icon.png",
+      "originalUrl": "https://petitplanet.wiki/images/f/f2/Caterpillar_Fungus_Herbal_Remedy_Icon.png",
+      "width": 512,
+      "height": 512,
+      "bytes": 118105,
+      "sha1": "822b222e57419fa954a0e92ae3fe1b4dcdbd121c",
+      "sha256": "ad3ade60199b4dc6af6fd7116954b930d726ad0b051ce8d8600b5813968db93c",
+      "rgbaSha256": "e54fc5a93ebf424b5d4019e79850e51a5ebd3314e14e7d47ef3489cc1cc119d8",
+      "wikiUploadTimestamp": "2026-05-08T12:32:05Z",
+      "localPath": "docs/references/recipes/wiki-dish-icons-2026-09-26/Caterpillar_Fungus_Herbal_Remedy_Icon.png"
+    },
+    {
+      "id": "petitplanet-wiki-file-3893",
+      "title": "File:Glistening Fruit Pie Icon.png",
+      "filePageUrl": "https://petitplanet.wiki/File:Glistening_Fruit_Pie_Icon.png",
+      "originalUrl": "https://petitplanet.wiki/images/5/56/Glistening_Fruit_Pie_Icon.png",
+      "width": 512,
+      "height": 512,
+      "bytes": 154184,
+      "sha1": "f7e0959e0c9e937a8099678ed7eb99d9d8167986",
+      "sha256": "a164bfc5c62c5a9ab2021c88f202f94bbe927b3340324715556f0b09e74937cd",
+      "rgbaSha256": "c022c323f502c9740a3afc8aa007f6c385f5c228dc2d15b1acf5d8412e28f5a8",
+      "wikiUploadTimestamp": "2026-05-08T12:33:59Z",
+      "localPath": "docs/references/recipes/wiki-dish-icons-2026-09-26/Glistening_Fruit_Pie_Icon.png"
+    },
+    {
+      "id": "petitplanet-wiki-file-3898",
+      "title": "File:Granny's Veggie Fried Rice Icon.png",
+      "filePageUrl": "https://petitplanet.wiki/File:Granny%27s_Veggie_Fried_Rice_Icon.png",
+      "originalUrl": "https://petitplanet.wiki/images/2/20/Granny%27s_Veggie_Fried_Rice_Icon.png",
+      "width": 512,
+      "height": 512,
+      "bytes": 130490,
+      "sha1": "1394187cce94c90510a85e5b0a5a024b84cfd225",
+      "sha256": "ed5c998726fb7a4f78e1b984e49dbe453947482875b0b36313f8a936c33bac44",
+      "rgbaSha256": "d5f1f569cb21658c1c0ef1de7e9842110616ccf6480340ca50a1f2cba1c5a648",
+      "wikiUploadTimestamp": "2026-05-08T12:40:04Z",
+      "localPath": "docs/references/recipes/wiki-dish-icons-2026-09-26/Granny's_Veggie_Fried_Rice_Icon.png"
+    },
+    {
+      "id": "petitplanet-wiki-file-3908",
+      "title": "File:Carapulcra Stew Icon.png",
+      "filePageUrl": "https://petitplanet.wiki/File:Carapulcra_Stew_Icon.png",
+      "originalUrl": "https://petitplanet.wiki/images/4/4d/Carapulcra_Stew_Icon.png",
+      "width": 512,
+      "height": 512,
+      "bytes": 164761,
+      "sha1": "85f76113e2fcc91c6bb42f0c503303977c0d4b1f",
+      "sha256": "941902192a27e29cd4d9c8c5bf71e0e9bf923f7c2101c8614e31a24714a33915",
+      "rgbaSha256": "cb099e84261d0a78296c3367ebdd0406f3b44f8fd66a4adf450bf989413c834a",
+      "wikiUploadTimestamp": "2026-05-08T12:51:38Z",
+      "localPath": "docs/references/recipes/wiki-dish-icons-2026-09-26/Carapulcra_Stew_Icon.png"
+    },
+    {
+      "id": "petitplanet-wiki-file-3934",
+      "title": "File:Baked Rice Pudding Icon.png",
+      "filePageUrl": "https://petitplanet.wiki/File:Baked_Rice_Pudding_Icon.png",
+      "originalUrl": "https://petitplanet.wiki/images/4/44/Baked_Rice_Pudding_Icon.png",
+      "width": 512,
+      "height": 512,
+      "bytes": 202219,
+      "sha1": "d4f338e374352f84a41da3936dfbaf9a6abc6ecf",
+      "sha256": "2d650b1c0a9925d5b107b14832d1411a5dd3cb08217d6798b17e74b86abc215b",
+      "rgbaSha256": "b313cef6beed748470db3067e7419eed3bcaf83824e54ff35ce1b1457950958b",
+      "wikiUploadTimestamp": "2026-05-08T14:29:02Z",
+      "localPath": "docs/references/recipes/wiki-dish-icons-2026-09-26/Baked_Rice_Pudding_Icon.png"
+    },
+    {
+      "id": "petitplanet-wiki-file-3935",
+      "title": "File:Campfire-Grilled Fish Icon.png",
+      "filePageUrl": "https://petitplanet.wiki/File:Campfire-Grilled_Fish_Icon.png",
+      "originalUrl": "https://petitplanet.wiki/images/3/37/Campfire-Grilled_Fish_Icon.png",
+      "width": 512,
+      "height": 512,
+      "bytes": 206220,
+      "sha1": "86509b60da051eebc0ea855892e1765bf0d15254",
+      "sha256": "85f272aecff1133400574ed0f22a07ff38fa84543332480bb8abcee794f01285",
+      "rgbaSha256": "c8d0b8556a850bf067a061fd3ba4f2d1847b517e62a5c24aff8741aeee231881",
+      "wikiUploadTimestamp": "2026-05-08T14:29:31Z",
+      "localPath": "docs/references/recipes/wiki-dish-icons-2026-09-26/Campfire-Grilled_Fish_Icon.png"
+    },
+    {
+      "id": "petitplanet-wiki-file-3936",
+      "title": "File:Fish Baked Clay Pot Rice Icon.png",
+      "filePageUrl": "https://petitplanet.wiki/File:Fish_Baked_Clay_Pot_Rice_Icon.png",
+      "originalUrl": "https://petitplanet.wiki/images/f/f3/Fish_Baked_Clay_Pot_Rice_Icon.png",
+      "width": 512,
+      "height": 512,
+      "bytes": 198376,
+      "sha1": "067028fb3f40cf92182ae60b93a4ae7ad3ee03db",
+      "sha256": "09065765a526638f1e2fa93948380413674fed8c2f6f3ac310f5d891521f9e77",
+      "rgbaSha256": "b344abe8879a21b854ec0b357b9fc94cb342978936d325e44a14d1d110bec76a",
+      "wikiUploadTimestamp": "2026-05-08T14:30:08Z",
+      "localPath": "docs/references/recipes/wiki-dish-icons-2026-09-26/Fish_Baked_Clay_Pot_Rice_Icon.png"
+    },
+    {
+      "id": "petitplanet-wiki-file-3937",
+      "title": "File:Fruit-Crusted Baked Fish Icon.png",
+      "filePageUrl": "https://petitplanet.wiki/File:Fruit-Crusted_Baked_Fish_Icon.png",
+      "originalUrl": "https://petitplanet.wiki/images/8/80/Fruit-Crusted_Baked_Fish_Icon.png",
+      "width": 512,
+      "height": 512,
+      "bytes": 251612,
+      "sha1": "c3af80370107acfe81457b8bc0535a7bb42b508b",
+      "sha256": "4da50f7a21dc73945e4b119483a324d045972f22a3e2a8b7ac2360d0f7d7c2a7",
+      "rgbaSha256": "85648ad79c0bd9f602f403c4e0efc30a01532e84caf61f6aa74d44552b1624d5",
+      "wikiUploadTimestamp": "2026-05-08T14:31:18Z",
+      "localPath": "docs/references/recipes/wiki-dish-icons-2026-09-26/Fruit-Crusted_Baked_Fish_Icon.png"
+    },
+    {
+      "id": "petitplanet-wiki-file-3938",
+      "title": "File:Grilled Fish & Veggies Icon.png",
+      "filePageUrl": "https://petitplanet.wiki/File:Grilled_Fish_%26_Veggies_Icon.png",
+      "originalUrl": "https://petitplanet.wiki/images/5/51/Grilled_Fish_%26_Veggies_Icon.png",
+      "width": 512,
+      "height": 512,
+      "bytes": 228605,
+      "sha1": "c2d2fa2407f642f732643afff75b707d12e760aa",
+      "sha256": "c35453c5a7569bbed63d65c69f1170504814e3c6adda02fbb1df89070a2cf738",
+      "rgbaSha256": "f689d142a37058452770428834056dd4d36a8b96b491cc83e762009f1bcafb8c",
+      "wikiUploadTimestamp": "2026-05-08T14:31:41Z",
+      "localPath": "docs/references/recipes/wiki-dish-icons-2026-09-26/Grilled_Fish_&_Veggies_Icon.png"
+    },
+    {
+      "id": "petitplanet-wiki-file-3939",
+      "title": "File:Homestyle Assorted Skewers Icon.png",
+      "filePageUrl": "https://petitplanet.wiki/File:Homestyle_Assorted_Skewers_Icon.png",
+      "originalUrl": "https://petitplanet.wiki/images/9/9f/Homestyle_Assorted_Skewers_Icon.png",
+      "width": 512,
+      "height": 512,
+      "bytes": 239712,
+      "sha1": "bef527136c229a5f139c5e28b49bdc4b3b0ca33e",
+      "sha256": "b99b5b551e6dccbec926a343bb40bd0346a55654925691402350a523801b4836",
+      "rgbaSha256": "6bc38b977218404a812a89de23f76bfc5ba8440d2012c53542002a25722b38a0",
+      "wikiUploadTimestamp": "2026-05-08T14:32:37Z",
+      "localPath": "docs/references/recipes/wiki-dish-icons-2026-09-26/Homestyle_Assorted_Skewers_Icon.png"
+    },
+    {
+      "id": "petitplanet-wiki-file-3946",
+      "title": "File:Berry Medley Cake Icon.png",
+      "filePageUrl": "https://petitplanet.wiki/File:Berry_Medley_Cake_Icon.png",
+      "originalUrl": "https://petitplanet.wiki/images/0/00/Berry_Medley_Cake_Icon.png",
+      "width": 512,
+      "height": 512,
+      "bytes": 209322,
+      "sha1": "1a6732c7581159f05ed85c0e6b3a8b74f4568238",
+      "sha256": "db3d807abbf8dc02809ce73a57a964a2e76fea42f38273cbdcb6356ed51c94ab",
+      "rgbaSha256": "86eede4d0e82bc4ea9ba6d644245fbc0c7c11d53e0e9b5e20353a8157f168c87",
+      "wikiUploadTimestamp": "2026-05-08T14:37:08Z",
+      "localPath": "docs/references/recipes/wiki-dish-icons-2026-09-26/Berry_Medley_Cake_Icon.png"
+    },
+    {
+      "id": "petitplanet-wiki-file-3947",
+      "title": "File:Fried Fish & Tomato Pizza Icon.png",
+      "filePageUrl": "https://petitplanet.wiki/File:Fried_Fish_%26_Tomato_Pizza_Icon.png",
+      "originalUrl": "https://petitplanet.wiki/images/4/48/Fried_Fish_%26_Tomato_Pizza_Icon.png",
+      "width": 512,
+      "height": 512,
+      "bytes": 221060,
+      "sha1": "bd4d99d9f2e74f4334328f1d98e934b24af6f6e7",
+      "sha256": "bed6d6cfdbb57a957e1f4791f0c0d37a77a9bde88a646d65d4d26cf40553d9e1",
+      "rgbaSha256": "391d85a9ad5ae6b354b68d994e66ceea7eba8f1de6608d7c84e458eaa614fb5a",
+      "wikiUploadTimestamp": "2026-05-08T14:37:28Z",
+      "localPath": "docs/references/recipes/wiki-dish-icons-2026-09-26/Fried_Fish_&_Tomato_Pizza_Icon.png"
+    },
+    {
+      "id": "petitplanet-wiki-file-3948",
+      "title": "File:Grilled Sea Fish with Shrimp & Shellfish Icon.png",
+      "filePageUrl": "https://petitplanet.wiki/File:Grilled_Sea_Fish_with_Shrimp_%26_Shellfish_Icon.png",
+      "originalUrl": "https://petitplanet.wiki/images/4/44/Grilled_Sea_Fish_with_Shrimp_%26_Shellfish_Icon.png",
+      "width": 512,
+      "height": 512,
+      "bytes": 235199,
+      "sha1": "7c99a0d4a2ba7b5798b6957288fe9ea05f70eb86",
+      "sha256": "96875d4fe96cdf604239b660c8d3992125fde7acd842fb2a84e36255d7166c5c",
+      "rgbaSha256": "46dbe3cb798312dd66ec1972542c3299c1217c81462264a9ecbf38c657f9ec02",
+      "wikiUploadTimestamp": "2026-05-08T14:37:48Z",
+      "localPath": "docs/references/recipes/wiki-dish-icons-2026-09-26/Grilled_Sea_Fish_with_Shrimp_&_Shellfish_Icon.png"
+    },
+    {
+      "id": "petitplanet-wiki-file-3949",
+      "title": "File:Grilled Shrimp & Lobster Fruit Platter Icon.png",
+      "filePageUrl": "https://petitplanet.wiki/File:Grilled_Shrimp_%26_Lobster_Fruit_Platter_Icon.png",
+      "originalUrl": "https://petitplanet.wiki/images/2/2f/Grilled_Shrimp_%26_Lobster_Fruit_Platter_Icon.png",
+      "width": 512,
+      "height": 512,
+      "bytes": 226967,
+      "sha1": "f20bfe11e1cfaff4263508e79fce17f860c76cbe",
+      "sha256": "bb972ab9f58b649e25498629bb85ea5883b9b14d3493f26099b2c0dea9cb9747",
+      "rgbaSha256": "fb73116e3eb38dba4b59985d85c5c6f16d2518e841b8a8141aabe23ad69452b0",
+      "wikiUploadTimestamp": "2026-05-08T14:38:06Z",
+      "localPath": "docs/references/recipes/wiki-dish-icons-2026-09-26/Grilled_Shrimp_&_Lobster_Fruit_Platter_Icon.png"
+    },
+    {
+      "id": "petitplanet-wiki-file-3952",
+      "title": "File:All-in-One Skewers Icon.png",
+      "filePageUrl": "https://petitplanet.wiki/File:All-in-One_Skewers_Icon.png",
+      "originalUrl": "https://petitplanet.wiki/images/3/36/All-in-One_Skewers_Icon.png",
+      "width": 512,
+      "height": 512,
+      "bytes": 220743,
+      "sha1": "94d80dc34b3a4101ab826acd2256749d6744cfa1",
+      "sha256": "2345bb1d1a2fef959350782ffe9f9be515704dac6cd726984346feb9c74aac26",
+      "rgbaSha256": "0020fa4724e47005e1445b288f7023cd714e0e1a552ce5e3dd0a847c5c6aa7c1",
+      "wikiUploadTimestamp": "2026-05-08T14:39:15Z",
+      "localPath": "docs/references/recipes/wiki-dish-icons-2026-09-26/All-in-One_Skewers_Icon.png"
+    },
+    {
+      "id": "petitplanet-wiki-file-3953",
+      "title": "File:Grilled Shrimp & Shellfish with Colorful Vegetables Icon.png",
+      "filePageUrl": "https://petitplanet.wiki/File:Grilled_Shrimp_%26_Shellfish_with_Colorful_Vegetables_Icon.png",
+      "originalUrl": "https://petitplanet.wiki/images/b/b5/Grilled_Shrimp_%26_Shellfish_with_Colorful_Vegetables_Icon.png",
+      "width": 512,
+      "height": 512,
+      "bytes": 214565,
+      "sha1": "0544ef2551e46d6d422e70fe3c469bf7fa60f07c",
+      "sha256": "aa043aff8597f1fc54188302798aa30a56cd56f76ba6085cf8e33d2d007b8c6b",
+      "rgbaSha256": "b21ad97b728863335953bccba700642973da147267a18ac4e0b8844bcfb603da",
+      "wikiUploadTimestamp": "2026-05-08T14:39:33Z",
+      "localPath": "docs/references/recipes/wiki-dish-icons-2026-09-26/Grilled_Shrimp_&_Shellfish_with_Colorful_Vegetables_Icon.png"
+    },
+    {
+      "id": "petitplanet-wiki-file-3963",
+      "title": "File:Dazzling Juice Icon.png",
+      "filePageUrl": "https://petitplanet.wiki/File:Dazzling_Juice_Icon.png",
+      "originalUrl": "https://petitplanet.wiki/images/2/24/Dazzling_Juice_Icon.png",
+      "width": 512,
+      "height": 512,
+      "bytes": 142173,
+      "sha1": "7a640e821bf5d236be2e4a5c9fd8108f7b163715",
+      "sha256": "d632448d62199dda4fab8a19c8ba003354b40b0b33fc9476d383cb617012db00",
+      "rgbaSha256": "1314cf48cab8ba3a86c11b4f7fe7064fcc1f99fef3ead5aee3da2a41b592738f",
+      "wikiUploadTimestamp": "2026-05-08T14:47:44Z",
+      "localPath": "docs/references/recipes/wiki-dish-icons-2026-09-26/Dazzling_Juice_Icon.png"
+    },
+    {
+      "id": "petitplanet-wiki-file-3991",
+      "title": "File:Chilled Fruit Noodles Icon.png",
+      "filePageUrl": "https://petitplanet.wiki/File:Chilled_Fruit_Noodles_Icon.png",
+      "originalUrl": "https://petitplanet.wiki/images/1/19/Chilled_Fruit_Noodles_Icon.png",
+      "width": 512,
+      "height": 512,
+      "bytes": 251372,
+      "sha1": "302944e131407fe18c00998a76cbd196d61867aa",
+      "sha256": "f4b3b1d1039694f1a7bd82479c89b439815060fd48900f7e97f3cb4d84de216a",
+      "rgbaSha256": "b8f788e0fea0480f4c8f864d99ea05515354a27457ac64235ba989cb8c232f02",
+      "wikiUploadTimestamp": "2026-05-08T15:04:58Z",
+      "localPath": "docs/references/recipes/wiki-dish-icons-2026-09-26/Chilled_Fruit_Noodles_Icon.png"
+    },
+    {
+      "id": "petitplanet-wiki-file-3992",
+      "title": "File:Hexian Jiuniang Icon.png",
+      "filePageUrl": "https://petitplanet.wiki/File:Hexian_Jiuniang_Icon.png",
+      "originalUrl": "https://petitplanet.wiki/images/f/fd/Hexian_Jiuniang_Icon.png",
+      "width": 512,
+      "height": 512,
+      "bytes": 156774,
+      "sha1": "18fc8733e87c9aaec43dce8d8cb15e5cef7e26ee",
+      "sha256": "900f03ae9c09f30e150466eff788b15ea435bace83b5b4119535b0abc97b05b7",
+      "rgbaSha256": "3fb6468c96c08a131378b050727f2b6fcaac1012ec59d1c891f0abe37e60ca7e",
+      "wikiUploadTimestamp": "2026-05-08T15:07:46Z",
+      "localPath": "docs/references/recipes/wiki-dish-icons-2026-09-26/Hexian_Jiuniang_Icon.png"
+    },
+    {
+      "id": "petitplanet-wiki-file-3993",
+      "title": "File:Fruit & Veggie Juice Icon.png",
+      "filePageUrl": "https://petitplanet.wiki/File:Fruit_%26_Veggie_Juice_Icon.png",
+      "originalUrl": "https://petitplanet.wiki/images/5/5c/Fruit_%26_Veggie_Juice_Icon.png",
+      "width": 512,
+      "height": 512,
+      "bytes": 130625,
+      "sha1": "c00af4e4f002bcd0ec1432460bb77bc89d788fb1",
+      "sha256": "9e5fe65d188804ecc2759a64571e62d2ec92780d2ba93946678b440c681e517b",
+      "rgbaSha256": "5750f706b16ac898b3b86edc0faa431fce53d96dbdfebdfde6467b4655cf5da2",
+      "wikiUploadTimestamp": "2026-05-08T15:07:57Z",
+      "localPath": "docs/references/recipes/wiki-dish-icons-2026-09-26/Fruit_&_Veggie_Juice_Icon.png"
+    },
+    {
+      "id": "petitplanet-wiki-file-3995",
+      "title": "File:Berry Rice Delight Icon.png",
+      "filePageUrl": "https://petitplanet.wiki/File:Berry_Rice_Delight_Icon.png",
+      "originalUrl": "https://petitplanet.wiki/images/0/04/Berry_Rice_Delight_Icon.png",
+      "width": 512,
+      "height": 512,
+      "bytes": 90470,
+      "sha1": "a4c983daff0013070037d1706794025a1a0a790e",
+      "sha256": "5b1d5ec89dbc65087ae362e297d62fc71be2ba3fc68d4f8f45521f84648d345c",
+      "rgbaSha256": "d5a77d8e869fbd328e929a08ef942279061e78b592108358c224ebcb4fed3fff",
+      "wikiUploadTimestamp": "2026-05-08T15:08:49Z",
+      "localPath": "docs/references/recipes/wiki-dish-icons-2026-09-26/Berry_Rice_Delight_Icon.png"
+    },
+    {
+      "id": "petitplanet-wiki-file-3996",
+      "title": "File:Cloud-Froth Wheat Milk Icon.png",
+      "filePageUrl": "https://petitplanet.wiki/File:Cloud-Froth_Wheat_Milk_Icon.png",
+      "originalUrl": "https://petitplanet.wiki/images/6/6e/Cloud-Froth_Wheat_Milk_Icon.png",
+      "width": 512,
+      "height": 512,
+      "bytes": 100101,
+      "sha1": "a4b12e29ffecc2cb871fbb067955975c5973b122",
+      "sha256": "bb0efbdb6c93dccf7aa6cbf32cf8080febaa14c536cc4bff0a6efe2b6fe387ba",
+      "rgbaSha256": "cfe82361aecce3e97433b896b9d83dccc865c80a1e6ae61a585d41b8a3ecbe74",
+      "wikiUploadTimestamp": "2026-05-08T15:09:05Z",
+      "localPath": "docs/references/recipes/wiki-dish-icons-2026-09-26/Cloud-Froth_Wheat_Milk_Icon.png"
+    },
+    {
+      "id": "petitplanet-wiki-file-3997",
+      "title": "File:Grain & Veggie Refresher Icon.png",
+      "filePageUrl": "https://petitplanet.wiki/File:Grain_%26_Veggie_Refresher_Icon.png",
+      "originalUrl": "https://petitplanet.wiki/images/7/7d/Grain_%26_Veggie_Refresher_Icon.png",
+      "width": 512,
+      "height": 512,
+      "bytes": 140677,
+      "sha1": "79086193fad83fe0d24a660fc239c86dffac6906",
+      "sha256": "3a6bc15d7b509af8ac955b4ecce1b00b2b10591d0b48df380b9989e6e3520df3",
+      "rgbaSha256": "548ce150b04fb1e2bd1696550fa401d790500c87d5b2dfc2061768c77238942f",
+      "wikiUploadTimestamp": "2026-05-08T15:09:19Z",
+      "localPath": "docs/references/recipes/wiki-dish-icons-2026-09-26/Grain_&_Veggie_Refresher_Icon.png"
+    },
+    {
+      "id": "petitplanet-wiki-file-3998",
+      "title": "File:Homestyle Blend Icon.png",
+      "filePageUrl": "https://petitplanet.wiki/File:Homestyle_Blend_Icon.png",
+      "originalUrl": "https://petitplanet.wiki/images/8/85/Homestyle_Blend_Icon.png",
+      "width": 512,
+      "height": 512,
+      "bytes": 130625,
+      "sha1": "c00af4e4f002bcd0ec1432460bb77bc89d788fb1",
+      "sha256": "9e5fe65d188804ecc2759a64571e62d2ec92780d2ba93946678b440c681e517b",
+      "rgbaSha256": "5750f706b16ac898b3b86edc0faa431fce53d96dbdfebdfde6467b4655cf5da2",
+      "wikiUploadTimestamp": "2026-05-08T15:09:55Z",
+      "localPath": "docs/references/recipes/wiki-dish-icons-2026-09-26/Homestyle_Blend_Icon.png"
+    },
+    {
+      "id": "petitplanet-wiki-file-4001",
+      "title": "File:Fruity Wheat Milk Icon.png",
+      "filePageUrl": "https://petitplanet.wiki/File:Fruity_Wheat_Milk_Icon.png",
+      "originalUrl": "https://petitplanet.wiki/images/7/78/Fruity_Wheat_Milk_Icon.png",
+      "width": 512,
+      "height": 512,
+      "bytes": 98835,
+      "sha1": "de2fd55092209e6b3b7af93641f3bdd74d83eea3",
+      "sha256": "1169ae1bb90c64957e221b5624cb4ada67fb77e1385ee7a185535e7db56073a9",
+      "rgbaSha256": "1f09fafaedda6bb54600702bfab796339bd92f692b937bdd13de832ec630ab38",
+      "wikiUploadTimestamp": "2026-05-08T15:10:43Z",
+      "localPath": "docs/references/recipes/wiki-dish-icons-2026-09-26/Fruity_Wheat_Milk_Icon.png"
+    },
+    {
+      "id": "petitplanet-wiki-file-4004",
+      "title": "File:Hexian Rice & Wheat Milk Icon.png",
+      "filePageUrl": "https://petitplanet.wiki/File:Hexian_Rice_%26_Wheat_Milk_Icon.png",
+      "originalUrl": "https://petitplanet.wiki/images/1/1f/Hexian_Rice_%26_Wheat_Milk_Icon.png",
+      "width": 512,
+      "height": 512,
+      "bytes": 125251,
+      "sha1": "9415f9b28773fea375f509ebaccd1401d824dbb9",
+      "sha256": "8ac5224f60987b0174ddbbf45638ac263ee611c4a59b1e3e3fdd25c5df6c0868",
+      "rgbaSha256": "d18737abebf037b5bc81e24b6dc6c8110d99cb1e9856a60aabb8b827ba285df8",
+      "wikiUploadTimestamp": "2026-05-08T15:11:32Z",
+      "localPath": "docs/references/recipes/wiki-dish-icons-2026-09-26/Hexian_Rice_&_Wheat_Milk_Icon.png"
+    },
+    {
+      "id": "petitplanet-wiki-file-4008",
+      "title": "File:Four Seasons Soup Icon.png",
+      "filePageUrl": "https://petitplanet.wiki/File:Four_Seasons_Soup_Icon.png",
+      "originalUrl": "https://petitplanet.wiki/images/3/3b/Four_Seasons_Soup_Icon.png",
+      "width": 512,
+      "height": 512,
+      "bytes": 223204,
+      "sha1": "010cfb49579823bfc8d1e43831fda753f02a9258",
+      "sha256": "3974df294052a256d518cef541fbbe8975209ccbd5de4f3f73421b982686b4c2",
+      "rgbaSha256": "3a99cf43c3665e2f25d7748d8f4b82dd0125e84eb7ef6f1beba7742fe5dc348e",
+      "wikiUploadTimestamp": "2026-05-08T15:16:38Z",
+      "localPath": "docs/references/recipes/wiki-dish-icons-2026-09-26/Four_Seasons_Soup_Icon.png"
+    },
+    {
+      "id": "petitplanet-wiki-file-4014",
+      "title": "File:Cloudlet Cookies Icon.png",
+      "filePageUrl": "https://petitplanet.wiki/File:Cloudlet_Cookies_Icon.png",
+      "originalUrl": "https://petitplanet.wiki/images/2/2e/Cloudlet_Cookies_Icon.png",
+      "width": 512,
+      "height": 512,
+      "bytes": 158976,
+      "sha1": "1f04d1c62a18979dfd1b825cd9e2f4d0666d4f82",
+      "sha256": "539384c136fddfef5020ad53396d56f3eca5f85d49c3cbd62643c3af53b55f93",
+      "rgbaSha256": "9d8821e694bc4b68beb2a5daa714a8580bc2066658749ef0acb99ef0d0aaeb8d",
+      "wikiUploadTimestamp": "2026-05-08T15:23:03Z",
+      "localPath": "docs/references/recipes/wiki-dish-icons-2026-09-26/Cloudlet_Cookies_Icon.png"
+    },
+    {
+      "id": "petitplanet-wiki-file-3792",
+      "title": "File:Seafood Congee Icon.png",
+      "filePageUrl": "https://petitplanet.wiki/File:Seafood_Congee_Icon.png",
+      "originalUrl": "https://petitplanet.wiki/images/4/41/Seafood_Congee_Icon.png",
+      "width": 512,
+      "height": 512,
+      "bytes": 155893,
+      "sha1": "8857647c2b7a6562eed8c629ff34c12cbd19b438",
+      "sha256": "4e3f9141cfdf95fb8a46ce3a178dc6749207fdd559fe19973e40a97e7e9346f2",
+      "rgbaSha256": "114b733da8b1f3ead9d23f9f2163b0ace43a8f5cc7c2a6ce81dcd24142a6b51e",
+      "wikiUploadTimestamp": "2026-05-08T08:01:19Z",
+      "localPath": "docs/references/recipes/wiki-dish-icons-2026-09-26/Seafood_Congee_Icon.png"
+    },
+    {
+      "id": "petitplanet-wiki-file-3807",
+      "title": "File:Steamed Seafood Icon.png",
+      "filePageUrl": "https://petitplanet.wiki/File:Steamed_Seafood_Icon.png",
+      "originalUrl": "https://petitplanet.wiki/images/4/42/Steamed_Seafood_Icon.png",
+      "width": 512,
+      "height": 512,
+      "bytes": 154132,
+      "sha1": "83ae61a95665fd64be031013c4ae918d4fe50ef1",
+      "sha256": "68217288af341cd14bd0adb9f0225e8ceb25c715d988fb4a8a5b173f685077b4",
+      "rgbaSha256": "7ecf2c61d608799250cc108e76aa6cf23796d7113aad639131cab2f7ea7bbdcb",
+      "wikiUploadTimestamp": "2026-05-08T10:42:21Z",
+      "localPath": "docs/references/recipes/wiki-dish-icons-2026-09-26/Steamed_Seafood_Icon.png"
+    },
+    {
+      "id": "petitplanet-wiki-file-3809",
+      "title": "File:Veggie Stir-Fry Icon.png",
+      "filePageUrl": "https://petitplanet.wiki/File:Veggie_Stir-Fry_Icon.png",
+      "originalUrl": "https://petitplanet.wiki/images/a/ab/Veggie_Stir-Fry_Icon.png",
+      "width": 512,
+      "height": 512,
+      "bytes": 144530,
+      "sha1": "17aa3f9031949f458cb2faf8971bb6839def8e8f",
+      "sha256": "711798ed1958039de74385f478b1a9985604c970af6a3292e67ea9584f7ed435",
+      "rgbaSha256": "80be05726ac48b22481861b58cd92c78ea369d835a7126e441e91d6fad1f2dd5",
+      "wikiUploadTimestamp": "2026-05-08T10:43:52Z",
+      "localPath": "docs/references/recipes/wiki-dish-icons-2026-09-26/Veggie_Stir-Fry_Icon.png"
+    },
+    {
+      "id": "petitplanet-wiki-file-3815",
+      "title": "File:Premium Seafood & Mushroom Stew Icon.png",
+      "filePageUrl": "https://petitplanet.wiki/File:Premium_Seafood_%26_Mushroom_Stew_Icon.png",
+      "originalUrl": "https://petitplanet.wiki/images/b/bc/Premium_Seafood_%26_Mushroom_Stew_Icon.png",
+      "width": 512,
+      "height": 512,
+      "bytes": 156362,
+      "sha1": "761e1cc9b48ec84c9c8db11e2321a78ff67ad184",
+      "sha256": "87b990ccab38e1392ffff21642f7f915666c2eb01dfcbe23ef2273df3464570f",
+      "rgbaSha256": "fc9581434befd2bcab77e98be839e9eb0daf3bc39dff4e0f4a91f3220a7c2db7",
+      "wikiUploadTimestamp": "2026-05-08T10:52:29Z",
+      "localPath": "docs/references/recipes/wiki-dish-icons-2026-09-26/Premium_Seafood_&_Mushroom_Stew_Icon.png"
+    },
+    {
+      "id": "petitplanet-wiki-file-3823",
+      "title": "File:Tomato Lobster Bisque Icon.png",
+      "filePageUrl": "https://petitplanet.wiki/File:Tomato_Lobster_Bisque_Icon.png",
+      "originalUrl": "https://petitplanet.wiki/images/a/a0/Tomato_Lobster_Bisque_Icon.png",
+      "width": 512,
+      "height": 512,
+      "bytes": 152196,
+      "sha1": "e323aa181470c1ce5e0f4bc600f65ab7ba6835c1",
+      "sha256": "e77889edb7c6bbc34592a1dd0231548422571636452a1eb63600bc89c586a2bc",
+      "rgbaSha256": "a0ef666400788e5404eefc5977355f0720a204f9e48478c2360e96898eb5f38c",
+      "wikiUploadTimestamp": "2026-05-08T11:03:15Z",
+      "localPath": "docs/references/recipes/wiki-dish-icons-2026-09-26/Tomato_Lobster_Bisque_Icon.png"
+    },
+    {
+      "id": "petitplanet-wiki-file-3833",
+      "title": "File:Salmon Temaki Icon.png",
+      "filePageUrl": "https://petitplanet.wiki/File:Salmon_Temaki_Icon.png",
+      "originalUrl": "https://petitplanet.wiki/images/7/79/Salmon_Temaki_Icon.png",
+      "width": 512,
+      "height": 512,
+      "bytes": 142339,
+      "sha1": "bdf1580f2d21f64acf1097a4bcc8dddf330a12b3",
+      "sha256": "57415507a0dad6a89040ef7e1c14ebc1ae3793bd2bf4656f400cb61865f858a3",
+      "rgbaSha256": "4a5eb4733f4a8b053d9fdf26efa6d60bf6be7a37bbc2741078d59c1b0e9522e5",
+      "wikiUploadTimestamp": "2026-05-08T11:14:12Z",
+      "localPath": "docs/references/recipes/wiki-dish-icons-2026-09-26/Salmon_Temaki_Icon.png"
+    },
+    {
+      "id": "petitplanet-wiki-file-3842",
+      "title": "File:Veggie Fish & Shrimp Platter Icon.png",
+      "filePageUrl": "https://petitplanet.wiki/File:Veggie_Fish_%26_Shrimp_Platter_Icon.png",
+      "originalUrl": "https://petitplanet.wiki/images/9/90/Veggie_Fish_%26_Shrimp_Platter_Icon.png",
+      "width": 512,
+      "height": 512,
+      "bytes": 139084,
+      "sha1": "15300cf79a8caf02766e1012b8f44daabd35469d",
+      "sha256": "67cacb0ccd329940385a8e853f783b05042857731cde0ff0daff351e7a6e85fa",
+      "rgbaSha256": "81c935aa9d3082b9aa45bb092a1e38bc2aa349cd7c7511f0494b0080d90493f9",
+      "wikiUploadTimestamp": "2026-05-08T11:26:37Z",
+      "localPath": "docs/references/recipes/wiki-dish-icons-2026-09-26/Veggie_Fish_&_Shrimp_Platter_Icon.png"
+    },
+    {
+      "id": "petitplanet-wiki-file-3844",
+      "title": "File:Shellfish Congee Icon.png",
+      "filePageUrl": "https://petitplanet.wiki/File:Shellfish_Congee_Icon.png",
+      "originalUrl": "https://petitplanet.wiki/images/d/d5/Shellfish_Congee_Icon.png",
+      "width": 512,
+      "height": 512,
+      "bytes": 149867,
+      "sha1": "2966ffb47e43b5cf0938e97a409a9c91eab05ae3",
+      "sha256": "56bbc3f0f8c4a6fa14ad6d9f5f6819aee8b3cc2f17ec254915e9595b199f9b34",
+      "rgbaSha256": "a974aa529ff0489b2fea53696f8685fae34abce4207eb04668d434cf4aaed988",
+      "wikiUploadTimestamp": "2026-05-08T11:30:08Z",
+      "localPath": "docs/references/recipes/wiki-dish-icons-2026-09-26/Shellfish_Congee_Icon.png"
+    },
+    {
+      "id": "petitplanet-wiki-file-3850",
+      "title": "File:Mushroom & Fish Broth Icon.png",
+      "filePageUrl": "https://petitplanet.wiki/File:Mushroom_%26_Fish_Broth_Icon.png",
+      "originalUrl": "https://petitplanet.wiki/images/a/a0/Mushroom_%26_Fish_Broth_Icon.png",
+      "width": 512,
+      "height": 512,
+      "bytes": 146624,
+      "sha1": "16ba3a1c39dcb4af18fe60205669584a33f7a069",
+      "sha256": "858ecc3593d2d7df81a67c38ae5e3171dfd0300889c9689ef27bffefb72393cd",
+      "rgbaSha256": "110418782cf852100c7349bfcaf8a5ac7c2d710b062423c84e248c4124d51672",
+      "wikiUploadTimestamp": "2026-05-08T11:36:56Z",
+      "localPath": "docs/references/recipes/wiki-dish-icons-2026-09-26/Mushroom_&_Fish_Broth_Icon.png"
+    },
+    {
+      "id": "petitplanet-wiki-file-3860",
+      "title": "File:Tomato Braised Fish Icon.png",
+      "filePageUrl": "https://petitplanet.wiki/File:Tomato_Braised_Fish_Icon.png",
+      "originalUrl": "https://petitplanet.wiki/images/a/ad/Tomato_Braised_Fish_Icon.png",
+      "width": 512,
+      "height": 512,
+      "bytes": 128666,
+      "sha1": "fcff9deb6a1617a9b585f98382928e0bd99fdd21",
+      "sha256": "db19f41f5953061cd0078803effc0f9b506811fe5dee99129b5b8ea3404c3245",
+      "rgbaSha256": "a2a16658a82f68eb0c77d6ec08364f9c16aa422d2146afc64ba0da31c702d259",
+      "wikiUploadTimestamp": "2026-05-08T11:50:35Z",
+      "localPath": "docs/references/recipes/wiki-dish-icons-2026-09-26/Tomato_Braised_Fish_Icon.png"
+    },
+    {
+      "id": "petitplanet-wiki-file-3865",
+      "title": "File:Melon Blossom Pie Icon.png",
+      "filePageUrl": "https://petitplanet.wiki/File:Melon_Blossom_Pie_Icon.png",
+      "originalUrl": "https://petitplanet.wiki/images/4/45/Melon_Blossom_Pie_Icon.png",
+      "width": 512,
+      "height": 512,
+      "bytes": 144073,
+      "sha1": "2252547c2c4d0efeba6239f54391d6562171e931",
+      "sha256": "3c56732c6d3f700d6d36eca5bb2068d0fee21fa0a07e567031eb719884d9dd7a",
+      "rgbaSha256": "71ed9c918e69082214aa5ff308598e3eabb839ee3701fe49a57a5a0beca782b4",
+      "wikiUploadTimestamp": "2026-05-08T11:57:01Z",
+      "localPath": "docs/references/recipes/wiki-dish-icons-2026-09-26/Melon_Blossom_Pie_Icon.png"
+    },
+    {
+      "id": "petitplanet-wiki-file-3870",
+      "title": "File:Rainbow Vegetables & Sea Fish Stew Icon.png",
+      "filePageUrl": "https://petitplanet.wiki/File:Rainbow_Vegetables_%26_Sea_Fish_Stew_Icon.png",
+      "originalUrl": "https://petitplanet.wiki/images/4/46/Rainbow_Vegetables_%26_Sea_Fish_Stew_Icon.png",
+      "width": 512,
+      "height": 512,
+      "bytes": 141430,
+      "sha1": "0a32b24b400d3e62df3df1bee96809d829f08e85",
+      "sha256": "0d9e01257e2cdccf9581bca92543f2f4f91f81a6473af693dda191c525252a3a",
+      "rgbaSha256": "fc7b83a65203cc2645af0a7fab314e033cbe08998bd67fef7d94e467d97f6e73",
+      "wikiUploadTimestamp": "2026-05-08T12:07:40Z",
+      "localPath": "docs/references/recipes/wiki-dish-icons-2026-09-26/Rainbow_Vegetables_&_Sea_Fish_Stew_Icon.png"
+    },
+    {
+      "id": "petitplanet-wiki-file-3875",
+      "title": "File:The Captain's Golden Scallop Seafood Boil Icon.png",
+      "filePageUrl": "https://petitplanet.wiki/File:The_Captain%27s_Golden_Scallop_Seafood_Boil_Icon.png",
+      "originalUrl": "https://petitplanet.wiki/images/d/dc/The_Captain%27s_Golden_Scallop_Seafood_Boil_Icon.png",
+      "width": 512,
+      "height": 512,
+      "bytes": 157268,
+      "sha1": "c223b5cd9a15bc44f3d0d6d51c9992930b840921",
+      "sha256": "adb47b62dd2e367a8a4286ab173edc968abf1ee6931b1d185dfbc7ec21c44fc6",
+      "rgbaSha256": "8c415d43044c74b5e477d05eb9c3f1fec44948db0d9e19d14f9c8d56b58aa1db",
+      "wikiUploadTimestamp": "2026-05-08T12:11:27Z",
+      "localPath": "docs/references/recipes/wiki-dish-icons-2026-09-26/The_Captain's_Golden_Scallop_Seafood_Boil_Icon.png"
+    },
+    {
+      "id": "petitplanet-wiki-file-3879",
+      "title": "File:Prancing Rainbow Shrimp & Fish Tempura Icon.png",
+      "filePageUrl": "https://petitplanet.wiki/File:Prancing_Rainbow_Shrimp_%26_Fish_Tempura_Icon.png",
+      "originalUrl": "https://petitplanet.wiki/images/8/82/Prancing_Rainbow_Shrimp_%26_Fish_Tempura_Icon.png",
+      "width": 512,
+      "height": 512,
+      "bytes": 137738,
+      "sha1": "3a103401105b24d7205c6776217b7e4bbf9f6303",
+      "sha256": "6159c27278f15504e2405627348b60078d9513c8b2ec68eba0ee71eff662b070",
+      "rgbaSha256": "482bd2ac453a4675cc841f579fa91b3b57207d971c2498a7625d56fa41c66659",
+      "wikiUploadTimestamp": "2026-05-08T12:18:14Z",
+      "localPath": "docs/references/recipes/wiki-dish-icons-2026-09-26/Prancing_Rainbow_Shrimp_&_Fish_Tempura_Icon.png"
+    },
+    {
+      "id": "petitplanet-wiki-file-3895",
+      "title": "File:Tomato & Bamboo Shoot Stew Icon.png",
+      "filePageUrl": "https://petitplanet.wiki/File:Tomato_%26_Bamboo_Shoot_Stew_Icon.png",
+      "originalUrl": "https://petitplanet.wiki/images/0/0d/Tomato_%26_Bamboo_Shoot_Stew_Icon.png",
+      "width": 512,
+      "height": 512,
+      "bytes": 126201,
+      "sha1": "5e8d9ba265ede18b1a6263c277fa0bad466db3b2",
+      "sha256": "cb0875046cf0628f99ada8e34564f24117ac3f898e7c4fccd5b801cf444d46c6",
+      "rgbaSha256": "c6080e53a43ee1d4829e4f445160901bda0f3f1315cd71dffa8be38daf816f92",
+      "wikiUploadTimestamp": "2026-05-08T12:37:01Z",
+      "localPath": "docs/references/recipes/wiki-dish-icons-2026-09-26/Tomato_&_Bamboo_Shoot_Stew_Icon.png"
+    },
+    {
+      "id": "petitplanet-wiki-file-3900",
+      "title": "File:Moritake Sushi Platter Icon.png",
+      "filePageUrl": "https://petitplanet.wiki/File:Moritake_Sushi_Platter_Icon.png",
+      "originalUrl": "https://petitplanet.wiki/images/9/94/Moritake_Sushi_Platter_Icon.png",
+      "width": 512,
+      "height": 512,
+      "bytes": 142890,
+      "sha1": "008044a27d74388dc02a634f94cb851b1b028912",
+      "sha256": "c8fb28cf467f2503cadbe6f5a13f7473bbdd9f5f48e083525591a8ea06d7c653",
+      "rgbaSha256": "7365c8cbbb4b7add738b6ca7d99e816074da33e61d323f5a66c171880e758dad",
+      "wikiUploadTimestamp": "2026-05-08T12:43:10Z",
+      "localPath": "docs/references/recipes/wiki-dish-icons-2026-09-26/Moritake_Sushi_Platter_Icon.png"
+    },
+    {
+      "id": "petitplanet-wiki-file-3902",
+      "title": "File:Rare Assorted Claypot Stew Icon.png",
+      "filePageUrl": "https://petitplanet.wiki/File:Rare_Assorted_Claypot_Stew_Icon.png",
+      "originalUrl": "https://petitplanet.wiki/images/5/51/Rare_Assorted_Claypot_Stew_Icon.png",
+      "width": 512,
+      "height": 512,
+      "bytes": 149939,
+      "sha1": "6c88d74e356720d6411f948178b61083e431d347",
+      "sha256": "930d0248bff5e0b5a5df836e33f5a4632232d1359509323e12aa9c2897341129",
+      "rgbaSha256": "0a599a5be11abad0f077baaca1242df3bc0ddcb733f5681888f3852a7ecc11b2",
+      "wikiUploadTimestamp": "2026-05-08T12:46:12Z",
+      "localPath": "docs/references/recipes/wiki-dish-icons-2026-09-26/Rare_Assorted_Claypot_Stew_Icon.png"
+    },
+    {
+      "id": "petitplanet-wiki-file-3904",
+      "title": "File:Mushroom Soup Icon.png",
+      "filePageUrl": "https://petitplanet.wiki/File:Mushroom_Soup_Icon.png",
+      "originalUrl": "https://petitplanet.wiki/images/c/cc/Mushroom_Soup_Icon.png",
+      "width": 512,
+      "height": 512,
+      "bytes": 204445,
+      "sha1": "60f35e5eecbf1cf001c39c9c8303b064524e8a8d",
+      "sha256": "110fcc035e5213d1344b468bd260d91e5e6e79941b1eaf6fcb1c77bd16ca45c9",
+      "rgbaSha256": "18f28418832d93e02422bf31c75f4c96ce96de7d85193e190ee57d31bd3704af",
+      "wikiUploadTimestamp": "2026-05-08T12:47:40Z",
+      "localPath": "docs/references/recipes/wiki-dish-icons-2026-09-26/Mushroom_Soup_Icon.png"
+    },
+    {
+      "id": "petitplanet-wiki-file-3906",
+      "title": "File:Miracle Assorted Claypot Stew Icon.png",
+      "filePageUrl": "https://petitplanet.wiki/File:Miracle_Assorted_Claypot_Stew_Icon.png",
+      "originalUrl": "https://petitplanet.wiki/images/b/b8/Miracle_Assorted_Claypot_Stew_Icon.png",
+      "width": 512,
+      "height": 512,
+      "bytes": 149939,
+      "sha1": "6c88d74e356720d6411f948178b61083e431d347",
+      "sha256": "930d0248bff5e0b5a5df836e33f5a4632232d1359509323e12aa9c2897341129",
+      "rgbaSha256": "0a599a5be11abad0f077baaca1242df3bc0ddcb733f5681888f3852a7ecc11b2",
+      "wikiUploadTimestamp": "2026-05-08T12:49:31Z",
+      "localPath": "docs/references/recipes/wiki-dish-icons-2026-09-26/Miracle_Assorted_Claypot_Stew_Icon.png"
+    },
+    {
+      "id": "petitplanet-wiki-file-3940",
+      "title": "File:Rare Assorted Skewers Icon.png",
+      "filePageUrl": "https://petitplanet.wiki/File:Rare_Assorted_Skewers_Icon.png",
+      "originalUrl": "https://petitplanet.wiki/images/8/8c/Rare_Assorted_Skewers_Icon.png",
+      "width": 512,
+      "height": 512,
+      "bytes": 239712,
+      "sha1": "bef527136c229a5f139c5e28b49bdc4b3b0ca33e",
+      "sha256": "b99b5b551e6dccbec926a343bb40bd0346a55654925691402350a523801b4836",
+      "rgbaSha256": "6bc38b977218404a812a89de23f76bfc5ba8440d2012c53542002a25722b38a0",
+      "wikiUploadTimestamp": "2026-05-08T14:33:03Z",
+      "localPath": "docs/references/recipes/wiki-dish-icons-2026-09-26/Rare_Assorted_Skewers_Icon.png"
+    },
+    {
+      "id": "petitplanet-wiki-file-3941",
+      "title": "File:Miracle Assorted Skewers Icon.png",
+      "filePageUrl": "https://petitplanet.wiki/File:Miracle_Assorted_Skewers_Icon.png",
+      "originalUrl": "https://petitplanet.wiki/images/6/6b/Miracle_Assorted_Skewers_Icon.png",
+      "width": 512,
+      "height": 512,
+      "bytes": 239712,
+      "sha1": "bef527136c229a5f139c5e28b49bdc4b3b0ca33e",
+      "sha256": "b99b5b551e6dccbec926a343bb40bd0346a55654925691402350a523801b4836",
+      "rgbaSha256": "6bc38b977218404a812a89de23f76bfc5ba8440d2012c53542002a25722b38a0",
+      "wikiUploadTimestamp": "2026-05-08T14:33:21Z",
+      "localPath": "docs/references/recipes/wiki-dish-icons-2026-09-26/Miracle_Assorted_Skewers_Icon.png"
+    },
+    {
+      "id": "petitplanet-wiki-file-3942",
+      "title": "File:Pineapple Grilled Fish Skewers Icon.png",
+      "filePageUrl": "https://petitplanet.wiki/File:Pineapple_Grilled_Fish_Skewers_Icon.png",
+      "originalUrl": "https://petitplanet.wiki/images/5/59/Pineapple_Grilled_Fish_Skewers_Icon.png",
+      "width": 512,
+      "height": 512,
+      "bytes": 273167,
+      "sha1": "dfd4cb91ba70bdf547c1655655cbdfcd11df9117",
+      "sha256": "eee8130cc42e92ec855b042131fbf4030530ac57da50a4111354713705965441",
+      "rgbaSha256": "2032387a4c78b4592ad10b337b1c232589fe92ca5fbb3284dda9743629af3055",
+      "wikiUploadTimestamp": "2026-05-08T14:33:42Z",
+      "localPath": "docs/references/recipes/wiki-dish-icons-2026-09-26/Pineapple_Grilled_Fish_Skewers_Icon.png"
+    },
+    {
+      "id": "petitplanet-wiki-file-3943",
+      "title": "File:Premium Shellfish Rice Bake Icon.png",
+      "filePageUrl": "https://petitplanet.wiki/File:Premium_Shellfish_Rice_Bake_Icon.png",
+      "originalUrl": "https://petitplanet.wiki/images/6/6a/Premium_Shellfish_Rice_Bake_Icon.png",
+      "width": 512,
+      "height": 512,
+      "bytes": 188543,
+      "sha1": "b2184d50670083a0e9266e0e5df3de6af289f47f",
+      "sha256": "aa824ded45abe1b7c04858fc4f8cc89f9bdebd9ab0934a5340a02427113d7341",
+      "rgbaSha256": "ffbce8ac8ebb615f1cc0e10de16d30244e9b245de3c9b31387b5ce3c422eebaa",
+      "wikiUploadTimestamp": "2026-05-08T14:34:11Z",
+      "localPath": "docs/references/recipes/wiki-dish-icons-2026-09-26/Premium_Shellfish_Rice_Bake_Icon.png"
+    },
+    {
+      "id": "petitplanet-wiki-file-3944",
+      "title": "File:Wheat & Rice Steamed Cake Icon.png",
+      "filePageUrl": "https://petitplanet.wiki/File:Wheat_%26_Rice_Steamed_Cake_Icon.png",
+      "originalUrl": "https://petitplanet.wiki/images/2/20/Wheat_%26_Rice_Steamed_Cake_Icon.png",
+      "width": 512,
+      "height": 512,
+      "bytes": 177811,
+      "sha1": "38eaaf038070148b9de09f25690a21d22975e432",
+      "sha256": "413597f22cbcb13f58b9de5fd679e946be150d4f82c0ea1c5489372a5164097a",
+      "rgbaSha256": "ad2c67e09e5a9b7c205133cf04d67ebcda2cf5e81cb2fc58116185d010b637df",
+      "wikiUploadTimestamp": "2026-05-08T14:34:37Z",
+      "localPath": "docs/references/recipes/wiki-dish-icons-2026-09-26/Wheat_&_Rice_Steamed_Cake_Icon.png"
+    },
+    {
+      "id": "petitplanet-wiki-file-3945",
+      "title": "File:Wheat Cake Icon.png",
+      "filePageUrl": "https://petitplanet.wiki/File:Wheat_Cake_Icon.png",
+      "originalUrl": "https://petitplanet.wiki/images/4/4e/Wheat_Cake_Icon.png",
+      "width": 512,
+      "height": 512,
+      "bytes": 191534,
+      "sha1": "1dc312eff42a65fa8b4107f880a4a4cf104cf605",
+      "sha256": "6cc15d4af9c1b5af6bb066f3e987df969ca7cee423971d89573ea8a9591e0a50",
+      "rgbaSha256": "c84bfe57343ded97fbc80c267d782751ab049392c549ef4b3c3a44e5670fd7db",
+      "wikiUploadTimestamp": "2026-05-08T14:34:54Z",
+      "localPath": "docs/references/recipes/wiki-dish-icons-2026-09-26/Wheat_Cake_Icon.png"
+    },
+    {
+      "id": "petitplanet-wiki-file-3950",
+      "title": "File:Mushroom, Fruit & Veggie Skewers Icon.png",
+      "filePageUrl": "https://petitplanet.wiki/File:Mushroom,_Fruit_%26_Veggie_Skewers_Icon.png",
+      "originalUrl": "https://petitplanet.wiki/images/f/fa/Mushroom%2C_Fruit_%26_Veggie_Skewers_Icon.png",
+      "width": 512,
+      "height": 512,
+      "bytes": 239712,
+      "sha1": "bef527136c229a5f139c5e28b49bdc4b3b0ca33e",
+      "sha256": "b99b5b551e6dccbec926a343bb40bd0346a55654925691402350a523801b4836",
+      "rgbaSha256": "6bc38b977218404a812a89de23f76bfc5ba8440d2012c53542002a25722b38a0",
+      "wikiUploadTimestamp": "2026-05-08T14:38:30Z",
+      "localPath": "docs/references/recipes/wiki-dish-icons-2026-09-26/Mushroom,_Fruit_&_Veggie_Skewers_Icon.png"
+    },
+    {
+      "id": "petitplanet-wiki-file-3951",
+      "title": "File:Pineapple Seafood Pizza Icon.png",
+      "filePageUrl": "https://petitplanet.wiki/File:Pineapple_Seafood_Pizza_Icon.png",
+      "originalUrl": "https://petitplanet.wiki/images/e/ee/Pineapple_Seafood_Pizza_Icon.png",
+      "width": 512,
+      "height": 512,
+      "bytes": 220262,
+      "sha1": "d0d56e2bf089829a1fd489d2bc536271075a4970",
+      "sha256": "3bddeb791bc36853df2463052dd01805b8cd4839a0f45b494f452495c4a9f2eb",
+      "rgbaSha256": "99b8ee3e17ac4c4a23d8a1510ab8e4cc11719b42415718fb2913aee9662c66c8",
+      "wikiUploadTimestamp": "2026-05-08T14:38:48Z",
+      "localPath": "docs/references/recipes/wiki-dish-icons-2026-09-26/Pineapple_Seafood_Pizza_Icon.png"
+    },
+    {
+      "id": "petitplanet-wiki-file-3954",
+      "title": "File:Roasted Seasonal Veggies Icon.png",
+      "filePageUrl": "https://petitplanet.wiki/File:Roasted_Seasonal_Veggies_Icon.png",
+      "originalUrl": "https://petitplanet.wiki/images/8/8e/Roasted_Seasonal_Veggies_Icon.png",
+      "width": 512,
+      "height": 512,
+      "bytes": 196198,
+      "sha1": "bee5b8ce08e6103dc715618967234690797930f4",
+      "sha256": "aa47a1d8ea8f8ee3f3a7ab48769a62e0c6197aa71d8b0194e9741eda25396f06",
+      "rgbaSha256": "415d7e6d221c8a4c7890afb409cf80a8a3b1204687cbd049b4a56ad4adde4eb0",
+      "wikiUploadTimestamp": "2026-05-08T14:39:56Z",
+      "localPath": "docs/references/recipes/wiki-dish-icons-2026-09-26/Roasted_Seasonal_Veggies_Icon.png"
+    },
+    {
+      "id": "petitplanet-wiki-file-3955",
+      "title": "File:Sizzling Mixed Fruit Skewers Icon.png",
+      "filePageUrl": "https://petitplanet.wiki/File:Sizzling_Mixed_Fruit_Skewers_Icon.png",
+      "originalUrl": "https://petitplanet.wiki/images/c/ce/Sizzling_Mixed_Fruit_Skewers_Icon.png",
+      "width": 512,
+      "height": 512,
+      "bytes": 242357,
+      "sha1": "26e2530a3eb19f609dbe619eb092de539c193715",
+      "sha256": "f3324f9275626ceaf7f512716cf65627cce0d0e25bf9c599bb426840fdea0027",
+      "rgbaSha256": "4e37815c5175f150287ee065663cae80f332a2e5ddabc232bcb7b044c4946cf8",
+      "wikiUploadTimestamp": "2026-05-08T14:40:09Z",
+      "localPath": "docs/references/recipes/wiki-dish-icons-2026-09-26/Sizzling_Mixed_Fruit_Skewers_Icon.png"
+    },
+    {
+      "id": "petitplanet-wiki-file-3956",
+      "title": "File:Spicy Veggie Pizza Icon.png",
+      "filePageUrl": "https://petitplanet.wiki/File:Spicy_Veggie_Pizza_Icon.png",
+      "originalUrl": "https://petitplanet.wiki/images/d/dc/Spicy_Veggie_Pizza_Icon.png",
+      "width": 512,
+      "height": 512,
+      "bytes": 230963,
+      "sha1": "4b3d5bd45cbc8cf0a7e199c12b26382249d14c61",
+      "sha256": "931622ee1c00bb8d5328740f6859152745dbff048f23e3ae6cf492aeca1b0c90",
+      "rgbaSha256": "7c6f4372e81ddfc6ca1ec8cb32a8b8d099c9c347fe21af7fde0f0aa53d02856c",
+      "wikiUploadTimestamp": "2026-05-08T14:40:20Z",
+      "localPath": "docs/references/recipes/wiki-dish-icons-2026-09-26/Spicy_Veggie_Pizza_Icon.png"
+    },
+    {
+      "id": "petitplanet-wiki-file-3957",
+      "title": "File:Tricolor Fruit & Veggie Cake Icon.png",
+      "filePageUrl": "https://petitplanet.wiki/File:Tricolor_Fruit_%26_Veggie_Cake_Icon.png",
+      "originalUrl": "https://petitplanet.wiki/images/b/b5/Tricolor_Fruit_%26_Veggie_Cake_Icon.png",
+      "width": 512,
+      "height": 512,
+      "bytes": 208998,
+      "sha1": "5fd27c3d161c8f84485fe5dfc171f43a1af58a23",
+      "sha256": "df946ed56f29f84d7eb923d42322b47cd43ff5f10d399c9a5c24a9113ef39914",
+      "rgbaSha256": "b663fe3af33b1f2ff07fe6af44cf73b91cdd8afae4383c1d9214bae19ff2f876",
+      "wikiUploadTimestamp": "2026-05-08T14:40:34Z",
+      "localPath": "docs/references/recipes/wiki-dish-icons-2026-09-26/Tricolor_Fruit_&_Veggie_Cake_Icon.png"
+    },
+    {
+      "id": "petitplanet-wiki-file-3958",
+      "title": "File:Tricolor Veggie Rice Bake Icon.png",
+      "filePageUrl": "https://petitplanet.wiki/File:Tricolor_Veggie_Rice_Bake_Icon.png",
+      "originalUrl": "https://petitplanet.wiki/images/8/81/Tricolor_Veggie_Rice_Bake_Icon.png",
+      "width": 512,
+      "height": 512,
+      "bytes": 192696,
+      "sha1": "0f6e885f00cf5bfd353b289688ca3a6872e2a35c",
+      "sha256": "6f88f63838ef1f61cf7f01faf727640c56c9ef4c43b5d21dda081bc635ea7185",
+      "rgbaSha256": "3b0f2bb112dc4660498aada4201c3a4a1da6c76a4844196ab71ddc31b3646149",
+      "wikiUploadTimestamp": "2026-05-08T14:41:00Z",
+      "localPath": "docs/references/recipes/wiki-dish-icons-2026-09-26/Tricolor_Veggie_Rice_Bake_Icon.png"
+    },
+    {
+      "id": "petitplanet-wiki-file-3960",
+      "title": "File:Rice Cake Noodles with Veggies & Mushrooms Icon.png",
+      "filePageUrl": "https://petitplanet.wiki/File:Rice_Cake_Noodles_with_Veggies_%26_Mushrooms_Icon.png",
+      "originalUrl": "https://petitplanet.wiki/images/2/2c/Rice_Cake_Noodles_with_Veggies_%26_Mushrooms_Icon.png",
+      "width": 512,
+      "height": 512,
+      "bytes": 204753,
+      "sha1": "b22bbff2d67b386a023d45f2969d4aa2b702a706",
+      "sha256": "7d512a6550d5eb85678ccebe66a38890e492b05ce5e60bf8bc7183b66e652694",
+      "rgbaSha256": "a9c8e00f211838b3a3a051f157cff36f9810e4fb520d9f51fb1554f3217c4c69",
+      "wikiUploadTimestamp": "2026-05-08T14:45:45Z",
+      "localPath": "docs/references/recipes/wiki-dish-icons-2026-09-26/Rice_Cake_Noodles_with_Veggies_&_Mushrooms_Icon.png"
+    },
+    {
+      "id": "petitplanet-wiki-file-3982",
+      "title": "File:Veggie Fish Fillet Noodles Icon.png",
+      "filePageUrl": "https://petitplanet.wiki/File:Veggie_Fish_Fillet_Noodles_Icon.png",
+      "originalUrl": "https://petitplanet.wiki/images/9/99/Veggie_Fish_Fillet_Noodles_Icon.png",
+      "width": 512,
+      "height": 512,
+      "bytes": 238268,
+      "sha1": "790f3f4f07a1490e144a842042410a594cab1b6e",
+      "sha256": "80bb1b99aec655223f4bc8a50a494884659f7f5eb171ba25d67d55fe674bd07d",
+      "rgbaSha256": "97d252aaea09ebfa6e2fc21c8fa93fdc0e4d35d4da6745004d87549fffeca3dd",
+      "wikiUploadTimestamp": "2026-05-08T14:57:37Z",
+      "localPath": "docs/references/recipes/wiki-dish-icons-2026-09-26/Veggie_Fish_Fillet_Noodles_Icon.png"
+    },
+    {
+      "id": "petitplanet-wiki-file-3989",
+      "title": "File:Tom Yum Soup Icon.png",
+      "filePageUrl": "https://petitplanet.wiki/File:Tom_Yum_Soup_Icon.png",
+      "originalUrl": "https://petitplanet.wiki/images/d/d4/Tom_Yum_Soup_Icon.png",
+      "width": 512,
+      "height": 512,
+      "bytes": 194149,
+      "sha1": "b58e6008e74809cf97781f54a2fc371259ffa057",
+      "sha256": "d876aea077e0e307c18979ac4f29281f5d912ea2979c78afc867514265f5d463",
+      "rgbaSha256": "221fdf300dcd418274b9f2ad313b442e8390d94b60c11aa96070271c33a4f9d0",
+      "wikiUploadTimestamp": "2026-05-08T15:03:03Z",
+      "localPath": "docs/references/recipes/wiki-dish-icons-2026-09-26/Tom_Yum_Soup_Icon.png"
+    },
+    {
+      "id": "petitplanet-wiki-file-3994",
+      "title": "File:Tomato & Greens Juice Icon.png",
+      "filePageUrl": "https://petitplanet.wiki/File:Tomato_%26_Greens_Juice_Icon.png",
+      "originalUrl": "https://petitplanet.wiki/images/5/5e/Tomato_%26_Greens_Juice_Icon.png",
+      "width": 512,
+      "height": 512,
+      "bytes": 134619,
+      "sha1": "7f055191d9b392698138bd41c7ed493c7fdd0035",
+      "sha256": "ab02068421c0586484ce5049eb66f27c1663028a99b10d5ef2496b3f58279a11",
+      "rgbaSha256": "eadc7a3dfa000d7fddb2403e013f426277608e5c725a27753dc04a57726deda3",
+      "wikiUploadTimestamp": "2026-05-08T15:08:12Z",
+      "localPath": "docs/references/recipes/wiki-dish-icons-2026-09-26/Tomato_&_Greens_Juice_Icon.png"
+    },
+    {
+      "id": "petitplanet-wiki-file-3999",
+      "title": "File:Rare Blend Icon.png",
+      "filePageUrl": "https://petitplanet.wiki/File:Rare_Blend_Icon.png",
+      "originalUrl": "https://petitplanet.wiki/images/4/42/Rare_Blend_Icon.png",
+      "width": 512,
+      "height": 512,
+      "bytes": 130625,
+      "sha1": "c00af4e4f002bcd0ec1432460bb77bc89d788fb1",
+      "sha256": "9e5fe65d188804ecc2759a64571e62d2ec92780d2ba93946678b440c681e517b",
+      "rgbaSha256": "5750f706b16ac898b3b86edc0faa431fce53d96dbdfebdfde6467b4655cf5da2",
+      "wikiUploadTimestamp": "2026-05-08T15:10:11Z",
+      "localPath": "docs/references/recipes/wiki-dish-icons-2026-09-26/Rare_Blend_Icon.png"
+    },
+    {
+      "id": "petitplanet-wiki-file-4000",
+      "title": "File:Miracle Blend Icon.png",
+      "filePageUrl": "https://petitplanet.wiki/File:Miracle_Blend_Icon.png",
+      "originalUrl": "https://petitplanet.wiki/images/1/1a/Miracle_Blend_Icon.png",
+      "width": 512,
+      "height": 512,
+      "bytes": 130625,
+      "sha1": "c00af4e4f002bcd0ec1432460bb77bc89d788fb1",
+      "sha256": "9e5fe65d188804ecc2759a64571e62d2ec92780d2ba93946678b440c681e517b",
+      "rgbaSha256": "5750f706b16ac898b3b86edc0faa431fce53d96dbdfebdfde6467b4655cf5da2",
+      "wikiUploadTimestamp": "2026-05-08T15:10:19Z",
+      "localPath": "docs/references/recipes/wiki-dish-icons-2026-09-26/Miracle_Blend_Icon.png"
+    },
+    {
+      "id": "petitplanet-wiki-file-4002",
+      "title": "File:Tidal Wave Yogurt Icon.png",
+      "filePageUrl": "https://petitplanet.wiki/File:Tidal_Wave_Yogurt_Icon.png",
+      "originalUrl": "https://petitplanet.wiki/images/6/6b/Tidal_Wave_Yogurt_Icon.png",
+      "width": 512,
+      "height": 512,
+      "bytes": 107875,
+      "sha1": "b0d1349ec986a43be0efce9eb3680d9b2e9c602d",
+      "sha256": "1a1ea83c92bb6baaae9d0079cf90a8a72c02fe2e2b2ab0c4508c185dd1d14891",
+      "rgbaSha256": "cdb2cea7350c78ae38384ca98af596164e1c4864e5c8c5fa5aa56eb6b17837aa",
+      "wikiUploadTimestamp": "2026-05-08T15:10:58Z",
+      "localPath": "docs/references/recipes/wiki-dish-icons-2026-09-26/Tidal_Wave_Yogurt_Icon.png"
+    },
+    {
+      "id": "petitplanet-wiki-file-4003",
+      "title": "File:Veggie Rice Yogurt Icon.png",
+      "filePageUrl": "https://petitplanet.wiki/File:Veggie_Rice_Yogurt_Icon.png",
+      "originalUrl": "https://petitplanet.wiki/images/1/10/Veggie_Rice_Yogurt_Icon.png",
+      "width": 512,
+      "height": 512,
+      "bytes": 108650,
+      "sha1": "147f27cea0cf33bf6daf4ede26433910009b3709",
+      "sha256": "cb7288b8c4911d35045136e9d9499d88a30b9ff0a81e7138c5693aab77fbe05f",
+      "rgbaSha256": "d87470f5b0123cdacd03771643079b5c995406163c4af594a8e6b4c4e3bae032",
+      "wikiUploadTimestamp": "2026-05-08T15:11:14Z",
+      "localPath": "docs/references/recipes/wiki-dish-icons-2026-09-26/Veggie_Rice_Yogurt_Icon.png"
+    },
+    {
+      "id": "petitplanet-wiki-file-4006",
+      "title": "File:Seafood Combo Noodle Soup Icon.png",
+      "filePageUrl": "https://petitplanet.wiki/File:Seafood_Combo_Noodle_Soup_Icon.png",
+      "originalUrl": "https://petitplanet.wiki/images/d/d0/Seafood_Combo_Noodle_Soup_Icon.png",
+      "width": 512,
+      "height": 512,
+      "bytes": 185874,
+      "sha1": "f97d1311a8afa65232c6f2075eb88f2cea7de4ac",
+      "sha256": "bda6916f8588dc041688b27c3f1cf28340fd4fbebc41d1510d9cfeca71698548",
+      "rgbaSha256": "8e806ecc36bf7cb99d1fa21f0297dc978deb45fbf5885a2877efc9f1625c4d0a",
+      "wikiUploadTimestamp": "2026-05-08T15:14:11Z",
+      "localPath": "docs/references/recipes/wiki-dish-icons-2026-09-26/Seafood_Combo_Noodle_Soup_Icon.png"
+    },
+    {
+      "id": "petitplanet-wiki-file-4010",
+      "title": "File:Spring Noodle Soup Icon.png",
+      "filePageUrl": "https://petitplanet.wiki/File:Spring_Noodle_Soup_Icon.png",
+      "originalUrl": "https://petitplanet.wiki/images/9/9d/Spring_Noodle_Soup_Icon.png",
+      "width": 512,
+      "height": 512,
+      "bytes": 244237,
+      "sha1": "14ee5bad6d38a577f8982a2562f5dd81952187e5",
+      "sha256": "ecbaf6f8b6a8758f9c8787028fff69cda8c18606e3bd5163243d197441d1dfa9",
+      "rgbaSha256": "e01bee5848168c3394509086dec2f720a25842256dda2f26903565835190fd68",
+      "wikiUploadTimestamp": "2026-05-08T15:19:09Z",
+      "localPath": "docs/references/recipes/wiki-dish-icons-2026-09-26/Spring_Noodle_Soup_Icon.png"
+    },
+    {
+      "id": "petitplanet-wiki-file-4012",
+      "title": "File:Veggie Soba Icon.png",
+      "filePageUrl": "https://petitplanet.wiki/File:Veggie_Soba_Icon.png",
+      "originalUrl": "https://petitplanet.wiki/images/c/c3/Veggie_Soba_Icon.png",
+      "width": 512,
+      "height": 512,
+      "bytes": 223697,
+      "sha1": "124910423daeade51a4a73fb64a0e602728b5970",
+      "sha256": "bde8886a0ae63c28617b6a79f0b02a43e35e35c57df572a2096c88e0b0a2e0de",
+      "rgbaSha256": "89af97c90b2b5992858f7ca5ab2a60e2653b74a368417bb134f1e9ce4c08ff54",
+      "wikiUploadTimestamp": "2026-05-08T15:20:18Z",
+      "localPath": "docs/references/recipes/wiki-dish-icons-2026-09-26/Veggie_Soba_Icon.png"
+    },
+    {
+      "id": "petitplanet-wiki-file-8956",
+      "title": "File:Sea Urchin Lobster Bisque Icon.png",
+      "filePageUrl": "https://petitplanet.wiki/File:Sea_Urchin_Lobster_Bisque_Icon.png",
+      "originalUrl": "https://petitplanet.wiki/images/d/df/Sea_Urchin_Lobster_Bisque_Icon.png",
+      "width": 512,
+      "height": 512,
+      "bytes": 204940,
+      "sha1": "1c043dfda4540b433f9759586b5f878040e3f79c",
+      "sha256": "7c81111cbb55b9220babfec71359e6f01a16817a3c8a6e418cf60e7def6cbe6b",
+      "rgbaSha256": "efbe6e3cf6370ff30d3c55fa5a1a757bba299e96f378013c1ffd0629ed2fcaff",
+      "wikiUploadTimestamp": "2026-09-24T21:25:07Z",
+      "localPath": "docs/references/recipes/wiki-dish-icons-2026-09-26/Sea_Urchin_Lobster_Bisque_Icon.png"
+    },
+    {
+      "id": "petitplanet-wiki-file-8990",
+      "title": "File:Seafood Clay Pot Rice Icon.png",
+      "filePageUrl": "https://petitplanet.wiki/File:Seafood_Clay_Pot_Rice_Icon.png",
+      "originalUrl": "https://petitplanet.wiki/images/6/6d/Seafood_Clay_Pot_Rice_Icon.png",
+      "width": 512,
+      "height": 512,
+      "bytes": 179019,
+      "sha1": "d9f5f744d2403c185e64e495346a317561164112",
+      "sha256": "36e4ce7f05efa856109884b9a5d32f9c4358e9da4f4b373e50d3bf4ef62e8464",
+      "rgbaSha256": "ffbce8ac8ebb615f1cc0e10de16d30244e9b245de3c9b31387b5ce3c422eebaa",
+      "wikiUploadTimestamp": "2026-09-25T11:49:57Z",
+      "localPath": "docs/references/recipes/wiki-dish-icons-2026-09-26/Seafood_Clay_Pot_Rice_Icon.png"
+    }
+  ],
+  "recipes": [
+    {
+      "recipeId": "mt-20260923-simple-001",
+      "recipeNameRaw": "和煦花果茶",
+      "originalSource": {
+        "sourceId": "tomorrow-20260923-image",
+        "region": "simple",
+        "row": 1
+      },
+      "candidateFileId": "petitplanet-wiki-file-3794",
+      "status": "visual-candidate",
+      "gameVerified": false,
+      "evidence": {
+        "guide": {
+          "postUrl": "https://www.taptap.cn/moment/851862566224266917",
+          "imageUrl": "https://img2-tc.tapimg.com/moment/etag/Fh3DhqUtW7h9q1-pOEDN77iRCY9f_20260923163604.jpg/_tap_ugc.jpg",
+          "sheet": "simple-5",
+          "row": 3,
+          "nameRaw": "和煦花果茶",
+          "nameMatch": "same-name-candidate"
+        },
+        "imageComparison": {
+          "method": "foreground-normalized-rgb-mse",
+          "score": 1509.13,
+          "scoreMeaning": "Lower is closer; this is not a confidence percentage.",
+          "bestCandidateFileIds": ["petitplanet-wiki-file-3794"]
+        }
+      },
+      "notes": []
+    },
+    {
+      "recipeId": "mt-20260923-simple-002",
+      "recipeNameRaw": "馥郁瓜果茶",
+      "originalSource": {
+        "sourceId": "tomorrow-20260923-image",
+        "region": "simple",
+        "row": 2
+      },
+      "candidateFileId": "petitplanet-wiki-file-789",
+      "status": "visual-candidate",
+      "gameVerified": false,
+      "evidence": {
+        "guide": {
+          "postUrl": "https://www.taptap.cn/moment/851862566224266917",
+          "imageUrl": "https://img2-tc.tapimg.com/moment/etag/Fh3DhqUtW7h9q1-pOEDN77iRCY9f_20260923163604.jpg/_tap_ugc.jpg",
+          "sheet": "simple-5",
+          "row": 4,
+          "nameRaw": "馥郁瓜果茶",
+          "nameMatch": "same-name-candidate"
+        },
+        "imageComparison": {
+          "method": "foreground-normalized-rgb-mse",
+          "score": 1419.03,
+          "scoreMeaning": "Lower is closer; this is not a confidence percentage.",
+          "bestCandidateFileIds": ["petitplanet-wiki-file-789"]
+        }
+      },
+      "notes": []
+    },
+    {
+      "recipeId": "mt-20260923-simple-003",
+      "recipeNameRaw": "菌菇汤",
+      "originalSource": {
+        "sourceId": "tomorrow-20260923-image",
+        "region": "simple",
+        "row": 3
+      },
+      "candidateFileId": "petitplanet-wiki-file-3904",
+      "status": "visual-candidate",
+      "gameVerified": false,
+      "evidence": {
+        "guide": {
+          "postUrl": "https://www.taptap.cn/moment/851862566224266917",
+          "imageUrl": "https://img2-tc.tapimg.com/moment/etag/Fvz6kuXOGQtfFYjKQDDZR_Re_UUy_20260923163604.jpg/_tap_ugc.jpg",
+          "sheet": "simple-4",
+          "row": 4,
+          "nameRaw": "菌菇汤",
+          "nameMatch": "same-name-candidate"
+        },
+        "imageComparison": {
+          "method": "foreground-normalized-rgb-mse",
+          "score": 471.12,
+          "scoreMeaning": "Lower is closer; this is not a confidence percentage.",
+          "bestCandidateFileIds": ["petitplanet-wiki-file-3904"]
+        }
+      },
+      "notes": []
+    },
+    {
+      "recipeId": "mt-20260923-simple-004",
+      "recipeNameRaw": "时鱼汤",
+      "originalSource": {
+        "sourceId": "tomorrow-20260923-image",
+        "region": "simple",
+        "row": 4
+      },
+      "candidateFileId": "petitplanet-wiki-file-3804",
+      "status": "visual-candidate",
+      "gameVerified": false,
+      "evidence": {
+        "guide": {
+          "postUrl": "https://www.taptap.cn/moment/851862566224266917",
+          "imageUrl": "https://img2-tc.tapimg.com/moment/etag/FthUg06JZnmKT4IjgqRTMC2Qb9e-_20260923163604.jpg/_tap_ugc.jpg",
+          "sheet": "simple-3",
+          "row": 6,
+          "nameRaw": "时鱼汤",
+          "nameMatch": "same-name-candidate"
+        },
+        "imageComparison": {
+          "method": "foreground-normalized-rgb-mse",
+          "score": 1494.91,
+          "scoreMeaning": "Lower is closer; this is not a confidence percentage.",
+          "bestCandidateFileIds": ["petitplanet-wiki-file-3804"]
+        }
+      },
+      "notes": []
+    },
+    {
+      "recipeId": "mt-20260923-simple-005",
+      "recipeNameRaw": "靓仔鱼虾汤",
+      "originalSource": {
+        "sourceId": "tomorrow-20260923-image",
+        "region": "simple",
+        "row": 5
+      },
+      "candidateFileId": "petitplanet-wiki-file-3839",
+      "status": "visual-candidate",
+      "gameVerified": false,
+      "evidence": {
+        "guide": {
+          "postUrl": "https://www.taptap.cn/moment/851862566224266917",
+          "imageUrl": "https://img2-tc.tapimg.com/moment/etag/Fvz6kuXOGQtfFYjKQDDZR_Re_UUy_20260923163604.jpg/_tap_ugc.jpg",
+          "sheet": "simple-4",
+          "row": 2,
+          "nameRaw": "靓仔鱼虾汤",
+          "nameMatch": "same-name-candidate"
+        },
+        "imageComparison": {
+          "method": "foreground-normalized-rgb-mse",
+          "score": 751.72,
+          "scoreMeaning": "Lower is closer; this is not a confidence percentage.",
+          "bestCandidateFileIds": ["petitplanet-wiki-file-3839"]
+        }
+      },
+      "notes": []
+    },
+    {
+      "recipeId": "mt-20260923-simple-006",
+      "recipeNameRaw": "海胆龙虾汤",
+      "originalSource": {
+        "sourceId": "tomorrow-20260923-image",
+        "region": "simple",
+        "row": 6
+      },
+      "candidateFileId": "petitplanet-wiki-file-8956",
+      "status": "visual-candidate",
+      "gameVerified": false,
+      "evidence": {
+        "guide": {
+          "postUrl": "https://www.taptap.cn/moment/851862566224266917",
+          "imageUrl": "https://img2-tc.tapimg.com/moment/etag/Fvz6kuXOGQtfFYjKQDDZR_Re_UUy_20260923163604.jpg/_tap_ugc.jpg",
+          "sheet": "simple-4",
+          "row": 5,
+          "nameRaw": "海胆龙虾汤",
+          "nameMatch": "same-name-candidate"
+        },
+        "imageComparison": {
+          "method": "foreground-normalized-rgb-mse",
+          "score": 377.85,
+          "scoreMeaning": "Lower is closer; this is not a confidence percentage.",
+          "bestCandidateFileIds": ["petitplanet-wiki-file-8956"]
+        }
+      },
+      "notes": []
+    },
+    {
+      "recipeId": "mt-20260923-simple-007",
+      "recipeNameRaw": "菌菇鲜鱼羹",
+      "originalSource": {
+        "sourceId": "tomorrow-20260923-image",
+        "region": "simple",
+        "row": 7
+      },
+      "candidateFileId": "petitplanet-wiki-file-3850",
+      "status": "visual-candidate",
+      "gameVerified": false,
+      "evidence": {
+        "guide": {
+          "postUrl": "https://www.taptap.cn/moment/851862566224266917",
+          "imageUrl": "https://img2-tc.tapimg.com/moment/etag/Fvz6kuXOGQtfFYjKQDDZR_Re_UUy_20260923163604.jpg/_tap_ugc.jpg",
+          "sheet": "simple-4",
+          "row": 3,
+          "nameRaw": "菌菇鲜鱼羹",
+          "nameMatch": "same-name-candidate"
+        },
+        "imageComparison": {
+          "method": "foreground-normalized-rgb-mse",
+          "score": 442.51,
+          "scoreMeaning": "Lower is closer; this is not a confidence percentage.",
+          "bestCandidateFileIds": ["petitplanet-wiki-file-3850"]
+        }
+      },
+      "notes": []
+    },
+    {
+      "recipeId": "mt-20260923-simple-008",
+      "recipeNameRaw": "暖暖阳汤面",
+      "originalSource": {
+        "sourceId": "tomorrow-20260923-image",
+        "region": "simple",
+        "row": 8
+      },
+      "candidateFileId": "petitplanet-wiki-file-4010",
+      "status": "name-variant-visual-candidate",
+      "gameVerified": false,
+      "evidence": {
+        "guide": {
+          "postUrl": "https://www.taptap.cn/moment/851862566224266917",
+          "imageUrl": "https://img2-tc.tapimg.com/moment/etag/FsnlbRDglFovPjJr290wMYJjLbjp_20260923163604.jpg/_tap_ugc.jpg",
+          "sheet": "simple-8",
+          "row": 3,
+          "nameRaw": "暖暖阳春面",
+          "nameMatch": "variant-candidate"
+        },
+        "imageComparison": {
+          "method": "foreground-normalized-rgb-mse",
+          "score": 671.46,
+          "scoreMeaning": "Lower is closer; this is not a confidence percentage.",
+          "bestCandidateFileIds": ["petitplanet-wiki-file-4010"]
+        }
+      },
+      "notes": ["原始菜名与 TapTap 标签存在异写，图形候选不消除名称歧义。"]
+    },
+    {
+      "recipeId": "mt-20260923-simple-009",
+      "recipeNameRaw": "乡蔬小麦面",
+      "originalSource": {
+        "sourceId": "tomorrow-20260923-image",
+        "region": "simple",
+        "row": 9
+      },
+      "candidateFileId": "petitplanet-wiki-file-4012",
+      "status": "visual-candidate",
+      "gameVerified": false,
+      "evidence": {
+        "guide": {
+          "postUrl": "https://www.taptap.cn/moment/851862566224266917",
+          "imageUrl": "https://img2-tc.tapimg.com/moment/etag/FsnlbRDglFovPjJr290wMYJjLbjp_20260923163604.jpg/_tap_ugc.jpg",
+          "sheet": "simple-8",
+          "row": 4,
+          "nameRaw": "乡蔬小麦面",
+          "nameMatch": "same-name-candidate"
+        },
+        "imageComparison": {
+          "method": "foreground-normalized-rgb-mse",
+          "score": 515.72,
+          "scoreMeaning": "Lower is closer; this is not a confidence percentage.",
+          "bestCandidateFileIds": ["petitplanet-wiki-file-4012"]
+        }
+      },
+      "notes": []
+    },
+    {
+      "recipeId": "mt-20260923-simple-010",
+      "recipeNameRaw": "乡野粥",
+      "originalSource": {
+        "sourceId": "tomorrow-20260923-image",
+        "region": "simple",
+        "row": 10
+      },
+      "candidateFileId": "petitplanet-wiki-file-3829",
+      "status": "visual-candidate",
+      "gameVerified": false,
+      "evidence": {
+        "guide": {
+          "postUrl": "https://www.taptap.cn/moment/851862566224266917",
+          "imageUrl": "https://img2-tc.tapimg.com/moment/etag/Fs8TowJboMhP38-ZQlB935PjG0qL_20260923163604.jpg/_tap_ugc.jpg",
+          "sheet": "simple-7",
+          "row": 2,
+          "nameRaw": "乡野粥",
+          "nameMatch": "same-name-candidate"
+        },
+        "imageComparison": {
+          "method": "foreground-normalized-rgb-mse",
+          "score": 1107.84,
+          "scoreMeaning": "Lower is closer; this is not a confidence percentage.",
+          "bestCandidateFileIds": ["petitplanet-wiki-file-3829"]
+        }
+      },
+      "notes": []
+    },
+    {
+      "recipeId": "mt-20260923-simple-011",
+      "recipeNameRaw": "谷物粥",
+      "originalSource": {
+        "sourceId": "tomorrow-20260923-image",
+        "region": "simple",
+        "row": 11
+      },
+      "candidateFileId": "petitplanet-wiki-file-3813",
+      "status": "visual-candidate",
+      "gameVerified": false,
+      "evidence": {
+        "guide": {
+          "postUrl": "https://www.taptap.cn/moment/851862566224266917",
+          "imageUrl": "https://img2-tc.tapimg.com/moment/etag/Fs8TowJboMhP38-ZQlB935PjG0qL_20260923163604.jpg/_tap_ugc.jpg",
+          "sheet": "simple-7",
+          "row": 1,
+          "nameRaw": "谷物粥",
+          "nameMatch": "same-name-candidate"
+        },
+        "imageComparison": {
+          "method": "foreground-normalized-rgb-mse",
+          "score": 1026.95,
+          "scoreMeaning": "Lower is closer; this is not a confidence percentage.",
+          "bestCandidateFileIds": ["petitplanet-wiki-file-3813"]
+        }
+      },
+      "notes": []
+    },
+    {
+      "recipeId": "mt-20260923-simple-012",
+      "recipeNameRaw": "炒鲜蔬",
+      "originalSource": {
+        "sourceId": "tomorrow-20260923-image",
+        "region": "simple",
+        "row": 12
+      },
+      "candidateFileId": "petitplanet-wiki-file-3809",
+      "status": "visual-candidate",
+      "gameVerified": false,
+      "evidence": {
+        "guide": {
+          "postUrl": "https://www.taptap.cn/moment/851862566224266917",
+          "imageUrl": "https://img2-tc.tapimg.com/moment/etag/Fs7A5l29coRYKj4okDiP94YUJdh-_20260923163604.jpg/_tap_ugc.jpg",
+          "sheet": "simple-1",
+          "row": 1,
+          "nameRaw": "炒鲜蔬",
+          "nameMatch": "same-name-candidate"
+        },
+        "imageComparison": {
+          "method": "foreground-normalized-rgb-mse",
+          "score": 986.23,
+          "scoreMeaning": "Lower is closer; this is not a confidence percentage.",
+          "bestCandidateFileIds": ["petitplanet-wiki-file-3809"]
+        }
+      },
+      "notes": []
+    },
+    {
+      "recipeId": "mt-20260923-simple-013",
+      "recipeNameRaw": "番茄龙虾汤",
+      "originalSource": {
+        "sourceId": "tomorrow-20260923-image",
+        "region": "simple",
+        "row": 13
+      },
+      "candidateFileId": "petitplanet-wiki-file-3823",
+      "status": "visual-candidate",
+      "gameVerified": false,
+      "evidence": {
+        "guide": {
+          "postUrl": "https://www.taptap.cn/moment/851862566224266917",
+          "imageUrl": "https://img2-tc.tapimg.com/moment/etag/Fvz6kuXOGQtfFYjKQDDZR_Re_UUy_20260923163604.jpg/_tap_ugc.jpg",
+          "sheet": "simple-4",
+          "row": 1,
+          "nameRaw": "番茄龙虾汤",
+          "nameMatch": "same-name-candidate"
+        },
+        "imageComparison": {
+          "method": "foreground-normalized-rgb-mse",
+          "score": 1216.21,
+          "scoreMeaning": "Lower is closer; this is not a confidence percentage.",
+          "bestCandidateFileIds": ["petitplanet-wiki-file-3823"]
+        }
+      },
+      "notes": []
+    },
+    {
+      "recipeId": "mt-20260923-simple-014",
+      "recipeNameRaw": "汤汁番茄鱼",
+      "originalSource": {
+        "sourceId": "tomorrow-20260923-image",
+        "region": "simple",
+        "row": 14
+      },
+      "candidateFileId": "petitplanet-wiki-file-3860",
+      "status": "visual-candidate",
+      "gameVerified": false,
+      "evidence": {
+        "guide": {
+          "postUrl": "https://www.taptap.cn/moment/851862566224266917",
+          "imageUrl": "https://img2-tc.tapimg.com/moment/etag/Fs7A5l29coRYKj4okDiP94YUJdh-_20260923163604.jpg/_tap_ugc.jpg",
+          "sheet": "simple-1",
+          "row": 3,
+          "nameRaw": "汤汁番茄鱼",
+          "nameMatch": "same-name-candidate"
+        },
+        "imageComparison": {
+          "method": "foreground-normalized-rgb-mse",
+          "score": 925.04,
+          "scoreMeaning": "Lower is closer; this is not a confidence percentage.",
+          "bestCandidateFileIds": ["petitplanet-wiki-file-3860"]
+        }
+      },
+      "notes": []
+    },
+    {
+      "recipeId": "mt-20260923-simple-015",
+      "recipeNameRaw": "炒蟹贝",
+      "originalSource": {
+        "sourceId": "tomorrow-20260923-image",
+        "region": "simple",
+        "row": 15
+      },
+      "candidateFileId": "petitplanet-wiki-file-3837",
+      "status": "visual-candidate",
+      "gameVerified": false,
+      "evidence": {
+        "guide": {
+          "postUrl": "https://www.taptap.cn/moment/851862566224266917",
+          "imageUrl": "https://img2-tc.tapimg.com/moment/etag/Fs7A5l29coRYKj4okDiP94YUJdh-_20260923163604.jpg/_tap_ugc.jpg",
+          "sheet": "simple-1",
+          "row": 2,
+          "nameRaw": "炒蟹贝",
+          "nameMatch": "same-name-candidate"
+        },
+        "imageComparison": {
+          "method": "foreground-normalized-rgb-mse",
+          "score": 422.79,
+          "scoreMeaning": "Lower is closer; this is not a confidence percentage.",
+          "bestCandidateFileIds": ["petitplanet-wiki-file-3837"]
+        }
+      },
+      "notes": []
+    },
+    {
+      "recipeId": "mt-20260923-simple-016",
+      "recipeNameRaw": "蒸海鲜",
+      "originalSource": {
+        "sourceId": "tomorrow-20260923-image",
+        "region": "simple",
+        "row": 16
+      },
+      "candidateFileId": "petitplanet-wiki-file-3807",
+      "status": "visual-candidate",
+      "gameVerified": false,
+      "evidence": {
+        "guide": {
+          "postUrl": "https://www.taptap.cn/moment/851862566224266917",
+          "imageUrl": "https://img2-tc.tapimg.com/moment/etag/Fs7A5l29coRYKj4okDiP94YUJdh-_20260923163604.jpg/_tap_ugc.jpg",
+          "sheet": "simple-1",
+          "row": 4,
+          "nameRaw": "蒸海鲜",
+          "nameMatch": "same-name-candidate"
+        },
+        "imageComparison": {
+          "method": "foreground-normalized-rgb-mse",
+          "score": 1052.63,
+          "scoreMeaning": "Lower is closer; this is not a confidence percentage.",
+          "bestCandidateFileIds": ["petitplanet-wiki-file-3807"]
+        }
+      },
+      "notes": []
+    },
+    {
+      "recipeId": "mt-20260923-simple-017",
+      "recipeNameRaw": "拾贝粥",
+      "originalSource": {
+        "sourceId": "tomorrow-20260923-image",
+        "region": "simple",
+        "row": 17
+      },
+      "candidateFileId": "petitplanet-wiki-file-3844",
+      "status": "visual-candidate",
+      "gameVerified": false,
+      "evidence": {
+        "guide": {
+          "postUrl": "https://www.taptap.cn/moment/851862566224266917",
+          "imageUrl": "https://img2-tc.tapimg.com/moment/etag/Fs8TowJboMhP38-ZQlB935PjG0qL_20260923163604.jpg/_tap_ugc.jpg",
+          "sheet": "simple-7",
+          "row": 3,
+          "nameRaw": "拾贝粥",
+          "nameMatch": "same-name-candidate"
+        },
+        "imageComparison": {
+          "method": "foreground-normalized-rgb-mse",
+          "score": 857.63,
+          "scoreMeaning": "Lower is closer; this is not a confidence percentage.",
+          "bestCandidateFileIds": ["petitplanet-wiki-file-3844"]
+        }
+      },
+      "notes": []
+    },
+    {
+      "recipeId": "mt-20260923-simple-018",
+      "recipeNameRaw": "海鲜粥",
+      "originalSource": {
+        "sourceId": "tomorrow-20260923-image",
+        "region": "simple",
+        "row": 18
+      },
+      "candidateFileId": "petitplanet-wiki-file-3792",
+      "status": "visual-candidate",
+      "gameVerified": false,
+      "evidence": {
+        "guide": {
+          "postUrl": "https://www.taptap.cn/moment/851862566224266917",
+          "imageUrl": "https://img2-tc.tapimg.com/moment/etag/Fs8TowJboMhP38-ZQlB935PjG0qL_20260923163604.jpg/_tap_ugc.jpg",
+          "sheet": "simple-7",
+          "row": 4,
+          "nameRaw": "海鲜粥",
+          "nameMatch": "same-name-candidate"
+        },
+        "imageComparison": {
+          "method": "foreground-normalized-rgb-mse",
+          "score": 1002.37,
+          "scoreMeaning": "Lower is closer; this is not a confidence percentage.",
+          "bestCandidateFileIds": ["petitplanet-wiki-file-3792"]
+        }
+      },
+      "notes": []
+    },
+    {
+      "recipeId": "mt-20260923-simple-019",
+      "recipeNameRaw": "胡萝卜炖肉",
+      "originalSource": {
+        "sourceId": "tomorrow-20260923-image",
+        "region": "simple",
+        "row": 19
+      },
+      "candidateFileId": null,
+      "status": "not-found",
+      "gameVerified": false,
+      "evidence": {
+        "guide": {
+          "postUrl": "https://www.taptap.cn/moment/851862566224266917",
+          "imageUrl": "https://img2-tc.tapimg.com/moment/etag/FhnyhID0H5FTqrcX9vilV1zHJqgm_20260923163604.jpg/_tap_ugc.jpg",
+          "sheet": "simple-2",
+          "row": 3,
+          "nameRaw": "胡萝卜炖肉",
+          "nameMatch": "same-name-candidate"
+        }
+      },
+      "notes": [
+        "在本次完整枚举的 95 个 Wiki 文件中未找到与中文攻略图对应的候选；不代表其他站点或该站未来不会补充。"
+      ]
+    },
+    {
+      "recipeId": "mt-20260923-simple-020",
+      "recipeNameRaw": "四时蔬果汤",
+      "originalSource": {
+        "sourceId": "tomorrow-20260923-image",
+        "region": "simple",
+        "row": 20
+      },
+      "candidateFileId": "petitplanet-wiki-file-4008",
+      "status": "name-variant-visual-candidate",
+      "gameVerified": false,
+      "evidence": {
+        "guide": {
+          "postUrl": "https://www.taptap.cn/moment/851862566224266917",
+          "imageUrl": "https://img2-tc.tapimg.com/moment/etag/Fvz6kuXOGQtfFYjKQDDZR_Re_UUy_20260923163604.jpg/_tap_ugc.jpg",
+          "sheet": "simple-4",
+          "row": 6,
+          "nameRaw": "四时果蔬汤",
+          "nameMatch": "variant-candidate"
+        },
+        "imageComparison": {
+          "method": "foreground-normalized-rgb-mse",
+          "score": 597.69,
+          "scoreMeaning": "Lower is closer; this is not a confidence percentage.",
+          "bestCandidateFileIds": ["petitplanet-wiki-file-4008"]
+        }
+      },
+      "notes": ["原始菜名与 TapTap 标签存在异写，图形候选不消除名称歧义。"]
+    },
+    {
+      "recipeId": "mt-20260923-simple-021",
+      "recipeNameRaw": "沁凉水果面",
+      "originalSource": {
+        "sourceId": "tomorrow-20260923-image",
+        "region": "simple",
+        "row": 21
+      },
+      "candidateFileId": "petitplanet-wiki-file-3991",
+      "status": "visual-candidate",
+      "gameVerified": false,
+      "evidence": {
+        "guide": {
+          "postUrl": "https://www.taptap.cn/moment/851862566224266917",
+          "imageUrl": "https://img2-tc.tapimg.com/moment/etag/FsnlbRDglFovPjJr290wMYJjLbjp_20260923163604.jpg/_tap_ugc.jpg",
+          "sheet": "simple-8",
+          "row": 2,
+          "nameRaw": "沁凉水果面",
+          "nameMatch": "same-name-candidate"
+        },
+        "imageComparison": {
+          "method": "foreground-normalized-rgb-mse",
+          "score": 853,
+          "scoreMeaning": "Lower is closer; this is not a confidence percentage.",
+          "bestCandidateFileIds": ["petitplanet-wiki-file-3991"]
+        }
+      },
+      "notes": []
+    },
+    {
+      "recipeId": "mt-20260923-simple-022",
+      "recipeNameRaw": "果香鱼壶",
+      "originalSource": {
+        "sourceId": "tomorrow-20260923-image",
+        "region": "simple",
+        "row": 22
+      },
+      "candidateFileId": "petitplanet-wiki-file-3868",
+      "status": "visual-candidate",
+      "gameVerified": false,
+      "evidence": {
+        "guide": {
+          "postUrl": "https://www.taptap.cn/moment/851862566224266917",
+          "imageUrl": "https://img2-tc.tapimg.com/moment/etag/Fs7A5l29coRYKj4okDiP94YUJdh-_20260923163604.jpg/_tap_ugc.jpg",
+          "sheet": "simple-1",
+          "row": 5,
+          "nameRaw": "果香鱼壶",
+          "nameMatch": "same-name-candidate"
+        },
+        "imageComparison": {
+          "method": "foreground-normalized-rgb-mse",
+          "score": 935.37,
+          "scoreMeaning": "Lower is closer; this is not a confidence percentage.",
+          "bestCandidateFileIds": ["petitplanet-wiki-file-3868"]
+        }
+      },
+      "notes": []
+    },
+    {
+      "recipeId": "mt-20260923-simple-023",
+      "recipeNameRaw": "海鲜大铺面",
+      "originalSource": {
+        "sourceId": "tomorrow-20260923-image",
+        "region": "simple",
+        "row": 23
+      },
+      "candidateFileId": "petitplanet-wiki-file-4006",
+      "status": "visual-candidate",
+      "gameVerified": false,
+      "evidence": {
+        "guide": {
+          "postUrl": "https://www.taptap.cn/moment/851862566224266917",
+          "imageUrl": "https://img2-tc.tapimg.com/moment/etag/FsnlbRDglFovPjJr290wMYJjLbjp_20260923163604.jpg/_tap_ugc.jpg",
+          "sheet": "simple-8",
+          "row": 1,
+          "nameRaw": "海鲜大铺面",
+          "nameMatch": "same-name-candidate"
+        },
+        "imageComparison": {
+          "method": "foreground-normalized-rgb-mse",
+          "score": 718.28,
+          "scoreMeaning": "Lower is closer; this is not a confidence percentage.",
+          "bestCandidateFileIds": ["petitplanet-wiki-file-4006"]
+        }
+      },
+      "notes": []
+    },
+    {
+      "recipeId": "mt-20260923-simple-024",
+      "recipeNameRaw": "绚烂果汁",
+      "originalSource": {
+        "sourceId": "tomorrow-20260923-image",
+        "region": "simple",
+        "row": 24
+      },
+      "candidateFileId": "petitplanet-wiki-file-3963",
+      "status": "visual-candidate",
+      "gameVerified": false,
+      "evidence": {
+        "guide": {
+          "postUrl": "https://www.taptap.cn/moment/851862566224266917",
+          "imageUrl": "https://img2-tc.tapimg.com/moment/etag/Fh3DhqUtW7h9q1-pOEDN77iRCY9f_20260923163604.jpg/_tap_ugc.jpg",
+          "sheet": "simple-5",
+          "row": 5,
+          "nameRaw": "绚烂果汁",
+          "nameMatch": "same-name-candidate"
+        },
+        "imageComparison": {
+          "method": "foreground-normalized-rgb-mse",
+          "score": 518.87,
+          "scoreMeaning": "Lower is closer; this is not a confidence percentage.",
+          "bestCandidateFileIds": ["petitplanet-wiki-file-3963"]
+        }
+      },
+      "notes": []
+    },
+    {
+      "recipeId": "mt-20260923-simple-025",
+      "recipeNameRaw": "恬恬莓米酿",
+      "originalSource": {
+        "sourceId": "tomorrow-20260923-image",
+        "region": "simple",
+        "row": 25
+      },
+      "candidateFileId": "petitplanet-wiki-file-3995",
+      "status": "visual-candidate",
+      "gameVerified": false,
+      "evidence": {
+        "guide": {
+          "postUrl": "https://www.taptap.cn/moment/851862566224266917",
+          "imageUrl": "https://img2-tc.tapimg.com/moment/etag/Fh3DhqUtW7h9q1-pOEDN77iRCY9f_20260923163604.jpg/_tap_ugc.jpg",
+          "sheet": "simple-5",
+          "row": 6,
+          "nameRaw": "恬恬莓米酿",
+          "nameMatch": "same-name-candidate"
+        },
+        "imageComparison": {
+          "method": "foreground-normalized-rgb-mse",
+          "score": 917.13,
+          "scoreMeaning": "Lower is closer; this is not a confidence percentage.",
+          "bestCandidateFileIds": ["petitplanet-wiki-file-3995"]
+        }
+      },
+      "notes": []
+    },
+    {
+      "recipeId": "mt-20260923-simple-026",
+      "recipeNameRaw": "青蔬果汁",
+      "originalSource": {
+        "sourceId": "tomorrow-20260923-image",
+        "region": "simple",
+        "row": 26
+      },
+      "candidateFileId": "petitplanet-wiki-file-3993",
+      "status": "visual-candidate",
+      "gameVerified": false,
+      "evidence": {
+        "guide": {
+          "postUrl": "https://www.taptap.cn/moment/851862566224266917",
+          "imageUrl": "https://img2-tc.tapimg.com/moment/etag/Fo4k57IyBb7wqrn32AqAkHbMG1eL_20260923163604.jpg/_tap_ugc.jpg",
+          "sheet": "simple-6",
+          "row": 1,
+          "nameRaw": "青蔬果汁",
+          "nameMatch": "same-name-candidate"
+        },
+        "imageComparison": {
+          "method": "foreground-normalized-rgb-mse",
+          "score": 504.82,
+          "scoreMeaning": "Lower is closer; this is not a confidence percentage.",
+          "bestCandidateFileIds": [
+            "petitplanet-wiki-file-4000",
+            "petitplanet-wiki-file-3999",
+            "petitplanet-wiki-file-3998",
+            "petitplanet-wiki-file-3993"
+          ]
+        }
+      },
+      "notes": []
+    },
+    {
+      "recipeId": "mt-20260923-simple-027",
+      "recipeNameRaw": "甘蔬米酪",
+      "originalSource": {
+        "sourceId": "tomorrow-20260923-image",
+        "region": "simple",
+        "row": 27
+      },
+      "candidateFileId": "petitplanet-wiki-file-4003",
+      "status": "visual-candidate",
+      "gameVerified": false,
+      "evidence": {
+        "guide": {
+          "postUrl": "https://www.taptap.cn/moment/851862566224266917",
+          "imageUrl": "https://img2-tc.tapimg.com/moment/etag/Fo4k57IyBb7wqrn32AqAkHbMG1eL_20260923163604.jpg/_tap_ugc.jpg",
+          "sheet": "simple-6",
+          "row": 3,
+          "nameRaw": "甘蔬米酪",
+          "nameMatch": "same-name-candidate"
+        },
+        "imageComparison": {
+          "method": "foreground-normalized-rgb-mse",
+          "score": 1075.16,
+          "scoreMeaning": "Lower is closer; this is not a confidence percentage.",
+          "bestCandidateFileIds": ["petitplanet-wiki-file-4003"]
+        }
+      },
+      "notes": []
+    },
+    {
+      "recipeId": "mt-20260923-simple-028",
+      "recipeNameRaw": "绵绵麦奶",
+      "originalSource": {
+        "sourceId": "tomorrow-20260923-image",
+        "region": "simple",
+        "row": 28
+      },
+      "candidateFileId": "petitplanet-wiki-file-3996",
+      "status": "visual-candidate",
+      "gameVerified": false,
+      "evidence": {
+        "guide": {
+          "postUrl": "https://www.taptap.cn/moment/851862566224266917",
+          "imageUrl": "https://img2-tc.tapimg.com/moment/etag/Fo4k57IyBb7wqrn32AqAkHbMG1eL_20260923163604.jpg/_tap_ugc.jpg",
+          "sheet": "simple-6",
+          "row": 2,
+          "nameRaw": "绵绵麦奶",
+          "nameMatch": "same-name-candidate"
+        },
+        "imageComparison": {
+          "method": "foreground-normalized-rgb-mse",
+          "score": 1238.56,
+          "scoreMeaning": "Lower is closer; this is not a confidence percentage.",
+          "bestCandidateFileIds": ["petitplanet-wiki-file-3996"]
+        }
+      },
+      "notes": []
+    },
+    {
+      "recipeId": "mt-20260923-simple-029",
+      "recipeNameRaw": "炽汁多果烤串",
+      "originalSource": {
+        "sourceId": "tomorrow-20260923-image",
+        "region": "simple",
+        "row": 29
+      },
+      "candidateFileId": "petitplanet-wiki-file-3955",
+      "status": "visual-candidate",
+      "gameVerified": false,
+      "evidence": {
+        "guide": {
+          "postUrl": "https://www.taptap.cn/moment/851862566224266917",
+          "imageUrl": "https://img2-tc.tapimg.com/moment/etag/FthUg06JZnmKT4IjgqRTMC2Qb9e-_20260923163604.jpg/_tap_ugc.jpg",
+          "sheet": "simple-3",
+          "row": 1,
+          "nameRaw": "炽汁多果烤串",
+          "nameMatch": "same-name-candidate"
+        },
+        "imageComparison": {
+          "method": "foreground-normalized-rgb-mse",
+          "score": 565.28,
+          "scoreMeaning": "Lower is closer; this is not a confidence percentage.",
+          "bestCandidateFileIds": ["petitplanet-wiki-file-3955"]
+        }
+      },
+      "notes": []
+    },
+    {
+      "recipeId": "mt-20260923-simple-030",
+      "recipeNameRaw": "烤米布丁",
+      "originalSource": {
+        "sourceId": "tomorrow-20260923-image",
+        "region": "simple",
+        "row": 30
+      },
+      "candidateFileId": "petitplanet-wiki-file-3934",
+      "status": "visual-candidate",
+      "gameVerified": false,
+      "evidence": {
+        "guide": {
+          "postUrl": "https://www.taptap.cn/moment/851862566224266917",
+          "imageUrl": "https://img2-tc.tapimg.com/moment/etag/Fh3DhqUtW7h9q1-pOEDN77iRCY9f_20260923163604.jpg/_tap_ugc.jpg",
+          "sheet": "simple-5",
+          "row": 2,
+          "nameRaw": "烤米布丁",
+          "nameMatch": "same-name-candidate"
+        },
+        "imageComparison": {
+          "method": "foreground-normalized-rgb-mse",
+          "score": 1085.69,
+          "scoreMeaning": "Lower is closer; this is not a confidence percentage.",
+          "bestCandidateFileIds": ["petitplanet-wiki-file-3934"]
+        }
+      },
+      "notes": []
+    },
+    {
+      "recipeId": "mt-20260923-simple-031",
+      "recipeNameRaw": "麦烘蛋糕",
+      "originalSource": {
+        "sourceId": "tomorrow-20260923-image",
+        "region": "simple",
+        "row": 31
+      },
+      "candidateFileId": "petitplanet-wiki-file-3945",
+      "status": "visual-candidate",
+      "gameVerified": false,
+      "evidence": {
+        "guide": {
+          "postUrl": "https://www.taptap.cn/moment/851862566224266917",
+          "imageUrl": "https://img2-tc.tapimg.com/moment/etag/Fh3DhqUtW7h9q1-pOEDN77iRCY9f_20260923163604.jpg/_tap_ugc.jpg",
+          "sheet": "simple-5",
+          "row": 1,
+          "nameRaw": "麦烘蛋糕",
+          "nameMatch": "same-name-candidate"
+        },
+        "imageComparison": {
+          "method": "foreground-normalized-rgb-mse",
+          "score": 515.1,
+          "scoreMeaning": "Lower is closer; this is not a confidence percentage.",
+          "bestCandidateFileIds": ["petitplanet-wiki-file-3945"]
+        }
+      },
+      "notes": []
+    },
+    {
+      "recipeId": "mt-20260923-simple-032",
+      "recipeNameRaw": "蘑菇果蔬烤串",
+      "originalSource": {
+        "sourceId": "tomorrow-20260923-image",
+        "region": "simple",
+        "row": 32
+      },
+      "candidateFileId": "petitplanet-wiki-file-3950",
+      "status": "visual-candidate",
+      "gameVerified": false,
+      "evidence": {
+        "guide": {
+          "postUrl": "https://www.taptap.cn/moment/851862566224266917",
+          "imageUrl": "https://img2-tc.tapimg.com/moment/etag/FthUg06JZnmKT4IjgqRTMC2Qb9e-_20260923163604.jpg/_tap_ugc.jpg",
+          "sheet": "simple-3",
+          "row": 2,
+          "nameRaw": "蘑菇果蔬烤串",
+          "nameMatch": "same-name-candidate"
+        },
+        "imageComparison": {
+          "method": "foreground-normalized-rgb-mse",
+          "score": 636.02,
+          "scoreMeaning": "Lower is closer; this is not a confidence percentage.",
+          "bestCandidateFileIds": [
+            "petitplanet-wiki-file-3940",
+            "petitplanet-wiki-file-3939",
+            "petitplanet-wiki-file-3941",
+            "petitplanet-wiki-file-3950"
+          ]
+        }
+      },
+      "notes": []
+    },
+    {
+      "recipeId": "mt-20260923-simple-033",
+      "recipeNameRaw": "鱼香焗饭",
+      "originalSource": {
+        "sourceId": "tomorrow-20260923-image",
+        "region": "simple",
+        "row": 33
+      },
+      "candidateFileId": "petitplanet-wiki-file-3936",
+      "status": "visual-candidate",
+      "gameVerified": false,
+      "evidence": {
+        "guide": {
+          "postUrl": "https://www.taptap.cn/moment/851862566224266917",
+          "imageUrl": "https://img2-tc.tapimg.com/moment/etag/Fs8TowJboMhP38-ZQlB935PjG0qL_20260923163604.jpg/_tap_ugc.jpg",
+          "sheet": "simple-7",
+          "row": 5,
+          "nameRaw": "鱼香焗饭",
+          "nameMatch": "same-name-candidate"
+        },
+        "imageComparison": {
+          "method": "foreground-normalized-rgb-mse",
+          "score": 617.5,
+          "scoreMeaning": "Lower is closer; this is not a confidence percentage.",
+          "bestCandidateFileIds": ["petitplanet-wiki-file-3936"]
+        }
+      },
+      "notes": []
+    },
+    {
+      "recipeId": "mt-20260923-simple-034",
+      "recipeNameRaw": "果酥烤鱼",
+      "originalSource": {
+        "sourceId": "tomorrow-20260923-image",
+        "region": "simple",
+        "row": 34
+      },
+      "candidateFileId": "petitplanet-wiki-file-3937",
+      "status": "visual-candidate",
+      "gameVerified": false,
+      "evidence": {
+        "guide": {
+          "postUrl": "https://www.taptap.cn/moment/851862566224266917",
+          "imageUrl": "https://img2-tc.tapimg.com/moment/etag/FhnyhID0H5FTqrcX9vilV1zHJqgm_20260923163604.jpg/_tap_ugc.jpg",
+          "sheet": "simple-2",
+          "row": 4,
+          "nameRaw": "果酥烤鱼",
+          "nameMatch": "same-name-candidate"
+        },
+        "imageComparison": {
+          "method": "foreground-normalized-rgb-mse",
+          "score": 363.59,
+          "scoreMeaning": "Lower is closer; this is not a confidence percentage.",
+          "bestCandidateFileIds": ["petitplanet-wiki-file-3937"]
+        }
+      },
+      "notes": []
+    },
+    {
+      "recipeId": "mt-20260923-simple-035",
+      "recipeNameRaw": "波香烤鱼串",
+      "originalSource": {
+        "sourceId": "tomorrow-20260923-image",
+        "region": "simple",
+        "row": 35
+      },
+      "candidateFileId": "petitplanet-wiki-file-3942",
+      "status": "name-variant-visual-candidate",
+      "gameVerified": false,
+      "evidence": {
+        "guide": {
+          "postUrl": "https://www.taptap.cn/moment/851862566224266917",
+          "imageUrl": "https://img2-tc.tapimg.com/moment/etag/FhnyhID0H5FTqrcX9vilV1zHJqgm_20260923163604.jpg/_tap_ugc.jpg",
+          "sheet": "simple-2",
+          "row": 5,
+          "nameRaw": "菠香烤鱼串",
+          "nameMatch": "variant-candidate"
+        },
+        "imageComparison": {
+          "method": "foreground-normalized-rgb-mse",
+          "score": 1014.49,
+          "scoreMeaning": "Lower is closer; this is not a confidence percentage.",
+          "bestCandidateFileIds": ["petitplanet-wiki-file-3942"]
+        }
+      },
+      "notes": ["原始菜名与 TapTap 标签存在异写，图形候选不消除名称歧义。"]
+    },
+    {
+      "recipeId": "mt-20260923-simple-036",
+      "recipeNameRaw": "蔬风烤鱼",
+      "originalSource": {
+        "sourceId": "tomorrow-20260923-image",
+        "region": "simple",
+        "row": 36
+      },
+      "candidateFileId": "petitplanet-wiki-file-3938",
+      "status": "visual-candidate",
+      "gameVerified": false,
+      "evidence": {
+        "guide": {
+          "postUrl": "https://www.taptap.cn/moment/851862566224266917",
+          "imageUrl": "https://img2-tc.tapimg.com/moment/etag/FhnyhID0H5FTqrcX9vilV1zHJqgm_20260923163604.jpg/_tap_ugc.jpg",
+          "sheet": "simple-2",
+          "row": 6,
+          "nameRaw": "蔬风烤鱼",
+          "nameMatch": "same-name-candidate"
+        },
+        "imageComparison": {
+          "method": "foreground-normalized-rgb-mse",
+          "score": 247.25,
+          "scoreMeaning": "Lower is closer; this is not a confidence percentage.",
+          "bestCandidateFileIds": ["petitplanet-wiki-file-3938"]
+        }
+      },
+      "notes": []
+    },
+    {
+      "recipeId": "mt-20260923-simple-037",
+      "recipeNameRaw": "海烩焗饭",
+      "originalSource": {
+        "sourceId": "tomorrow-20260923-image",
+        "region": "simple",
+        "row": 37
+      },
+      "candidateFileId": "petitplanet-wiki-file-8990",
+      "status": "visual-candidate",
+      "gameVerified": false,
+      "evidence": {
+        "guide": {
+          "postUrl": "https://www.taptap.cn/moment/851862566224266917",
+          "imageUrl": "https://img2-tc.tapimg.com/moment/etag/Fs8TowJboMhP38-ZQlB935PjG0qL_20260923163604.jpg/_tap_ugc.jpg",
+          "sheet": "simple-7",
+          "row": 6,
+          "nameRaw": "海烩焗饭",
+          "nameMatch": "same-name-candidate"
+        },
+        "imageComparison": {
+          "method": "foreground-normalized-rgb-mse",
+          "score": 693.27,
+          "scoreMeaning": "Lower is closer; this is not a confidence percentage.",
+          "bestCandidateFileIds": ["petitplanet-wiki-file-8990", "petitplanet-wiki-file-3943"]
+        }
+      },
+      "notes": []
+    },
+    {
+      "recipeId": "mt-20260923-signature-001",
+      "recipeNameRaw": "果蔬沙拉",
+      "originalSource": {
+        "sourceId": "tomorrow-20260923-image",
+        "region": "signature",
+        "row": 1
+      },
+      "candidateFileId": "petitplanet-wiki-file-3825",
+      "status": "visual-candidate",
+      "gameVerified": false,
+      "evidence": {
+        "guide": {
+          "postUrl": "https://www.taptap.cn/moment/852148878751829285",
+          "imageUrl": "https://img2-tc.tapimg.com/moment/etag/FmWxu_WAT6Wv8O6-Fe-LTsShjESS_20260924152509.jpg/_tap_ugc.jpg",
+          "sheet": "signature-5",
+          "row": 3,
+          "nameRaw": "果蔬沙拉",
+          "nameMatch": "same-name-candidate"
+        },
+        "imageComparison": {
+          "method": "foreground-normalized-rgb-mse",
+          "score": 1830.22,
+          "scoreMeaning": "Lower is closer; this is not a confidence percentage.",
+          "bestCandidateFileIds": ["petitplanet-wiki-file-3825"]
+        }
+      },
+      "notes": []
+    },
+    {
+      "recipeId": "mt-20260923-signature-002",
+      "recipeNameRaw": "番笋红宋汤",
+      "originalSource": {
+        "sourceId": "tomorrow-20260923-image",
+        "region": "signature",
+        "row": 2
+      },
+      "candidateFileId": "petitplanet-wiki-file-3895",
+      "status": "visual-candidate",
+      "gameVerified": false,
+      "evidence": {
+        "guide": {
+          "postUrl": "https://www.taptap.cn/moment/852148878751829285",
+          "imageUrl": "https://img2-tc.tapimg.com/moment/etag/FgaP2gm12_Wr6Y0eIpOrQ4X61OVE_20260924113429.jpg/_tap_ugc.jpg",
+          "sheet": "signature-1",
+          "row": 6,
+          "nameRaw": "番笋红宋汤",
+          "nameMatch": "same-name-candidate"
+        },
+        "imageComparison": {
+          "method": "foreground-normalized-rgb-mse",
+          "score": 1122.82,
+          "scoreMeaning": "Lower is closer; this is not a confidence percentage.",
+          "bestCandidateFileIds": ["petitplanet-wiki-file-3895"]
+        }
+      },
+      "notes": []
+    },
+    {
+      "recipeId": "mt-20260923-signature-003",
+      "recipeNameRaw": "茄茄擂辣饭",
+      "originalSource": {
+        "sourceId": "tomorrow-20260923-image",
+        "region": "signature",
+        "row": 3
+      },
+      "candidateFileId": null,
+      "status": "not-found",
+      "gameVerified": false,
+      "evidence": {
+        "guide": {
+          "postUrl": "https://www.taptap.cn/moment/852148878751829285",
+          "imageUrl": "https://img2-tc.tapimg.com/moment/etag/FgaP2gm12_Wr6Y0eIpOrQ4X61OVE_20260924113429.jpg/_tap_ugc.jpg",
+          "sheet": "signature-1",
+          "row": 4,
+          "nameRaw": "茄茄擂辣饭",
+          "nameMatch": "same-name-candidate"
+        }
+      },
+      "notes": [
+        "在本次完整枚举的 95 个 Wiki 文件中未找到与中文攻略图对应的候选；不代表其他站点或该站未来不会补充。"
+      ]
+    },
+    {
+      "recipeId": "mt-20260923-signature-004",
+      "recipeNameRaw": "刺锅海胆蒸蛋",
+      "originalSource": {
+        "sourceId": "tomorrow-20260923-image",
+        "region": "signature",
+        "row": 4
+      },
+      "candidateFileId": "petitplanet-wiki-file-3847",
+      "status": "visual-candidate",
+      "gameVerified": false,
+      "evidence": {
+        "guide": {
+          "postUrl": "https://www.taptap.cn/moment/852148878751829285",
+          "imageUrl": "https://img2-tc.tapimg.com/moment/etag/FgaP2gm12_Wr6Y0eIpOrQ4X61OVE_20260924113429.jpg/_tap_ugc.jpg",
+          "sheet": "signature-1",
+          "row": 1,
+          "nameRaw": "刺锅海胆蒸蛋",
+          "nameMatch": "same-name-candidate"
+        },
+        "imageComparison": {
+          "method": "foreground-normalized-rgb-mse",
+          "score": 673.21,
+          "scoreMeaning": "Lower is closer; this is not a confidence percentage.",
+          "bestCandidateFileIds": ["petitplanet-wiki-file-3847"]
+        }
+      },
+      "notes": [
+        "与 Fruity Crab & Sea Urchin Platter 图形一致，但 Wiki 食材文字含水果，附件含蛋；图形匹配不解决配方或译名冲突。"
+      ]
+    },
+    {
+      "recipeId": "mt-20260923-signature-005",
+      "recipeNameRaw": "裹裹虾炸鱼",
+      "originalSource": {
+        "sourceId": "tomorrow-20260923-image",
+        "region": "signature",
+        "row": 5
+      },
+      "candidateFileId": "petitplanet-wiki-file-3879",
+      "status": "visual-candidate",
+      "gameVerified": false,
+      "evidence": {
+        "guide": {
+          "postUrl": "https://www.taptap.cn/moment/852148878751829285",
+          "imageUrl": "https://img2-tc.tapimg.com/moment/etag/FmWxu_WAT6Wv8O6-Fe-LTsShjESS_20260924152509.jpg/_tap_ugc.jpg",
+          "sheet": "signature-5",
+          "row": 1,
+          "nameRaw": "裹裹虾炸鱼",
+          "nameMatch": "same-name-candidate"
+        },
+        "imageComparison": {
+          "method": "foreground-normalized-rgb-mse",
+          "score": 442.6,
+          "scoreMeaning": "Lower is closer; this is not a confidence percentage.",
+          "bestCandidateFileIds": ["petitplanet-wiki-file-3879"]
+        }
+      },
+      "notes": []
+    },
+    {
+      "recipeId": "mt-20260923-signature-006",
+      "recipeNameRaw": "鲜笋鱼汤",
+      "originalSource": {
+        "sourceId": "tomorrow-20260923-image",
+        "region": "signature",
+        "row": 6
+      },
+      "candidateFileId": "petitplanet-wiki-file-3877",
+      "status": "visual-candidate",
+      "gameVerified": false,
+      "evidence": {
+        "guide": {
+          "postUrl": "https://www.taptap.cn/moment/852148878751829285",
+          "imageUrl": "https://img2-tc.tapimg.com/moment/etag/Fqo8s6CxLrjmVUE8sbobPS1jGAz3_20260924113429.jpg/_tap_ugc.jpg",
+          "sheet": "signature-2",
+          "row": 6,
+          "nameRaw": "鲜笋鱼汤",
+          "nameMatch": "same-name-candidate"
+        },
+        "imageComparison": {
+          "method": "foreground-normalized-rgb-mse",
+          "score": 954.82,
+          "scoreMeaning": "Lower is closer; this is not a confidence percentage.",
+          "bestCandidateFileIds": ["petitplanet-wiki-file-3877"]
+        }
+      },
+      "notes": []
+    },
+    {
+      "recipeId": "mt-20260923-signature-007",
+      "recipeNameRaw": "珍蟹腌笃鲜",
+      "originalSource": {
+        "sourceId": "tomorrow-20260923-image",
+        "region": "signature",
+        "row": 7
+      },
+      "candidateFileId": "petitplanet-wiki-file-3881",
+      "status": "visual-candidate",
+      "gameVerified": false,
+      "evidence": {
+        "guide": {
+          "postUrl": "https://www.taptap.cn/moment/852148878751829285",
+          "imageUrl": "https://img2-tc.tapimg.com/moment/etag/FsZYOwYgZaGn1z_GUd6Q6xFirI8v_20260924113429.jpg/_tap_ugc.jpg",
+          "sheet": "signature-3",
+          "row": 1,
+          "nameRaw": "珍蟹腌笃鲜",
+          "nameMatch": "same-name-candidate"
+        },
+        "imageComparison": {
+          "method": "foreground-normalized-rgb-mse",
+          "score": 953.37,
+          "scoreMeaning": "Lower is closer; this is not a confidence percentage.",
+          "bestCandidateFileIds": ["petitplanet-wiki-file-3881"]
+        }
+      },
+      "notes": ["原始附件中的菜名字形仍待核对，配图候选不解除该状态。"]
+    },
+    {
+      "recipeId": "mt-20260923-signature-008",
+      "recipeNameRaw": "辣龙虾过海",
+      "originalSource": {
+        "sourceId": "tomorrow-20260923-image",
+        "region": "signature",
+        "row": 8
+      },
+      "candidateFileId": "petitplanet-wiki-file-3989",
+      "status": "visual-candidate",
+      "gameVerified": false,
+      "evidence": {
+        "guide": {
+          "postUrl": "https://www.taptap.cn/moment/852148878751829285",
+          "imageUrl": "https://img2-tc.tapimg.com/moment/etag/Fqo8s6CxLrjmVUE8sbobPS1jGAz3_20260924113429.jpg/_tap_ugc.jpg",
+          "sheet": "signature-2",
+          "row": 1,
+          "nameRaw": "辣龙虾过海",
+          "nameMatch": "same-name-candidate"
+        },
+        "imageComparison": {
+          "method": "foreground-normalized-rgb-mse",
+          "score": 611.59,
+          "scoreMeaning": "Lower is closer; this is not a confidence percentage.",
+          "bestCandidateFileIds": ["petitplanet-wiki-file-3989"]
+        }
+      },
+      "notes": []
+    },
+    {
+      "recipeId": "mt-20260923-signature-009",
+      "recipeNameRaw": "握鱼大手卷",
+      "originalSource": {
+        "sourceId": "tomorrow-20260923-image",
+        "region": "signature",
+        "row": 9
+      },
+      "candidateFileId": "petitplanet-wiki-file-3833",
+      "status": "visual-candidate",
+      "gameVerified": false,
+      "evidence": {
+        "guide": {
+          "postUrl": "https://www.taptap.cn/moment/852148878751829285",
+          "imageUrl": "https://img2-tc.tapimg.com/moment/etag/FmWxu_WAT6Wv8O6-Fe-LTsShjESS_20260924152509.jpg/_tap_ugc.jpg",
+          "sheet": "signature-5",
+          "row": 4,
+          "nameRaw": "握鱼大手卷",
+          "nameMatch": "same-name-candidate"
+        },
+        "imageComparison": {
+          "method": "foreground-normalized-rgb-mse",
+          "score": 807.93,
+          "scoreMeaning": "Lower is closer; this is not a confidence percentage.",
+          "bestCandidateFileIds": ["petitplanet-wiki-file-3833"]
+        }
+      },
+      "notes": []
+    },
+    {
+      "recipeId": "mt-20260923-signature-010",
+      "recipeNameRaw": "鱼蔬大拉面",
+      "originalSource": {
+        "sourceId": "tomorrow-20260923-image",
+        "region": "signature",
+        "row": 10
+      },
+      "candidateFileId": "petitplanet-wiki-file-3982",
+      "status": "visual-candidate",
+      "gameVerified": false,
+      "evidence": {
+        "guide": {
+          "postUrl": "https://www.taptap.cn/moment/852148878751829285",
+          "imageUrl": "https://img2-tc.tapimg.com/moment/etag/Fqcc_-gDkmNW_P8bWtkWXcuf5P9C_20260924113429.jpg/_tap_ugc.jpg",
+          "sheet": "signature-6",
+          "row": 3,
+          "nameRaw": "鱼蔬大拉面",
+          "nameMatch": "same-name-candidate"
+        },
+        "imageComparison": {
+          "method": "foreground-normalized-rgb-mse",
+          "score": 385.33,
+          "scoreMeaning": "Lower is closer; this is not a confidence percentage.",
+          "bestCandidateFileIds": ["petitplanet-wiki-file-3982"]
+        }
+      },
+      "notes": []
+    },
+    {
+      "recipeId": "mt-20260923-signature-011",
+      "recipeNameRaw": "晶彩蒸鱼饭",
+      "originalSource": {
+        "sourceId": "tomorrow-20260923-image",
+        "region": "signature",
+        "row": 11
+      },
+      "candidateFileId": "petitplanet-wiki-file-3857",
+      "status": "visual-candidate",
+      "gameVerified": false,
+      "evidence": {
+        "guide": {
+          "postUrl": "https://www.taptap.cn/moment/852148878751829285",
+          "imageUrl": "https://img2-tc.tapimg.com/moment/etag/FmWxu_WAT6Wv8O6-Fe-LTsShjESS_20260924152509.jpg/_tap_ugc.jpg",
+          "sheet": "signature-5",
+          "row": 5,
+          "nameRaw": "晶彩蒸鱼饭",
+          "nameMatch": "same-name-candidate"
+        },
+        "imageComparison": {
+          "method": "foreground-normalized-rgb-mse",
+          "score": 1051.41,
+          "scoreMeaning": "Lower is closer; this is not a confidence percentage.",
+          "bestCandidateFileIds": ["petitplanet-wiki-file-3857"]
+        }
+      },
+      "notes": []
+    },
+    {
+      "recipeId": "mt-20260923-signature-012",
+      "recipeNameRaw": "梦幻锦绣香蔬宴",
+      "originalSource": {
+        "sourceId": "tomorrow-20260923-image",
+        "region": "signature",
+        "row": 12
+      },
+      "candidateFileId": "petitplanet-wiki-file-3862",
+      "status": "visual-candidate",
+      "gameVerified": false,
+      "evidence": {
+        "guide": {
+          "postUrl": "https://www.taptap.cn/moment/852148878751829285",
+          "imageUrl": "https://img2-tc.tapimg.com/moment/etag/FgaP2gm12_Wr6Y0eIpOrQ4X61OVE_20260924113429.jpg/_tap_ugc.jpg",
+          "sheet": "signature-1",
+          "row": 3,
+          "nameRaw": "梦幻锦绣香蔬宴",
+          "nameMatch": "same-name-candidate"
+        },
+        "imageComparison": {
+          "method": "foreground-normalized-rgb-mse",
+          "score": 2498.86,
+          "scoreMeaning": "Lower is closer; this is not a confidence percentage.",
+          "bestCandidateFileIds": ["petitplanet-wiki-file-3862"]
+        }
+      },
+      "notes": []
+    },
+    {
+      "recipeId": "mt-20260923-signature-013",
+      "recipeNameRaw": "梦幻三仙过海鱼",
+      "originalSource": {
+        "sourceId": "tomorrow-20260923-image",
+        "region": "signature",
+        "row": 13
+      },
+      "candidateFileId": "petitplanet-wiki-file-3883",
+      "status": "visual-candidate",
+      "gameVerified": false,
+      "evidence": {
+        "guide": {
+          "postUrl": "https://www.taptap.cn/moment/852148878751829285",
+          "imageUrl": "https://img2-tc.tapimg.com/moment/etag/FmWxu_WAT6Wv8O6-Fe-LTsShjESS_20260924152509.jpg/_tap_ugc.jpg",
+          "sheet": "signature-5",
+          "row": 2,
+          "nameRaw": "梦幻三仙过海鱼",
+          "nameMatch": "same-name-candidate"
+        },
+        "imageComparison": {
+          "method": "foreground-normalized-rgb-mse",
+          "score": 2760.14,
+          "scoreMeaning": "Lower is closer; this is not a confidence percentage.",
+          "bestCandidateFileIds": ["petitplanet-wiki-file-3883"]
+        }
+      },
+      "notes": []
+    },
+    {
+      "recipeId": "mt-20260923-signature-014",
+      "recipeNameRaw": "梦幻双色升鱼宴",
+      "originalSource": {
+        "sourceId": "tomorrow-20260923-image",
+        "region": "signature",
+        "row": 14
+      },
+      "candidateFileId": "petitplanet-wiki-file-3870",
+      "status": "visual-candidate",
+      "gameVerified": false,
+      "evidence": {
+        "guide": {
+          "postUrl": "https://www.taptap.cn/moment/852148878751829285",
+          "imageUrl": "https://img2-tc.tapimg.com/moment/etag/FgaP2gm12_Wr6Y0eIpOrQ4X61OVE_20260924113429.jpg/_tap_ugc.jpg",
+          "sheet": "signature-1",
+          "row": 5,
+          "nameRaw": "梦幻双色升鱼宴",
+          "nameMatch": "same-name-candidate"
+        },
+        "imageComparison": {
+          "method": "foreground-normalized-rgb-mse",
+          "score": 1103.8,
+          "scoreMeaning": "Lower is closer; this is not a confidence percentage.",
+          "bestCandidateFileIds": ["petitplanet-wiki-file-3870"]
+        }
+      },
+      "notes": []
+    },
+    {
+      "recipeId": "mt-20260923-signature-015",
+      "recipeNameRaw": "塔法果一杯",
+      "originalSource": {
+        "sourceId": "tomorrow-20260923-image",
+        "region": "signature",
+        "row": 15
+      },
+      "candidateFileId": "petitplanet-wiki-file-3993",
+      "status": "shared-art-candidate",
+      "gameVerified": false,
+      "evidence": {
+        "guide": {
+          "postUrl": "https://www.taptap.cn/moment/852148878751829285",
+          "imageUrl": "https://img2-tc.tapimg.com/moment/etag/FqqFF9li9lLBZZX2RvnhM1w4yr3W_20260924113429.jpg/_tap_ugc.jpg",
+          "sheet": "signature-4",
+          "row": 6,
+          "nameRaw": "塔法果一杯",
+          "nameMatch": "same-name-candidate"
+        },
+        "imageComparison": {
+          "method": "foreground-normalized-rgb-mse",
+          "score": 553.77,
+          "scoreMeaning": "Lower is closer; this is not a confidence percentage.",
+          "bestCandidateFileIds": [
+            "petitplanet-wiki-file-4000",
+            "petitplanet-wiki-file-3999",
+            "petitplanet-wiki-file-3998",
+            "petitplanet-wiki-file-3993"
+          ]
+        }
+      },
+      "notes": [
+        "TapTap 图形与青蔬果汁/什锦饮共用的 Wiki 图形一致；95 文件目录没有 Taffean Specialty Juice 专名文件。此项只提供共用图形候选，不认定菜品身份相同。"
+      ]
+    },
+    {
+      "recipeId": "mt-20260923-signature-016",
+      "recipeNameRaw": "甜瓜花茶",
+      "originalSource": {
+        "sourceId": "tomorrow-20260923-image",
+        "region": "signature",
+        "row": 16
+      },
+      "candidateFileId": "petitplanet-wiki-file-3798",
+      "status": "visual-candidate",
+      "gameVerified": false,
+      "evidence": {
+        "guide": {
+          "postUrl": "https://www.taptap.cn/moment/852148878751829285",
+          "imageUrl": "https://img2-tc.tapimg.com/moment/etag/FsZYOwYgZaGn1z_GUd6Q6xFirI8v_20260924113429.jpg/_tap_ugc.jpg",
+          "sheet": "signature-3",
+          "row": 6,
+          "nameRaw": "甜瓜花茶",
+          "nameMatch": "same-name-candidate"
+        },
+        "imageComparison": {
+          "method": "foreground-normalized-rgb-mse",
+          "score": 1883.92,
+          "scoreMeaning": "Lower is closer; this is not a confidence percentage.",
+          "bestCandidateFileIds": ["petitplanet-wiki-file-3798"]
+        }
+      },
+      "notes": []
+    },
+    {
+      "recipeId": "mt-20260923-signature-017",
+      "recipeNameRaw": "禾夏米麦奶",
+      "originalSource": {
+        "sourceId": "tomorrow-20260923-image",
+        "region": "signature",
+        "row": 17
+      },
+      "candidateFileId": "petitplanet-wiki-file-4004",
+      "status": "visual-candidate",
+      "gameVerified": false,
+      "evidence": {
+        "guide": {
+          "postUrl": "https://www.taptap.cn/moment/852148878751829285",
+          "imageUrl": "https://img2-tc.tapimg.com/moment/etag/FqqFF9li9lLBZZX2RvnhM1w4yr3W_20260924113429.jpg/_tap_ugc.jpg",
+          "sheet": "signature-4",
+          "row": 2,
+          "nameRaw": "禾夏米麦奶",
+          "nameMatch": "same-name-candidate"
+        },
+        "imageComparison": {
+          "method": "foreground-normalized-rgb-mse",
+          "score": 1208.34,
+          "scoreMeaning": "Lower is closer; this is not a confidence percentage.",
+          "bestCandidateFileIds": ["petitplanet-wiki-file-4004"]
+        }
+      },
+      "notes": []
+    },
+    {
+      "recipeId": "mt-20260923-signature-018",
+      "recipeNameRaw": "多彩萃蔬汁",
+      "originalSource": {
+        "sourceId": "tomorrow-20260923-image",
+        "region": "signature",
+        "row": 18
+      },
+      "candidateFileId": "petitplanet-wiki-file-3994",
+      "status": "visual-candidate",
+      "gameVerified": false,
+      "evidence": {
+        "guide": {
+          "postUrl": "https://www.taptap.cn/moment/852148878751829285",
+          "imageUrl": "https://img2-tc.tapimg.com/moment/etag/FqqFF9li9lLBZZX2RvnhM1w4yr3W_20260924113429.jpg/_tap_ugc.jpg",
+          "sheet": "signature-4",
+          "row": 5,
+          "nameRaw": "多彩萃蔬汁",
+          "nameMatch": "same-name-candidate"
+        },
+        "imageComparison": {
+          "method": "foreground-normalized-rgb-mse",
+          "score": 1041.15,
+          "scoreMeaning": "Lower is closer; this is not a confidence percentage.",
+          "bestCandidateFileIds": ["petitplanet-wiki-file-3994"]
+        }
+      },
+      "notes": []
+    },
+    {
+      "recipeId": "mt-20260923-signature-019",
+      "recipeNameRaw": "禾夏果米酿",
+      "originalSource": {
+        "sourceId": "tomorrow-20260923-image",
+        "region": "signature",
+        "row": 19
+      },
+      "candidateFileId": "petitplanet-wiki-file-3992",
+      "status": "visual-candidate",
+      "gameVerified": false,
+      "evidence": {
+        "guide": {
+          "postUrl": "https://www.taptap.cn/moment/852148878751829285",
+          "imageUrl": "https://img2-tc.tapimg.com/moment/etag/FqqFF9li9lLBZZX2RvnhM1w4yr3W_20260924113429.jpg/_tap_ugc.jpg",
+          "sheet": "signature-4",
+          "row": 4,
+          "nameRaw": "禾夏果米酿",
+          "nameMatch": "same-name-candidate"
+        },
+        "imageComparison": {
+          "method": "foreground-normalized-rgb-mse",
+          "score": 1063.7,
+          "scoreMeaning": "Lower is closer; this is not a confidence percentage.",
+          "bestCandidateFileIds": ["petitplanet-wiki-file-3992"]
+        }
+      },
+      "notes": []
+    },
+    {
+      "recipeId": "mt-20260923-signature-020",
+      "recipeNameRaw": "漫香果麦奶",
+      "originalSource": {
+        "sourceId": "tomorrow-20260923-image",
+        "region": "signature",
+        "row": 20
+      },
+      "candidateFileId": "petitplanet-wiki-file-4001",
+      "status": "visual-candidate",
+      "gameVerified": false,
+      "evidence": {
+        "guide": {
+          "postUrl": "https://www.taptap.cn/moment/852148878751829285",
+          "imageUrl": "https://img2-tc.tapimg.com/moment/etag/FqqFF9li9lLBZZX2RvnhM1w4yr3W_20260924113429.jpg/_tap_ugc.jpg",
+          "sheet": "signature-4",
+          "row": 1,
+          "nameRaw": "漫香果麦奶",
+          "nameMatch": "same-name-candidate"
+        },
+        "imageComparison": {
+          "method": "foreground-normalized-rgb-mse",
+          "score": 1929.3,
+          "scoreMeaning": "Lower is closer; this is not a confidence percentage.",
+          "bestCandidateFileIds": ["petitplanet-wiki-file-4001"]
+        }
+      },
+      "notes": []
+    },
+    {
+      "recipeId": "mt-20260923-signature-021",
+      "recipeNameRaw": "珍蔬麦饮",
+      "originalSource": {
+        "sourceId": "tomorrow-20260923-image",
+        "region": "signature",
+        "row": 21
+      },
+      "candidateFileId": "petitplanet-wiki-file-3997",
+      "status": "visual-candidate",
+      "gameVerified": false,
+      "evidence": {
+        "guide": {
+          "postUrl": "https://www.taptap.cn/moment/852148878751829285",
+          "imageUrl": "https://img2-tc.tapimg.com/moment/etag/FqqFF9li9lLBZZX2RvnhM1w4yr3W_20260924113429.jpg/_tap_ugc.jpg",
+          "sheet": "signature-4",
+          "row": 3,
+          "nameRaw": "珍蔬麦饮",
+          "nameMatch": "same-name-candidate"
+        },
+        "imageComparison": {
+          "method": "foreground-normalized-rgb-mse",
+          "score": 922.47,
+          "scoreMeaning": "Lower is closer; this is not a confidence percentage.",
+          "bestCandidateFileIds": ["petitplanet-wiki-file-3997"]
+        }
+      },
+      "notes": []
+    },
+    {
+      "recipeId": "mt-20260923-signature-022",
+      "recipeNameRaw": "香米糕",
+      "originalSource": {
+        "sourceId": "tomorrow-20260923-image",
+        "region": "signature",
+        "row": 22
+      },
+      "candidateFileId": "petitplanet-wiki-file-3944",
+      "status": "visual-candidate",
+      "gameVerified": false,
+      "evidence": {
+        "guide": {
+          "postUrl": "https://www.taptap.cn/moment/852148878751829285",
+          "imageUrl": "https://img2-tc.tapimg.com/moment/etag/FsZYOwYgZaGn1z_GUd6Q6xFirI8v_20260924113429.jpg/_tap_ugc.jpg",
+          "sheet": "signature-3",
+          "row": 4,
+          "nameRaw": "香米糕",
+          "nameMatch": "same-name-candidate"
+        },
+        "imageComparison": {
+          "method": "foreground-normalized-rgb-mse",
+          "score": 694.59,
+          "scoreMeaning": "Lower is closer; this is not a confidence percentage.",
+          "bestCandidateFileIds": ["petitplanet-wiki-file-3944"]
+        }
+      },
+      "notes": []
+    },
+    {
+      "recipeId": "mt-20260923-signature-023",
+      "recipeNameRaw": "草莓奶蛋糕",
+      "originalSource": {
+        "sourceId": "tomorrow-20260923-image",
+        "region": "signature",
+        "row": 23
+      },
+      "candidateFileId": "petitplanet-wiki-file-3946",
+      "status": "visual-candidate",
+      "gameVerified": false,
+      "evidence": {
+        "guide": {
+          "postUrl": "https://www.taptap.cn/moment/852148878751829285",
+          "imageUrl": "https://img2-tc.tapimg.com/moment/etag/FsZYOwYgZaGn1z_GUd6Q6xFirI8v_20260924113429.jpg/_tap_ugc.jpg",
+          "sheet": "signature-3",
+          "row": 3,
+          "nameRaw": "草莓奶蛋糕",
+          "nameMatch": "same-name-candidate"
+        },
+        "imageComparison": {
+          "method": "foreground-normalized-rgb-mse",
+          "score": 557.29,
+          "scoreMeaning": "Lower is closer; this is not a confidence percentage.",
+          "bestCandidateFileIds": ["petitplanet-wiki-file-3946"]
+        }
+      },
+      "notes": []
+    },
+    {
+      "recipeId": "mt-20260923-signature-024",
+      "recipeNameRaw": "蒜香流心奶面包",
+      "originalSource": {
+        "sourceId": "tomorrow-20260923-image",
+        "region": "signature",
+        "row": 24
+      },
+      "candidateFileId": null,
+      "status": "not-found",
+      "gameVerified": false,
+      "evidence": {
+        "guide": {
+          "postUrl": "https://www.taptap.cn/moment/852148878751829285",
+          "imageUrl": "https://img2-tc.tapimg.com/moment/etag/FsZYOwYgZaGn1z_GUd6Q6xFirI8v_20260924113429.jpg/_tap_ugc.jpg",
+          "sheet": "signature-3",
+          "row": 5,
+          "nameRaw": "蒜香流心奶面包",
+          "nameMatch": "same-name-candidate"
+        }
+      },
+      "notes": [
+        "在本次完整枚举的 95 个 Wiki 文件中未找到与中文攻略图对应的候选；不代表其他站点或该站未来不会补充。"
+      ]
+    },
+    {
+      "recipeId": "mt-20260923-signature-025",
+      "recipeNameRaw": "田园蔬烩披萨",
+      "originalSource": {
+        "sourceId": "tomorrow-20260923-image",
+        "region": "signature",
+        "row": 25
+      },
+      "candidateFileId": "petitplanet-wiki-file-3956",
+      "status": "name-variant-visual-candidate",
+      "gameVerified": false,
+      "evidence": {
+        "guide": {
+          "postUrl": "https://www.taptap.cn/moment/852148878751829285",
+          "imageUrl": "https://img2-tc.tapimg.com/moment/etag/Fqcc_-gDkmNW_P8bWtkWXcuf5P9C_20260924113429.jpg/_tap_ugc.jpg",
+          "sheet": "signature-6",
+          "row": 2,
+          "nameRaw": "田园蔬荟披萨",
+          "nameMatch": "variant-candidate"
+        },
+        "imageComparison": {
+          "method": "foreground-normalized-rgb-mse",
+          "score": 443.23,
+          "scoreMeaning": "Lower is closer; this is not a confidence percentage.",
+          "bestCandidateFileIds": ["petitplanet-wiki-file-3956"]
+        }
+      },
+      "notes": ["原始菜名与 TapTap 标签存在异写，图形候选不消除名称歧义。"]
+    },
+    {
+      "recipeId": "mt-20260923-signature-026",
+      "recipeNameRaw": "番茄炸鱼披萨",
+      "originalSource": {
+        "sourceId": "tomorrow-20260923-image",
+        "region": "signature",
+        "row": 26
+      },
+      "candidateFileId": "petitplanet-wiki-file-3947",
+      "status": "visual-candidate",
+      "gameVerified": false,
+      "evidence": {
+        "guide": {
+          "postUrl": "https://www.taptap.cn/moment/852148878751829285",
+          "imageUrl": "https://img2-tc.tapimg.com/moment/etag/FmWxu_WAT6Wv8O6-Fe-LTsShjESS_20260924152509.jpg/_tap_ugc.jpg",
+          "sheet": "signature-5",
+          "row": 6,
+          "nameRaw": "番茄炸鱼披萨",
+          "nameMatch": "same-name-candidate"
+        },
+        "imageComparison": {
+          "method": "foreground-normalized-rgb-mse",
+          "score": 848.04,
+          "scoreMeaning": "Lower is closer; this is not a confidence percentage.",
+          "bestCandidateFileIds": ["petitplanet-wiki-file-3947"]
+        }
+      },
+      "notes": []
+    },
+    {
+      "recipeId": "mt-20260923-signature-027",
+      "recipeNameRaw": "花香蜜瓜派",
+      "originalSource": {
+        "sourceId": "tomorrow-20260923-image",
+        "region": "signature",
+        "row": 27
+      },
+      "candidateFileId": "petitplanet-wiki-file-3865",
+      "status": "visual-candidate",
+      "gameVerified": false,
+      "evidence": {
+        "guide": {
+          "postUrl": "https://www.taptap.cn/moment/852148878751829285",
+          "imageUrl": "https://img2-tc.tapimg.com/moment/etag/FsZYOwYgZaGn1z_GUd6Q6xFirI8v_20260924113429.jpg/_tap_ugc.jpg",
+          "sheet": "signature-3",
+          "row": 2,
+          "nameRaw": "花香蜜瓜派",
+          "nameMatch": "same-name-candidate"
+        },
+        "imageComparison": {
+          "method": "foreground-normalized-rgb-mse",
+          "score": 1180.59,
+          "scoreMeaning": "Lower is closer; this is not a confidence percentage.",
+          "bestCandidateFileIds": ["petitplanet-wiki-file-3865"]
+        }
+      },
+      "notes": []
+    },
+    {
+      "recipeId": "mt-20260923-signature-028",
+      "recipeNameRaw": "满满大烩菜",
+      "originalSource": {
+        "sourceId": "tomorrow-20260923-image",
+        "region": "signature",
+        "row": 28
+      },
+      "candidateFileId": "petitplanet-wiki-file-3852",
+      "status": "visual-candidate",
+      "gameVerified": false,
+      "evidence": {
+        "guide": {
+          "postUrl": "https://www.taptap.cn/moment/852148878751829285",
+          "imageUrl": "https://img2-tc.tapimg.com/moment/etag/FgaP2gm12_Wr6Y0eIpOrQ4X61OVE_20260924113429.jpg/_tap_ugc.jpg",
+          "sheet": "signature-1",
+          "row": 2,
+          "nameRaw": "满满大烩菜",
+          "nameMatch": "same-name-candidate"
+        },
+        "imageComparison": {
+          "method": "foreground-normalized-rgb-mse",
+          "score": 1041.62,
+          "scoreMeaning": "Lower is closer; this is not a confidence percentage.",
+          "bestCandidateFileIds": ["petitplanet-wiki-file-3852"]
+        }
+      },
+      "notes": []
+    },
+    {
+      "recipeId": "mt-20260923-signature-029",
+      "recipeNameRaw": "海岸风情烤串",
+      "originalSource": {
+        "sourceId": "tomorrow-20260923-image",
+        "region": "signature",
+        "row": 29
+      },
+      "candidateFileId": "petitplanet-wiki-file-3952",
+      "status": "visual-candidate",
+      "gameVerified": false,
+      "evidence": {
+        "guide": {
+          "postUrl": "https://www.taptap.cn/moment/852148878751829285",
+          "imageUrl": "https://img2-tc.tapimg.com/moment/etag/Fqo8s6CxLrjmVUE8sbobPS1jGAz3_20260924113429.jpg/_tap_ugc.jpg",
+          "sheet": "signature-2",
+          "row": 4,
+          "nameRaw": "海岸风情烤串",
+          "nameMatch": "same-name-candidate"
+        },
+        "imageComparison": {
+          "method": "foreground-normalized-rgb-mse",
+          "score": 857.96,
+          "scoreMeaning": "Lower is closer; this is not a confidence percentage.",
+          "bestCandidateFileIds": ["petitplanet-wiki-file-3952"]
+        }
+      },
+      "notes": []
+    },
+    {
+      "recipeId": "mt-20260923-signature-030",
+      "recipeNameRaw": "炙鱼烤虾贝",
+      "originalSource": {
+        "sourceId": "tomorrow-20260923-image",
+        "region": "signature",
+        "row": 30
+      },
+      "candidateFileId": "petitplanet-wiki-file-3948",
+      "status": "visual-candidate",
+      "gameVerified": false,
+      "evidence": {
+        "guide": {
+          "postUrl": "https://www.taptap.cn/moment/852148878751829285",
+          "imageUrl": "https://img2-tc.tapimg.com/moment/etag/Fqo8s6CxLrjmVUE8sbobPS1jGAz3_20260924113429.jpg/_tap_ugc.jpg",
+          "sheet": "signature-2",
+          "row": 2,
+          "nameRaw": "炙鱼烤虾贝",
+          "nameMatch": "same-name-candidate"
+        },
+        "imageComparison": {
+          "method": "foreground-normalized-rgb-mse",
+          "score": 964.08,
+          "scoreMeaning": "Lower is closer; this is not a confidence percentage.",
+          "bestCandidateFileIds": ["petitplanet-wiki-file-3948"]
+        }
+      },
+      "notes": []
+    },
+    {
+      "recipeId": "mt-20260923-signature-031",
+      "recipeNameRaw": "美味海风披萨",
+      "originalSource": {
+        "sourceId": "tomorrow-20260923-image",
+        "region": "signature",
+        "row": 31
+      },
+      "candidateFileId": "petitplanet-wiki-file-3951",
+      "status": "visual-candidate",
+      "gameVerified": false,
+      "evidence": {
+        "guide": {
+          "postUrl": "https://www.taptap.cn/moment/852148878751829285",
+          "imageUrl": "https://img2-tc.tapimg.com/moment/etag/Fqcc_-gDkmNW_P8bWtkWXcuf5P9C_20260924113429.jpg/_tap_ugc.jpg",
+          "sheet": "signature-6",
+          "row": 1,
+          "nameRaw": "美味海风披萨",
+          "nameMatch": "same-name-candidate"
+        },
+        "imageComparison": {
+          "method": "foreground-normalized-rgb-mse",
+          "score": 810.88,
+          "scoreMeaning": "Lower is closer; this is not a confidence percentage.",
+          "bestCandidateFileIds": ["petitplanet-wiki-file-3951"]
+        }
+      },
+      "notes": []
+    },
+    {
+      "recipeId": "mt-20260923-signature-032",
+      "recipeNameRaw": "水果烤虾拼盘",
+      "originalSource": {
+        "sourceId": "tomorrow-20260923-image",
+        "region": "signature",
+        "row": 32
+      },
+      "candidateFileId": "petitplanet-wiki-file-3949",
+      "status": "visual-candidate",
+      "gameVerified": false,
+      "evidence": {
+        "guide": {
+          "postUrl": "https://www.taptap.cn/moment/852148878751829285",
+          "imageUrl": "https://img2-tc.tapimg.com/moment/etag/Fqo8s6CxLrjmVUE8sbobPS1jGAz3_20260924113429.jpg/_tap_ugc.jpg",
+          "sheet": "signature-2",
+          "row": 3,
+          "nameRaw": "水果烤虾拼盘",
+          "nameMatch": "same-name-candidate"
+        },
+        "imageComparison": {
+          "method": "foreground-normalized-rgb-mse",
+          "score": 1578.89,
+          "scoreMeaning": "Lower is closer; this is not a confidence percentage.",
+          "bestCandidateFileIds": ["petitplanet-wiki-file-3949"]
+        }
+      },
+      "notes": []
+    },
+    {
+      "recipeId": "mt-20260923-signature-033",
+      "recipeNameRaw": "梦幻奇迹蒜龙虾",
+      "originalSource": {
+        "sourceId": "tomorrow-20260923-image",
+        "region": "signature",
+        "row": 33
+      },
+      "candidateFileId": "petitplanet-wiki-file-3953",
+      "status": "visual-candidate",
+      "gameVerified": false,
+      "evidence": {
+        "guide": {
+          "postUrl": "https://www.taptap.cn/moment/852148878751829285",
+          "imageUrl": "https://img2-tc.tapimg.com/moment/etag/Fqo8s6CxLrjmVUE8sbobPS1jGAz3_20260924113429.jpg/_tap_ugc.jpg",
+          "sheet": "signature-2",
+          "row": 5,
+          "nameRaw": "梦幻奇迹蒜龙虾",
+          "nameMatch": "same-name-candidate"
+        },
+        "imageComparison": {
+          "method": "foreground-normalized-rgb-mse",
+          "score": 1139.38,
+          "scoreMeaning": "Lower is closer; this is not a confidence percentage.",
+          "bestCandidateFileIds": ["petitplanet-wiki-file-3953"]
+        }
+      },
+      "notes": []
+    },
+    {
+      "recipeId": "mt-20260923-guest-001",
+      "recipeNameRaw": "年糕蔬菇面",
+      "originalSource": {
+        "sourceId": "tomorrow-20260923-image",
+        "region": "guest",
+        "row": 1
+      },
+      "candidateFileId": "petitplanet-wiki-file-3960",
+      "status": "name-variant-visual-candidate",
+      "gameVerified": false,
+      "evidence": {
+        "guide": {
+          "postUrl": "https://www.taptap.cn/moment/852582459005469363",
+          "imageUrl": "https://img2-tc.tapimg.com/moment/etag/FiURXwk0DpWVZkvrDNlMq3G0X7vY_20260925161637.jpg/_tap_ugc.jpg",
+          "sheet": "guest-3",
+          "row": 1,
+          "nameRaw": "年糕菇蔬面",
+          "nameMatch": "variant-candidate"
+        },
+        "imageComparison": {
+          "method": "foreground-normalized-rgb-mse",
+          "score": 482.39,
+          "scoreMeaning": "Lower is closer; this is not a confidence percentage.",
+          "bestCandidateFileIds": ["petitplanet-wiki-file-3960"]
+        }
+      },
+      "notes": ["原始菜名与 TapTap 标签存在异写，图形候选不消除名称歧义。"]
+    },
+    {
+      "recipeId": "mt-20260923-guest-002",
+      "recipeNameRaw": "多果流彩捞饭",
+      "originalSource": {
+        "sourceId": "tomorrow-20260923-image",
+        "region": "guest",
+        "row": 2
+      },
+      "candidateFileId": "petitplanet-wiki-file-3855",
+      "status": "visual-candidate",
+      "gameVerified": false,
+      "evidence": {
+        "guide": {
+          "postUrl": "https://www.taptap.cn/moment/852582459005469363",
+          "imageUrl": "https://img2-tc.tapimg.com/moment/etag/FjYH8U-FerTjByEipRjQWxNz2r8B_20260925161637.jpg/_tap_ugc.jpg",
+          "sheet": "guest-2",
+          "row": 2,
+          "nameRaw": "多果流彩捞饭",
+          "nameMatch": "same-name-candidate"
+        },
+        "imageComparison": {
+          "method": "foreground-normalized-rgb-mse",
+          "score": 747.2,
+          "scoreMeaning": "Lower is closer; this is not a confidence percentage.",
+          "bestCandidateFileIds": ["petitplanet-wiki-file-3855"]
+        }
+      },
+      "notes": []
+    },
+    {
+      "recipeId": "mt-20260923-guest-003",
+      "recipeNameRaw": "梦幻仙风龙虾锅",
+      "originalSource": {
+        "sourceId": "tomorrow-20260923-image",
+        "region": "guest",
+        "row": 3
+      },
+      "candidateFileId": "petitplanet-wiki-file-3815",
+      "status": "name-variant-visual-candidate",
+      "gameVerified": false,
+      "evidence": {
+        "guide": {
+          "postUrl": "https://www.taptap.cn/moment/852582459005469363",
+          "imageUrl": "https://img2-tc.tapimg.com/moment/etag/FgPBZYSRsFoMtbeFUwLeh9LS-7fq_20260925161637.jpg/_tap_ugc.jpg",
+          "sheet": "guest-1",
+          "row": 2,
+          "nameRaw": "梦幻鲜风龙虾锅",
+          "nameMatch": "variant-candidate"
+        },
+        "imageComparison": {
+          "method": "foreground-normalized-rgb-mse",
+          "score": 889.15,
+          "scoreMeaning": "Lower is closer; this is not a confidence percentage.",
+          "bestCandidateFileIds": ["petitplanet-wiki-file-3815"]
+        }
+      },
+      "notes": ["原始菜名与 TapTap 标签存在异写，图形候选不消除名称歧义。"]
+    },
+    {
+      "recipeId": "mt-20260923-guest-004",
+      "recipeNameRaw": "外婆菜饭",
+      "originalSource": {
+        "sourceId": "tomorrow-20260923-image",
+        "region": "guest",
+        "row": 4
+      },
+      "candidateFileId": "petitplanet-wiki-file-3898",
+      "status": "visual-candidate",
+      "gameVerified": false,
+      "evidence": {
+        "guide": {
+          "postUrl": "https://www.taptap.cn/moment/852582459005469363",
+          "imageUrl": "https://img2-tc.tapimg.com/moment/etag/FjYH8U-FerTjByEipRjQWxNz2r8B_20260925161637.jpg/_tap_ugc.jpg",
+          "sheet": "guest-2",
+          "row": 3,
+          "nameRaw": "外婆菜饭",
+          "nameMatch": "same-name-candidate"
+        },
+        "imageComparison": {
+          "method": "foreground-normalized-rgb-mse",
+          "score": 1738.22,
+          "scoreMeaning": "Lower is closer; this is not a confidence percentage.",
+          "bestCandidateFileIds": ["petitplanet-wiki-file-3898"]
+        }
+      },
+      "notes": []
+    },
+    {
+      "recipeId": "mt-20260923-guest-005",
+      "recipeNameRaw": "梦幻海贝海鲜烩",
+      "originalSource": {
+        "sourceId": "tomorrow-20260923-image",
+        "region": "guest",
+        "row": 5
+      },
+      "candidateFileId": "petitplanet-wiki-file-3875",
+      "status": "visual-candidate",
+      "gameVerified": false,
+      "evidence": {
+        "guide": {
+          "postUrl": "https://www.taptap.cn/moment/852582459005469363",
+          "imageUrl": "https://img2-tc.tapimg.com/moment/etag/FgPBZYSRsFoMtbeFUwLeh9LS-7fq_20260925161637.jpg/_tap_ugc.jpg",
+          "sheet": "guest-1",
+          "row": 3,
+          "nameRaw": "梦幻海贝海鲜烩",
+          "nameMatch": "same-name-candidate"
+        },
+        "imageComparison": {
+          "method": "foreground-normalized-rgb-mse",
+          "score": 1176.39,
+          "scoreMeaning": "Lower is closer; this is not a confidence percentage.",
+          "bestCandidateFileIds": ["petitplanet-wiki-file-3875"]
+        }
+      },
+      "notes": []
+    },
+    {
+      "recipeId": "mt-20260923-guest-006",
+      "recipeNameRaw": "梦幻海岸虾鱼筵",
+      "originalSource": {
+        "sourceId": "tomorrow-20260923-image",
+        "region": "guest",
+        "row": 6
+      },
+      "candidateFileId": "petitplanet-wiki-file-3842",
+      "status": "visual-candidate",
+      "gameVerified": false,
+      "evidence": {
+        "guide": {
+          "postUrl": "https://www.taptap.cn/moment/852582459005469363",
+          "imageUrl": "https://img2-tc.tapimg.com/moment/etag/FgPBZYSRsFoMtbeFUwLeh9LS-7fq_20260925161637.jpg/_tap_ugc.jpg",
+          "sheet": "guest-1",
+          "row": 1,
+          "nameRaw": "梦幻海岸虾鱼筵",
+          "nameMatch": "same-name-candidate"
+        },
+        "imageComparison": {
+          "method": "foreground-normalized-rgb-mse",
+          "score": 2206.42,
+          "scoreMeaning": "Lower is closer; this is not a confidence percentage.",
+          "bestCandidateFileIds": ["petitplanet-wiki-file-3842"]
+        }
+      },
+      "notes": []
+    },
+    {
+      "recipeId": "mt-20260923-guest-007",
+      "recipeNameRaw": "梦幻鱼鲜寿司",
+      "originalSource": {
+        "sourceId": "tomorrow-20260923-image",
+        "region": "guest",
+        "row": 7
+      },
+      "candidateFileId": "petitplanet-wiki-file-3900",
+      "status": "visual-candidate",
+      "gameVerified": false,
+      "evidence": {
+        "guide": {
+          "postUrl": "https://www.taptap.cn/moment/852582459005469363",
+          "imageUrl": "https://img2-tc.tapimg.com/moment/etag/FjYH8U-FerTjByEipRjQWxNz2r8B_20260925161637.jpg/_tap_ugc.jpg",
+          "sheet": "guest-2",
+          "row": 4,
+          "nameRaw": "梦幻鱼鲜寿司",
+          "nameMatch": "same-name-candidate"
+        },
+        "imageComparison": {
+          "method": "foreground-normalized-rgb-mse",
+          "score": 1711.65,
+          "scoreMeaning": "Lower is closer; this is not a confidence percentage.",
+          "bestCandidateFileIds": ["petitplanet-wiki-file-3900"]
+        }
+      },
+      "notes": []
+    },
+    {
+      "recipeId": "mt-20260923-guest-008",
+      "recipeNameRaw": "三色果米糕",
+      "originalSource": {
+        "sourceId": "tomorrow-20260923-image",
+        "region": "guest",
+        "row": 8
+      },
+      "candidateFileId": "petitplanet-wiki-file-3957",
+      "status": "visual-candidate",
+      "gameVerified": false,
+      "evidence": {
+        "guide": {
+          "postUrl": "https://www.taptap.cn/moment/852582459005469363",
+          "imageUrl": "https://img2-tc.tapimg.com/moment/etag/FgPBZYSRsFoMtbeFUwLeh9LS-7fq_20260925161637.jpg/_tap_ugc.jpg",
+          "sheet": "guest-1",
+          "row": 5,
+          "nameRaw": "三色果米糕",
+          "nameMatch": "same-name-candidate"
+        },
+        "imageComparison": {
+          "method": "foreground-normalized-rgb-mse",
+          "score": 714.02,
+          "scoreMeaning": "Lower is closer; this is not a confidence percentage.",
+          "bestCandidateFileIds": ["petitplanet-wiki-file-3957"]
+        }
+      },
+      "notes": []
+    },
+    {
+      "recipeId": "mt-20260923-guest-009",
+      "recipeNameRaw": "时蔬烧烤派对",
+      "originalSource": {
+        "sourceId": "tomorrow-20260923-image",
+        "region": "guest",
+        "row": 9
+      },
+      "candidateFileId": "petitplanet-wiki-file-3954",
+      "status": "visual-candidate",
+      "gameVerified": false,
+      "evidence": {
+        "guide": {
+          "postUrl": "https://www.taptap.cn/moment/852582459005469363",
+          "imageUrl": "https://img2-tc.tapimg.com/moment/etag/FgPBZYSRsFoMtbeFUwLeh9LS-7fq_20260925161637.jpg/_tap_ugc.jpg",
+          "sheet": "guest-1",
+          "row": 4,
+          "nameRaw": "时蔬烧烤派对",
+          "nameMatch": "same-name-candidate"
+        },
+        "imageComparison": {
+          "method": "foreground-normalized-rgb-mse",
+          "score": 462,
+          "scoreMeaning": "Lower is closer; this is not a confidence percentage.",
+          "bestCandidateFileIds": ["petitplanet-wiki-file-3954"]
+        }
+      },
+      "notes": []
+    },
+    {
+      "recipeId": "mt-20260923-guest-010",
+      "recipeNameRaw": "三色蔬焗饭",
+      "originalSource": {
+        "sourceId": "tomorrow-20260923-image",
+        "region": "guest",
+        "row": 10
+      },
+      "candidateFileId": "petitplanet-wiki-file-3958",
+      "status": "visual-candidate",
+      "gameVerified": false,
+      "evidence": {
+        "guide": {
+          "postUrl": "https://www.taptap.cn/moment/852582459005469363",
+          "imageUrl": "https://img2-tc.tapimg.com/moment/etag/FjYH8U-FerTjByEipRjQWxNz2r8B_20260925161637.jpg/_tap_ugc.jpg",
+          "sheet": "guest-2",
+          "row": 6,
+          "nameRaw": "三色蔬焗饭",
+          "nameMatch": "same-name-candidate"
+        },
+        "imageComparison": {
+          "method": "foreground-normalized-rgb-mse",
+          "score": 521.95,
+          "scoreMeaning": "Lower is closer; this is not a confidence percentage.",
+          "bestCandidateFileIds": ["petitplanet-wiki-file-3958"]
+        }
+      },
+      "notes": []
+    },
+    {
+      "recipeId": "mt-20260923-free-001",
+      "recipeNameRaw": "家常什锦砂锅",
+      "originalSource": {
+        "sourceId": "tomorrow-20260923-image",
+        "region": "free",
+        "row": 1
+      },
+      "candidateFileId": "petitplanet-wiki-file-3764",
+      "status": "visual-candidate",
+      "gameVerified": false,
+      "evidence": {
+        "guide": {
+          "postUrl": "https://www.taptap.cn/moment/851862566224266917",
+          "imageUrl": "https://img2-tc.tapimg.com/moment/etag/FhnyhID0H5FTqrcX9vilV1zHJqgm_20260923163604.jpg/_tap_ugc.jpg",
+          "sheet": "simple-2",
+          "row": 1,
+          "nameRaw": "家常什锦砂锅",
+          "nameMatch": "same-name-candidate"
+        },
+        "imageComparison": {
+          "method": "foreground-normalized-rgb-mse",
+          "score": 347.63,
+          "scoreMeaning": "Lower is closer; this is not a confidence percentage.",
+          "bestCandidateFileIds": [
+            "petitplanet-wiki-file-3764",
+            "petitplanet-wiki-file-3906",
+            "petitplanet-wiki-file-3902"
+          ]
+        }
+      },
+      "notes": []
+    },
+    {
+      "recipeId": "mt-20260923-free-002",
+      "recipeNameRaw": "珍稀什锦砂锅",
+      "originalSource": {
+        "sourceId": "tomorrow-20260923-image",
+        "region": "free",
+        "row": 2
+      },
+      "candidateFileId": "petitplanet-wiki-file-3902",
+      "status": "visual-candidate",
+      "gameVerified": false,
+      "evidence": {
+        "guide": {
+          "postUrl": "https://www.taptap.cn/moment/851862566224266917",
+          "imageUrl": "https://img2-tc.tapimg.com/moment/etag/Fs7A5l29coRYKj4okDiP94YUJdh-_20260923163604.jpg/_tap_ugc.jpg",
+          "sheet": "simple-1",
+          "row": 6,
+          "nameRaw": "珍稀什锦砂锅",
+          "nameMatch": "same-name-candidate"
+        },
+        "imageComparison": {
+          "method": "foreground-normalized-rgb-mse",
+          "score": 533.92,
+          "scoreMeaning": "Lower is closer; this is not a confidence percentage.",
+          "bestCandidateFileIds": [
+            "petitplanet-wiki-file-3764",
+            "petitplanet-wiki-file-3906",
+            "petitplanet-wiki-file-3902"
+          ]
+        }
+      },
+      "notes": []
+    },
+    {
+      "recipeId": "mt-20260923-free-003",
+      "recipeNameRaw": "梦幻什锦砂锅",
+      "originalSource": {
+        "sourceId": "tomorrow-20260923-image",
+        "region": "free",
+        "row": 3
+      },
+      "candidateFileId": "petitplanet-wiki-file-3906",
+      "status": "visual-candidate",
+      "gameVerified": false,
+      "evidence": {
+        "guide": {
+          "postUrl": "https://www.taptap.cn/moment/851862566224266917",
+          "imageUrl": "https://img2-tc.tapimg.com/moment/etag/FhnyhID0H5FTqrcX9vilV1zHJqgm_20260923163604.jpg/_tap_ugc.jpg",
+          "sheet": "simple-2",
+          "row": 2,
+          "nameRaw": "梦幻什锦砂锅",
+          "nameMatch": "same-name-candidate"
+        },
+        "imageComparison": {
+          "method": "foreground-normalized-rgb-mse",
+          "score": 1100.51,
+          "scoreMeaning": "Lower is closer; this is not a confidence percentage.",
+          "bestCandidateFileIds": [
+            "petitplanet-wiki-file-3764",
+            "petitplanet-wiki-file-3906",
+            "petitplanet-wiki-file-3902"
+          ]
+        }
+      },
+      "notes": []
+    },
+    {
+      "recipeId": "mt-20260923-free-004",
+      "recipeNameRaw": "家常什锦饮",
+      "originalSource": {
+        "sourceId": "tomorrow-20260923-image",
+        "region": "free",
+        "row": 4
+      },
+      "candidateFileId": "petitplanet-wiki-file-3998",
+      "status": "visual-candidate",
+      "gameVerified": false,
+      "evidence": {
+        "guide": {
+          "postUrl": "https://www.taptap.cn/moment/851862566224266917",
+          "imageUrl": "https://img2-tc.tapimg.com/moment/etag/Fo4k57IyBb7wqrn32AqAkHbMG1eL_20260923163604.jpg/_tap_ugc.jpg",
+          "sheet": "simple-6",
+          "row": 4,
+          "nameRaw": "家常什锦饮",
+          "nameMatch": "same-name-candidate"
+        },
+        "imageComparison": {
+          "method": "foreground-normalized-rgb-mse",
+          "score": 645,
+          "scoreMeaning": "Lower is closer; this is not a confidence percentage.",
+          "bestCandidateFileIds": [
+            "petitplanet-wiki-file-4000",
+            "petitplanet-wiki-file-3999",
+            "petitplanet-wiki-file-3998",
+            "petitplanet-wiki-file-3993"
+          ]
+        }
+      },
+      "notes": []
+    },
+    {
+      "recipeId": "mt-20260923-free-005",
+      "recipeNameRaw": "珍稀什锦饮",
+      "originalSource": {
+        "sourceId": "tomorrow-20260923-image",
+        "region": "free",
+        "row": 5
+      },
+      "candidateFileId": "petitplanet-wiki-file-3999",
+      "status": "visual-candidate",
+      "gameVerified": false,
+      "evidence": {
+        "guide": {
+          "postUrl": "https://www.taptap.cn/moment/851862566224266917",
+          "imageUrl": "https://img2-tc.tapimg.com/moment/etag/Fo4k57IyBb7wqrn32AqAkHbMG1eL_20260923163604.jpg/_tap_ugc.jpg",
+          "sheet": "simple-6",
+          "row": 5,
+          "nameRaw": "珍稀什锦饮",
+          "nameMatch": "same-name-candidate"
+        },
+        "imageComparison": {
+          "method": "foreground-normalized-rgb-mse",
+          "score": 575.74,
+          "scoreMeaning": "Lower is closer; this is not a confidence percentage.",
+          "bestCandidateFileIds": [
+            "petitplanet-wiki-file-4000",
+            "petitplanet-wiki-file-3999",
+            "petitplanet-wiki-file-3998",
+            "petitplanet-wiki-file-3993"
+          ]
+        }
+      },
+      "notes": []
+    },
+    {
+      "recipeId": "mt-20260923-free-006",
+      "recipeNameRaw": "梦幻什锦饮",
+      "originalSource": {
+        "sourceId": "tomorrow-20260923-image",
+        "region": "free",
+        "row": 6
+      },
+      "candidateFileId": "petitplanet-wiki-file-4000",
+      "status": "visual-candidate",
+      "gameVerified": false,
+      "evidence": {
+        "guide": {
+          "postUrl": "https://www.taptap.cn/moment/851862566224266917",
+          "imageUrl": "https://img2-tc.tapimg.com/moment/etag/Fo4k57IyBb7wqrn32AqAkHbMG1eL_20260923163604.jpg/_tap_ugc.jpg",
+          "sheet": "simple-6",
+          "row": 6,
+          "nameRaw": "梦幻什锦饮",
+          "nameMatch": "same-name-candidate"
+        },
+        "imageComparison": {
+          "method": "foreground-normalized-rgb-mse",
+          "score": 647.76,
+          "scoreMeaning": "Lower is closer; this is not a confidence percentage.",
+          "bestCandidateFileIds": [
+            "petitplanet-wiki-file-4000",
+            "petitplanet-wiki-file-3999",
+            "petitplanet-wiki-file-3998",
+            "petitplanet-wiki-file-3993"
+          ]
+        }
+      },
+      "notes": []
+    },
+    {
+      "recipeId": "mt-20260923-free-007",
+      "recipeNameRaw": "家常什锦烧烤",
+      "originalSource": {
+        "sourceId": "tomorrow-20260923-image",
+        "region": "free",
+        "row": 7
+      },
+      "candidateFileId": "petitplanet-wiki-file-3939",
+      "status": "visual-candidate",
+      "gameVerified": false,
+      "evidence": {
+        "guide": {
+          "postUrl": "https://www.taptap.cn/moment/851862566224266917",
+          "imageUrl": "https://img2-tc.tapimg.com/moment/etag/FthUg06JZnmKT4IjgqRTMC2Qb9e-_20260923163604.jpg/_tap_ugc.jpg",
+          "sheet": "simple-3",
+          "row": 3,
+          "nameRaw": "家常什锦烧烤",
+          "nameMatch": "same-name-candidate"
+        },
+        "imageComparison": {
+          "method": "foreground-normalized-rgb-mse",
+          "score": 469.47,
+          "scoreMeaning": "Lower is closer; this is not a confidence percentage.",
+          "bestCandidateFileIds": [
+            "petitplanet-wiki-file-3940",
+            "petitplanet-wiki-file-3941",
+            "petitplanet-wiki-file-3939",
+            "petitplanet-wiki-file-3950"
+          ]
+        }
+      },
+      "notes": []
+    },
+    {
+      "recipeId": "mt-20260923-free-008",
+      "recipeNameRaw": "珍稀什锦烧烤",
+      "originalSource": {
+        "sourceId": "tomorrow-20260923-image",
+        "region": "free",
+        "row": 8
+      },
+      "candidateFileId": "petitplanet-wiki-file-3940",
+      "status": "visual-candidate",
+      "gameVerified": false,
+      "evidence": {
+        "guide": {
+          "postUrl": "https://www.taptap.cn/moment/851862566224266917",
+          "imageUrl": "https://img2-tc.tapimg.com/moment/etag/FthUg06JZnmKT4IjgqRTMC2Qb9e-_20260923163604.jpg/_tap_ugc.jpg",
+          "sheet": "simple-3",
+          "row": 4,
+          "nameRaw": "珍稀什锦烧烤",
+          "nameMatch": "same-name-candidate"
+        },
+        "imageComparison": {
+          "method": "foreground-normalized-rgb-mse",
+          "score": 558.42,
+          "scoreMeaning": "Lower is closer; this is not a confidence percentage.",
+          "bestCandidateFileIds": [
+            "petitplanet-wiki-file-3940",
+            "petitplanet-wiki-file-3939",
+            "petitplanet-wiki-file-3941",
+            "petitplanet-wiki-file-3950"
+          ]
+        }
+      },
+      "notes": []
+    },
+    {
+      "recipeId": "mt-20260923-free-009",
+      "recipeNameRaw": "梦幻什锦烧烤",
+      "originalSource": {
+        "sourceId": "tomorrow-20260923-image",
+        "region": "free",
+        "row": 9
+      },
+      "candidateFileId": "petitplanet-wiki-file-3941",
+      "status": "visual-candidate",
+      "gameVerified": false,
+      "evidence": {
+        "guide": {
+          "postUrl": "https://www.taptap.cn/moment/851862566224266917",
+          "imageUrl": "https://img2-tc.tapimg.com/moment/etag/FthUg06JZnmKT4IjgqRTMC2Qb9e-_20260923163604.jpg/_tap_ugc.jpg",
+          "sheet": "simple-3",
+          "row": 5,
+          "nameRaw": "梦幻什锦烧烤",
+          "nameMatch": "same-name-candidate"
+        },
+        "imageComparison": {
+          "method": "foreground-normalized-rgb-mse",
+          "score": 683.5,
+          "scoreMeaning": "Lower is closer; this is not a confidence percentage.",
+          "bestCandidateFileIds": [
+            "petitplanet-wiki-file-3941",
+            "petitplanet-wiki-file-3950",
+            "petitplanet-wiki-file-3940",
+            "petitplanet-wiki-file-3939"
+          ]
+        }
+      },
+      "notes": []
+    },
+    {
+      "recipeId": "mt-20260923-neighbor-001",
+      "recipeNameRaw": "竹香苹果冰",
+      "originalSource": {
+        "sourceId": "tomorrow-20260923-image",
+        "region": "neighbor",
+        "row": 1
+      },
+      "candidateFileId": "petitplanet-wiki-file-3885",
+      "status": "english-entry-candidate",
+      "gameVerified": false,
+      "evidence": {
+        "wikiEntryUrl": "https://petitplanet.wiki/Bamboo_Apple_Slushie"
+      },
+      "notes": [
+        "英文名称、竹笋/水果配方与友邻赠送描述提供线索；没有中文标签图作为桥接。Wiki 力气为 70，附件为 60，保留差异，不回写。"
+      ]
+    }
+  ],
+  "sameDecodedRgbaGroups": [
+    ["petitplanet-wiki-file-3764", "petitplanet-wiki-file-3902", "petitplanet-wiki-file-3906"],
+    [
+      "petitplanet-wiki-file-3939",
+      "petitplanet-wiki-file-3940",
+      "petitplanet-wiki-file-3941",
+      "petitplanet-wiki-file-3950"
+    ],
+    [
+      "petitplanet-wiki-file-3993",
+      "petitplanet-wiki-file-3998",
+      "petitplanet-wiki-file-3999",
+      "petitplanet-wiki-file-4000"
+    ],
+    ["petitplanet-wiki-file-3943", "petitplanet-wiki-file-8990"]
+  ],
+  "unassignedFileIds": [
+    "petitplanet-wiki-file-3887",
+    "petitplanet-wiki-file-3889",
+    "petitplanet-wiki-file-3891",
+    "petitplanet-wiki-file-3893",
+    "petitplanet-wiki-file-3908",
+    "petitplanet-wiki-file-3935",
+    "petitplanet-wiki-file-4014",
+    "petitplanet-wiki-file-3943",
+    "petitplanet-wiki-file-4002"
+  ],
+  "localArchive": {
+    "savedOn": "2026-09-26",
+    "directory": "docs/references/recipes/wiki-dish-icons-2026-09-26",
+    "fileCount": 95,
+    "totalBytes": 15872480,
+    "format": "PNG",
+    "originalBytesPreserved": true,
+    "verification": "All local files match recorded SHA-256, SHA-1, byte size and PNG dimensions. Original filenames and duplicate file entries are preserved."
+  }
+}

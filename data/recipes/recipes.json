@@ -1,8 +1,8 @@
 [
   {
-    "id": "mt-20260923-simple-001",
+    "id": "mt-20260924-simple-001",
     "source": {
-      "sourceId": "tomorrow-20260923-image",
+      "sourceId": "tomorrow-20260924-image",
       "region": "simple",
       "row": 1
     },
@@ -89,13 +89,14 @@
         "background": "blue"
       }
     ],
-    "noteIds": ["shrimp-exclusion"],
-    "reviewNotes": []
+    "noteIds": ["ingredient-notes"],
+    "reviewNotes": [],
+    "previousRecipeId": "mt-20260923-simple-001"
   },
   {
-    "id": "mt-20260923-simple-002",
+    "id": "mt-20260924-simple-002",
     "source": {
-      "sourceId": "tomorrow-20260923-image",
+      "sourceId": "tomorrow-20260924-image",
       "region": "simple",
       "row": 2
     },
@@ -173,13 +174,14 @@
         "background": "blue"
       }
     ],
-    "noteIds": ["shrimp-exclusion"],
-    "reviewNotes": []
+    "noteIds": ["ingredient-notes"],
+    "reviewNotes": [],
+    "previousRecipeId": "mt-20260923-simple-002"
   },
   {
-    "id": "mt-20260923-simple-003",
+    "id": "mt-20260924-simple-003",
     "source": {
-      "sourceId": "tomorrow-20260923-image",
+      "sourceId": "tomorrow-20260924-image",
       "region": "simple",
       "row": 3
     },
@@ -257,13 +259,14 @@
         "background": "blue"
       }
     ],
-    "noteIds": ["shrimp-exclusion"],
-    "reviewNotes": []
+    "noteIds": ["ingredient-notes"],
+    "reviewNotes": [],
+    "previousRecipeId": "mt-20260923-simple-003"
   },
   {
-    "id": "mt-20260923-simple-004",
+    "id": "mt-20260924-simple-004",
     "source": {
-      "sourceId": "tomorrow-20260923-image",
+      "sourceId": "tomorrow-20260924-image",
       "region": "simple",
       "row": 4
     },
@@ -341,13 +344,14 @@
         "background": "blue"
       }
     ],
-    "noteIds": ["shrimp-exclusion"],
-    "reviewNotes": []
+    "noteIds": ["ingredient-notes"],
+    "reviewNotes": [],
+    "previousRecipeId": "mt-20260923-simple-004"
   },
   {
-    "id": "mt-20260923-simple-005",
+    "id": "mt-20260924-simple-005",
     "source": {
-      "sourceId": "tomorrow-20260923-image",
+      "sourceId": "tomorrow-20260924-image",
       "region": "simple",
       "row": 5
     },
@@ -425,13 +429,14 @@
         "background": "blue"
       }
     ],
-    "noteIds": ["shrimp-exclusion"],
-    "reviewNotes": []
+    "noteIds": ["ingredient-notes"],
+    "reviewNotes": [],
+    "previousRecipeId": "mt-20260923-simple-005"
   },
   {
-    "id": "mt-20260923-simple-006",
+    "id": "mt-20260924-simple-006",
     "source": {
-      "sourceId": "tomorrow-20260923-image",
+      "sourceId": "tomorrow-20260924-image",
       "region": "simple",
       "row": 6
     },
@@ -509,13 +514,14 @@
         "background": "blue"
       }
     ],
-    "noteIds": ["shrimp-exclusion"],
-    "reviewNotes": []
+    "noteIds": ["ingredient-notes"],
+    "reviewNotes": [],
+    "previousRecipeId": "mt-20260923-simple-006"
   },
   {
-    "id": "mt-20260923-simple-007",
+    "id": "mt-20260924-simple-007",
     "source": {
-      "sourceId": "tomorrow-20260923-image",
+      "sourceId": "tomorrow-20260924-image",
       "region": "simple",
       "row": 7
     },
@@ -593,13 +599,14 @@
         "background": "blue"
       }
     ],
-    "noteIds": ["shrimp-exclusion"],
-    "reviewNotes": []
+    "noteIds": ["ingredient-notes"],
+    "reviewNotes": [],
+    "previousRecipeId": "mt-20260923-simple-007"
   },
   {
-    "id": "mt-20260923-simple-008",
+    "id": "mt-20260924-simple-008",
     "source": {
-      "sourceId": "tomorrow-20260923-image",
+      "sourceId": "tomorrow-20260924-image",
       "region": "simple",
       "row": 8
     },
@@ -685,13 +692,14 @@
         "bold": true
       }
     ],
-    "noteIds": ["shrimp-exclusion"],
-    "reviewNotes": []
+    "noteIds": ["ingredient-notes"],
+    "reviewNotes": [],
+    "previousRecipeId": "mt-20260923-simple-008"
   },
   {
-    "id": "mt-20260923-simple-009",
+    "id": "mt-20260924-simple-009",
     "source": {
-      "sourceId": "tomorrow-20260923-image",
+      "sourceId": "tomorrow-20260924-image",
       "region": "simple",
       "row": 9
     },
@@ -773,13 +781,14 @@
         "bold": true
       }
     ],
-    "noteIds": ["shrimp-exclusion"],
-    "reviewNotes": []
+    "noteIds": ["ingredient-notes"],
+    "reviewNotes": [],
+    "previousRecipeId": "mt-20260923-simple-009"
   },
   {
-    "id": "mt-20260923-simple-010",
+    "id": "mt-20260924-simple-010",
     "source": {
-      "sourceId": "tomorrow-20260923-image",
+      "sourceId": "tomorrow-20260924-image",
       "region": "simple",
       "row": 10
     },
@@ -857,13 +866,14 @@
         "background": "blue"
       }
     ],
-    "noteIds": ["shrimp-exclusion"],
-    "reviewNotes": []
+    "noteIds": ["ingredient-notes"],
+    "reviewNotes": [],
+    "previousRecipeId": "mt-20260923-simple-010"
   },
   {
-    "id": "mt-20260923-simple-011",
+    "id": "mt-20260924-simple-011",
     "source": {
-      "sourceId": "tomorrow-20260923-image",
+      "sourceId": "tomorrow-20260924-image",
       "region": "simple",
       "row": 11
     },
@@ -945,13 +955,14 @@
         "background": "blue"
       }
     ],
-    "noteIds": ["shrimp-exclusion"],
-    "reviewNotes": []
+    "noteIds": ["ingredient-notes"],
+    "reviewNotes": [],
+    "previousRecipeId": "mt-20260923-simple-011"
   },
   {
-    "id": "mt-20260923-simple-012",
+    "id": "mt-20260924-simple-012",
     "source": {
-      "sourceId": "tomorrow-20260923-image",
+      "sourceId": "tomorrow-20260924-image",
       "region": "simple",
       "row": 12
     },
@@ -1033,18 +1044,19 @@
         "background": "blue"
       }
     ],
-    "noteIds": ["shrimp-exclusion"],
+    "noteIds": ["ingredient-notes"],
     "reviewNotes": [
       {
         "field": "specialEffect",
         "reason": "同一图片并存“大力播洒”与“大力播撒”；保留本行原文，是否同一效果待核对。"
       }
-    ]
+    ],
+    "previousRecipeId": "mt-20260923-simple-012"
   },
   {
-    "id": "mt-20260923-simple-013",
+    "id": "mt-20260924-simple-013",
     "source": {
-      "sourceId": "tomorrow-20260923-image",
+      "sourceId": "tomorrow-20260924-image",
       "region": "simple",
       "row": 13
     },
@@ -1130,18 +1142,19 @@
         "bold": true
       }
     ],
-    "noteIds": ["shrimp-exclusion"],
+    "noteIds": ["ingredient-notes"],
     "reviewNotes": [
       {
         "field": "specialEffect",
         "reason": "同一图片并存“大力播洒”与“大力播撒”；保留本行原文，是否同一效果待核对。"
       }
-    ]
+    ],
+    "previousRecipeId": "mt-20260923-simple-013"
   },
   {
-    "id": "mt-20260923-simple-014",
+    "id": "mt-20260924-simple-014",
     "source": {
-      "sourceId": "tomorrow-20260923-image",
+      "sourceId": "tomorrow-20260924-image",
       "region": "simple",
       "row": 14
     },
@@ -1223,13 +1236,14 @@
         "bold": true
       }
     ],
-    "noteIds": ["shrimp-exclusion"],
-    "reviewNotes": []
+    "noteIds": ["ingredient-notes"],
+    "reviewNotes": [],
+    "previousRecipeId": "mt-20260923-simple-014"
   },
   {
-    "id": "mt-20260923-simple-015",
+    "id": "mt-20260924-simple-015",
     "source": {
-      "sourceId": "tomorrow-20260923-image",
+      "sourceId": "tomorrow-20260924-image",
       "region": "simple",
       "row": 15
     },
@@ -1307,13 +1321,14 @@
         "background": "blue"
       }
     ],
-    "noteIds": ["shrimp-exclusion"],
-    "reviewNotes": []
+    "noteIds": ["ingredient-notes"],
+    "reviewNotes": [],
+    "previousRecipeId": "mt-20260923-simple-015"
   },
   {
-    "id": "mt-20260923-simple-016",
+    "id": "mt-20260924-simple-016",
     "source": {
-      "sourceId": "tomorrow-20260923-image",
+      "sourceId": "tomorrow-20260924-image",
       "region": "simple",
       "row": 16
     },
@@ -1391,18 +1406,19 @@
         "background": "blue"
       }
     ],
-    "noteIds": ["shrimp-exclusion"],
+    "noteIds": ["ingredient-notes"],
     "reviewNotes": [
       {
         "field": "tags",
         "reason": "原图词条为“荤菜 炖菜”，未见斜杠；保留原始分隔并按两项词条记录。"
       }
-    ]
+    ],
+    "previousRecipeId": "mt-20260923-simple-016"
   },
   {
-    "id": "mt-20260923-simple-017",
+    "id": "mt-20260924-simple-017",
     "source": {
-      "sourceId": "tomorrow-20260923-image",
+      "sourceId": "tomorrow-20260924-image",
       "region": "simple",
       "row": 17
     },
@@ -1480,13 +1496,14 @@
         "background": "blue"
       }
     ],
-    "noteIds": ["shrimp-exclusion"],
-    "reviewNotes": []
+    "noteIds": ["ingredient-notes"],
+    "reviewNotes": [],
+    "previousRecipeId": "mt-20260923-simple-017"
   },
   {
-    "id": "mt-20260923-simple-018",
+    "id": "mt-20260924-simple-018",
     "source": {
-      "sourceId": "tomorrow-20260923-image",
+      "sourceId": "tomorrow-20260924-image",
       "region": "simple",
       "row": 18
     },
@@ -1564,13 +1581,14 @@
         "background": "blue"
       }
     ],
-    "noteIds": ["shrimp-exclusion"],
-    "reviewNotes": []
+    "noteIds": ["ingredient-notes"],
+    "reviewNotes": [],
+    "previousRecipeId": "mt-20260923-simple-018"
   },
   {
-    "id": "mt-20260923-simple-019",
+    "id": "mt-20260924-simple-019",
     "source": {
-      "sourceId": "tomorrow-20260923-image",
+      "sourceId": "tomorrow-20260924-image",
       "region": "simple",
       "row": 19
     },
@@ -1587,17 +1605,17 @@
     "ingredients": [
       {
         "selection": {
-          "status": "tentative",
-          "raw": "胡萝卜?",
-          "candidate": {
+          "status": "recorded",
+          "raw": "胡萝卜",
+          "value": {
             "kind": "item",
             "name": "胡萝卜"
-          },
-          "reason": "图片原文带问号，候选食材待确认"
+          }
         },
         "quality": {
-          "status": "not-stated",
-          "raw": ""
+          "status": "interpreted",
+          "color": "purple",
+          "interpretationId": "ingredient-background-user-20260926"
         }
       },
       {
@@ -1662,13 +1680,14 @@
         "bold": true
       }
     ],
-    "noteIds": ["shrimp-exclusion"],
-    "reviewNotes": []
+    "noteIds": ["ingredient-notes"],
+    "reviewNotes": [],
+    "previousRecipeId": "mt-20260923-simple-019"
   },
   {
-    "id": "mt-20260923-simple-020",
+    "id": "mt-20260924-simple-020",
     "source": {
-      "sourceId": "tomorrow-20260923-image",
+      "sourceId": "tomorrow-20260924-image",
       "region": "simple",
       "row": 20
     },
@@ -1707,8 +1726,9 @@
           }
         },
         "quality": {
-          "status": "not-stated",
-          "raw": ""
+          "status": "interpreted",
+          "color": "purple",
+          "interpretationId": "ingredient-background-user-20260926"
         }
       }
     ],
@@ -1754,13 +1774,14 @@
         "background": "purple"
       }
     ],
-    "noteIds": ["shrimp-exclusion"],
-    "reviewNotes": []
+    "noteIds": ["ingredient-notes"],
+    "reviewNotes": [],
+    "previousRecipeId": "mt-20260923-simple-020"
   },
   {
-    "id": "mt-20260923-simple-021",
+    "id": "mt-20260924-simple-021",
     "source": {
-      "sourceId": "tomorrow-20260923-image",
+      "sourceId": "tomorrow-20260924-image",
       "region": "simple",
       "row": 21
     },
@@ -1799,8 +1820,9 @@
           }
         },
         "quality": {
-          "status": "not-stated",
-          "raw": ""
+          "status": "interpreted",
+          "color": "purple",
+          "interpretationId": "ingredient-background-user-20260926"
         }
       }
     ],
@@ -1847,18 +1869,19 @@
         "bold": true
       }
     ],
-    "noteIds": ["shrimp-exclusion"],
+    "noteIds": ["ingredient-notes"],
     "reviewNotes": [
       {
         "field": "specialEffect",
         "reason": "同一图片并存“大力播洒”与“大力播撒”；保留本行原文，是否同一效果待核对。"
       }
-    ]
+    ],
+    "previousRecipeId": "mt-20260923-simple-021"
   },
   {
-    "id": "mt-20260923-simple-022",
+    "id": "mt-20260924-simple-022",
     "source": {
-      "sourceId": "tomorrow-20260923-image",
+      "sourceId": "tomorrow-20260924-image",
       "region": "simple",
       "row": 22
     },
@@ -1897,8 +1920,9 @@
           }
         },
         "quality": {
-          "status": "not-stated",
-          "raw": ""
+          "status": "interpreted",
+          "color": "purple",
+          "interpretationId": "ingredient-background-user-20260926"
         }
       }
     ],
@@ -1944,13 +1968,14 @@
         "background": "purple"
       }
     ],
-    "noteIds": ["shrimp-exclusion"],
-    "reviewNotes": []
+    "noteIds": ["ingredient-notes"],
+    "reviewNotes": [],
+    "previousRecipeId": "mt-20260923-simple-022"
   },
   {
-    "id": "mt-20260923-simple-023",
+    "id": "mt-20260924-simple-023",
     "source": {
-      "sourceId": "tomorrow-20260923-image",
+      "sourceId": "tomorrow-20260924-image",
       "region": "simple",
       "row": 23
     },
@@ -1989,8 +2014,9 @@
           }
         },
         "quality": {
-          "status": "not-stated",
-          "raw": ""
+          "status": "interpreted",
+          "color": "purple",
+          "interpretationId": "ingredient-background-user-20260926"
         }
       }
     ],
@@ -2040,18 +2066,19 @@
         "background": "purple"
       }
     ],
-    "noteIds": ["shrimp-exclusion"],
+    "noteIds": ["ingredient-notes"],
     "reviewNotes": [
       {
         "field": "name",
         "reason": "原图辨读为“海鲜大铺面”；疑似异写，未按印象改名。"
       }
-    ]
+    ],
+    "previousRecipeId": "mt-20260923-simple-023"
   },
   {
-    "id": "mt-20260923-simple-024",
+    "id": "mt-20260924-simple-024",
     "source": {
-      "sourceId": "tomorrow-20260923-image",
+      "sourceId": "tomorrow-20260924-image",
       "region": "simple",
       "row": 24
     },
@@ -2129,13 +2156,14 @@
         "background": "blue"
       }
     ],
-    "noteIds": ["shrimp-exclusion"],
-    "reviewNotes": []
+    "noteIds": ["ingredient-notes"],
+    "reviewNotes": [],
+    "previousRecipeId": "mt-20260923-simple-024"
   },
   {
-    "id": "mt-20260923-simple-025",
+    "id": "mt-20260924-simple-025",
     "source": {
-      "sourceId": "tomorrow-20260923-image",
+      "sourceId": "tomorrow-20260924-image",
       "region": "simple",
       "row": 25
     },
@@ -2213,13 +2241,14 @@
         "background": "blue"
       }
     ],
-    "noteIds": ["shrimp-exclusion"],
-    "reviewNotes": []
+    "noteIds": ["ingredient-notes"],
+    "reviewNotes": [],
+    "previousRecipeId": "mt-20260923-simple-025"
   },
   {
-    "id": "mt-20260923-simple-026",
+    "id": "mt-20260924-simple-026",
     "source": {
-      "sourceId": "tomorrow-20260923-image",
+      "sourceId": "tomorrow-20260924-image",
       "region": "simple",
       "row": 26
     },
@@ -2297,13 +2326,14 @@
         "background": "blue"
       }
     ],
-    "noteIds": ["shrimp-exclusion"],
-    "reviewNotes": []
+    "noteIds": ["ingredient-notes"],
+    "reviewNotes": [],
+    "previousRecipeId": "mt-20260923-simple-026"
   },
   {
-    "id": "mt-20260923-simple-027",
+    "id": "mt-20260924-simple-027",
     "source": {
-      "sourceId": "tomorrow-20260923-image",
+      "sourceId": "tomorrow-20260924-image",
       "region": "simple",
       "row": 27
     },
@@ -2385,13 +2415,14 @@
         "bold": true
       }
     ],
-    "noteIds": ["shrimp-exclusion"],
-    "reviewNotes": []
+    "noteIds": ["ingredient-notes"],
+    "reviewNotes": [],
+    "previousRecipeId": "mt-20260923-simple-027"
   },
   {
-    "id": "mt-20260923-simple-028",
+    "id": "mt-20260924-simple-028",
     "source": {
-      "sourceId": "tomorrow-20260923-image",
+      "sourceId": "tomorrow-20260924-image",
       "region": "simple",
       "row": 28
     },
@@ -2416,8 +2447,9 @@
           }
         },
         "quality": {
-          "status": "not-stated",
-          "raw": ""
+          "status": "interpreted",
+          "color": "purple",
+          "interpretationId": "ingredient-background-user-20260926"
         }
       },
       {
@@ -2481,13 +2513,14 @@
         "bold": true
       }
     ],
-    "noteIds": ["shrimp-exclusion"],
-    "reviewNotes": []
+    "noteIds": ["ingredient-notes"],
+    "reviewNotes": [],
+    "previousRecipeId": "mt-20260923-simple-028"
   },
   {
-    "id": "mt-20260923-simple-029",
+    "id": "mt-20260924-simple-029",
     "source": {
-      "sourceId": "tomorrow-20260923-image",
+      "sourceId": "tomorrow-20260924-image",
       "region": "simple",
       "row": 29
     },
@@ -2565,13 +2598,14 @@
         "background": "blue"
       }
     ],
-    "noteIds": ["shrimp-exclusion"],
-    "reviewNotes": []
+    "noteIds": ["ingredient-notes"],
+    "reviewNotes": [],
+    "previousRecipeId": "mt-20260923-simple-029"
   },
   {
-    "id": "mt-20260923-simple-030",
+    "id": "mt-20260924-simple-030",
     "source": {
-      "sourceId": "tomorrow-20260923-image",
+      "sourceId": "tomorrow-20260924-image",
       "region": "simple",
       "row": 30
     },
@@ -2661,13 +2695,14 @@
         "bold": true
       }
     ],
-    "noteIds": ["shrimp-exclusion"],
-    "reviewNotes": []
+    "noteIds": ["ingredient-notes"],
+    "reviewNotes": [],
+    "previousRecipeId": "mt-20260923-simple-030"
   },
   {
-    "id": "mt-20260923-simple-031",
+    "id": "mt-20260924-simple-031",
     "source": {
-      "sourceId": "tomorrow-20260923-image",
+      "sourceId": "tomorrow-20260924-image",
       "region": "simple",
       "row": 31
     },
@@ -2749,13 +2784,14 @@
         "bold": true
       }
     ],
-    "noteIds": ["shrimp-exclusion"],
-    "reviewNotes": []
+    "noteIds": ["ingredient-notes"],
+    "reviewNotes": [],
+    "previousRecipeId": "mt-20260923-simple-031"
   },
   {
-    "id": "mt-20260923-simple-032",
+    "id": "mt-20260924-simple-032",
     "source": {
-      "sourceId": "tomorrow-20260923-image",
+      "sourceId": "tomorrow-20260924-image",
       "region": "simple",
       "row": 32
     },
@@ -2833,13 +2869,14 @@
         "background": "blue"
       }
     ],
-    "noteIds": ["shrimp-exclusion"],
-    "reviewNotes": []
+    "noteIds": ["ingredient-notes"],
+    "reviewNotes": [],
+    "previousRecipeId": "mt-20260923-simple-032"
   },
   {
-    "id": "mt-20260923-simple-033",
+    "id": "mt-20260924-simple-033",
     "source": {
-      "sourceId": "tomorrow-20260923-image",
+      "sourceId": "tomorrow-20260924-image",
       "region": "simple",
       "row": 33
     },
@@ -2917,13 +2954,14 @@
         "background": "blue"
       }
     ],
-    "noteIds": ["shrimp-exclusion"],
-    "reviewNotes": []
+    "noteIds": ["ingredient-notes"],
+    "reviewNotes": [],
+    "previousRecipeId": "mt-20260923-simple-033"
   },
   {
-    "id": "mt-20260923-simple-034",
+    "id": "mt-20260924-simple-034",
     "source": {
-      "sourceId": "tomorrow-20260923-image",
+      "sourceId": "tomorrow-20260924-image",
       "region": "simple",
       "row": 34
     },
@@ -3001,13 +3039,14 @@
         "background": "blue"
       }
     ],
-    "noteIds": ["shrimp-exclusion"],
-    "reviewNotes": []
+    "noteIds": ["ingredient-notes"],
+    "reviewNotes": [],
+    "previousRecipeId": "mt-20260923-simple-034"
   },
   {
-    "id": "mt-20260923-simple-035",
+    "id": "mt-20260924-simple-035",
     "source": {
-      "sourceId": "tomorrow-20260923-image",
+      "sourceId": "tomorrow-20260924-image",
       "region": "simple",
       "row": 35
     },
@@ -3089,18 +3128,19 @@
         "bold": true
       }
     ],
-    "noteIds": ["shrimp-exclusion"],
+    "noteIds": ["ingredient-notes"],
     "reviewNotes": [
       {
         "field": "name",
         "reason": "菜名原图写“波香烤鱼串”，食材写“菠萝”；保留两处不同用字，未自行纠正。"
       }
-    ]
+    ],
+    "previousRecipeId": "mt-20260923-simple-035"
   },
   {
-    "id": "mt-20260923-simple-036",
+    "id": "mt-20260924-simple-036",
     "source": {
-      "sourceId": "tomorrow-20260923-image",
+      "sourceId": "tomorrow-20260924-image",
       "region": "simple",
       "row": 36
     },
@@ -3178,13 +3218,14 @@
         "background": "blue"
       }
     ],
-    "noteIds": ["shrimp-exclusion"],
-    "reviewNotes": []
+    "noteIds": ["ingredient-notes"],
+    "reviewNotes": [],
+    "previousRecipeId": "mt-20260923-simple-036"
   },
   {
-    "id": "mt-20260923-simple-037",
+    "id": "mt-20260924-simple-037",
     "source": {
-      "sourceId": "tomorrow-20260923-image",
+      "sourceId": "tomorrow-20260924-image",
       "region": "simple",
       "row": 37
     },
@@ -3209,8 +3250,9 @@
           }
         },
         "quality": {
-          "status": "not-stated",
-          "raw": ""
+          "status": "interpreted",
+          "color": "purple",
+          "interpretationId": "ingredient-background-user-20260926"
         }
       },
       {
@@ -3270,20 +3312,133 @@
         "background": "purple"
       }
     ],
-    "noteIds": ["shrimp-exclusion"],
+    "noteIds": ["ingredient-notes"],
     "reviewNotes": [
       {
         "field": "tags",
         "reason": "原图写“主菜”，没有改为其他行常见的“主食”。"
       }
-    ]
+    ],
+    "previousRecipeId": "mt-20260923-simple-037"
   },
   {
-    "id": "mt-20260923-signature-001",
+    "id": "mt-20260924-signature-001",
     "source": {
-      "sourceId": "tomorrow-20260923-image",
+      "sourceId": "tomorrow-20260924-image",
       "region": "signature",
       "row": 1
+    },
+    "verification": "image-transcribed-game-unverified",
+    "name": {
+      "status": "recorded",
+      "raw": "甜瓜花茶",
+      "value": "甜瓜花茶"
+    },
+    "dishCategory": {
+      "status": "not-stated",
+      "raw": ""
+    },
+    "ingredients": [
+      {
+        "selection": {
+          "status": "recorded",
+          "raw": "甜瓜",
+          "value": {
+            "kind": "item",
+            "name": "甜瓜"
+          }
+        },
+        "quality": {
+          "status": "not-stated",
+          "raw": ""
+        }
+      },
+      {
+        "selection": {
+          "status": "recorded",
+          "raw": "鲜花",
+          "value": {
+            "kind": "unspecified",
+            "name": "鲜花"
+          }
+        },
+        "quality": {
+          "status": "not-stated",
+          "raw": ""
+        }
+      },
+      {
+        "selection": {
+          "status": "recorded",
+          "raw": "甜瓜",
+          "value": {
+            "kind": "item",
+            "name": "甜瓜"
+          }
+        },
+        "quality": {
+          "status": "not-stated",
+          "raw": ""
+        }
+      }
+    ],
+    "cookingMethod": {
+      "status": "recorded",
+      "raw": "煮锅",
+      "value": "煮锅"
+    },
+    "energy": {
+      "status": "recorded",
+      "raw": "40",
+      "value": 40
+    },
+    "tags": {
+      "status": "recorded",
+      "raw": "饮品",
+      "value": ["饮品"]
+    },
+    "specialEffect": {
+      "status": "unresolved",
+      "raw": "/",
+      "reason": "图片未给图例，斜杠是否表示明确无特殊效果待核对"
+    },
+    "effectTrigger": {
+      "status": "not-stated",
+      "raw": ""
+    },
+    "productionChance": {
+      "status": "not-stated",
+      "raw": ""
+    },
+    "visualCues": [
+      {
+        "field": "name",
+        "background": "blue"
+      },
+      {
+        "field": "ingredients.0",
+        "bold": true
+      },
+      {
+        "field": "ingredients.2",
+        "bold": true
+      }
+    ],
+    "noteIds": ["ingredient-notes"],
+    "reviewNotes": [
+      {
+        "field": "cookingMethod",
+        "reason": "9 月 23 日图片写“榨汁机”，9 月 24 日图片写“煮锅”。分别保留两个来源，当前显示新版原文，尚未在游戏中核实。"
+      }
+    ],
+    "previousRecipeId": "mt-20260923-signature-016"
+  },
+  {
+    "id": "mt-20260924-signature-002",
+    "source": {
+      "sourceId": "tomorrow-20260924-image",
+      "region": "signature",
+      "row": 2
     },
     "verification": "image-transcribed-game-unverified",
     "name": {
@@ -3373,15 +3528,16 @@
         "background": "blue"
       }
     ],
-    "noteIds": ["shrimp-exclusion"],
-    "reviewNotes": []
+    "noteIds": ["ingredient-notes"],
+    "reviewNotes": [],
+    "previousRecipeId": "mt-20260923-signature-001"
   },
   {
-    "id": "mt-20260923-signature-002",
+    "id": "mt-20260924-signature-003",
     "source": {
-      "sourceId": "tomorrow-20260923-image",
+      "sourceId": "tomorrow-20260924-image",
       "region": "signature",
-      "row": 2
+      "row": 3
     },
     "verification": "image-transcribed-game-unverified",
     "name": {
@@ -3404,8 +3560,9 @@
           }
         },
         "quality": {
-          "status": "not-stated",
-          "raw": ""
+          "status": "interpreted",
+          "color": "purple",
+          "interpretationId": "ingredient-background-user-20260926"
         }
       },
       {
@@ -3488,20 +3645,21 @@
         "bold": true
       }
     ],
-    "noteIds": ["shrimp-exclusion"],
+    "noteIds": ["ingredient-notes"],
     "reviewNotes": [
       {
         "field": "name",
         "reason": "原图写“番笋红宋汤”；疑似异写，未改为其他菜名。"
       }
-    ]
+    ],
+    "previousRecipeId": "mt-20260923-signature-002"
   },
   {
-    "id": "mt-20260923-signature-003",
+    "id": "mt-20260924-signature-004",
     "source": {
-      "sourceId": "tomorrow-20260923-image",
+      "sourceId": "tomorrow-20260924-image",
       "region": "signature",
-      "row": 3
+      "row": 4
     },
     "verification": "image-transcribed-game-unverified",
     "name": {
@@ -3525,8 +3683,9 @@
           "reason": "图片原文带问号，候选食材待确认"
         },
         "quality": {
-          "status": "not-stated",
-          "raw": ""
+          "status": "interpreted",
+          "color": "purple",
+          "interpretationId": "ingredient-background-user-20260926"
         }
       },
       {
@@ -3609,20 +3768,21 @@
         "bold": true
       }
     ],
-    "noteIds": ["shrimp-exclusion"],
+    "noteIds": ["ingredient-notes"],
     "reviewNotes": [
       {
         "field": "specialEffect",
         "reason": "同一图片并存“大力播洒”与“大力播撒”；保留本行原文，是否同一效果待核对。"
       }
-    ]
+    ],
+    "previousRecipeId": "mt-20260923-signature-003"
   },
   {
-    "id": "mt-20260923-signature-004",
+    "id": "mt-20260924-signature-005",
     "source": {
-      "sourceId": "tomorrow-20260923-image",
+      "sourceId": "tomorrow-20260924-image",
       "region": "signature",
-      "row": 4
+      "row": 5
     },
     "verification": "image-transcribed-game-unverified",
     "name": {
@@ -3645,8 +3805,9 @@
           }
         },
         "quality": {
-          "status": "not-stated",
-          "raw": ""
+          "status": "interpreted",
+          "color": "purple",
+          "interpretationId": "ingredient-background-user-20260926"
         }
       },
       {
@@ -3724,15 +3885,131 @@
         "bold": true
       }
     ],
-    "noteIds": ["shrimp-exclusion"],
-    "reviewNotes": []
+    "noteIds": ["ingredient-notes"],
+    "reviewNotes": [],
+    "previousRecipeId": "mt-20260923-signature-004"
   },
   {
-    "id": "mt-20260923-signature-005",
+    "id": "mt-20260924-signature-006",
     "source": {
-      "sourceId": "tomorrow-20260923-image",
+      "sourceId": "tomorrow-20260924-image",
       "region": "signature",
-      "row": 5
+      "row": 6
+    },
+    "verification": "image-transcribed-game-unverified",
+    "name": {
+      "status": "recorded",
+      "raw": "满满大烩菜",
+      "value": "满满大烩菜"
+    },
+    "dishCategory": {
+      "status": "not-stated",
+      "raw": ""
+    },
+    "ingredients": [
+      {
+        "selection": {
+          "status": "recorded",
+          "raw": "蘑菇",
+          "value": {
+            "kind": "item",
+            "name": "蘑菇"
+          }
+        },
+        "quality": {
+          "status": "not-stated",
+          "raw": ""
+        }
+      },
+      {
+        "selection": {
+          "status": "tentative",
+          "raw": "玉米?",
+          "candidate": {
+            "kind": "item",
+            "name": "玉米"
+          },
+          "reason": "图片原文带问号，候选食材待确认"
+        },
+        "quality": {
+          "status": "interpreted",
+          "color": "purple",
+          "interpretationId": "ingredient-background-user-20260926"
+        }
+      },
+      {
+        "selection": {
+          "status": "recorded",
+          "raw": "蔬菜类",
+          "value": {
+            "kind": "category",
+            "name": "蔬菜类"
+          }
+        },
+        "quality": {
+          "status": "not-stated",
+          "raw": ""
+        }
+      }
+    ],
+    "cookingMethod": {
+      "status": "recorded",
+      "raw": "煮锅",
+      "value": "煮锅"
+    },
+    "energy": {
+      "status": "recorded",
+      "raw": "70",
+      "value": 70
+    },
+    "tags": {
+      "status": "recorded",
+      "raw": "素菜/炒菜",
+      "value": ["素菜", "炒菜"]
+    },
+    "specialEffect": {
+      "status": "recorded",
+      "raw": "快速翻土 一阶",
+      "value": {
+        "name": "快速翻土",
+        "tier": 1
+      }
+    },
+    "effectTrigger": {
+      "status": "unspecified-probability",
+      "raw": "概率",
+      "basis": "effect-column-heading"
+    },
+    "productionChance": {
+      "status": "not-stated",
+      "raw": ""
+    },
+    "visualCues": [
+      {
+        "field": "name",
+        "background": "purple"
+      },
+      {
+        "field": "ingredients.1",
+        "background": "purple",
+        "bold": true
+      }
+    ],
+    "noteIds": ["ingredient-notes"],
+    "reviewNotes": [
+      {
+        "field": "cookingMethod",
+        "reason": "9 月 23 日图片写“烤箱”，9 月 24 日图片写“煮锅”。分别保留两个来源，当前显示新版原文，尚未在游戏中核实。"
+      }
+    ],
+    "previousRecipeId": "mt-20260923-signature-028"
+  },
+  {
+    "id": "mt-20260924-signature-007",
+    "source": {
+      "sourceId": "tomorrow-20260924-image",
+      "region": "signature",
+      "row": 7
     },
     "verification": "image-transcribed-game-unverified",
     "name": {
@@ -3783,8 +4060,9 @@
           }
         },
         "quality": {
-          "status": "not-stated",
-          "raw": ""
+          "status": "interpreted",
+          "color": "purple",
+          "interpretationId": "ingredient-background-user-20260926"
         }
       }
     ],
@@ -3830,15 +4108,16 @@
         "background": "purple"
       }
     ],
-    "noteIds": ["shrimp-exclusion"],
-    "reviewNotes": []
+    "noteIds": ["ingredient-notes"],
+    "reviewNotes": [],
+    "previousRecipeId": "mt-20260923-signature-005"
   },
   {
-    "id": "mt-20260923-signature-006",
+    "id": "mt-20260924-signature-008",
     "source": {
-      "sourceId": "tomorrow-20260923-image",
+      "sourceId": "tomorrow-20260924-image",
       "region": "signature",
-      "row": 6
+      "row": 8
     },
     "verification": "image-transcribed-game-unverified",
     "name": {
@@ -3889,8 +4168,9 @@
           }
         },
         "quality": {
-          "status": "not-stated",
-          "raw": ""
+          "status": "interpreted",
+          "color": "purple",
+          "interpretationId": "ingredient-background-user-20260926"
         }
       }
     ],
@@ -3940,15 +4220,16 @@
         "background": "purple"
       }
     ],
-    "noteIds": ["shrimp-exclusion"],
-    "reviewNotes": []
+    "noteIds": ["ingredient-notes"],
+    "reviewNotes": [],
+    "previousRecipeId": "mt-20260923-signature-006"
   },
   {
-    "id": "mt-20260923-signature-007",
+    "id": "mt-20260924-signature-009",
     "source": {
-      "sourceId": "tomorrow-20260923-image",
+      "sourceId": "tomorrow-20260924-image",
       "region": "signature",
-      "row": 7
+      "row": 9
     },
     "verification": "image-transcribed-game-unverified",
     "name": {
@@ -4000,8 +4281,9 @@
           }
         },
         "quality": {
-          "status": "not-stated",
-          "raw": ""
+          "status": "interpreted",
+          "color": "purple",
+          "interpretationId": "ingredient-background-user-20260926"
         }
       }
     ],
@@ -4055,15 +4337,16 @@
         "background": "purple"
       }
     ],
-    "noteIds": ["shrimp-exclusion"],
-    "reviewNotes": []
+    "noteIds": ["ingredient-notes"],
+    "reviewNotes": [],
+    "previousRecipeId": "mt-20260923-signature-007"
   },
   {
-    "id": "mt-20260923-signature-008",
+    "id": "mt-20260924-signature-010",
     "source": {
-      "sourceId": "tomorrow-20260923-image",
+      "sourceId": "tomorrow-20260924-image",
       "region": "signature",
-      "row": 8
+      "row": 10
     },
     "verification": "image-transcribed-game-unverified",
     "name": {
@@ -4114,8 +4397,9 @@
           }
         },
         "quality": {
-          "status": "not-stated",
-          "raw": ""
+          "status": "interpreted",
+          "color": "purple",
+          "interpretationId": "ingredient-background-user-20260926"
         }
       }
     ],
@@ -4165,15 +4449,16 @@
         "background": "purple"
       }
     ],
-    "noteIds": ["shrimp-exclusion"],
-    "reviewNotes": []
+    "noteIds": ["ingredient-notes"],
+    "reviewNotes": [],
+    "previousRecipeId": "mt-20260923-signature-008"
   },
   {
-    "id": "mt-20260923-signature-009",
+    "id": "mt-20260924-signature-011",
     "source": {
-      "sourceId": "tomorrow-20260923-image",
+      "sourceId": "tomorrow-20260924-image",
       "region": "signature",
-      "row": 9
+      "row": 11
     },
     "verification": "image-transcribed-game-unverified",
     "name": {
@@ -4224,8 +4509,9 @@
           }
         },
         "quality": {
-          "status": "not-stated",
-          "raw": ""
+          "status": "interpreted",
+          "color": "purple",
+          "interpretationId": "ingredient-background-user-20260926"
         }
       }
     ],
@@ -4272,15 +4558,16 @@
         "bold": true
       }
     ],
-    "noteIds": ["shrimp-exclusion"],
-    "reviewNotes": []
+    "noteIds": ["ingredient-notes"],
+    "reviewNotes": [],
+    "previousRecipeId": "mt-20260923-signature-009"
   },
   {
-    "id": "mt-20260923-signature-010",
+    "id": "mt-20260924-signature-012",
     "source": {
-      "sourceId": "tomorrow-20260923-image",
+      "sourceId": "tomorrow-20260924-image",
       "region": "signature",
-      "row": 10
+      "row": 12
     },
     "verification": "image-transcribed-game-unverified",
     "name": {
@@ -4331,8 +4618,9 @@
           }
         },
         "quality": {
-          "status": "not-stated",
-          "raw": ""
+          "status": "interpreted",
+          "color": "purple",
+          "interpretationId": "ingredient-background-user-20260926"
         }
       }
     ],
@@ -4379,15 +4667,16 @@
         "bold": true
       }
     ],
-    "noteIds": ["shrimp-exclusion"],
-    "reviewNotes": []
+    "noteIds": ["ingredient-notes"],
+    "reviewNotes": [],
+    "previousRecipeId": "mt-20260923-signature-010"
   },
   {
-    "id": "mt-20260923-signature-011",
+    "id": "mt-20260924-signature-013",
     "source": {
-      "sourceId": "tomorrow-20260923-image",
+      "sourceId": "tomorrow-20260924-image",
       "region": "signature",
-      "row": 11
+      "row": 13
     },
     "verification": "image-transcribed-game-unverified",
     "name": {
@@ -4410,8 +4699,9 @@
           }
         },
         "quality": {
-          "status": "not-stated",
-          "raw": ""
+          "status": "interpreted",
+          "color": "purple",
+          "interpretationId": "ingredient-background-user-20260926"
         }
       },
       {
@@ -4489,15 +4779,16 @@
         "bold": true
       }
     ],
-    "noteIds": ["shrimp-exclusion"],
-    "reviewNotes": []
+    "noteIds": ["ingredient-notes"],
+    "reviewNotes": [],
+    "previousRecipeId": "mt-20260923-signature-011"
   },
   {
-    "id": "mt-20260923-signature-012",
+    "id": "mt-20260924-signature-014",
     "source": {
-      "sourceId": "tomorrow-20260923-image",
+      "sourceId": "tomorrow-20260924-image",
       "region": "signature",
-      "row": 12
+      "row": 14
     },
     "verification": "image-transcribed-game-unverified",
     "name": {
@@ -4548,8 +4839,9 @@
           }
         },
         "quality": {
-          "status": "not-stated",
-          "raw": ""
+          "status": "interpreted",
+          "color": "gold",
+          "interpretationId": "ingredient-background-user-20260926"
         }
       }
     ],
@@ -4599,15 +4891,16 @@
         "background": "yellow"
       }
     ],
-    "noteIds": ["shrimp-exclusion"],
-    "reviewNotes": []
+    "noteIds": ["ingredient-notes"],
+    "reviewNotes": [],
+    "previousRecipeId": "mt-20260923-signature-012"
   },
   {
-    "id": "mt-20260923-signature-013",
+    "id": "mt-20260924-signature-015",
     "source": {
-      "sourceId": "tomorrow-20260923-image",
+      "sourceId": "tomorrow-20260924-image",
       "region": "signature",
-      "row": 13
+      "row": 15
     },
     "verification": "image-transcribed-game-unverified",
     "name": {
@@ -4630,8 +4923,9 @@
           }
         },
         "quality": {
-          "status": "not-stated",
-          "raw": ""
+          "status": "interpreted",
+          "color": "gold",
+          "interpretationId": "ingredient-background-user-20260926"
         }
       },
       {
@@ -4709,15 +5003,16 @@
         "bold": true
       }
     ],
-    "noteIds": ["shrimp-exclusion"],
-    "reviewNotes": []
+    "noteIds": ["ingredient-notes"],
+    "reviewNotes": [],
+    "previousRecipeId": "mt-20260923-signature-013"
   },
   {
-    "id": "mt-20260923-signature-014",
+    "id": "mt-20260924-signature-016",
     "source": {
-      "sourceId": "tomorrow-20260923-image",
+      "sourceId": "tomorrow-20260924-image",
       "region": "signature",
-      "row": 14
+      "row": 16
     },
     "verification": "image-transcribed-game-unverified",
     "name": {
@@ -4740,8 +5035,9 @@
           }
         },
         "quality": {
-          "status": "not-stated",
-          "raw": ""
+          "status": "interpreted",
+          "color": "gold",
+          "interpretationId": "ingredient-background-user-20260926"
         }
       },
       {
@@ -4815,20 +5111,21 @@
         "background": "yellow"
       }
     ],
-    "noteIds": ["shrimp-exclusion"],
+    "noteIds": ["ingredient-notes"],
     "reviewNotes": [
       {
         "field": "name",
         "reason": "原图写“梦幻双色升鱼宴”；保留“升”字，未凭印象纠正。"
       }
-    ]
+    ],
+    "previousRecipeId": "mt-20260923-signature-014"
   },
   {
-    "id": "mt-20260923-signature-015",
+    "id": "mt-20260924-signature-017",
     "source": {
-      "sourceId": "tomorrow-20260923-image",
+      "sourceId": "tomorrow-20260924-image",
       "region": "signature",
-      "row": 15
+      "row": 17
     },
     "verification": "image-transcribed-game-unverified",
     "name": {
@@ -4930,123 +5227,16 @@
         "bold": true
       }
     ],
-    "noteIds": ["shrimp-exclusion"],
-    "reviewNotes": []
+    "noteIds": ["ingredient-notes"],
+    "reviewNotes": [],
+    "previousRecipeId": "mt-20260923-signature-015"
   },
   {
-    "id": "mt-20260923-signature-016",
+    "id": "mt-20260924-signature-018",
     "source": {
-      "sourceId": "tomorrow-20260923-image",
+      "sourceId": "tomorrow-20260924-image",
       "region": "signature",
-      "row": 16
-    },
-    "verification": "image-transcribed-game-unverified",
-    "name": {
-      "status": "recorded",
-      "raw": "甜瓜花茶",
-      "value": "甜瓜花茶"
-    },
-    "dishCategory": {
-      "status": "not-stated",
-      "raw": ""
-    },
-    "ingredients": [
-      {
-        "selection": {
-          "status": "tentative",
-          "raw": "甜瓜?",
-          "candidate": {
-            "kind": "item",
-            "name": "甜瓜"
-          },
-          "reason": "图片原文带问号，候选食材待确认"
-        },
-        "quality": {
-          "status": "not-stated",
-          "raw": ""
-        }
-      },
-      {
-        "selection": {
-          "status": "recorded",
-          "raw": "鲜花",
-          "value": {
-            "kind": "unspecified",
-            "name": "鲜花"
-          }
-        },
-        "quality": {
-          "status": "not-stated",
-          "raw": ""
-        }
-      },
-      {
-        "selection": {
-          "status": "tentative",
-          "raw": "甜瓜?",
-          "candidate": {
-            "kind": "item",
-            "name": "甜瓜"
-          },
-          "reason": "图片原文带问号，候选食材待确认"
-        },
-        "quality": {
-          "status": "not-stated",
-          "raw": ""
-        }
-      }
-    ],
-    "cookingMethod": {
-      "status": "recorded",
-      "raw": "榨汁机",
-      "value": "榨汁机"
-    },
-    "energy": {
-      "status": "recorded",
-      "raw": "40",
-      "value": 40
-    },
-    "tags": {
-      "status": "recorded",
-      "raw": "饮品",
-      "value": ["饮品"]
-    },
-    "specialEffect": {
-      "status": "unresolved",
-      "raw": "/",
-      "reason": "图片未给图例，斜杠是否表示明确无特殊效果待核对"
-    },
-    "effectTrigger": {
-      "status": "not-stated",
-      "raw": ""
-    },
-    "productionChance": {
-      "status": "not-stated",
-      "raw": ""
-    },
-    "visualCues": [
-      {
-        "field": "name",
-        "background": "blue"
-      },
-      {
-        "field": "ingredients.0",
-        "bold": true
-      },
-      {
-        "field": "ingredients.2",
-        "bold": true
-      }
-    ],
-    "noteIds": ["shrimp-exclusion"],
-    "reviewNotes": []
-  },
-  {
-    "id": "mt-20260923-signature-017",
-    "source": {
-      "sourceId": "tomorrow-20260923-image",
-      "region": "signature",
-      "row": 17
+      "row": 18
     },
     "verification": "image-transcribed-game-unverified",
     "name": {
@@ -5148,15 +5338,16 @@
         "bold": true
       }
     ],
-    "noteIds": ["shrimp-exclusion"],
-    "reviewNotes": []
+    "noteIds": ["ingredient-notes"],
+    "reviewNotes": [],
+    "previousRecipeId": "mt-20260923-signature-017"
   },
   {
-    "id": "mt-20260923-signature-018",
+    "id": "mt-20260924-signature-019",
     "source": {
-      "sourceId": "tomorrow-20260923-image",
+      "sourceId": "tomorrow-20260924-image",
       "region": "signature",
-      "row": 18
+      "row": 19
     },
     "verification": "image-transcribed-game-unverified",
     "name": {
@@ -5246,15 +5437,16 @@
         "background": "blue"
       }
     ],
-    "noteIds": ["shrimp-exclusion"],
-    "reviewNotes": []
+    "noteIds": ["ingredient-notes"],
+    "reviewNotes": [],
+    "previousRecipeId": "mt-20260923-signature-018"
   },
   {
-    "id": "mt-20260923-signature-019",
+    "id": "mt-20260924-signature-020",
     "source": {
-      "sourceId": "tomorrow-20260923-image",
+      "sourceId": "tomorrow-20260924-image",
       "region": "signature",
-      "row": 19
+      "row": 20
     },
     "verification": "image-transcribed-game-unverified",
     "name": {
@@ -5356,15 +5548,16 @@
         "bold": true
       }
     ],
-    "noteIds": ["shrimp-exclusion"],
-    "reviewNotes": []
+    "noteIds": ["ingredient-notes"],
+    "reviewNotes": [],
+    "previousRecipeId": "mt-20260923-signature-019"
   },
   {
-    "id": "mt-20260923-signature-020",
+    "id": "mt-20260924-signature-021",
     "source": {
-      "sourceId": "tomorrow-20260923-image",
+      "sourceId": "tomorrow-20260924-image",
       "region": "signature",
-      "row": 20
+      "row": 21
     },
     "verification": "image-transcribed-game-unverified",
     "name": {
@@ -5415,8 +5608,9 @@
           }
         },
         "quality": {
-          "status": "not-stated",
-          "raw": ""
+          "status": "interpreted",
+          "color": "purple",
+          "interpretationId": "ingredient-background-user-20260926"
         }
       }
     ],
@@ -5466,15 +5660,16 @@
         "background": "purple"
       }
     ],
-    "noteIds": ["shrimp-exclusion"],
-    "reviewNotes": []
+    "noteIds": ["ingredient-notes"],
+    "reviewNotes": [],
+    "previousRecipeId": "mt-20260923-signature-020"
   },
   {
-    "id": "mt-20260923-signature-021",
+    "id": "mt-20260924-signature-022",
     "source": {
-      "sourceId": "tomorrow-20260923-image",
+      "sourceId": "tomorrow-20260924-image",
       "region": "signature",
-      "row": 21
+      "row": 22
     },
     "verification": "image-transcribed-game-unverified",
     "name": {
@@ -5525,8 +5720,9 @@
           }
         },
         "quality": {
-          "status": "not-stated",
-          "raw": ""
+          "status": "interpreted",
+          "color": "purple",
+          "interpretationId": "ingredient-background-user-20260926"
         }
       }
     ],
@@ -5580,20 +5776,21 @@
         "background": "purple"
       }
     ],
-    "noteIds": ["shrimp-exclusion"],
+    "noteIds": ["ingredient-notes"],
     "reviewNotes": [
       {
         "field": "specialEffect",
         "reason": "同一图片并存“大力播洒”与“大力播撒”；保留本行原文，是否同一效果待核对。"
       }
-    ]
+    ],
+    "previousRecipeId": "mt-20260923-signature-021"
   },
   {
-    "id": "mt-20260923-signature-022",
+    "id": "mt-20260924-signature-023",
     "source": {
-      "sourceId": "tomorrow-20260923-image",
+      "sourceId": "tomorrow-20260924-image",
       "region": "signature",
-      "row": 22
+      "row": 23
     },
     "verification": "image-transcribed-game-unverified",
     "name": {
@@ -5691,15 +5888,16 @@
         "bold": true
       }
     ],
-    "noteIds": ["shrimp-exclusion"],
-    "reviewNotes": []
+    "noteIds": ["ingredient-notes"],
+    "reviewNotes": [],
+    "previousRecipeId": "mt-20260923-signature-022"
   },
   {
-    "id": "mt-20260923-signature-023",
+    "id": "mt-20260924-signature-024",
     "source": {
-      "sourceId": "tomorrow-20260923-image",
+      "sourceId": "tomorrow-20260924-image",
       "region": "signature",
-      "row": 23
+      "row": 24
     },
     "verification": "image-transcribed-game-unverified",
     "name": {
@@ -5802,15 +6000,16 @@
         "bold": true
       }
     ],
-    "noteIds": ["shrimp-exclusion"],
-    "reviewNotes": []
+    "noteIds": ["ingredient-notes"],
+    "reviewNotes": [],
+    "previousRecipeId": "mt-20260923-signature-023"
   },
   {
-    "id": "mt-20260923-signature-024",
+    "id": "mt-20260924-signature-025",
     "source": {
-      "sourceId": "tomorrow-20260923-image",
+      "sourceId": "tomorrow-20260924-image",
       "region": "signature",
-      "row": 24
+      "row": 25
     },
     "verification": "image-transcribed-game-unverified",
     "name": {
@@ -5833,8 +6032,9 @@
           }
         },
         "quality": {
-          "status": "not-stated",
-          "raw": ""
+          "status": "interpreted",
+          "color": "purple",
+          "interpretationId": "ingredient-background-user-20260926"
         }
       },
       {
@@ -5917,15 +6117,16 @@
         "bold": true
       }
     ],
-    "noteIds": ["shrimp-exclusion"],
-    "reviewNotes": []
+    "noteIds": ["ingredient-notes"],
+    "reviewNotes": [],
+    "previousRecipeId": "mt-20260923-signature-024"
   },
   {
-    "id": "mt-20260923-signature-025",
+    "id": "mt-20260924-signature-026",
     "source": {
-      "sourceId": "tomorrow-20260923-image",
+      "sourceId": "tomorrow-20260924-image",
       "region": "signature",
-      "row": 25
+      "row": 26
     },
     "verification": "image-transcribed-game-unverified",
     "name": {
@@ -6028,15 +6229,16 @@
         "bold": true
       }
     ],
-    "noteIds": ["shrimp-exclusion"],
-    "reviewNotes": []
+    "noteIds": ["ingredient-notes"],
+    "reviewNotes": [],
+    "previousRecipeId": "mt-20260923-signature-025"
   },
   {
-    "id": "mt-20260923-signature-026",
+    "id": "mt-20260924-signature-027",
     "source": {
-      "sourceId": "tomorrow-20260923-image",
+      "sourceId": "tomorrow-20260924-image",
       "region": "signature",
-      "row": 26
+      "row": 27
     },
     "verification": "image-transcribed-game-unverified",
     "name": {
@@ -6138,15 +6340,16 @@
         "bold": true
       }
     ],
-    "noteIds": ["shrimp-exclusion"],
-    "reviewNotes": []
+    "noteIds": ["ingredient-notes"],
+    "reviewNotes": [],
+    "previousRecipeId": "mt-20260923-signature-026"
   },
   {
-    "id": "mt-20260923-signature-027",
+    "id": "mt-20260924-signature-028",
     "source": {
-      "sourceId": "tomorrow-20260923-image",
+      "sourceId": "tomorrow-20260924-image",
       "region": "signature",
-      "row": 27
+      "row": 28
     },
     "verification": "image-transcribed-game-unverified",
     "name": {
@@ -6175,17 +6378,17 @@
       },
       {
         "selection": {
-          "status": "tentative",
-          "raw": "甜瓜?",
-          "candidate": {
+          "status": "recorded",
+          "raw": "甜瓜",
+          "value": {
             "kind": "item",
             "name": "甜瓜"
-          },
-          "reason": "图片原文带问号，候选食材待确认"
+          }
         },
         "quality": {
-          "status": "not-stated",
-          "raw": ""
+          "status": "interpreted",
+          "color": "purple",
+          "interpretationId": "ingredient-background-user-20260926"
         }
       },
       {
@@ -6250,126 +6453,19 @@
         "bold": true
       }
     ],
-    "noteIds": ["shrimp-exclusion"],
+    "noteIds": ["ingredient-notes"],
     "reviewNotes": [
       {
         "field": "specialEffect",
         "reason": "同一图片并存“大力播洒”与“大力播撒”；保留本行原文，是否同一效果待核对。"
       }
-    ]
+    ],
+    "previousRecipeId": "mt-20260923-signature-027"
   },
   {
-    "id": "mt-20260923-signature-028",
+    "id": "mt-20260924-signature-029",
     "source": {
-      "sourceId": "tomorrow-20260923-image",
-      "region": "signature",
-      "row": 28
-    },
-    "verification": "image-transcribed-game-unverified",
-    "name": {
-      "status": "recorded",
-      "raw": "满满大烩菜",
-      "value": "满满大烩菜"
-    },
-    "dishCategory": {
-      "status": "not-stated",
-      "raw": ""
-    },
-    "ingredients": [
-      {
-        "selection": {
-          "status": "recorded",
-          "raw": "蘑菇",
-          "value": {
-            "kind": "item",
-            "name": "蘑菇"
-          }
-        },
-        "quality": {
-          "status": "not-stated",
-          "raw": ""
-        }
-      },
-      {
-        "selection": {
-          "status": "tentative",
-          "raw": "玉米?",
-          "candidate": {
-            "kind": "item",
-            "name": "玉米"
-          },
-          "reason": "图片原文带问号，候选食材待确认"
-        },
-        "quality": {
-          "status": "not-stated",
-          "raw": ""
-        }
-      },
-      {
-        "selection": {
-          "status": "recorded",
-          "raw": "蔬菜类",
-          "value": {
-            "kind": "category",
-            "name": "蔬菜类"
-          }
-        },
-        "quality": {
-          "status": "not-stated",
-          "raw": ""
-        }
-      }
-    ],
-    "cookingMethod": {
-      "status": "recorded",
-      "raw": "烤箱",
-      "value": "烤箱"
-    },
-    "energy": {
-      "status": "recorded",
-      "raw": "70",
-      "value": 70
-    },
-    "tags": {
-      "status": "recorded",
-      "raw": "素菜/炒菜",
-      "value": ["素菜", "炒菜"]
-    },
-    "specialEffect": {
-      "status": "recorded",
-      "raw": "快速翻土 一阶",
-      "value": {
-        "name": "快速翻土",
-        "tier": 1
-      }
-    },
-    "effectTrigger": {
-      "status": "unspecified-probability",
-      "raw": "概率",
-      "basis": "effect-column-heading"
-    },
-    "productionChance": {
-      "status": "not-stated",
-      "raw": ""
-    },
-    "visualCues": [
-      {
-        "field": "name",
-        "background": "purple"
-      },
-      {
-        "field": "ingredients.1",
-        "background": "purple",
-        "bold": true
-      }
-    ],
-    "noteIds": ["shrimp-exclusion"],
-    "reviewNotes": []
-  },
-  {
-    "id": "mt-20260923-signature-029",
-    "source": {
-      "sourceId": "tomorrow-20260923-image",
+      "sourceId": "tomorrow-20260924-image",
       "region": "signature",
       "row": 29
     },
@@ -6394,8 +6490,9 @@
           }
         },
         "quality": {
-          "status": "not-stated",
-          "raw": ""
+          "status": "interpreted",
+          "color": "purple",
+          "interpretationId": "ingredient-background-user-20260926"
         }
       },
       {
@@ -6473,13 +6570,14 @@
         "bold": true
       }
     ],
-    "noteIds": ["shrimp-exclusion"],
-    "reviewNotes": []
+    "noteIds": ["ingredient-notes"],
+    "reviewNotes": [],
+    "previousRecipeId": "mt-20260923-signature-029"
   },
   {
-    "id": "mt-20260923-signature-030",
+    "id": "mt-20260924-signature-030",
     "source": {
-      "sourceId": "tomorrow-20260923-image",
+      "sourceId": "tomorrow-20260924-image",
       "region": "signature",
       "row": 30
     },
@@ -6504,8 +6602,9 @@
           }
         },
         "quality": {
-          "status": "not-stated",
-          "raw": ""
+          "status": "interpreted",
+          "color": "purple",
+          "interpretationId": "ingredient-background-user-20260926"
         }
       },
       {
@@ -6579,13 +6678,14 @@
         "background": "purple"
       }
     ],
-    "noteIds": ["shrimp-exclusion"],
-    "reviewNotes": []
+    "noteIds": ["ingredient-notes"],
+    "reviewNotes": [],
+    "previousRecipeId": "mt-20260923-signature-030"
   },
   {
-    "id": "mt-20260923-signature-031",
+    "id": "mt-20260924-signature-031",
     "source": {
-      "sourceId": "tomorrow-20260923-image",
+      "sourceId": "tomorrow-20260924-image",
       "region": "signature",
       "row": 31
     },
@@ -6638,8 +6738,9 @@
           }
         },
         "quality": {
-          "status": "not-stated",
-          "raw": ""
+          "status": "interpreted",
+          "color": "purple",
+          "interpretationId": "ingredient-background-user-20260926"
         }
       }
     ],
@@ -6686,13 +6787,14 @@
         "bold": true
       }
     ],
-    "noteIds": ["shrimp-exclusion"],
-    "reviewNotes": []
+    "noteIds": ["ingredient-notes"],
+    "reviewNotes": [],
+    "previousRecipeId": "mt-20260923-signature-031"
   },
   {
-    "id": "mt-20260923-signature-032",
+    "id": "mt-20260924-signature-032",
     "source": {
-      "sourceId": "tomorrow-20260923-image",
+      "sourceId": "tomorrow-20260924-image",
       "region": "signature",
       "row": 32
     },
@@ -6717,8 +6819,9 @@
           }
         },
         "quality": {
-          "status": "not-stated",
-          "raw": ""
+          "status": "interpreted",
+          "color": "purple",
+          "interpretationId": "ingredient-background-user-20260926"
         }
       },
       {
@@ -6792,13 +6895,14 @@
         "background": "purple"
       }
     ],
-    "noteIds": ["shrimp-exclusion"],
-    "reviewNotes": []
+    "noteIds": ["ingredient-notes"],
+    "reviewNotes": [],
+    "previousRecipeId": "mt-20260923-signature-032"
   },
   {
-    "id": "mt-20260923-signature-033",
+    "id": "mt-20260924-signature-033",
     "source": {
-      "sourceId": "tomorrow-20260923-image",
+      "sourceId": "tomorrow-20260924-image",
       "region": "signature",
       "row": 33
     },
@@ -6823,8 +6927,9 @@
           }
         },
         "quality": {
-          "status": "not-stated",
-          "raw": ""
+          "status": "interpreted",
+          "color": "gold",
+          "interpretationId": "ingredient-background-user-20260926"
         }
       },
       {
@@ -6916,13 +7021,14 @@
         "bold": true
       }
     ],
-    "noteIds": ["shrimp-exclusion"],
-    "reviewNotes": []
+    "noteIds": ["ingredient-notes"],
+    "reviewNotes": [],
+    "previousRecipeId": "mt-20260923-signature-033"
   },
   {
-    "id": "mt-20260923-guest-001",
+    "id": "mt-20260924-guest-001",
     "source": {
-      "sourceId": "tomorrow-20260923-image",
+      "sourceId": "tomorrow-20260924-image",
       "region": "guest",
       "row": 1
     },
@@ -7040,13 +7146,14 @@
         "bold": true
       }
     ],
-    "noteIds": ["shrimp-exclusion"],
-    "reviewNotes": []
+    "noteIds": ["ingredient-notes"],
+    "reviewNotes": [],
+    "previousRecipeId": "mt-20260923-guest-001"
   },
   {
-    "id": "mt-20260923-guest-002",
+    "id": "mt-20260924-guest-002",
     "source": {
-      "sourceId": "tomorrow-20260923-image",
+      "sourceId": "tomorrow-20260924-image",
       "region": "guest",
       "row": 2
     },
@@ -7077,13 +7184,12 @@
       },
       {
         "selection": {
-          "status": "tentative",
-          "raw": "绿色水果?",
-          "candidate": {
+          "status": "recorded",
+          "raw": "绿色水果",
+          "value": {
             "kind": "category",
             "name": "绿色水果"
-          },
-          "reason": "图片原文带问号，候选食材待确认"
+          }
         },
         "quality": {
           "status": "not-stated",
@@ -7114,8 +7220,9 @@
           }
         },
         "quality": {
-          "status": "not-stated",
-          "raw": ""
+          "status": "interpreted",
+          "color": "purple",
+          "interpretationId": "ingredient-background-user-20260926"
         }
       }
     ],
@@ -7157,13 +7264,14 @@
         "background": "purple"
       }
     ],
-    "noteIds": ["shrimp-exclusion"],
-    "reviewNotes": []
+    "noteIds": ["ingredient-notes"],
+    "reviewNotes": [],
+    "previousRecipeId": "mt-20260923-guest-002"
   },
   {
-    "id": "mt-20260923-guest-003",
+    "id": "mt-20260924-guest-003",
     "source": {
-      "sourceId": "tomorrow-20260923-image",
+      "sourceId": "tomorrow-20260924-image",
       "region": "guest",
       "row": 3
     },
@@ -7188,8 +7296,9 @@
           }
         },
         "quality": {
-          "status": "not-stated",
-          "raw": ""
+          "status": "interpreted",
+          "color": "purple",
+          "interpretationId": "ingredient-background-user-20260926"
         }
       },
       {
@@ -7277,15 +7386,146 @@
         "background": "purple"
       }
     ],
-    "noteIds": ["shrimp-exclusion"],
+    "noteIds": ["ingredient-notes"],
+    "reviewNotes": [],
+    "previousRecipeId": "mt-20260923-guest-003"
+  },
+  {
+    "id": "mt-20260924-guest-004",
+    "source": {
+      "sourceId": "tomorrow-20260924-image",
+      "region": "guest",
+      "row": 4
+    },
+    "verification": "image-transcribed-game-unverified",
+    "name": {
+      "status": "recorded",
+      "raw": "梦幻金玉满堂饭",
+      "value": "梦幻金玉满堂饭"
+    },
+    "dishCategory": {
+      "status": "not-stated",
+      "raw": ""
+    },
+    "ingredients": [
+      {
+        "selection": {
+          "status": "recorded",
+          "raw": "稻米",
+          "value": {
+            "kind": "item",
+            "name": "稻米"
+          }
+        },
+        "quality": {
+          "status": "interpreted",
+          "color": "gold",
+          "interpretationId": "ingredient-background-user-20260926"
+        }
+      },
+      {
+        "selection": {
+          "status": "recorded",
+          "raw": "肉",
+          "value": {
+            "kind": "item",
+            "name": "肉"
+          }
+        },
+        "quality": {
+          "status": "not-stated",
+          "raw": ""
+        }
+      },
+      {
+        "selection": {
+          "status": "recorded",
+          "raw": "蛋",
+          "value": {
+            "kind": "item",
+            "name": "蛋"
+          }
+        },
+        "quality": {
+          "status": "not-stated",
+          "raw": ""
+        }
+      },
+      {
+        "selection": {
+          "status": "recorded",
+          "raw": "蔬菜类",
+          "value": {
+            "kind": "category",
+            "name": "蔬菜类"
+          }
+        },
+        "quality": {
+          "status": "not-stated",
+          "raw": ""
+        }
+      }
+    ],
+    "cookingMethod": {
+      "status": "recorded",
+      "raw": "煮锅",
+      "value": "煮锅"
+    },
+    "energy": {
+      "status": "recorded",
+      "raw": "150",
+      "value": 150
+    },
+    "tags": {
+      "status": "recorded",
+      "raw": "荤素菜/主食",
+      "value": ["荤素菜", "主食"]
+    },
+    "specialEffect": {
+      "status": "recorded",
+      "raw": "快速翻土 三阶",
+      "value": {
+        "name": "快速翻土",
+        "tier": 3
+      }
+    },
+    "effectTrigger": {
+      "status": "unspecified-probability",
+      "raw": "概率",
+      "basis": "effect-column-heading"
+    },
+    "productionChance": {
+      "status": "not-stated",
+      "raw": ""
+    },
+    "visualCues": [
+      {
+        "field": "name",
+        "background": "yellow"
+      },
+      {
+        "field": "ingredients.0",
+        "background": "yellow",
+        "bold": true
+      },
+      {
+        "field": "ingredients.1",
+        "bold": true
+      },
+      {
+        "field": "ingredients.2",
+        "bold": true
+      }
+    ],
+    "noteIds": ["ingredient-notes"],
     "reviewNotes": []
   },
   {
-    "id": "mt-20260923-guest-004",
+    "id": "mt-20260924-guest-005",
     "source": {
-      "sourceId": "tomorrow-20260923-image",
+      "sourceId": "tomorrow-20260924-image",
       "region": "guest",
-      "row": 4
+      "row": 5
     },
     "verification": "image-transcribed-game-unverified",
     "name": {
@@ -7308,8 +7548,9 @@
           }
         },
         "quality": {
-          "status": "not-stated",
-          "raw": ""
+          "status": "interpreted",
+          "color": "gold",
+          "interpretationId": "ingredient-background-user-20260926"
         }
       },
       {
@@ -7342,13 +7583,12 @@
       },
       {
         "selection": {
-          "status": "tentative",
-          "raw": "胡萝卜?",
-          "candidate": {
+          "status": "recorded",
+          "raw": "胡萝卜",
+          "value": {
             "kind": "item",
             "name": "胡萝卜"
-          },
-          "reason": "图片原文带问号，候选食材待确认"
+          }
         },
         "quality": {
           "status": "not-stated",
@@ -7411,15 +7651,16 @@
         "bold": true
       }
     ],
-    "noteIds": ["shrimp-exclusion"],
-    "reviewNotes": []
+    "noteIds": ["ingredient-notes"],
+    "reviewNotes": [],
+    "previousRecipeId": "mt-20260923-guest-004"
   },
   {
-    "id": "mt-20260923-guest-005",
+    "id": "mt-20260924-guest-006",
     "source": {
-      "sourceId": "tomorrow-20260923-image",
+      "sourceId": "tomorrow-20260924-image",
       "region": "guest",
-      "row": 5
+      "row": 6
     },
     "verification": "image-transcribed-game-unverified",
     "name": {
@@ -7442,8 +7683,9 @@
           }
         },
         "quality": {
-          "status": "not-stated",
-          "raw": ""
+          "status": "interpreted",
+          "color": "gold",
+          "interpretationId": "ingredient-background-user-20260926"
         }
       },
       {
@@ -7531,15 +7773,16 @@
         "background": "yellow"
       }
     ],
-    "noteIds": ["shrimp-exclusion"],
-    "reviewNotes": []
+    "noteIds": ["ingredient-notes"],
+    "reviewNotes": [],
+    "previousRecipeId": "mt-20260923-guest-005"
   },
   {
-    "id": "mt-20260923-guest-006",
+    "id": "mt-20260924-guest-007",
     "source": {
-      "sourceId": "tomorrow-20260923-image",
+      "sourceId": "tomorrow-20260924-image",
       "region": "guest",
-      "row": 6
+      "row": 7
     },
     "verification": "image-transcribed-game-unverified",
     "name": {
@@ -7563,8 +7806,9 @@
           "reason": "图片原文带问号，候选食材待确认"
         },
         "quality": {
-          "status": "not-stated",
-          "raw": ""
+          "status": "interpreted",
+          "color": "gold",
+          "interpretationId": "ingredient-background-user-20260926"
         }
       },
       {
@@ -7652,15 +7896,16 @@
         "background": "yellow"
       }
     ],
-    "noteIds": ["shrimp-exclusion"],
-    "reviewNotes": []
+    "noteIds": ["ingredient-notes"],
+    "reviewNotes": [],
+    "previousRecipeId": "mt-20260923-guest-006"
   },
   {
-    "id": "mt-20260923-guest-007",
+    "id": "mt-20260924-guest-008",
     "source": {
-      "sourceId": "tomorrow-20260923-image",
+      "sourceId": "tomorrow-20260924-image",
       "region": "guest",
-      "row": 7
+      "row": 8
     },
     "verification": "image-transcribed-game-unverified",
     "name": {
@@ -7683,8 +7928,9 @@
           }
         },
         "quality": {
-          "status": "not-stated",
-          "raw": ""
+          "status": "interpreted",
+          "color": "gold",
+          "interpretationId": "ingredient-background-user-20260926"
         }
       },
       {
@@ -7780,15 +8026,16 @@
         "bold": true
       }
     ],
-    "noteIds": ["shrimp-exclusion"],
-    "reviewNotes": []
+    "noteIds": ["ingredient-notes"],
+    "reviewNotes": [],
+    "previousRecipeId": "mt-20260923-guest-007"
   },
   {
-    "id": "mt-20260923-guest-008",
+    "id": "mt-20260924-guest-009",
     "source": {
-      "sourceId": "tomorrow-20260923-image",
+      "sourceId": "tomorrow-20260924-image",
       "region": "guest",
-      "row": 8
+      "row": 9
     },
     "verification": "image-transcribed-game-unverified",
     "name": {
@@ -7811,19 +8058,19 @@
           }
         },
         "quality": {
-          "status": "not-stated",
-          "raw": ""
+          "status": "interpreted",
+          "color": "purple",
+          "interpretationId": "ingredient-background-user-20260926"
         }
       },
       {
         "selection": {
-          "status": "tentative",
-          "raw": "绿色水果?",
-          "candidate": {
+          "status": "recorded",
+          "raw": "绿色水果",
+          "value": {
             "kind": "category",
             "name": "绿色水果"
-          },
-          "reason": "图片原文带问号，候选食材待确认"
+          }
         },
         "quality": {
           "status": "not-stated",
@@ -7902,20 +8149,21 @@
         "bold": true
       }
     ],
-    "noteIds": ["shrimp-exclusion"],
+    "noteIds": ["ingredient-notes"],
     "reviewNotes": [
       {
         "field": "specialEffect",
         "reason": "同一图片并存“大力播洒”与“大力播撒”；保留本行原文，是否同一效果待核对。"
       }
-    ]
+    ],
+    "previousRecipeId": "mt-20260923-guest-008"
   },
   {
-    "id": "mt-20260923-guest-009",
+    "id": "mt-20260924-guest-010",
     "source": {
-      "sourceId": "tomorrow-20260923-image",
+      "sourceId": "tomorrow-20260924-image",
       "region": "guest",
-      "row": 9
+      "row": 10
     },
     "verification": "image-transcribed-game-unverified",
     "name": {
@@ -7938,41 +8186,54 @@
           }
         },
         "quality": {
-          "status": "not-stated",
-          "raw": ""
+          "status": "interpreted",
+          "color": "purple",
+          "interpretationId": "ingredient-background-user-20260926"
         }
       },
       {
         "selection": {
-          "status": "unknown",
-          "raw": "?",
-          "reason": "图片仅有问号，具体食材未知"
+          "status": "recorded",
+          "raw": "胡萝卜",
+          "value": {
+            "kind": "item",
+            "name": "胡萝卜"
+          }
         },
         "quality": {
-          "status": "not-stated",
-          "raw": ""
+          "status": "interpreted",
+          "color": "purple",
+          "interpretationId": "ingredient-background-user-20260926"
         }
       },
       {
         "selection": {
-          "status": "unknown",
-          "raw": "?",
-          "reason": "图片仅有问号，具体食材未知"
+          "status": "recorded",
+          "raw": "土豆",
+          "value": {
+            "kind": "item",
+            "name": "土豆"
+          }
         },
         "quality": {
-          "status": "not-stated",
-          "raw": ""
+          "status": "interpreted",
+          "color": "purple",
+          "interpretationId": "ingredient-background-user-20260926"
         }
       },
       {
         "selection": {
-          "status": "unknown",
-          "raw": "?",
-          "reason": "图片仅有问号，具体食材未知"
+          "status": "recorded",
+          "raw": "黄瓜",
+          "value": {
+            "kind": "item",
+            "name": "黄瓜"
+          }
         },
         "quality": {
-          "status": "not-stated",
-          "raw": ""
+          "status": "interpreted",
+          "color": "purple",
+          "interpretationId": "ingredient-background-user-20260926"
         }
       }
     ],
@@ -8017,17 +8278,33 @@
         "field": "ingredients.0",
         "background": "purple",
         "bold": true
+      },
+      {
+        "field": "ingredients.1",
+        "background": "purple",
+        "bold": true
+      },
+      {
+        "field": "ingredients.2",
+        "background": "purple",
+        "bold": true
+      },
+      {
+        "field": "ingredients.3",
+        "background": "purple",
+        "bold": true
       }
     ],
-    "noteIds": ["shrimp-exclusion"],
-    "reviewNotes": []
+    "noteIds": ["ingredient-notes"],
+    "reviewNotes": [],
+    "previousRecipeId": "mt-20260923-guest-009"
   },
   {
-    "id": "mt-20260923-guest-010",
+    "id": "mt-20260924-guest-011",
     "source": {
-      "sourceId": "tomorrow-20260923-image",
+      "sourceId": "tomorrow-20260924-image",
       "region": "guest",
-      "row": 10
+      "row": 11
     },
     "verification": "image-transcribed-game-unverified",
     "name": {
@@ -8050,8 +8327,9 @@
           }
         },
         "quality": {
-          "status": "not-stated",
-          "raw": ""
+          "status": "interpreted",
+          "color": "purple",
+          "interpretationId": "ingredient-background-user-20260926"
         }
       },
       {
@@ -8139,18 +8417,407 @@
         "background": "purple"
       }
     ],
-    "noteIds": ["shrimp-exclusion"],
+    "noteIds": ["ingredient-notes"],
     "reviewNotes": [
       {
         "field": "specialEffect",
         "reason": "同一图片并存“大力播洒”与“大力播撒”；保留本行原文，是否同一效果待核对。"
       }
-    ]
+    ],
+    "previousRecipeId": "mt-20260923-guest-010"
   },
   {
-    "id": "mt-20260923-free-001",
+    "id": "mt-20260924-guest-012",
     "source": {
-      "sourceId": "tomorrow-20260923-image",
+      "sourceId": "tomorrow-20260924-image",
+      "region": "guest",
+      "row": 12
+    },
+    "verification": "image-transcribed-game-unverified",
+    "name": {
+      "status": "recorded",
+      "raw": "梦幻草莓奶蛋糕",
+      "value": "梦幻草莓奶蛋糕"
+    },
+    "dishCategory": {
+      "status": "not-stated",
+      "raw": ""
+    },
+    "ingredients": [
+      {
+        "selection": {
+          "status": "recorded",
+          "raw": "草莓",
+          "value": {
+            "kind": "item",
+            "name": "草莓"
+          }
+        },
+        "quality": {
+          "status": "interpreted",
+          "color": "gold",
+          "interpretationId": "ingredient-background-user-20260926"
+        }
+      },
+      {
+        "selection": {
+          "status": "recorded",
+          "raw": "奶",
+          "value": {
+            "kind": "item",
+            "name": "奶"
+          }
+        },
+        "quality": {
+          "status": "not-stated",
+          "raw": ""
+        }
+      },
+      {
+        "selection": {
+          "status": "recorded",
+          "raw": "小麦",
+          "value": {
+            "kind": "item",
+            "name": "小麦"
+          }
+        },
+        "quality": {
+          "status": "not-stated",
+          "raw": ""
+        }
+      },
+      {
+        "selection": {
+          "status": "tentative",
+          "raw": "火龙果?",
+          "candidate": {
+            "kind": "item",
+            "name": "火龙果"
+          },
+          "reason": "图片原文带问号，候选食材待确认"
+        },
+        "quality": {
+          "status": "not-stated",
+          "raw": ""
+        }
+      }
+    ],
+    "cookingMethod": {
+      "status": "recorded",
+      "raw": "烤箱",
+      "value": "烤箱"
+    },
+    "energy": {
+      "status": "recorded",
+      "raw": "130",
+      "value": 130
+    },
+    "tags": {
+      "status": "recorded",
+      "raw": "甜点",
+      "value": ["甜点"]
+    },
+    "specialEffect": {
+      "status": "recorded",
+      "raw": "大力敲伐 三阶",
+      "value": {
+        "name": "大力敲伐",
+        "tier": 3
+      }
+    },
+    "effectTrigger": {
+      "status": "unspecified-probability",
+      "raw": "概率",
+      "basis": "effect-column-heading"
+    },
+    "productionChance": {
+      "status": "not-stated",
+      "raw": ""
+    },
+    "visualCues": [
+      {
+        "field": "name",
+        "background": "yellow"
+      },
+      {
+        "field": "ingredients.0",
+        "background": "yellow",
+        "bold": true
+      },
+      {
+        "field": "ingredients.1",
+        "bold": true
+      },
+      {
+        "field": "ingredients.2",
+        "bold": true
+      },
+      {
+        "field": "ingredients.3",
+        "bold": true
+      }
+    ],
+    "noteIds": ["ingredient-notes"],
+    "reviewNotes": []
+  },
+  {
+    "id": "mt-20260924-guest-013",
+    "source": {
+      "sourceId": "tomorrow-20260924-image",
+      "region": "guest",
+      "row": 13
+    },
+    "verification": "image-transcribed-game-unverified",
+    "name": {
+      "status": "recorded",
+      "raw": "梦幻星莓漫游派",
+      "value": "梦幻星莓漫游派"
+    },
+    "dishCategory": {
+      "status": "not-stated",
+      "raw": ""
+    },
+    "ingredients": [
+      {
+        "selection": {
+          "status": "recorded",
+          "raw": "蓝莓",
+          "value": {
+            "kind": "item",
+            "name": "蓝莓"
+          }
+        },
+        "quality": {
+          "status": "interpreted",
+          "color": "gold",
+          "interpretationId": "ingredient-background-user-20260926"
+        }
+      },
+      {
+        "selection": {
+          "status": "recorded",
+          "raw": "小麦",
+          "value": {
+            "kind": "item",
+            "name": "小麦"
+          }
+        },
+        "quality": {
+          "status": "not-stated",
+          "raw": ""
+        }
+      },
+      {
+        "selection": {
+          "status": "recorded",
+          "raw": "鱼类",
+          "value": {
+            "kind": "category",
+            "name": "鱼类"
+          }
+        },
+        "quality": {
+          "status": "not-stated",
+          "raw": ""
+        }
+      },
+      {
+        "selection": {
+          "status": "recorded",
+          "raw": "贝类",
+          "value": {
+            "kind": "category",
+            "name": "贝类"
+          }
+        },
+        "quality": {
+          "status": "not-stated",
+          "raw": ""
+        }
+      }
+    ],
+    "cookingMethod": {
+      "status": "recorded",
+      "raw": "烤箱",
+      "value": "烤箱"
+    },
+    "energy": {
+      "status": "recorded",
+      "raw": "170",
+      "value": 170
+    },
+    "tags": {
+      "status": "recorded",
+      "raw": "甜点",
+      "value": ["甜点"]
+    },
+    "specialEffect": {
+      "status": "recorded",
+      "raw": "大力敲伐 三阶",
+      "value": {
+        "name": "大力敲伐",
+        "tier": 3
+      }
+    },
+    "effectTrigger": {
+      "status": "unspecified-probability",
+      "raw": "概率",
+      "basis": "effect-column-heading"
+    },
+    "productionChance": {
+      "status": "not-stated",
+      "raw": ""
+    },
+    "visualCues": [
+      {
+        "field": "name",
+        "background": "yellow"
+      },
+      {
+        "field": "ingredients.0",
+        "background": "yellow",
+        "bold": true
+      },
+      {
+        "field": "ingredients.1",
+        "bold": true
+      }
+    ],
+    "noteIds": ["ingredient-notes"],
+    "reviewNotes": []
+  },
+  {
+    "id": "mt-20260924-guest-014",
+    "source": {
+      "sourceId": "tomorrow-20260924-image",
+      "region": "guest",
+      "row": 14
+    },
+    "verification": "image-transcribed-game-unverified",
+    "name": {
+      "status": "recorded",
+      "raw": "梦幻番茄汤汁面",
+      "value": "梦幻番茄汤汁面"
+    },
+    "dishCategory": {
+      "status": "not-stated",
+      "raw": ""
+    },
+    "ingredients": [
+      {
+        "selection": {
+          "status": "recorded",
+          "raw": "番茄",
+          "value": {
+            "kind": "item",
+            "name": "番茄"
+          }
+        },
+        "quality": {
+          "status": "interpreted",
+          "color": "gold",
+          "interpretationId": "ingredient-background-user-20260926"
+        }
+      },
+      {
+        "selection": {
+          "status": "recorded",
+          "raw": "小麦",
+          "value": {
+            "kind": "item",
+            "name": "小麦"
+          }
+        },
+        "quality": {
+          "status": "not-stated",
+          "raw": ""
+        }
+      },
+      {
+        "selection": {
+          "status": "recorded",
+          "raw": "大蒜",
+          "value": {
+            "kind": "item",
+            "name": "大蒜"
+          }
+        },
+        "quality": {
+          "status": "not-stated",
+          "raw": ""
+        }
+      },
+      {
+        "selection": {
+          "status": "unknown",
+          "raw": "?",
+          "reason": "图片只写问号，未给出候选食材"
+        },
+        "quality": {
+          "status": "not-stated",
+          "raw": ""
+        }
+      }
+    ],
+    "cookingMethod": {
+      "status": "recorded",
+      "raw": "煮锅",
+      "value": "煮锅"
+    },
+    "energy": {
+      "status": "recorded",
+      "raw": "150",
+      "value": 150
+    },
+    "tags": {
+      "status": "recorded",
+      "raw": "素菜/主食",
+      "value": ["素菜", "主食"]
+    },
+    "specialEffect": {
+      "status": "recorded",
+      "raw": "快速翻土 三阶",
+      "value": {
+        "name": "快速翻土",
+        "tier": 3
+      }
+    },
+    "effectTrigger": {
+      "status": "unspecified-probability",
+      "raw": "概率",
+      "basis": "effect-column-heading"
+    },
+    "productionChance": {
+      "status": "not-stated",
+      "raw": ""
+    },
+    "visualCues": [
+      {
+        "field": "name",
+        "background": "yellow"
+      },
+      {
+        "field": "ingredients.0",
+        "background": "yellow",
+        "bold": true
+      },
+      {
+        "field": "ingredients.1",
+        "bold": true
+      },
+      {
+        "field": "ingredients.2",
+        "bold": true
+      }
+    ],
+    "noteIds": ["ingredient-notes"],
+    "reviewNotes": []
+  },
+  {
+    "id": "mt-20260924-free-001",
+    "source": {
+      "sourceId": "tomorrow-20260924-image",
       "region": "free",
       "row": 1
     },
@@ -8236,8 +8903,9 @@
       "raw": ""
     },
     "productionChance": {
-      "status": "not-stated",
-      "raw": ""
+      "status": "unspecified-probability",
+      "raw": "概率出",
+      "basis": "effect-column-cell"
     },
     "visualCues": [
       {
@@ -8245,13 +8913,14 @@
         "background": "blue"
       }
     ],
-    "noteIds": ["shrimp-exclusion", "free-cooking-access"],
-    "reviewNotes": []
+    "noteIds": ["ingredient-notes", "free-cooking-access"],
+    "reviewNotes": [],
+    "previousRecipeId": "mt-20260923-free-001"
   },
   {
-    "id": "mt-20260923-free-002",
+    "id": "mt-20260924-free-002",
     "source": {
-      "sourceId": "tomorrow-20260923-image",
+      "sourceId": "tomorrow-20260924-image",
       "region": "free",
       "row": 2
     },
@@ -8285,8 +8954,9 @@
           }
         },
         "quality": {
-          "status": "not-stated",
-          "raw": ""
+          "status": "interpreted",
+          "color": "purple",
+          "interpretationId": "ingredient-background-user-20260926"
         }
       },
       {
@@ -8351,13 +9021,14 @@
         "background": "purple"
       }
     ],
-    "noteIds": ["shrimp-exclusion", "free-cooking-access"],
-    "reviewNotes": []
+    "noteIds": ["ingredient-notes", "free-cooking-access"],
+    "reviewNotes": [],
+    "previousRecipeId": "mt-20260923-free-002"
   },
   {
-    "id": "mt-20260923-free-003",
+    "id": "mt-20260924-free-003",
     "source": {
-      "sourceId": "tomorrow-20260923-image",
+      "sourceId": "tomorrow-20260924-image",
       "region": "free",
       "row": 3
     },
@@ -8391,8 +9062,9 @@
           }
         },
         "quality": {
-          "status": "not-stated",
-          "raw": ""
+          "status": "interpreted",
+          "color": "gold",
+          "interpretationId": "ingredient-background-user-20260926"
         }
       },
       {
@@ -8457,13 +9129,14 @@
         "background": "yellow"
       }
     ],
-    "noteIds": ["shrimp-exclusion", "free-cooking-access"],
-    "reviewNotes": []
+    "noteIds": ["ingredient-notes", "free-cooking-access"],
+    "reviewNotes": [],
+    "previousRecipeId": "mt-20260923-free-003"
   },
   {
-    "id": "mt-20260923-free-004",
+    "id": "mt-20260924-free-004",
     "source": {
-      "sourceId": "tomorrow-20260923-image",
+      "sourceId": "tomorrow-20260924-image",
       "region": "free",
       "row": 4
     },
@@ -8549,8 +9222,9 @@
       "raw": ""
     },
     "productionChance": {
-      "status": "not-stated",
-      "raw": ""
+      "status": "unspecified-probability",
+      "raw": "概率出",
+      "basis": "effect-column-cell"
     },
     "visualCues": [
       {
@@ -8558,13 +9232,14 @@
         "background": "blue"
       }
     ],
-    "noteIds": ["shrimp-exclusion", "free-cooking-access"],
-    "reviewNotes": []
+    "noteIds": ["ingredient-notes", "free-cooking-access"],
+    "reviewNotes": [],
+    "previousRecipeId": "mt-20260923-free-004"
   },
   {
-    "id": "mt-20260923-free-005",
+    "id": "mt-20260924-free-005",
     "source": {
-      "sourceId": "tomorrow-20260923-image",
+      "sourceId": "tomorrow-20260924-image",
       "region": "free",
       "row": 5
     },
@@ -8598,8 +9273,9 @@
           }
         },
         "quality": {
-          "status": "not-stated",
-          "raw": ""
+          "status": "interpreted",
+          "color": "purple",
+          "interpretationId": "ingredient-background-user-20260926"
         }
       },
       {
@@ -8632,9 +9308,9 @@
       "value": "榨汁机"
     },
     "energy": {
-      "status": "unknown",
-      "raw": "?",
-      "reason": "图片仅有问号，增加力气未知，不能按 0 处理"
+      "status": "recorded",
+      "raw": "60",
+      "value": 60
     },
     "tags": {
       "status": "recorded",
@@ -8650,8 +9326,9 @@
       "raw": ""
     },
     "productionChance": {
-      "status": "not-stated",
-      "raw": ""
+      "status": "unspecified-probability",
+      "raw": "概率出",
+      "basis": "effect-column-cell"
     },
     "visualCues": [
       {
@@ -8663,13 +9340,14 @@
         "background": "purple"
       }
     ],
-    "noteIds": ["shrimp-exclusion", "free-cooking-access"],
-    "reviewNotes": []
+    "noteIds": ["ingredient-notes", "free-cooking-access"],
+    "reviewNotes": [],
+    "previousRecipeId": "mt-20260923-free-005"
   },
   {
-    "id": "mt-20260923-free-006",
+    "id": "mt-20260924-free-006",
     "source": {
-      "sourceId": "tomorrow-20260923-image",
+      "sourceId": "tomorrow-20260924-image",
       "region": "free",
       "row": 6
     },
@@ -8703,8 +9381,9 @@
           }
         },
         "quality": {
-          "status": "not-stated",
-          "raw": ""
+          "status": "interpreted",
+          "color": "gold",
+          "interpretationId": "ingredient-background-user-20260926"
         }
       },
       {
@@ -8737,9 +9416,9 @@
       "value": "榨汁机"
     },
     "energy": {
-      "status": "unknown",
-      "raw": "?",
-      "reason": "图片仅有问号，增加力气未知，不能按 0 处理"
+      "status": "recorded",
+      "raw": "100",
+      "value": 100
     },
     "tags": {
       "status": "recorded",
@@ -8755,8 +9434,9 @@
       "raw": ""
     },
     "productionChance": {
-      "status": "not-stated",
-      "raw": ""
+      "status": "unspecified-probability",
+      "raw": "概率出",
+      "basis": "effect-column-cell"
     },
     "visualCues": [
       {
@@ -8768,13 +9448,14 @@
         "background": "yellow"
       }
     ],
-    "noteIds": ["shrimp-exclusion", "free-cooking-access"],
-    "reviewNotes": []
+    "noteIds": ["ingredient-notes", "free-cooking-access"],
+    "reviewNotes": [],
+    "previousRecipeId": "mt-20260923-free-006"
   },
   {
-    "id": "mt-20260923-free-007",
+    "id": "mt-20260924-free-007",
     "source": {
-      "sourceId": "tomorrow-20260923-image",
+      "sourceId": "tomorrow-20260924-image",
       "region": "free",
       "row": 7
     },
@@ -8860,8 +9541,9 @@
       "raw": ""
     },
     "productionChance": {
-      "status": "not-stated",
-      "raw": ""
+      "status": "unspecified-probability",
+      "raw": "概率出",
+      "basis": "effect-column-cell"
     },
     "visualCues": [
       {
@@ -8869,13 +9551,14 @@
         "background": "blue"
       }
     ],
-    "noteIds": ["shrimp-exclusion", "free-cooking-access"],
-    "reviewNotes": []
+    "noteIds": ["ingredient-notes", "free-cooking-access"],
+    "reviewNotes": [],
+    "previousRecipeId": "mt-20260923-free-007"
   },
   {
-    "id": "mt-20260923-free-008",
+    "id": "mt-20260924-free-008",
     "source": {
-      "sourceId": "tomorrow-20260923-image",
+      "sourceId": "tomorrow-20260924-image",
       "region": "free",
       "row": 8
     },
@@ -8909,8 +9592,9 @@
           }
         },
         "quality": {
-          "status": "not-stated",
-          "raw": ""
+          "status": "interpreted",
+          "color": "purple",
+          "interpretationId": "ingredient-background-user-20260926"
         }
       },
       {
@@ -8975,13 +9659,14 @@
         "background": "purple"
       }
     ],
-    "noteIds": ["shrimp-exclusion", "free-cooking-access"],
-    "reviewNotes": []
+    "noteIds": ["ingredient-notes", "free-cooking-access"],
+    "reviewNotes": [],
+    "previousRecipeId": "mt-20260923-free-008"
   },
   {
-    "id": "mt-20260923-free-009",
+    "id": "mt-20260924-free-009",
     "source": {
-      "sourceId": "tomorrow-20260923-image",
+      "sourceId": "tomorrow-20260924-image",
       "region": "free",
       "row": 9
     },
@@ -9015,8 +9700,9 @@
           }
         },
         "quality": {
-          "status": "not-stated",
-          "raw": ""
+          "status": "interpreted",
+          "color": "gold",
+          "interpretationId": "ingredient-background-user-20260926"
         }
       },
       {
@@ -9081,13 +9767,14 @@
         "background": "yellow"
       }
     ],
-    "noteIds": ["shrimp-exclusion", "free-cooking-access"],
-    "reviewNotes": []
+    "noteIds": ["ingredient-notes", "free-cooking-access"],
+    "reviewNotes": [],
+    "previousRecipeId": "mt-20260923-free-009"
   },
   {
-    "id": "mt-20260923-neighbor-001",
+    "id": "mt-20260924-neighbor-001",
     "source": {
-      "sourceId": "tomorrow-20260923-image",
+      "sourceId": "tomorrow-20260924-image",
       "region": "neighbor",
       "row": 1
     },
@@ -9126,8 +9813,9 @@
           }
         },
         "quality": {
-          "status": "not-stated",
-          "raw": ""
+          "status": "interpreted",
+          "color": "purple",
+          "interpretationId": "ingredient-background-user-20260926"
         }
       }
     ],
@@ -9177,7 +9865,8 @@
         "background": "purple"
       }
     ],
-    "noteIds": ["shrimp-exclusion", "neighbor-unlock"],
-    "reviewNotes": []
+    "noteIds": ["ingredient-notes", "neighbor-unlock"],
+    "reviewNotes": [],
+    "previousRecipeId": "mt-20260923-neighbor-001"
   }
 ]

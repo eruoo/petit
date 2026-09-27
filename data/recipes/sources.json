@@ -62,5 +62,81 @@
         "evidence": "player-record"
       }
     ]
+  },
+  {
+    "id": "tomorrow-20260924-image",
+    "titleRaw": "明天攻略组 星布谷地菜谱图鉴",
+    "creator": "明天攻略组",
+    "imageDate": {
+      "raw": "2026.9.24",
+      "value": "2026-09-24"
+    },
+    "origin": {
+      "kind": "user-provided-image",
+      "label": "用户提供图片",
+      "originalPostUrl": {
+        "status": "unknown",
+        "raw": "",
+        "reason": "原帖链接尚未确认"
+      }
+    },
+    "publishedAt": {
+      "status": "not-stated",
+      "raw": ""
+    },
+    "gameVersion": {
+      "status": "not-stated",
+      "raw": ""
+    },
+    "asset": {
+      "path": "docs/references/recipes/tomorrow-2026-09-24.jpg",
+      "originalFilename": "codex-clipboard-4e9da931-c3f4-4eb9-90c3-a38e3715defa.jpg",
+      "mimeType": "image/jpeg",
+      "width": 4355,
+      "height": 2189,
+      "bytes": 3013739,
+      "sha256": "041c2a69f90e561a7febb720945d6ecbd0da04fba3f9d09ac1397dfaaefe8c17"
+    },
+    "evidence": "player-record",
+    "visualLegend": {
+      "status": "not-stated",
+      "raw": "",
+      "reason": "图片未提供颜色或加粗的明确图例；食材底色的后续解释单独记录为用户补充规则。"
+    },
+    "notes": [
+      {
+        "id": "ingredient-notes",
+        "raw": "tips: 虾类不包含螯虾 海鲜为赶海生物 甜瓜属于绿色水果",
+        "bounds": [810, 70, 930, 60],
+        "appliesTo": ["simple", "signature", "guest", "free", "neighbor"],
+        "evidence": "player-record"
+      },
+      {
+        "id": "free-cooking-access",
+        "raw": "只能通过自由烹饪得到，不在菜谱内显示",
+        "bounds": [2800, 1020, 1175, 58],
+        "appliesTo": ["free"],
+        "evidence": "player-record"
+      },
+      {
+        "id": "neighbor-unlock",
+        "raw": "友邻秘方，只能通过友邻赠送获得，且只能在配方解锁后用配方制作",
+        "bounds": [2800, 1605, 1175, 54],
+        "appliesTo": ["neighbor"],
+        "evidence": "player-record"
+      }
+    ],
+    "ingredientQualityInterpretation": {
+      "id": "ingredient-background-user-20260926",
+      "kind": "user-confirmation",
+      "confirmedOn": "2026-09-26",
+      "statementRaw": "截图表格中所需食材，如果有背景底色的也代表对应需求的品质",
+      "backgroundToQuality": {
+        "blue": "blue",
+        "purple": "purple",
+        "yellow": "gold"
+      },
+      "note": "仅解释所需食材单元格底色。黄色底色沿用站内金色品质标签；无底色不推断为普通或蓝色品质，加粗不作为品质依据。不据此确认高品质替代等额外规则，也不代表游戏内验证。"
+    }
   }
 ]
