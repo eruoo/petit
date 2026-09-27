@@ -1,13 +1,7 @@
 import { computed, onMounted, shallowRef } from "vue";
 import { useRoute, useRouter } from "#imports";
 import { recipeDataset } from "#shared/recipes/index";
-import {
-  defaultFilters,
-  filterRecipes,
-  filtersFromQuery,
-  filtersToQuery,
-  ingredientNames,
-} from "../utils/recipes";
+import { defaultFilters, filterRecipes, filtersFromQuery, filtersToQuery } from "../utils/recipes";
 import type { RecipeFilters } from "../utils/recipes";
 
 export function useRecipeBrowser() {
@@ -20,9 +14,6 @@ export function useRecipeBrowser() {
   });
   const filters = computed(() => filtersFromQuery(hydrated.value ? route.query : {}));
   const recipes = computed(() => filterRecipes(recipeDataset.recipes, filters.value));
-  const ingredients = [...new Set(recipeDataset.recipes.flatMap(ingredientNames))].sort(
-    (left, right) => left.localeCompare(right, "zh-CN"),
-  );
   const regionCounts = Object.fromEntries(
     recipeDataset.inventory.regions.map((region) => [region.id, region.expectedRows]),
   );
@@ -30,8 +21,7 @@ export function useRecipeBrowser() {
     () =>
       Number(Boolean(filters.value.query)) +
       Number(filters.value.region !== "all") +
-      Number(filters.value.method !== "all") +
-      Number(Boolean(filters.value.ingredient)),
+      Number(filters.value.method !== "all"),
   );
 
   let pendingFilters: RecipeFilters | undefined;
@@ -57,7 +47,6 @@ export function useRecipeBrowser() {
     ready: hydrated,
     filters,
     recipes,
-    ingredients,
     regionCounts,
     activeFilterCount,
     updateFilters,

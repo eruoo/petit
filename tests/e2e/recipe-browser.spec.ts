@@ -15,7 +15,6 @@ test("初始化完成前禁用操作，完成后首次点击即可打开详情",
     await expect(trigger).toBeDisabled();
     await expect(page.getByLabel("搜索菜名或食材", { exact: true })).toBeDisabled();
     await expect(page.getByRole("button", { name: "煮锅", exact: true })).toBeDisabled();
-    await expect(page.getByLabel("食材", { exact: true })).toBeDisabled();
     await expect(page.getByLabel("菜谱排序", { exact: true })).toBeDisabled();
     await expect(page.getByRole("button", { name: "图标视图", exact: true })).toBeDisabled();
     await expect(page.getByRole("button", { name: "列表视图", exact: true })).toBeDisabled();
@@ -138,8 +137,6 @@ test("组合筛选、刷新恢复和重复食材详情可用", async ({ page }) 
   await expect(page).toHaveURL(/region=simple/u);
   await page.getByRole("button", { name: "煮锅", exact: true }).click();
   await expect(page).toHaveURL(/method=/u);
-  await page.getByLabel("食材", { exact: true }).selectOption("小麦");
-  await expect(page).toHaveURL(/ingredient=/u);
   await expect(page.getByRole("list", { name: "菜谱结果" }).getByRole("button")).toHaveCount(4);
   await page.reload();
   await expect(page.getByLabel("搜索菜名或食材", { exact: true })).toHaveValue("小麦");
@@ -154,6 +151,59 @@ test("组合筛选、刷新恢复和重复食材详情可用", async ({ page }) 
   await expect(dialog).not.toBeVisible();
   await expect(trigger).toBeFocused();
   expect(hydrationProblems).toEqual([]);
+});
+
+test("统一搜索承接旧食材链接，清空与刷新后没有隐藏条件", async ({ page }, testInfo) => {
+  await page.setViewportSize({ width: 1280, height: 900 });
+  await page.goto("/?q=小麦&ingredient=小麦&ingredient=奶&region=signature&sort=energy-desc");
+  const search = page.getByRole("searchbox", { name: "搜索菜名或食材", exact: true });
+  const results = page.getByRole("list", { name: "菜谱结果" });
+  await expect(search).toHaveValue("小麦 奶");
+  await expect(results.getByRole("button")).toHaveCount(4);
+  await expect(page.getByRole("group", { name: "食材", exact: true })).toHaveCount(0);
+  await expect(page.getByRole("button", { name: "选择食材", exact: true })).toHaveCount(0);
+  await results
+    .locator("img")
+    .evaluateAll((images) =>
+      Promise.all(images.map((image) => (image as HTMLImageElement).decode())),
+    );
+  await page.screenshot({ path: testInfo.outputPath("recipe-unified-search-desktop.png") });
+  await page.getByRole("button", { name: "清空搜索", exact: true }).click();
+  await expect(results.getByRole("button")).toHaveCount(33);
+  expect(new URL(page.url()).searchParams.has("ingredient")).toBe(false);
+  expect(new URL(page.url()).searchParams.get("sort")).toBe("energy-desc");
+  await search.fill("小麦 海鲜");
+  await expect(results.getByRole("button")).toHaveCount(1);
+  await expect(results.getByRole("button")).toHaveAccessibleName("查看美味海风披萨配方");
+  await page.reload();
+  await expect(search).toHaveValue("小麦 海鲜");
+  await expect(results.getByRole("button")).toHaveCount(1);
+});
+
+test("手机筛选只保留分区和方式，食材通过主搜索查找", async ({ page }, testInfo) => {
+  await page.setViewportSize({ width: 320, height: 850 });
+  await page.goto("/?ingredient=不存在的食材");
+  const search = page.getByRole("searchbox", { name: "搜索菜名或食材", exact: true });
+  await expect(search).toHaveValue("不存在的食材");
+  await expect(page.getByRole("heading", { name: "没有找到匹配的菜谱" })).toBeVisible();
+  await page.getByRole("button", { name: "展开菜谱筛选", exact: true }).click();
+  const filters = page.getByRole("complementary", { name: "菜谱筛选" });
+  await expect(filters.getByRole("group")).toHaveCount(2);
+  await expect(filters.getByRole("group", { name: "图片分区" })).toBeVisible();
+  await expect(filters.getByRole("group", { name: "烹饪方式" })).toBeVisible();
+  await page.getByRole("button", { name: "清空搜索", exact: true }).click();
+  const results = page.getByRole("list", { name: "菜谱结果" });
+  await expect(results.getByRole("button")).toHaveCount(94);
+  await search.fill("茄子 辣椒");
+  await expect(results.getByRole("button")).toHaveCount(1);
+  await expect(results.getByRole("button")).toHaveAccessibleName("查看茄茄擂辣饭配方");
+  await expect(results.getByText("待确认", { exact: true })).toBeVisible();
+  expect(await page.evaluate(() => document.documentElement.scrollWidth)).toBeLessThanOrEqual(320);
+  await results.locator("img").evaluate((image: HTMLImageElement) => image.decode());
+  await page.screenshot({
+    path: testInfo.outputPath("recipe-unified-search-mobile.png"),
+    fullPage: true,
+  });
 });
 
 test("四槽位扩展行和原尺寸图片可追溯", async ({ page }) => {

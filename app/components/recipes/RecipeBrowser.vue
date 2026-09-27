@@ -10,16 +10,8 @@ import RecipeDetails from "./RecipeDetails.vue";
 import RecipeIcon from "./RecipeIcon.vue";
 import RecipeViewToggle from "./RecipeViewToggle.vue";
 
-const {
-  ready,
-  filters,
-  recipes,
-  ingredients,
-  regionCounts,
-  activeFilterCount,
-  updateFilters,
-  resetFilters,
-} = useRecipeBrowser();
+const { ready, filters, recipes, regionCounts, activeFilterCount, updateFilters, resetFilters } =
+  useRecipeBrowser();
 const searchQuery = computed({
   get: () => filters.value.query,
   set: (query: string) => {
@@ -79,7 +71,6 @@ async function restoreFocus() {
             <RecipeFilters
               :disabled="!ready"
               :filters="filters"
-              :ingredients="ingredients"
               :region-counts="regionCounts"
               :total="recipeDataset.recipes.length"
               :active-count="activeFilterCount"
@@ -104,7 +95,7 @@ async function restoreFocus() {
               :disabled="!ready"
               type="search"
               autocomplete="off"
-              placeholder="搜索菜名或食材，如小麦"
+              placeholder="菜名或食材，空格分隔"
             /><button
               v-if="filters.query"
               type="button"

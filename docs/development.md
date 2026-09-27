@@ -76,6 +76,8 @@ pnpm test:e2e
 
 Playwright 默认使用 `127.0.0.1:4173` 启动独立预览服务，不复用已有服务。端口被占用时可运行 `PLAYWRIGHT_PORT=4175 pnpm test:e2e`。失败时在 `test-results/` 保留截图与 trace。端到端测试需要构建和浏览器，单独运行，不纳入提交 hook。
 
+`recipe-browser.test.ts` 与 `recipe-browser.spec.ts` 同时覆盖菜名与食材统一搜索，以及旧 `ingredient` 参数转为可见搜索词、编辑和清空后不再产生隐藏条件的兼容行为。
+
 ## 静态构建与预览
 
 ```sh

@@ -6,12 +6,14 @@ import RecipeIcon from "./RecipeIcon.vue";
 defineProps<{
   disabled: boolean;
   filters: RecipeFilters;
-  ingredients: string[];
   regionCounts: Record<string, number>;
   total: number;
   activeCount: number;
 }>();
-const emit = defineEmits<{ change: [patch: Partial<RecipeFilters>]; reset: [] }>();
+const emit = defineEmits<{
+  change: [patch: Partial<RecipeFilters>];
+  reset: [];
+}>();
 const methodIcons: Record<CookingMethod, "pot" | "glass" | "oven"> = {
   煮锅: "pot",
   榨汁机: "glass",
@@ -79,28 +81,6 @@ const regions = Object.entries(regionLabels) as [ImageRegion, string][];
         </button>
       </div>
     </fieldset>
-    <div class="filter-group ingredient-filter">
-      <label for="ingredient-filter">食材</label>
-      <select
-        id="ingredient-filter"
-        class="recipe-select"
-        :disabled="disabled"
-        :value="filters.ingredient"
-        @change="emit('change', { ingredient: ($event.target as HTMLSelectElement).value })"
-      >
-        <option value="">全部食材</option>
-        <option
-          v-if="filters.ingredient && !ingredients.includes(filters.ingredient)"
-          :value="filters.ingredient"
-        >
-          {{ filters.ingredient }}（图片无此食材）
-        </option>
-        <option v-for="ingredient in ingredients" :key="ingredient" :value="ingredient">
-          {{ ingredient }}
-        </option>
-      </select>
-      <p class="filter-hint">按图片词项筛选，包含待确认候选。</p>
-    </div>
   </div>
 </template>
 
@@ -124,8 +104,7 @@ const regions = Object.entries(regionLabels) as [ImageRegion, string][];
 .filter-group {
   margin-bottom: 1.8rem;
 }
-.filter-group legend,
-.ingredient-filter label {
+.filter-group legend {
   display: block;
   margin-bottom: 0.75rem;
   color: var(--petit-color-foreground-muted);
@@ -191,25 +170,10 @@ const regions = Object.entries(regionLabels) as [ImageRegion, string][];
   border-color: var(--petit-color-border-strong);
   font-weight: 750;
 }
-.recipe-select {
-  width: 100%;
-  min-height: 44px;
-  border: 1px solid color-mix(in srgb, var(--petit-color-border-strong) 50%, transparent);
-  border-radius: 0.45rem;
-  background: transparent;
-  padding: 0.65rem 0.5rem;
-  font-size: 0.8rem;
-}
-.filter-hint {
-  margin-top: 0.65rem;
-  font-size: 0.7rem;
-  line-height: 1.7;
-  color: var(--petit-color-foreground-muted);
-}
 @media (max-width: 900px) {
   .recipe-filters {
     display: grid;
-    grid-template-columns: 1.3fr 1fr;
+    grid-template-columns: 1fr;
     gap: 1rem 1.5rem;
   }
   .filters-title {
@@ -218,9 +182,6 @@ const regions = Object.entries(regionLabels) as [ImageRegion, string][];
   .filter-group {
     margin: 0;
     min-width: 0;
-  }
-  .filter-group:first-of-type {
-    grid-column: 1 / -1;
   }
   .region-options {
     display: flex;
@@ -239,27 +200,11 @@ const regions = Object.entries(regionLabels) as [ImageRegion, string][];
   .method-option {
     padding: 0.6rem 0.7rem;
   }
-  .filter-hint {
-    font-size: 0.67rem;
-  }
 }
 @media (max-width: 540px) {
   .recipe-filters {
     grid-template-columns: 1fr;
     gap: 1.25rem;
-  }
-  .ingredient-filter {
-    display: grid;
-    grid-template-columns: auto 1fr;
-    align-items: center;
-    column-gap: 1rem;
-  }
-  .ingredient-filter label {
-    margin-bottom: 0;
-  }
-  .filter-hint {
-    grid-column: 2;
-    margin-top: 0.4rem;
   }
   .region-options {
     gap: 0.35rem;

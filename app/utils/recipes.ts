@@ -8,7 +8,6 @@ export interface RecipeFilters {
   query: string;
   region: ImageRegion | "all";
   method: CookingMethod | "all";
-  ingredient: string;
   sort: RecipeSort;
 }
 
@@ -24,7 +23,6 @@ export const defaultFilters: RecipeFilters = {
   query: "",
   region: "all",
   method: "all",
-  ingredient: "",
   sort: "source",
 };
 
@@ -32,16 +30,24 @@ type QueryValues = Record<string, string | null | (string | null)[] | undefined>
 function first(value: QueryValues[string]) {
   return (Array.isArray(value) ? value[0] : value) ?? "";
 }
+function legacyIngredientTerms(value: QueryValues[string]): string[] {
+  const values = Array.isArray(value) ? value : [value];
+  return values.flatMap((item) => (item ?? "").split(/\s+/u)).filter(Boolean);
+}
 
 export function filtersFromQuery(query: QueryValues): RecipeFilters {
   const region = first(query.region);
   const method = first(query.method);
   const sort = first(query.sort);
+  const search = first(query.q);
+  const legacyTerms = legacyIngredientTerms(query.ingredient);
   return {
-    query: first(query.q),
+    // 旧食材链接转换成可见的搜索词，避免移除控件后仍有隐藏的筛选条件。
+    query: legacyTerms.length
+      ? [...new Set([...search.split(/\s+/u).filter(Boolean), ...legacyTerms])].join(" ")
+      : search,
     region: Object.hasOwn(regionLabels, region) ? (region as ImageRegion) : "all",
     method: cookingMethods.includes(method as CookingMethod) ? (method as CookingMethod) : "all",
-    ingredient: first(query.ingredient),
     sort: sort === "energy-desc" || sort === "energy-asc" ? sort : "source",
   };
 }
@@ -51,22 +57,9 @@ export function filtersToQuery(filters: RecipeFilters) {
     q: filters.query || undefined,
     region: filters.region === "all" ? undefined : filters.region,
     method: filters.method === "all" ? undefined : filters.method,
-    ingredient: filters.ingredient || undefined,
+    ingredient: undefined,
     sort: filters.sort === "source" ? undefined : filters.sort,
   };
-}
-
-export function ingredientNames(recipe: Recipe): string[] {
-  return recipe.ingredients.flatMap(({ selection }) => {
-    const value =
-      selection.status === "recorded"
-        ? selection.value
-        : selection.status === "tentative"
-          ? selection.candidate
-          : null;
-    if (!value) return [];
-    return value.kind === "any-of" ? value.options.map((option) => option.name) : [value.name];
-  });
 }
 
 function normalize(value: string) {
@@ -82,7 +75,6 @@ export function filterRecipes(recipes: Recipe[], filters: RecipeFilters): Recipe
       (recipe.cookingMethod.status !== "recorded" || recipe.cookingMethod.value !== filters.method)
     )
       return false;
-    if (filters.ingredient && !ingredientNames(recipe).includes(filters.ingredient)) return false;
     const searchable = normalize(
       [recipe.name.raw, ...recipe.ingredients.map((slot) => slot.selection.raw)].join(" "),
     );
