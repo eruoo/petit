@@ -4946,8 +4946,8 @@
     ],
     "cookingMethod": {
       "status": "recorded",
-      "raw": "烤箱",
-      "value": "烤箱"
+      "raw": "煮锅",
+      "value": "煮锅"
     },
     "energy": {
       "status": "recorded",

@@ -144,6 +144,29 @@ describe("明天主体与小铭补充的读取边界", () => {
     ).toBe(false);
   });
 
+  it("花香蜜瓜派的厨具冲突按两图原文保留，当前仍采用明天", () => {
+    const current = recipe("花香蜜瓜派");
+    const supplemental = supplementalRecipesById.get(current.id)!;
+    expect(supplemental.source).toMatchObject({
+      sourceId: "xiaoming-0927-image",
+      region: "signature",
+      row: 15,
+    });
+    expect(supplemental.cookingMethod).toEqual({
+      status: "recorded",
+      raw: "煮锅",
+      value: "煮锅",
+    });
+    expect(current.cookingMethod).toEqual({ status: "recorded", raw: "烤箱", value: "烤箱" });
+    expect(getRecipeDifferences(current.id)).toContainEqual({
+      field: "cookingMethod",
+      label: "烹饪方式",
+      previous: "煮锅",
+      current: "烤箱",
+      kind: "recipe",
+    });
+  });
+
   it("重复食材保留，补充图的合并格不会错绑到主体食材顺序", () => {
     expect(recipe("梦幻草莓奶蛋糕").ingredients.map((slot) => slot.selection.raw)).toEqual([
       "奶",

@@ -1,5 +1,34 @@
 import { expect, test } from "@playwright/test";
 
+for (const reducedMotion of ["no-preference", "reduce"] as const) {
+  test(`图鉴打开后能立即关闭并返回焦点（${reducedMotion}）`, async ({ page }) => {
+    await page.emulateMedia({ reducedMotion });
+    await page.goto("/");
+    await expect(page.getByLabel("搜索菜名、食材、词条或烹饪方式", { exact: true })).toBeEnabled();
+    await page
+      .getByRole("navigation", { name: "主导航" })
+      .getByRole("link", { name: "关于", exact: true })
+      .click();
+    // 放慢开场过渡，确保慢速测试环境也能覆盖“已显示但动画未结束”的关闭操作。
+    await page.addStyleTag({
+      content: ".guide-image-viewer.viewer-transition { transition-duration: 2s !important; }",
+    });
+
+    for (const closeWithEscape of [false, true]) {
+      const trigger = page.locator(".guide-image-link").nth(closeWithEscape ? 1 : 0);
+      await trigger.click();
+      // 不等待图片标题或解码；它们可能要到开场动画结束后才出现。
+      const dialog = page.getByRole("dialog");
+      await expect(dialog).toBeVisible();
+      if (closeWithEscape) await page.keyboard.press("Escape");
+      else await dialog.getByRole("button", { name: "关闭图片预览" }).click();
+      await expect(dialog).toHaveCount(0);
+      await expect(trigger).toBeFocused();
+      await expect(page.locator("body")).not.toHaveClass(/viewer-open/u);
+    }
+  });
+}
+
 test("图鉴预览支持原尺寸、缩放拖动、切图和键盘返回", async ({ page, context }, testInfo) => {
   // 先从已初始化的首页进入，避免在水合前点击到原图回退链接。
   await page.goto("/");

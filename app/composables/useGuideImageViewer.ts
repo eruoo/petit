@@ -110,7 +110,10 @@ export function useGuideImageViewer(gallery: Readonly<Ref<HTMLElement | null>>) 
           slideOnTouch: false,
           slideOnWheel: false,
           maxZoomRatio: 4,
-          transition: !window.matchMedia("(prefers-reduced-motion: reduce)").matches,
+          // Viewer.js 在 shown 后绑定关闭事件；跳过开场过渡，出现时即可操作。
+          transition: window.matchMedia("(prefers-reduced-motion: reduce)").matches
+            ? false
+            : { show: false },
           title: () => caption,
           toolbar: {
             zoomIn: true,
