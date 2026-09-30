@@ -1,16 +1,12 @@
-<script setup lang="ts">
-import RecipeIcon from "../recipes/RecipeIcon.vue";
-</script>
-
 <template>
   <header class="site-header">
     <div class="header-inner">
       <NuxtLink to="/" class="brand" aria-label="Petit 首页">
-        <span class="brand-icon"><RecipeIcon name="pot" /></span>
+        <img class="brand-icon" src="/brand-mark.png" width="44" height="44" alt="" />
         <span>Petit<span class="brand-dot">.</span></span>
       </NuxtLink>
       <div class="header-context">
-        <span>星布谷地</span><span class="context-divider" /><span>烹饪手册</span>
+        <span>星布谷地</span><span class="context-divider" /><span>资料手册</span>
       </div>
       <nav class="site-nav" aria-label="主导航">
         <NuxtLink to="/" exact-active-class="is-current">菜谱</NuxtLink>
@@ -44,16 +40,9 @@ import RecipeIcon from "../recipes/RecipeIcon.vue";
   color: var(--petit-color-foreground-heading);
 }
 .brand-icon {
-  display: grid;
-  place-items: center;
-  width: 35px;
-  height: 35px;
-  background: var(--petit-color-primary);
-  border-radius: 50%;
-}
-.brand-icon svg {
-  width: 21px;
-  height: 21px;
+  width: 44px;
+  height: 44px;
+  flex-shrink: 0;
 }
 .brand-dot {
   color: var(--petit-color-link);
@@ -109,12 +98,8 @@ import RecipeIcon from "../recipes/RecipeIcon.vue";
     font-size: 1.8rem;
   }
   .brand-icon {
-    width: 30px;
-    height: 30px;
-  }
-  .brand-icon svg {
-    width: 18px;
-    height: 18px;
+    width: 38px;
+    height: 38px;
   }
   .site-nav {
     gap: 1.4rem;

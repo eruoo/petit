@@ -1,6 +1,6 @@
 <template>
   <footer class="site-footer">
-    <span>Petit · 星布谷地烹饪速查</span>
+    <span>Petit · 星布谷地资料手册</span>
     <NuxtLink to="/about">关于与信息来源</NuxtLink>
   </footer>
 </template>

@@ -30,7 +30,7 @@ const taptapPosts = [
       <GuideImageGallery :guides="guides" />
     </section>
     <section aria-labelledby="image-sources-heading">
-      <h2 id="image-sources-heading">图片来源</h2>
+      <h2 id="image-sources-heading">菜品图片来源</h2>
       <p>菜品配图来自 Petit Planet Wiki 和 TapTap 作者「{{ taptapAuthors }}」的菜谱图鉴。</p>
       <div class="source-links">
         <a :href="wikiArchive.wikiCatalogUrl" target="_blank" rel="noopener noreferrer">

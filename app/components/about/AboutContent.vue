@@ -5,9 +5,11 @@ import AboutSources from "./AboutSources.vue";
 <template>
   <main id="main-content" class="about-main" tabindex="-1">
     <header class="about-heading">
-      <p class="about-eyebrow">星布谷地 · 烹饪手册</p>
+      <p class="about-eyebrow">星布谷地 · 资料手册</p>
       <h1>关于 Petit</h1>
-      <p class="about-intro">一份非官方的《星布谷地》菜谱速查手册，方便玩家查找配方。</p>
+      <p class="about-intro">
+        一个非官方的《星布谷地》资料站，方便玩家查阅游戏信息。目前提供菜谱速查。
+      </p>
     </header>
     <AboutSources />
     <section class="copyright-note" aria-labelledby="copyright-heading">
@@ -17,7 +19,7 @@ import AboutSources from "./AboutSources.vue";
         无意侵犯任何权益，如有侵权，请告知，我们将及时核实并删除或调整。
       </p>
     </section>
-    <NuxtLink to="/" class="back-to-recipes">返回菜谱速查 →</NuxtLink>
+    <NuxtLink to="/" class="back-to-home">返回首页 →</NuxtLink>
   </main>
 </template>
 
@@ -63,7 +65,7 @@ import AboutSources from "./AboutSources.vue";
   line-height: 1.9;
   color: var(--petit-color-foreground-muted);
 }
-.back-to-recipes {
+.back-to-home {
   display: inline-block;
   margin-top: 1.5rem;
   padding: 0.6rem 0;

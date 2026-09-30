@@ -232,7 +232,7 @@ test("关于页简述资料来源，分列图片来源与致谢并展示两张�
     "page",
   );
   const recipeSource = page.getByRole("region", { name: "菜谱资料来源", exact: true });
-  const imageSources = page.getByRole("region", { name: "图片来源", exact: true });
+  const imageSources = page.getByRole("region", { name: "菜品图片来源", exact: true });
   const thanks = page.getByRole("region", { name: "特别致谢", exact: true });
   await expect(page.getByRole("main")).not.toContainText("雪菜");
   await expect(recipeSource).toContainText("明天攻略组、小铭同学qaQ233 的菜谱图鉴");
