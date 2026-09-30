@@ -30,6 +30,8 @@ for (const reducedMotion of ["no-preference", "reduce"] as const) {
 }
 
 test("图鉴预览支持原尺寸、缩放拖动、切图和键盘返回", async ({ page, context }, testInfo) => {
+  const pageErrors: string[] = [];
+  page.on("pageerror", (error) => pageErrors.push(error.message));
   // 先从已初始化的首页进入，避免在水合前点击到原图回退链接。
   await page.goto("/");
   await expect(page.getByLabel("搜索菜名、食材、词条或烹饪方式", { exact: true })).toBeEnabled();
@@ -136,6 +138,7 @@ test("图鉴预览支持原尺寸、缩放拖动、切图和键盘返回", async
     .getByRole("link", { name: "菜谱", exact: true })
     .click();
   await expect(page.locator(".guide-image-viewer")).toHaveCount(0);
+  expect(pageErrors).toEqual([]);
 });
 
 test("手机图鉴预览支持触摸缩放，按钮无溢出并可返回原位置", async ({

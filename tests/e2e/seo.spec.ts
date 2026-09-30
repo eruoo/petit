@@ -1,7 +1,21 @@
 import { readFile } from "node:fs/promises";
-import { expect, test } from "@playwright/test";
+import { expect, test, type Locator } from "@playwright/test";
 
-const siteOrigin = new URL(process.env.NUXT_PUBLIC_SITE_URL ?? "https://petit.eruoo.dev").origin;
+const siteUrl = process.env.NUXT_PUBLIC_SITE_URL?.trim() ?? "https://petit.eruoo.dev";
+const siteOrigin = siteUrl ? new URL(siteUrl).origin : undefined;
+const imageUrl = siteOrigin ? `${siteOrigin}/og-image.png` : undefined;
+
+async function expectOptionalAttribute(
+  locator: Locator,
+  attribute: string,
+  value: string | undefined,
+) {
+  if (value === undefined) {
+    await expect(locator).toHaveCount(0);
+  } else {
+    await expect(locator).toHaveAttribute(attribute, value);
+  }
+}
 
 for (const { path, title, description } of [
   {
@@ -28,28 +42,34 @@ for (const { path, title, description } of [
         "og:type": "website",
         "og:site_name": "Petit",
         "og:locale": "zh_CN",
-        "og:url": `${siteOrigin}${path}`,
-        "og:image": `${siteOrigin}/og-image.png`,
-        "og:image:type": "image/png",
-        "og:image:width": "1200",
-        "og:image:height": "630",
-        "og:image:alt": "奶油色背景上的 Petit 星布谷地资料手册文字与苹果树小星球。",
+        "og:url": siteOrigin ? `${siteOrigin}${path}` : undefined,
+        "og:image": imageUrl,
+        "og:image:type": imageUrl ? "image/png" : undefined,
+        "og:image:width": imageUrl ? "1200" : undefined,
+        "og:image:height": imageUrl ? "630" : undefined,
+        "og:image:alt": imageUrl
+          ? "奶油色背景上的 Petit 星布谷地资料手册文字与苹果树小星球。"
+          : undefined,
         "twitter:card": "summary_large_image",
         "twitter:title": title,
         "twitter:description": description,
-        "twitter:image": `${siteOrigin}/og-image.png`,
-        "twitter:image:alt": "奶油色背景上的 Petit 星布谷地资料手册文字与苹果树小星球。",
+        "twitter:image": imageUrl,
+        "twitter:image:alt": imageUrl
+          ? "奶油色背景上的 Petit 星布谷地资料手册文字与苹果树小星球。"
+          : undefined,
       };
       for (const [name, content] of Object.entries(expectedMeta)) {
         const attribute = name.startsWith("og:") ? "property" : "name";
-        await expect(page.locator(`head meta[${attribute}="${name}"]`)).toHaveAttribute(
+        await expectOptionalAttribute(
+          page.locator(`head meta[${attribute}="${name}"]`),
           "content",
           content,
         );
       }
-      await expect(page.locator('head link[rel="canonical"]')).toHaveAttribute(
+      await expectOptionalAttribute(
+        page.locator('head link[rel="canonical"]'),
         "href",
-        `${siteOrigin}${path}`,
+        siteOrigin ? `${siteOrigin}${path}` : undefined,
       );
     } finally {
       await context.close();
@@ -61,8 +81,8 @@ test("搜索与客户端导航更新页面元数据，canonical 不包含展示�
   await page.goto("/?q=苹果&sort=energy-asc&view=list");
   const canonical = page.locator('head link[rel="canonical"]');
   const ogUrl = page.locator('head meta[property="og:url"]');
-  await expect(canonical).toHaveAttribute("href", `${siteOrigin}/`);
-  await expect(ogUrl).toHaveAttribute("content", `${siteOrigin}/`);
+  await expectOptionalAttribute(canonical, "href", siteOrigin ? `${siteOrigin}/` : undefined);
+  await expectOptionalAttribute(ogUrl, "content", siteOrigin ? `${siteOrigin}/` : undefined);
   await page
     .getByRole("navigation", { name: "主导航" })
     .getByRole("link", { name: "关于" })
@@ -72,15 +92,15 @@ test("搜索与客户端导航更新页面元数据，canonical 不包含展示�
     "content",
     "关于 Petit · 星布谷地资料手册",
   );
-  await expect(canonical).toHaveAttribute("href", `${siteOrigin}/about`);
-  await expect(ogUrl).toHaveAttribute("content", `${siteOrigin}/about`);
+  await expectOptionalAttribute(canonical, "href", siteOrigin ? `${siteOrigin}/about` : undefined);
+  await expectOptionalAttribute(ogUrl, "content", siteOrigin ? `${siteOrigin}/about` : undefined);
   await page
     .getByRole("navigation", { name: "主导航" })
     .getByRole("link", { name: "菜谱" })
     .click();
   await expect(page).toHaveTitle("Petit · 星布谷地资料手册");
-  await expect(canonical).toHaveAttribute("href", `${siteOrigin}/`);
-  await expect(ogUrl).toHaveAttribute("content", `${siteOrigin}/`);
+  await expectOptionalAttribute(canonical, "href", siteOrigin ? `${siteOrigin}/` : undefined);
+  await expectOptionalAttribute(ogUrl, "content", siteOrigin ? `${siteOrigin}/` : undefined);
 });
 
 test("分享图可从静态服务抓取，文件和声明的尺寸一致", async ({ request }) => {

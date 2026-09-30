@@ -105,6 +105,8 @@ export function useGuideImageViewer(gallery: Readonly<Ref<HTMLElement | null>>) 
           navbar: false,
           navigation: false,
           loop: false,
+          // Viewer.js 1.15.0 在非循环首尾预加载时会越界；禁用相邻图片预加载。
+          preload: false,
           rotatable: false,
           scalable: false,
           slideOnTouch: false,

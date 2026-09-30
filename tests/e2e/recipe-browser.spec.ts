@@ -180,7 +180,7 @@ test("搜索、刷新恢复和重复食材详情可用", async ({ page }) => {
     if (/hydration|mismatch/iu.test(message.text())) hydrationProblems.push(message.text());
   });
   await page.goto("/");
-  await expect(page).toHaveTitle("Petit");
+  await expect(page).toHaveTitle("Petit · 星布谷地资料手册");
   await expect(page.getByRole("heading", { level: 1, name: "菜谱速查" })).toBeVisible();
   await expect(page.getByRole("list", { name: "菜谱结果" }).getByRole("button")).toHaveCount(99);
   const search = page.getByLabel("搜索菜名、食材、词条或烹饪方式", { exact: true });
