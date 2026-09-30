@@ -1,12 +1,22 @@
 # 本地菜谱速查页面
 
-页面入口为 `/`，沿用 Nuxt 4、Vue 3、TypeScript、Tailwind CSS 4、petit-ui 和 Reka UI，不增加数据库或运行时服务端 API。站点标题仍为 Petit。页面消费[已校验的菜谱数据](../recipes.md)，不修改原始转录来迎合展示。
+页面入口为 `/`，沿用 Nuxt 4、Vue 3、TypeScript、Tailwind CSS 4、petit-ui 和 Reka UI，不增加数据库或运行时服务端 API。站点名称仍为 Petit。页面消费[已校验的菜谱数据](../recipes.md)，不修改原始转录来迎合展示。
 
 ## 站点定位与标识
 
 Petit 定位为非官方的《星布谷地》资料站，为菜谱以外的内容留出空间。全站页眉、页脚和关于页使用“资料手册”，浏览器标题保留 Petit，站点描述说明目前提供菜谱速查。品牌使用透明底、柔和游戏画风的 3D 苹果树小星球，以用户游戏截图作为画风参考，保持完整球形：草坡、奶油色地层、灌木和花朵覆盖上下半球，小瀑布连接前侧池塘，两棵树上的红苹果带有果柄和叶片。原有烟囱与深蓝色底部均已移除。页眉继续读取完整设计导出的 `public/brand-mark.png`；16／32 px favicon 共用独立简化原图，保留绿色球体、具有独立树冠和可见树干的苹果树、奶油分界和蓝色水流。风格参考图、原图、小尺寸对照与生成、编辑提示词见[品牌素材记录](../references/branding/cake-planet.md)。
 
 首页目前继续提供菜谱速查，导航保留“菜谱”和“关于”。菜谱栏目内的标题、搜索提示、索引标识与烹饪方式图标继续准确描述当前功能。关于页返回入口称为“返回首页”；新增其他内容栏目时再评估首页组织和路由调整。
+
+## 页面元数据与分享预览
+
+`shared/site.ts` 维护站点名称、默认正式地址 `https://petit.eruoo.dev`、默认标题与描述、关于页文案和分享图声明。该地址由用户确认，站点尚未部署。`app/composables/useSiteSeo.ts` 使用 [Nuxt 的 `useSeoMeta` 与 `useHead`](https://nuxt.com/docs/4.x/getting-started/seo-meta) 为静态 HTML 和客户端导航统一生成元数据。首页标题为“Petit · 星布谷地资料手册”，关于页为“关于 Petit · 星布谷地资料手册”，普通 description、Open Graph 与 Twitter/X 的标题和描述随页面一致更新。
+
+Open Graph 提供 `og:title`、`og:description`、`og:type=website`、`og:site_name=Petit`、`og:locale=zh_CN`、`og:url` 及图片地址、类型、尺寸和替代文字。Twitter/X 使用 `summary_large_image`，共用页面标题、描述、图片与替代文字。图片字段遵循 [Open Graph 的结构化图片属性](https://ogp.me/#structured)。没有对应的社交账号配置，因此不声明账号归属。
+
+`NUXT_PUBLIC_SITE_URL` 可在构建时覆盖默认正式地址，不能含用户名、密码、子路径、查询参数或片段。canonical 与 `og:url` 只包含该域名和规范化页面路径，去除尾部斜杠（首页保留 `/`），不包含搜索、排序、视图等展示参数。`og:image` 和 `twitter:image` 指向同域的绝对地址 `/og-image.png`。显式设置空字符串时，继续生成标题、描述和非地址类分享标签，省略 canonical、页面地址及图片标签；覆盖域名后须重新构建，步骤见[开发指南](../development.md#分享元数据与站点域名)。
+
+首页与关于页共用 1200 × 630 的静态 PNG 分享图，使用奶油色背景、站点名称、资料手册定位和现有苹果树小星球，注明目前提供菜谱速查。图片不依赖运行时生成服务；原图与重新导出方式见[品牌素材记录](../references/branding/cake-planet.md#分享图)。
 
 ## 关于与来源说明
 
