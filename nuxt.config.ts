@@ -55,6 +55,7 @@ export default defineNuxtConfig({
   nitro: {
     prerender: {
       failOnError: true,
+      routes: ["/robots.txt", ...(siteUrl ? ["/sitemap.xml"] : [])],
     },
   },
 });

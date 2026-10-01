@@ -90,7 +90,7 @@ pnpm build
 pnpm preview
 ```
 
-`wrangler.jsonc` 只提供静态资源目录，按[Workers SSG 配置](https://developers.cloudflare.com/workers/static-assets/routing/static-site-generation/)将未知路径返回为 404。静态部署不提供运行时服务端 API；新增动态页面时，需要保证构建阶段能枚举或抓取对应路由。
+`wrangler.jsonc` 按[Workers SSG 配置](https://developers.cloudflare.com/workers/static-assets/routing/static-site-generation/)提供静态资源目录，将未知路径返回为 404。`assets.html_handling` 显式使用 `drop-trailing-slash`，让 `/about` 与 `/recipes/<id>` 直接返回 200；带尾斜杠及 HTML 别名的请求重定向到无尾斜杠地址，与 canonical、站内链接保持一致，首页保留 `/`。静态部署不提供运行时服务端 API；新增动态页面时，需要保证构建阶段能枚举或抓取对应路由。当前配方页由首页的完整配方链接自动发现，内容与入口约定见[完整配方页与抓取入口](specs/recipe-browser.md#完整配方页与抓取入口)。
 
 当前配置用于本地验证和后续托管准备，尚未发布。用户已确认计划使用的正式域名，默认地址由 `shared/site.ts` 维护；该配置不代表已完成域名绑定或部署，首次发布前仍需确认 Cloudflare 账号、部署目标和域名绑定。
 
@@ -100,9 +100,11 @@ pnpm preview
 
 这是静态站点，canonical、Open Graph 页面地址和分享图片绝对地址在构建时写入 HTML；域名变化后需要重新构建，单独修改 Wrangler 的运行环境不会更新已有产物。显式将 `NUXT_PUBLIC_SITE_URL` 设为空字符串时，省略依赖域名的标签。元数据字段、页面差异与 URL 规则见[页面约定](specs/recipe-browser.md#页面元数据与分享预览)。
 
+`server/routes/robots.txt.get.ts` 与 `sitemap.xml.get.ts` 在构建时预渲染为 `.output/public/robots.txt` 和 `sitemap.xml`，不需要额外模块或部署运行时服务。robots 允许抓取全站并声明 sitemap 的绝对地址；sitemap 从 `currentRecipes` 枚举首页、关于页与全部配方页，使用与 canonical 一致的域名和路径，不包含展示参数或不存在的页面，也不填入缺乏可靠依据的 `lastmod`。两个文件同样随构建域名更新；显式空域名时只生成不含 Sitemap 声明的 robots，省略 sitemap，访问后者返回 404。
+
 `pnpm brand:og-image` 使用已安装的 Playwright Chromium，从 `public/brand-mark.svg` 和 HTML/CSS 排版生成 `public/og-image.png`；`pnpm brand:favicons` 用同一源文件导出 16／32 px PNG favicon。首次导出前运行 `pnpm exec playwright install chromium`。PNG 已纳入仓库，普通构建不要求生成图片或安装浏览器。字体使用系统字体，跨系统重新导出时须检查中文文字与布局，详见[品牌素材记录](references/branding/cake-planet.md#分享图)。
 
-`tests/e2e/seo.spec.ts` 检查首页和关于页在禁用脚本时的分享标签、客户端导航更新、不带展示参数的 canonical，以及分享 PNG 的静态响应和实际尺寸。Playwright 使用普通构建的默认正式域名；设置 `NUXT_PUBLIC_SITE_URL` 时沿用该值。测试从本地静态预览服务读取页面与图片，不请求正式域名。
+`tests/e2e/seo.spec.ts` 检查首页、关于页和代表性配方页在禁用脚本时的分享标签，覆盖品质要求、无特殊效果、概率产出和资料未说明的描述；同时验证客户端导航更新、不带展示参数的 canonical、规范地址的直接 200 与尾斜杠／HTML 别名重定向、分享 PNG 的静态响应和实际尺寸，以及 robots、sitemap 的内容、域名和全部条目的直接访问与 canonical 一致性。`recipe-pages.spec.ts` 验证首页链接覆盖全部当前配方、每个详情地址可直接抓取、无脚本时的食材与效果、弹窗与页面正文一致、手机布局与未知 ID 的 404。Playwright 使用普通构建的默认正式域名；设置 `NUXT_PUBLIC_SITE_URL` 时沿用该值，包括显式空域名。测试从本地静态预览服务读取页面与图片，不请求正式域名。
 
 ## Git hooks
 

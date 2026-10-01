@@ -1,11 +1,15 @@
-import { aboutPageMetadata, siteMetadata } from "#shared/site";
+import { toValue, type MaybeRefOrGetter } from "vue";
+import { siteMetadata } from "#shared/site";
 
-export function useSiteSeo() {
+interface PageMetadata {
+  title: string;
+  description: string;
+}
+
+export function useSiteSeo(metadata: MaybeRefOrGetter<PageMetadata> = siteMetadata) {
   const route = useRoute();
   const siteUrl = useRuntimeConfig().public.siteUrl;
-  const pageMetadata = computed(() =>
-    route.path.replace(/\/$/, "") === "/about" ? aboutPageMetadata : siteMetadata,
-  );
+  const pageMetadata = computed(() => toValue(metadata));
   // 搜索、排序与视图参数只改变菜谱展示，不创建独立页面。
   const canonicalUrl = computed(() => {
     if (!siteUrl) return undefined;

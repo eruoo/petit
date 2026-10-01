@@ -69,6 +69,13 @@ const rows = computed(() =>
           >
           <RecipeIcon v-if="view === 'list'" class="row-arrow" name="chevron" />
         </button>
+        <NuxtLink
+          :to="`/recipes/${row.recipe.id}`"
+          :prefetch="false"
+          class="recipe-page-link"
+          :aria-label="`${row.recipe.name.raw}的完整配方`"
+          >完整配方 <span aria-hidden="true">→</span></NuxtLink
+        >
       </li>
     </ul>
   </div>
@@ -114,6 +121,18 @@ const rows = computed(() =>
 }
 .recipe-row:focus-visible {
   outline-offset: -2px;
+}
+.recipe-page-link {
+  display: flex;
+  align-items: center;
+  gap: 0.35rem;
+  width: fit-content;
+  min-height: 32px;
+  margin: 0 0.65rem 0.35rem auto;
+  font-size: 0.72rem;
+  color: var(--petit-color-link);
+  text-decoration: underline;
+  text-underline-offset: 3px;
 }
 .recipe-title {
   display: grid;
@@ -273,12 +292,16 @@ const rows = computed(() =>
   grid-template-columns: repeat(auto-fill, minmax(154px, 1fr));
   gap: 0.7rem;
 }
+.recipe-list[data-view="grid"] > ul > li {
+  display: flex;
+  flex-direction: column;
+}
 .recipe-list[data-view="grid"] .recipe-row {
   grid-template-columns: minmax(0, 1fr) auto;
   grid-template-rows: auto 1fr auto;
   align-items: start;
   gap: 0.75rem 0.3rem;
-  height: 100%;
+  flex: 1;
   min-height: 0;
   padding: 0.8rem 0.65rem;
   border: 1px solid transparent;
