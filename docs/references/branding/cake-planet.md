@@ -1,37 +1,67 @@
 # 小星球品牌素材
 
-用户于 2026-09-28 要求将品牌图标改为以蛋糕为意象的 3D 小星球，并逐步加入草地、河流和奶油烟囱。2026-09-29 提供游戏场景截图后，要求将烟囱改为树，整张图按参考图重新设计；随后明确要求尽量保持完整球形、下半球采用与上半球相近的设计，并将树上果实改为苹果。当前版本由内置 `image_gen` 以上一版果树星球和游戏截图为参考重新设计，采用透明背景。
+当前品牌图标是 2026-10-01 重新设计的扁平矢量小星球。唯一源文件为 `public/brand-mark.svg`：页眉和 SVG favicon 直接引用它，16／32 px PNG favicon 与分享图由它导出。站点定位与使用方式见[页面约定](../../specs/recipe-browser.md#站点定位与标识)。
 
-新版以完整球形地形为主体，嫩绿草坡、奶油色地层、灌木和花朵延伸至下半球，小瀑布连接前侧池塘。两棵高低苹果树采用圆润叠叶树冠，红苹果具有顶部凹口、果柄和叶片。奶油色崖面保留蛋糕地层意象，旧版深蓝底部与烟囱均已移除。参考截图来源为用户提供图片，接收日期不代表图片拍摄日期或游戏版本；该截图仅保存在本地资料目录。站点定位与使用方式见[页面约定](../../specs/recipe-browser.md#站点定位与标识)。
+## 当前矢量星球图标
 
-| 文件                                         | 尺寸        | 用途                                           |
-| -------------------------------------------- | ----------- | ---------------------------------------------- |
-| `cake-planet-original.png`                   | 1254 × 1254 | 初版原图，作为编辑输入保留                     |
-| `cake-planet-grass-river.png`                | 1254 × 1254 | 顶部局部编辑版，作为整体重设计参考保留         |
-| `cake-planet-world.png`                      | 1254 × 1254 | 整体设计版，作为奶油烟囱编辑输入保留           |
-| `cake-planet-cream-chimney.png`              | 1254 × 1254 | 圆柱烟囱版，作为方形烟囱编辑输入保留           |
-| `cake-planet-square-chimney.png`             | 1254 × 1254 | 方柱烟囱版，作为游戏画风重绘的内容参考         |
-| `cake-planet-style-reference-2026-09-29.png` | 502 × 587   | 用户提供的游戏场景截图，仅用于画风参考         |
-| `cake-planet-soft-game.png`                  | 1254 × 1254 | 保留方形烟囱的旧版画风尝试                     |
-| `petit-planet-tree-world.png`                | 1254 × 1254 | 深蓝底部果树版，作为完整球形重设计的输入       |
-| `petit-planet-apple-globe.png`               | 1254 × 1254 | 当前版本，上下半球连续地形与红苹果树           |
-| `petit-favicon-32-source.png`                | 1254 × 1254 | 16／32 px favicon 共用简化原图，保留树冠和树干 |
-| `petit-favicon-16-source.png`                | 1254 × 1254 | 未采用的紧凑尝试，树干消失使树形不完整         |
-| `public/brand-mark.png`                      | 192 × 192   | 页眉，桌面显示 44 px、手机显示 38 px           |
-| `public/favicon-32.png`                      | 32 × 32     | 浏览器图标，使用保留树形的简化设计             |
-| `public/favicon-16.png`                      | 16 × 16     | 浏览器图标，与 32 px 共用保留树形的简化设计    |
+图标是一颗居中的完整圆形星球，透明背景，没有卫星、描边或高光条。256 × 256 画布中星球半径 108，四周各留 20（约 7.8%）。
 
-页眉资源由 `petit-planet-apple-globe.png` 等比例缩小。16／32 px favicon 均由 `petit-favicon-32-source.png` 缩小到对应尺寸，保留 alpha 透明通道。生成原图和风格参考图不进入公开静态资源目录，页面不需要加载原尺寸文件。
+| 元素     | 设计                                                                                               |
+| -------- | -------------------------------------------------------------------------------------------------- |
+| 草地     | 上半部，草绿渐变 `#8fe070` → `#5cc457`；3 个大小不同的凹陷陨石坑（`#43a246` 外圈、`#58bd52` 内圈） |
+| 河流     | 接近居中的波浪分界，亮蓝 `#3aaaf2` 实色，不加反光或河岸线                                          |
+| 地面     | 下半部，暖黄渐变 `#ffd765` → `#ffb93a`，承接蛋糕／曲奇意象                                         |
+| 曲奇点缀 | 3 颗高低错落、角度各异的巧克力豆（`#d9822e`），带右下投影 `#a95c1c` 与左上小亮面 `#f4b066`         |
+| 光照     | 草地与地面共用同一左上方向的渐变，边缘叠加 `#2c3570` 最高 20% 的球面阴影                           |
 
-2026-09-29 独立评审二次核查后，用户授权保留当前大图和页眉，优先简化 favicon。简化设计保留完整绿色球体、单棵苹果树、单个红苹果、奶油分界和蓝色水流。用户指出进一步压缩轮廓的 16 px 尝试丢失树形，因此该尝试仅作为历史记录保留；16／32 px 统一使用具有独立树冠和可见树干的简化原图。两份尝试均由内置 `image_gen` 编辑，不改写页眉原图。新旧实际尺寸和浅色、奶油色、深色底对照见[对照图](favicon-comparison-2026-09-29.png)。
+设计过程中用户确认的取舍：
 
-验证：三种底色的 1× 和 2× 像素密度浏览器渲染已检查；原图、页眉资源和页眉代码通过哈希确认未变化；`pnpm build` 通过，预览页面声明的 16／32 px 图标与文件一致，静态产物及 HTTP 响应和本地文件逐字节相同。2× 对照属于浏览器模拟，尚未完成跨浏览器原生标签栏或用户识别测试。
+- 最初的“放大镜观测星球”意向（镜片框住星球、星球旁放大镜、透视观察等构图）经多轮草稿后放弃，改为最简洁的单一星球。
+- 配色要求明亮活泼；曲奇只作点缀，不用棕色大面积铺满地面；草地与河流的色相差约 90°，避免小尺寸下混在一起。
+- 去掉右上卫星、星球高光、河流反光、深蓝河岸线，以及草簇、小花、糖粒等零碎装饰，只保留陨石坑与巧克力豆两组点缀；两组点缀按不等边三角形零散排布，避开河流与边缘。
+- 所有图标保持统一点缀，不另做去点缀的小尺寸版本。16 px 下点缀只剩 1～2 个像素，接受这一取舍以保持各处图标一致。
+
+| 文件                    | 尺寸              | 用途                                                 |
+| ----------------------- | ----------------- | ---------------------------------------------------- |
+| `public/brand-mark.svg` | viewBox 256 × 256 | 源文件；页眉（桌面 44 px、手机 38 px）与 SVG favicon |
+| `public/favicon-32.png` | 32 × 32           | 不支持 SVG 图标时的回退 favicon，由源文件导出        |
+| `public/favicon-16.png` | 16 × 16           | 同上                                                 |
+
+修改源文件后运行 `pnpm brand:favicons` 重新导出 PNG favicon，运行 `pnpm brand:og-image` 重新生成分享图。`scripts/generate-favicons.ts` 用 Playwright Chromium 以透明背景按 1× 像素密度截图。SVG 内的 `planet`、`grass`、`ground`、`shade` 是通用 ID，目前只通过 `<img>` 和图标链接引用，各自处于独立文档中；如需内联到页面，须先为这些 ID 加前缀，避免与页面元素冲突。
+
+验证：2026-10-01 接入时，`pnpm brand:favicons` 与 `pnpm brand:og-image` 的输出和用户确认的预览逐像素一致，PNG favicon 四角为全透明；`pnpm check`、`pnpm build` 与 `pnpm test:e2e` 通过，静态产物中的图标与分享图和 `public/` 文件逐字节相同，首页 HTML 声明 SVG 与 16／32 px PNG 图标，页眉在桌面和手机宽度下加载 SVG。标签栏效果只在 Playwright Chromium 中模拟检查，尚未在 Chrome、Safari、Firefox 原生标签栏中确认各浏览器实际选用的图标。
 
 ## 分享图
 
-`public/og-image.png` 是首页和关于页共用的 1200 × 630 静态分享图。奶油色背景承接站点配色，左侧为 Petit 名称、“星布谷地资料手册”和当前菜谱速查功能，右侧为既有 `petit-planet-apple-globe.png`。原图不重新生成或修改。
+`public/og-image.png` 是首页和关于页共用的 1200 × 630 静态分享图。奶油色背景承接站点配色，左侧为 Petit 名称、“星布谷地资料手册”和当前菜谱速查功能，右侧为 `public/brand-mark.svg` 渲染的 380 × 380 星球，垂直居中。
 
 排版源为 `scripts/generate-og-image.ts`，使用 HTML/CSS 与 Playwright Chromium 截图，等待字体和图片解码后导出 PNG。运行 `pnpm brand:og-image` 可重新生成，普通静态构建直接复制公开资源。脚本读取 `shared/site.ts` 中的站点名称和图片尺寸，元数据使用同一处的图片路径、尺寸与替代文字。字体沿用系统中文字体，跨系统导出可能出现字形变化，需检查文字是否完整、图片是否裁切。图片与字段的接入约定见[页面元数据与分享预览](../../specs/recipe-browser.md#页面元数据与分享预览)。
+
+## 历史版本：3D 蛋糕与苹果树星球
+
+以下为 2026-09-28 至 2026-09-29 使用的 3D 图标记录，已被当前矢量星球图标替代。原图和提示词保留在本目录供追溯，不再进入公开静态资源目录；当时的页眉资源 `public/brand-mark.png` 已删除，可从 Git 历史查阅。
+
+用户于 2026-09-28 要求将品牌图标改为以蛋糕为意象的 3D 小星球，并逐步加入草地、河流和奶油烟囱。2026-09-29 提供游戏场景截图后，要求将烟囱改为树，整张图按参考图重新设计；随后明确要求尽量保持完整球形、下半球采用与上半球相近的设计，并将树上果实改为苹果。该版本由内置 `image_gen` 以上一版果树星球和游戏截图为参考重新设计，采用透明背景。
+
+苹果树版以完整球形地形为主体，嫩绿草坡、奶油色地层、灌木和花朵延伸至下半球，小瀑布连接前侧池塘。两棵高低苹果树采用圆润叠叶树冠，红苹果具有顶部凹口、果柄和叶片。奶油色崖面保留蛋糕地层意象，旧版深蓝底部与烟囱均已移除。参考截图来源为用户提供图片，接收日期不代表图片拍摄日期或游戏版本；该截图仅保存在本地资料目录。
+
+| 文件                                         | 尺寸        | 用途                                     |
+| -------------------------------------------- | ----------- | ---------------------------------------- |
+| `cake-planet-original.png`                   | 1254 × 1254 | 初版原图，作为编辑输入保留               |
+| `cake-planet-grass-river.png`                | 1254 × 1254 | 顶部局部编辑版，作为整体重设计参考保留   |
+| `cake-planet-world.png`                      | 1254 × 1254 | 整体设计版，作为奶油烟囱编辑输入保留     |
+| `cake-planet-cream-chimney.png`              | 1254 × 1254 | 圆柱烟囱版，作为方形烟囱编辑输入保留     |
+| `cake-planet-square-chimney.png`             | 1254 × 1254 | 方柱烟囱版，作为游戏画风重绘的内容参考   |
+| `cake-planet-style-reference-2026-09-29.png` | 502 × 587   | 用户提供的游戏场景截图，仅用于画风参考   |
+| `cake-planet-soft-game.png`                  | 1254 × 1254 | 保留方形烟囱的旧版画风尝试               |
+| `petit-planet-tree-world.png`                | 1254 × 1254 | 深蓝底部果树版，作为完整球形重设计的输入 |
+| `petit-planet-apple-globe.png`               | 1254 × 1254 | 苹果树版主图，上下半球连续地形与红苹果树 |
+| `petit-favicon-32-source.png`                | 1254 × 1254 | 苹果树版 16／32 px favicon 共用简化原图  |
+| `petit-favicon-16-source.png`                | 1254 × 1254 | 未采用的紧凑尝试，树干消失使树形不完整   |
+
+当时页眉资源由 `petit-planet-apple-globe.png` 等比例缩小为 192 × 192 PNG，16／32 px favicon 均由 `petit-favicon-32-source.png` 缩小到对应尺寸。
+
+2026-09-29 独立评审二次核查后，用户授权保留当时的大图和页眉，优先简化 favicon。简化设计保留完整绿色球体、单棵苹果树、单个红苹果、奶油分界和蓝色水流。用户指出进一步压缩轮廓的 16 px 尝试丢失树形，因此该尝试仅作为历史记录保留。两份尝试均由内置 `image_gen` 编辑。新旧实际尺寸和浅色、奶油色、深色底对照见[对照图](favicon-comparison-2026-09-29.png)。
 
 ## 初版生成提示词
 
@@ -146,7 +176,7 @@ Overall hierarchy: rounded fruit trees + broad green meadows first, miniature pl
 Output one square transparent PNG, one complete isolated island-world only, centered with 7% clear padding around its entire silhouette including the tree. Keep all trees and the underside fully in frame. Genuine alpha transparency. Do NOT include the screenshot's ocean, starry background, horizon, floating particles, external shadow, blue crystal, lettering, logo, plate or pedestal.
 ```
 
-## 当前完整球形苹果树版提示词
+## 完整球形苹果树版提示词
 
 输入顺序：`petit-planet-tree-world.png` 为待调整图标，`cake-planet-style-reference-2026-09-29.png` 为画风参考。由内置 `image_gen` 重设计完整球形与下半球地形，并将果实改为苹果。
 
@@ -171,7 +201,7 @@ Maintain the screenshot's soft stylized game rendering, mottled grass texture, d
 One isolated complete spherical world, centered on a square transparent PNG, with 7% transparent safety margins around all extremities including trees. No ocean background, sky, stars, particles, text, outer glow, cast ground shadow, stand or plate. Genuine alpha transparency.
 ```
 
-## 当前 favicon 简化设计提示词
+## 苹果树版 favicon 简化设计提示词
 
 输入图片：`petit-planet-apple-globe.png`。由内置 `image_gen` 制作独立小尺寸设计，输出 `petit-favicon-32-source.png`，网页只加载由它缩小后的 16／32 px PNG。
 

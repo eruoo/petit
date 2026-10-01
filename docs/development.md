@@ -100,7 +100,7 @@ pnpm preview
 
 这是静态站点，canonical、Open Graph 页面地址和分享图片绝对地址在构建时写入 HTML；域名变化后需要重新构建，单独修改 Wrangler 的运行环境不会更新已有产物。显式将 `NUXT_PUBLIC_SITE_URL` 设为空字符串时，省略依赖域名的标签。元数据字段、页面差异与 URL 规则见[页面约定](specs/recipe-browser.md#页面元数据与分享预览)。
 
-`pnpm brand:og-image` 使用已安装的 Playwright Chromium，从现有品牌原图和 HTML/CSS 排版生成 `public/og-image.png`；首次导出前运行 `pnpm exec playwright install chromium`。PNG 已纳入仓库，普通构建不要求生成图片或安装浏览器。字体使用系统字体，跨系统重新导出时须检查中文文字与布局，详见[品牌素材记录](references/branding/cake-planet.md#分享图)。
+`pnpm brand:og-image` 使用已安装的 Playwright Chromium，从 `public/brand-mark.svg` 和 HTML/CSS 排版生成 `public/og-image.png`；`pnpm brand:favicons` 用同一源文件导出 16／32 px PNG favicon。首次导出前运行 `pnpm exec playwright install chromium`。PNG 已纳入仓库，普通构建不要求生成图片或安装浏览器。字体使用系统字体，跨系统重新导出时须检查中文文字与布局，详见[品牌素材记录](references/branding/cake-planet.md#分享图)。
 
 `tests/e2e/seo.spec.ts` 检查首页和关于页在禁用脚本时的分享标签、客户端导航更新、不带展示参数的 canonical，以及分享 PNG 的静态响应和实际尺寸。Playwright 使用普通构建的默认正式域名；设置 `NUXT_PUBLIC_SITE_URL` 时沿用该值。测试从本地静态预览服务读取页面与图片，不请求正式域名。
 

@@ -2,9 +2,7 @@ import { readFile } from "node:fs/promises";
 import { chromium } from "@playwright/test";
 import { siteMetadata } from "../shared/site.ts";
 
-const artwork = await readFile(
-  new URL("../docs/references/branding/petit-planet-apple-globe.png", import.meta.url),
-);
+const artwork = await readFile(new URL("../public/brand-mark.svg", import.meta.url));
 const browser = await chromium.launch();
 
 try {
@@ -35,8 +33,7 @@ try {
     h2 { margin: 28px 0 22px; font-size: 42px; font-weight: 650; letter-spacing: 1px; }
     .description { margin: 0; font-size: 25px; line-height: 1.7; color: #806b52; }
     .note { position: absolute; left: 80px; bottom: 58px; margin: 0; font-size: 19px; color: #8e7b61; }
-    .halo { position: absolute; top: 98px; right: 40px; width: 440px; height: 440px; border-radius: 50%; background: #edf0ce; }
-    img { position: absolute; top: 40px; right: 16px; width: 540px; height: 540px; object-fit: contain; }
+    img { position: absolute; top: 125px; right: 110px; width: 380px; height: 380px; }
   </style>
 </head>
 <body>
@@ -47,8 +44,7 @@ try {
       <h2>星布谷地资料手册</h2>
       <p class="description">目前提供菜谱速查<br>按菜名、食材、词条与烹饪方式查找配方</p>
     </div>
-    <div class="halo"></div>
-    <img src="data:image/png;base64,${artwork.toString("base64")}" alt="">
+    <img src="data:image/svg+xml;base64,${artwork.toString("base64")}" alt="">
     <p class="note">查阅配方，从这里开始。</p>
   </main>
 </body>

@@ -2,7 +2,7 @@
   <header class="site-header">
     <div class="header-inner">
       <NuxtLink to="/" class="brand" aria-label="Petit 首页">
-        <img class="brand-icon" src="/brand-mark.png" width="44" height="44" alt="" />
+        <img class="brand-icon" src="/brand-mark.svg" width="44" height="44" alt="" />
         <span>Petit<span class="brand-dot">.</span></span>
       </NuxtLink>
       <div class="header-context">

@@ -30,6 +30,7 @@ export default defineNuxtConfig({
       title: "Petit",
       htmlAttrs: { lang: "zh-CN" },
       link: [
+        { rel: "icon", type: "image/svg+xml", href: "/brand-mark.svg" },
         { rel: "icon", type: "image/png", sizes: "32x32", href: "/favicon-32.png" },
         { rel: "icon", type: "image/png", sizes: "16x16", href: "/favicon-16.png" },
       ],

@@ -48,14 +48,14 @@ for (const { path, title, description } of [
         "og:image:width": imageUrl ? "1200" : undefined,
         "og:image:height": imageUrl ? "630" : undefined,
         "og:image:alt": imageUrl
-          ? "奶油色背景上的 Petit 星布谷地资料手册文字与苹果树小星球。"
+          ? "奶油色背景上的 Petit 星布谷地资料手册文字与草地、河流和曲奇地面组成的小星球。"
           : undefined,
         "twitter:card": "summary_large_image",
         "twitter:title": title,
         "twitter:description": description,
         "twitter:image": imageUrl,
         "twitter:image:alt": imageUrl
-          ? "奶油色背景上的 Petit 星布谷地资料手册文字与苹果树小星球。"
+          ? "奶油色背景上的 Petit 星布谷地资料手册文字与草地、河流和曲奇地面组成的小星球。"
           : undefined,
       };
       for (const [name, content] of Object.entries(expectedMeta)) {

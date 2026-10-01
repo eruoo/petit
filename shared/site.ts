@@ -7,7 +7,7 @@ export const siteMetadata = {
     path: "/og-image.png",
     width: 1200,
     height: 630,
-    alt: "奶油色背景上的 Petit 星布谷地资料手册文字与苹果树小星球。",
+    alt: "奶油色背景上的 Petit 星布谷地资料手册文字与草地、河流和曲奇地面组成的小星球。",
   },
 } as const;
 
