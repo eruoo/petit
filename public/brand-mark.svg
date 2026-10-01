@@ -1,0 +1,18 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 256 256">
+  <defs>
+    <clipPath id="planet"><circle cx="113" cy="142" r="90"/></clipPath>
+    <linearGradient id="grass" gradientUnits="userSpaceOnUse" x1="50" y1="60" x2="176" y2="224"><stop offset="0" stop-color="#8fe070"/><stop offset="1" stop-color="#5cc457"/></linearGradient>
+    <linearGradient id="ground" gradientUnits="userSpaceOnUse" x1="50" y1="60" x2="176" y2="224"><stop offset="0" stop-color="#ffd765"/><stop offset="1" stop-color="#ffb93a"/></linearGradient>
+    <radialGradient id="shade" cx="38%" cy="30%" r="78%"><stop offset="0.6" stop-color="#2c3570" stop-opacity="0"/><stop offset="1" stop-color="#2c3570" stop-opacity="0.2"/></radialGradient>
+  </defs>
+  <g transform="translate(128 128) scale(1.2) translate(-113 -142)">
+    <circle cx="113" cy="142" r="90" fill="url(#grass)"/>
+    <g clip-path="url(#planet)">
+      <circle cx="88" cy="98" r="10" fill="#43a246"/><circle cx="90.2" cy="100.2" r="7.8" fill="#58bd52"/><circle cx="142" cy="74" r="6" fill="#43a246"/><circle cx="143.3" cy="75.3" r="4.7" fill="#58bd52"/><circle cx="166" cy="124" r="4.5" fill="#43a246"/><circle cx="167.0" cy="125.0" r="3.5" fill="#58bd52"/>
+      <path d="M11 146 Q62 118 113 146 T215 146 V246 H11 Z" fill="url(#ground)"/>
+      <path d="M-7 -3 Q-5 -8 1 -7 Q8 -6 7 0 Q6 7 -1 7 Q-8 6 -7 -3 Z" fill="#a95c1c" transform="translate(62.8 171.6) rotate(15) scale(0.9)"/><path d="M-7 -3 Q-5 -8 1 -7 Q8 -6 7 0 Q6 7 -1 7 Q-8 6 -7 -3 Z" fill="#d9822e" transform="translate(62 170) rotate(15) scale(0.9)"/><ellipse cx="-2.5" cy="-3" rx="2.6" ry="1.6" fill="#f4b066" transform="translate(62 170) rotate(15) scale(0.9)"/><path d="M-7 -3 Q-5 -8 1 -7 Q8 -6 7 0 Q6 7 -1 7 Q-8 6 -7 -3 Z" fill="#a95c1c" transform="translate(110.8 207.6) rotate(-30) scale(0.8)"/><path d="M-7 -3 Q-5 -8 1 -7 Q8 -6 7 0 Q6 7 -1 7 Q-8 6 -7 -3 Z" fill="#d9822e" transform="translate(110 206) rotate(-30) scale(0.8)"/><ellipse cx="-2.5" cy="-3" rx="2.6" ry="1.6" fill="#f4b066" transform="translate(110 206) rotate(-30) scale(0.8)"/><path d="M-7 -3 Q-5 -8 1 -7 Q8 -6 7 0 Q6 7 -1 7 Q-8 6 -7 -3 Z" fill="#a95c1c" transform="translate(156.8 187.6) rotate(40) scale(0.7)"/><path d="M-7 -3 Q-5 -8 1 -7 Q8 -6 7 0 Q6 7 -1 7 Q-8 6 -7 -3 Z" fill="#d9822e" transform="translate(156 186) rotate(40) scale(0.7)"/><ellipse cx="-2.5" cy="-3" rx="2.6" ry="1.6" fill="#f4b066" transform="translate(156 186) rotate(40) scale(0.7)"/>
+      <path d="M11 146 Q62 118 113 146 T215 146" fill="none" stroke="#3aaaf2" stroke-width="12"/>
+      <circle cx="113" cy="142" r="90" fill="url(#shade)"/>
+    </g>
+  </g>
+</svg>

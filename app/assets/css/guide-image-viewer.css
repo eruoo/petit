@@ -1,0 +1,90 @@
+/* Viewer.js 把预览插入 body；样式仅限定于图鉴预览实例。 */
+.guide-image-viewer.viewer-container {
+  background: rgb(31 29 25 / 96%);
+  color: #fff8e9;
+  overscroll-behavior: contain;
+}
+.guide-image-viewer .viewer-toolbar {
+  bottom: max(16px, env(safe-area-inset-bottom));
+  padding: 0 12px;
+}
+.guide-image-viewer .viewer-toolbar > ul {
+  display: grid;
+  grid-template-columns: repeat(7, minmax(0, 1fr));
+  gap: 6px;
+  width: min(100%, 610px);
+  padding: 0;
+  margin: 0 auto;
+  overflow: visible;
+}
+.guide-image-viewer .viewer-toolbar > ul > * {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: auto;
+  height: 44px;
+  margin: 0;
+  padding: 0 8px;
+  border: 1px solid rgb(255 248 233 / 25%);
+  border-radius: 8px;
+  background: #3f3b33;
+  color: #fff8e9;
+  font-size: 13px;
+  line-height: 1.4;
+  white-space: nowrap;
+  cursor: pointer;
+}
+.guide-image-viewer .viewer-toolbar > ul > *::before,
+.guide-image-viewer .viewer-button::before {
+  display: none;
+}
+.guide-image-viewer .viewer-toolbar > ul > *:hover {
+  background: #59513f;
+}
+.guide-image-viewer .viewer-toolbar [aria-disabled="true"] {
+  opacity: 0.4;
+  pointer-events: none;
+}
+.guide-image-viewer [tabindex="0"]:focus-visible,
+.guide-image-viewer a:focus-visible {
+  outline: 2px solid #f4d179;
+  outline-offset: 3px;
+}
+.guide-image-viewer .viewer-title {
+  bottom: calc(76px + env(safe-area-inset-bottom));
+  left: 16px;
+  right: 16px;
+  max-width: none;
+  margin: 0;
+  transform: none;
+  text-align: center;
+  color: #fff8e9;
+  font-size: 14px;
+  line-height: 1.7;
+  white-space: normal;
+  pointer-events: none;
+}
+.guide-image-viewer .viewer-button {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  top: max(16px, env(safe-area-inset-top));
+  right: max(16px, env(safe-area-inset-right));
+  width: 44px;
+  height: 44px;
+  border: 1px solid rgb(255 248 233 / 25%);
+  border-radius: 50%;
+  background: #3f3b33;
+  color: #fff8e9;
+  font-size: 28px;
+  line-height: 1;
+}
+@media (max-width: 600px) {
+  .guide-image-viewer .viewer-toolbar > ul {
+    grid-template-columns: repeat(4, minmax(0, 1fr));
+  }
+  .guide-image-viewer .viewer-title {
+    bottom: calc(126px + env(safe-area-inset-bottom));
+    font-size: 12px;
+  }
+}

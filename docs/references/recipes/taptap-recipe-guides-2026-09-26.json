@@ -1,0 +1,219 @@
+{
+  "savedOn": "2026-09-26",
+  "directory": "docs/references/recipes/taptap-recipe-guides-2026-09-26",
+  "scope": "胡萝卜炖肉、茄茄擂辣饭、蒜香流心奶面包与 9 月 24 日新增四道宴客菜所在的六张 TapTap 攻略原图。",
+  "originalBytesPreserved": true,
+  "standaloneDishIcons": false,
+  "notes": [
+    "保存完整原图，保留菜名、配方、圆形底色和作者署名；未裁切或重绘。",
+    "保存日期不作为原帖发布时间或游戏版本。",
+    "来源独立于 Wiki；Wiki 核对快照仍只覆盖 9 月 23 日的 90 条记录，不回写配方资料。"
+  ],
+  "files": [
+    {
+      "id": "taptap-851862566224266917-simple-2",
+      "author": "阿Zz",
+      "sourceType": "player-guide-image",
+      "postUrl": "https://www.taptap.cn/moment/851862566224266917",
+      "imageUrl": "https://img2-tc.tapimg.com/moment/etag/FhnyhID0H5FTqrcX9vilV1zHJqgm_20260923163604.jpg/_tap_ugc.jpg",
+      "localPath": "docs/references/recipes/taptap-recipe-guides-2026-09-26/simple-2.jpg",
+      "format": "JPEG",
+      "bytes": 110426,
+      "sha256": "5ceb5f8faefddfa5e8c7bb43de4cbefd09adaa6a0ab8060ad536afbfbc2fc82a",
+      "guideSection": "简单菜",
+      "imageNumber": 2,
+      "width": 1080,
+      "height": 1439,
+      "targetRecipes": [
+        {
+          "recipeId": "mt-20260923-simple-019",
+          "nameRaw": "胡萝卜炖肉",
+          "guideNameRaw": "胡萝卜炖肉",
+          "row": 3,
+          "status": "same-name-image-candidate",
+          "gameVerified": false,
+          "displayRegion": {
+            "x": 90,
+            "y": 565,
+            "width": 150,
+            "height": 150
+          }
+        }
+      ]
+    },
+    {
+      "id": "taptap-852148878751829285-signature-1",
+      "author": "阿Zz",
+      "sourceType": "player-guide-image",
+      "postUrl": "https://www.taptap.cn/moment/852148878751829285",
+      "imageUrl": "https://img2-tc.tapimg.com/moment/etag/FgaP2gm12_Wr6Y0eIpOrQ4X61OVE_20260924113429.jpg/_tap_ugc.jpg",
+      "localPath": "docs/references/recipes/taptap-recipe-guides-2026-09-26/signature-1.jpg",
+      "format": "JPEG",
+      "bytes": 131026,
+      "sha256": "e9b66b10f6f5a0d4fd0f59956a84113c0187fa507e58ae3663e82efc36dd66f9",
+      "guideSection": "招牌菜",
+      "imageNumber": 1,
+      "width": 1080,
+      "height": 1439,
+      "targetRecipes": [
+        {
+          "recipeId": "mt-20260923-signature-003",
+          "nameRaw": "茄茄擂辣饭",
+          "guideNameRaw": "茄茄擂辣饭",
+          "row": 4,
+          "status": "same-name-image-candidate",
+          "gameVerified": false,
+          "displayRegion": {
+            "x": 90,
+            "y": 749,
+            "width": 150,
+            "height": 150
+          }
+        }
+      ]
+    },
+    {
+      "id": "taptap-852148878751829285-signature-3",
+      "author": "阿Zz",
+      "sourceType": "player-guide-image",
+      "postUrl": "https://www.taptap.cn/moment/852148878751829285",
+      "imageUrl": "https://img2-tc.tapimg.com/moment/etag/FsZYOwYgZaGn1z_GUd6Q6xFirI8v_20260924113429.jpg/_tap_ugc.jpg",
+      "localPath": "docs/references/recipes/taptap-recipe-guides-2026-09-26/signature-3.jpg",
+      "format": "JPEG",
+      "bytes": 120008,
+      "sha256": "ad7c10b8cce1f630faa0d0fd5c0cd8abbf960769e4c63e1e0ecb3ca2c2b3716c",
+      "guideSection": "招牌菜",
+      "imageNumber": 3,
+      "width": 1080,
+      "height": 1439,
+      "targetRecipes": [
+        {
+          "recipeId": "mt-20260923-signature-024",
+          "nameRaw": "蒜香流心奶面包",
+          "guideNameRaw": "蒜香流心奶面包",
+          "row": 5,
+          "status": "same-name-image-candidate",
+          "gameVerified": false,
+          "displayRegion": {
+            "x": 90,
+            "y": 932,
+            "width": 150,
+            "height": 150
+          }
+        }
+      ]
+    },
+    {
+      "id": "taptap-852582459005469363-guest-1",
+      "author": "阿Zz",
+      "sourceType": "player-guide-image",
+      "postUrl": "https://www.taptap.cn/moment/852582459005469363",
+      "imageUrl": "https://img2-tc.tapimg.com/moment/etag/FgPBZYSRsFoMtbeFUwLeh9LS-7fq_20260925161637.jpg/_tap_ugc.jpg",
+      "localPath": "docs/references/recipes/taptap-recipe-guides-2026-09-26/guest-1.jpg",
+      "format": "JPEG",
+      "bytes": 145073,
+      "sha256": "06d6d6aa9ab16ddd4baaabe48cb1688ac459b1ae6fcea9e994ee636dbff65123",
+      "guideSection": "宴客菜",
+      "imageNumber": 1,
+      "width": 1080,
+      "height": 1439,
+      "targetRecipes": [
+        {
+          "recipeId": "mt-20260924-guest-012",
+          "nameRaw": "梦幻草莓奶蛋糕",
+          "guideNameRaw": "梦幻草莓奶蛋糕",
+          "row": 6,
+          "guideCatalogNumberRaw": "061",
+          "status": "same-name-image-candidate",
+          "gameVerified": false,
+          "displayRegion": {
+            "x": 90,
+            "y": 1115,
+            "width": 150,
+            "height": 150
+          }
+        }
+      ]
+    },
+    {
+      "id": "taptap-852582459005469363-guest-2",
+      "author": "阿Zz",
+      "sourceType": "player-guide-image",
+      "postUrl": "https://www.taptap.cn/moment/852582459005469363",
+      "imageUrl": "https://img2-tc.tapimg.com/moment/etag/FjYH8U-FerTjByEipRjQWxNz2r8B_20260925161637.jpg/_tap_ugc.jpg",
+      "localPath": "docs/references/recipes/taptap-recipe-guides-2026-09-26/guest-2.jpg",
+      "format": "JPEG",
+      "bytes": 141245,
+      "sha256": "3ec492d483d58cbd7cae4f40d69ec43ae9d4895fff3f3fa35306aece22072005",
+      "guideSection": "宴客菜",
+      "imageNumber": 2,
+      "width": 1080,
+      "height": 1439,
+      "targetRecipes": [
+        {
+          "recipeId": "mt-20260924-guest-013",
+          "nameRaw": "梦幻星莓漫游派",
+          "guideNameRaw": "梦幻星莓漫游派",
+          "row": 1,
+          "guideCatalogNumberRaw": "062",
+          "status": "same-name-image-candidate",
+          "gameVerified": false,
+          "displayRegion": {
+            "x": 90,
+            "y": 197,
+            "width": 150,
+            "height": 150
+          }
+        },
+        {
+          "recipeId": "mt-20260924-guest-004",
+          "nameRaw": "梦幻金玉满堂饭",
+          "guideNameRaw": "梦幻金玉满堂饭",
+          "row": 5,
+          "guideCatalogNumberRaw": "100",
+          "status": "same-name-image-candidate",
+          "gameVerified": false,
+          "displayRegion": {
+            "x": 90,
+            "y": 932,
+            "width": 150,
+            "height": 150
+          }
+        }
+      ]
+    },
+    {
+      "id": "taptap-852582459005469363-guest-3",
+      "author": "阿Zz",
+      "sourceType": "player-guide-image",
+      "postUrl": "https://www.taptap.cn/moment/852582459005469363",
+      "imageUrl": "https://img2-tc.tapimg.com/moment/etag/FiURXwk0DpWVZkvrDNlMq3G0X7vY_20260925161637.jpg/_tap_ugc.jpg",
+      "localPath": "docs/references/recipes/taptap-recipe-guides-2026-09-26/guest-3.jpg",
+      "format": "JPEG",
+      "bytes": 77819,
+      "sha256": "9be0b062a48cbd6f61e29bb49af2d1ac73b747fb26f6b823fa10fd67c1d9f29c",
+      "guideSection": "宴客菜",
+      "imageNumber": 3,
+      "width": 1080,
+      "height": 1439,
+      "targetRecipes": [
+        {
+          "recipeId": "mt-20260924-guest-014",
+          "nameRaw": "梦幻番茄汤汁面",
+          "guideNameRaw": "梦幻番茄汤汁面",
+          "row": 2,
+          "guideCatalogNumberRaw": "113",
+          "status": "same-name-image-candidate",
+          "gameVerified": false,
+          "displayRegion": {
+            "x": 90,
+            "y": 380,
+            "width": 150,
+            "height": 150
+          }
+        }
+      ]
+    }
+  ],
+  "totalBytes": 725597
+}

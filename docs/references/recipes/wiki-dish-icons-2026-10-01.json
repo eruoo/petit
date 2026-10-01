@@ -1,0 +1,354 @@
+{
+  "checkedOn": "2026-10-01",
+  "scope": "为七道秘制菜补充 Wiki 独立 PNG 候选，并将四道低清 TapTap 配图替换为高清 Wiki PNG；甜饼果茶继续缺图。",
+  "wikiCatalogUrl": "https://petitplanet.wiki/Category:Dish_Icons",
+  "wikiMetadataApi": "https://petitplanet.wiki/api.php",
+  "existingFilesManifest": "docs/references/recipes/wiki-dish-icons-2026-09-26.json",
+  "comparisonMethod": "核对本轮 Wiki 菜谱正文、imageinfo 元数据与 PNG 原文件的 SHA-1、字节数和尺寸，逐张查看图形。七道秘制菜依据英文条目与外观线索建立候选；四道替换配图与已归档 TapTap 中文标签旁图形逐项匹配。五张复用旧原文件，六张新增原件保存原始字节；配图资料不改写菜谱、友邻或品质来源。",
+  "files": [
+    {
+      "id": "petitplanet-wiki-file-9327",
+      "title": "File:Crimson Tassel Peach Bun Icon.png",
+      "filePageUrl": "https://petitplanet.wiki/File:Crimson_Tassel_Peach_Bun_Icon.png",
+      "originalUrl": "https://petitplanet.wiki/images/f/fd/Crimson_Tassel_Peach_Bun_Icon.png",
+      "width": 512,
+      "height": 512,
+      "bytes": 165450,
+      "sha1": "966e84580d66d82b0f188082fe87f56960790f46",
+      "sha256": "05e1e2cfe189aafb547d88c2839dda3c47f114964c00d1b8e08160b6daf43020",
+      "wikiUploadTimestamp": "2026-09-27T19:36:20Z",
+      "localPath": "docs/references/recipes/wiki-dish-icons-2026-10-01/Crimson_Tassel_Peach_Bun_Icon.png"
+    },
+    {
+      "id": "petitplanet-wiki-file-9337",
+      "title": "File:Fruit Fiesta Donut Icon.png",
+      "filePageUrl": "https://petitplanet.wiki/File:Fruit_Fiesta_Donut_Icon.png",
+      "originalUrl": "https://petitplanet.wiki/images/6/61/Fruit_Fiesta_Donut_Icon.png",
+      "width": 512,
+      "height": 512,
+      "bytes": 213786,
+      "sha1": "1e97f6ac0e1d6edf1af552a09dd155098d8267f1",
+      "sha256": "75613c658fc8406442c683ba02488f07ab4a6e2ef0b71b3ca646825e2eac85e0",
+      "wikiUploadTimestamp": "2026-09-27T21:39:48Z",
+      "localPath": "docs/references/recipes/wiki-dish-icons-2026-10-01/Fruit_Fiesta_Donut_Icon.png"
+    },
+    {
+      "id": "petitplanet-wiki-file-9299",
+      "title": "File:Carrot & Meat Stew Icon.png",
+      "filePageUrl": "https://petitplanet.wiki/File:Carrot_%26_Meat_Stew_Icon.png",
+      "originalUrl": "https://petitplanet.wiki/images/8/87/Carrot_%26_Meat_Stew_Icon.png",
+      "width": 512,
+      "height": 512,
+      "bytes": 178859,
+      "sha1": "a6eb606e2de48f1fbada48a119fc39aabf999c67",
+      "sha256": "4878b3b6bcc81ae5e91ac73f88fe727320b8383538098675398721cc77fc4078",
+      "wikiUploadTimestamp": "2026-09-27T09:00:17Z",
+      "localPath": "docs/references/recipes/wiki-dish-icons-2026-10-01/Carrot_&_Meat_Stew_Icon.png"
+    },
+    {
+      "id": "petitplanet-wiki-file-9317",
+      "title": "File:Cream Cheese Garlic Bun Icon.png",
+      "filePageUrl": "https://petitplanet.wiki/File:Cream_Cheese_Garlic_Bun_Icon.png",
+      "originalUrl": "https://petitplanet.wiki/images/c/c9/Cream_Cheese_Garlic_Bun_Icon.png",
+      "width": 512,
+      "height": 512,
+      "bytes": 130967,
+      "sha1": "d1f4ba6de8cfa11e6848fcf9cc394cf874aab232",
+      "sha256": "674ed759ee39b93dfe4bdb179ae5f4b65c1cb5b5db12bf58b8324391f4109e54",
+      "wikiUploadTimestamp": "2026-09-27T14:25:26Z",
+      "localPath": "docs/references/recipes/wiki-dish-icons-2026-10-01/Cream_Cheese_Garlic_Bun_Icon.png"
+    },
+    {
+      "id": "petitplanet-wiki-file-9358",
+      "title": "File:Dreamy Golden Fried Rice Icon.png",
+      "filePageUrl": "https://petitplanet.wiki/File:Dreamy_Golden_Fried_Rice_Icon.png",
+      "originalUrl": "https://petitplanet.wiki/images/7/77/Dreamy_Golden_Fried_Rice_Icon.png",
+      "width": 512,
+      "height": 512,
+      "bytes": 199918,
+      "sha1": "688f3d014e661c6b653864961b227475df9a5d33",
+      "sha256": "23eb215743b64e4d83d03d0ddb76b079ac88cd9a55f5b414c2642b8970da93cd",
+      "wikiUploadTimestamp": "2026-09-28T12:09:00Z",
+      "localPath": "docs/references/recipes/wiki-dish-icons-2026-10-01/Dreamy_Golden_Fried_Rice_Icon.png"
+    },
+    {
+      "id": "petitplanet-wiki-file-9401",
+      "title": "File:Dreamy Strawberry Shortcake Icon.png",
+      "filePageUrl": "https://petitplanet.wiki/File:Dreamy_Strawberry_Shortcake_Icon.png",
+      "originalUrl": "https://petitplanet.wiki/images/3/36/Dreamy_Strawberry_Shortcake_Icon.png",
+      "width": 512,
+      "height": 512,
+      "bytes": 185116,
+      "sha1": "1a4c66c285de7427e3845426dcab5cf0c81edd43",
+      "sha256": "f4c9b841f91bd51974beb90c7d6f09789b659b99c44e21683d416651c9f7309b",
+      "wikiUploadTimestamp": "2026-09-28T21:44:23Z",
+      "localPath": "docs/references/recipes/wiki-dish-icons-2026-10-01/Dreamy_Strawberry_Shortcake_Icon.png"
+    }
+  ],
+  "recipes": [
+    {
+      "recipeId": "xm-0927-neighbor-002",
+      "recipeNameRaw": "独角仙米面包",
+      "originalSource": {
+        "sourceId": "xiaoming-0930-image",
+        "region": "neighbor",
+        "row": 2
+      },
+      "candidateFileId": "petitplanet-wiki-file-3887",
+      "status": "english-entry-candidate",
+      "gameVerified": false,
+      "evidence": {
+        "wikiEntryUrl": "https://petitplanet.wiki/Kabuto_Rice_Bun",
+        "wikiRecipeSourceRaw": "Isaki"
+      },
+      "notes": [
+        "英文菜名、独角仙外形与 Isaki 友邻来源提供对应线索；Wiki 的稻米／水果配方与主图双水果不同，保留主图配方。",
+        "以英文条目和外观线索建立图片候选，尚无逐项中文标签图桥接；品级底色读取当前主图品质记录，不从 Wiki 颜色或数值推断。"
+      ]
+    },
+    {
+      "recipeId": "xm-0927-neighbor-003",
+      "recipeNameRaw": "冬虫夏草煲",
+      "originalSource": {
+        "sourceId": "xiaoming-0930-image",
+        "region": "neighbor",
+        "row": 3
+      },
+      "candidateFileId": "petitplanet-wiki-file-3891",
+      "status": "english-entry-candidate",
+      "gameVerified": false,
+      "evidence": {
+        "wikiEntryUrl": "https://petitplanet.wiki/Caterpillar_Fungus_Herbal_Remedy",
+        "wikiRecipeSourceRaw": "Dorjelang"
+      },
+      "notes": [
+        "英文菜名、虫草煲图形及 Dorjelang 友邻来源提供对应线索；Wiki 的蘑菇／蔬菜配方与主图三槽食材不同。",
+        "以英文条目和外观线索建立图片候选，尚无逐项中文标签图桥接；品级底色读取当前主图品质记录，不从 Wiki 颜色或数值推断。"
+      ]
+    },
+    {
+      "recipeId": "xm-0927-neighbor-004",
+      "recipeNameRaw": "卡拉红汁炖肉",
+      "originalSource": {
+        "sourceId": "xiaoming-0930-image",
+        "region": "neighbor",
+        "row": 4
+      },
+      "candidateFileId": "petitplanet-wiki-file-3908",
+      "status": "english-entry-candidate",
+      "gameVerified": false,
+      "evidence": {
+        "wikiEntryUrl": "https://petitplanet.wiki/Carapulcra_Stew",
+        "wikiRecipeSourceRaw": "Harpeno"
+      },
+      "notes": [
+        "英文菜名、红褐色炖肉图形及 Harpeno 家传菜谱说明提供对应线索。",
+        "以英文条目和外观线索建立图片候选，尚无逐项中文标签图桥接；品级底色读取当前主图品质记录，不从 Wiki 颜色或数值推断。"
+      ]
+    },
+    {
+      "recipeId": "xm-0927-neighbor-005",
+      "recipeNameRaw": "露营方便烤鱼",
+      "originalSource": {
+        "sourceId": "xiaoming-0930-image",
+        "region": "neighbor",
+        "row": 5
+      },
+      "candidateFileId": "petitplanet-wiki-file-3935",
+      "status": "english-entry-candidate",
+      "gameVerified": false,
+      "evidence": {
+        "wikiEntryUrl": "https://petitplanet.wiki/Campfire-Grilled_Fish",
+        "wikiRecipeSourceRaw": "Msafiri"
+      },
+      "notes": [
+        "英文菜名、烤鱼图形、双鱼配方及 Msafiri 友邻来源提供对应线索。",
+        "以英文条目和外观线索建立图片候选，尚无逐项中文标签图桥接；品级底色读取当前主图品质记录，不从 Wiki 颜色或数值推断。"
+      ]
+    },
+    {
+      "recipeId": "xm-0930-neighbor-006",
+      "recipeNameRaw": "红糯绛桃包",
+      "originalSource": {
+        "sourceId": "xiaoming-0930-image",
+        "region": "neighbor",
+        "row": 6
+      },
+      "candidateFileId": "petitplanet-wiki-file-9327",
+      "status": "english-entry-candidate",
+      "gameVerified": false,
+      "evidence": {
+        "wikiEntryUrl": "https://petitplanet.wiki/Crimson_Tassel_Peach_Bun",
+        "wikiRecipeSourceRaw": "Manna"
+      },
+      "notes": [
+        "英文菜名和桃形包图案提供对应线索；主图中文菜名仍为待核对状态，图片接入不构成菜名或友邻原文确认。",
+        "以英文条目和外观线索建立图片候选，尚无逐项中文标签图桥接；品级底色读取当前主图品质记录，不从 Wiki 颜色或数值推断。"
+      ]
+    },
+    {
+      "recipeId": "xm-0930-neighbor-007",
+      "recipeNameRaw": "百果甜甜圈",
+      "originalSource": {
+        "sourceId": "xiaoming-0930-image",
+        "region": "neighbor",
+        "row": 7
+      },
+      "candidateFileId": "petitplanet-wiki-file-9337",
+      "status": "english-entry-candidate",
+      "gameVerified": false,
+      "evidence": {
+        "wikiEntryUrl": "https://petitplanet.wiki/Fruit_Fiesta_Donut",
+        "wikiRecipeSourceRaw": "Tika"
+      },
+      "notes": [
+        "英文菜名、果饰甜甜圈图形及 Tika 友邻来源提供对应线索；Wiki 的水果与主图鱼类存在配方差异。",
+        "以英文条目和外观线索建立图片候选，尚无逐项中文标签图桥接；品级底色读取当前主图品质记录，不从 Wiki 颜色或数值推断。"
+      ]
+    },
+    {
+      "recipeId": "xm-0930-neighbor-008",
+      "recipeNameRaw": "轰炸大菇肉",
+      "originalSource": {
+        "sourceId": "xiaoming-0930-image",
+        "region": "neighbor",
+        "row": 8
+      },
+      "candidateFileId": "petitplanet-wiki-file-3889",
+      "status": "english-entry-candidate",
+      "gameVerified": false,
+      "evidence": {
+        "wikiEntryUrl": "https://petitplanet.wiki/BBQ_Meatshrooms",
+        "wikiRecipeSourceRaw": "Rebella",
+        "chineseNameReferenceUrl": "https://www.taptap.cn/moment/800372249709250367"
+      },
+      "notes": [
+        "英文菜名与烤菇肉图形提供对应线索；Wiki 来源为 Rebella，中文玩家帖关联热贝尔，与主图绵朵莉不同。仍保留主图友邻、未说明配方、未知力气与效果状态。",
+        "以英文条目和外观线索建立图片候选，尚无逐项中文标签图桥接；品级底色读取当前主图品质记录，不从 Wiki 颜色或数值推断。"
+      ]
+    },
+    {
+      "recipeId": "mt-20260924-simple-019",
+      "recipeNameRaw": "胡萝卜炖肉",
+      "originalSource": {
+        "sourceId": "xiaoming-0930-image",
+        "region": "simple",
+        "row": 25
+      },
+      "candidateFileId": "petitplanet-wiki-file-9299",
+      "status": "visual-candidate",
+      "gameVerified": false,
+      "evidence": {
+        "wikiEntryUrl": "https://petitplanet.wiki/Carrot_%26_Meat_Stew",
+        "guide": {
+          "postUrl": "https://www.taptap.cn/moment/851862566224266917",
+          "imageUrl": "https://img2-tc.tapimg.com/moment/etag/FhnyhID0H5FTqrcX9vilV1zHJqgm_20260923163604.jpg/_tap_ugc.jpg",
+          "sheet": "simple-2",
+          "row": 3,
+          "nameRaw": "胡萝卜炖肉",
+          "nameMatch": "same-name-candidate"
+        },
+        "visualComparison": "黄色碗、胡萝卜花形切片与肉块与已归档 TapTap 菜名旁图标逐项目视匹配。"
+      },
+      "notes": [
+        "以 Wiki 512 × 512 透明 PNG 替换原 TapTap 150 × 150 显示区域；原攻略图及坐标保留归档。",
+        "品级底色读取当前主图品质记录，图片接入不改写配方或游戏验证状态。"
+      ]
+    },
+    {
+      "recipeId": "mt-20260924-signature-025",
+      "recipeNameRaw": "蒜香流心奶黄包",
+      "originalSource": {
+        "sourceId": "xiaoming-0930-image",
+        "region": "signature",
+        "row": 32
+      },
+      "candidateFileId": "petitplanet-wiki-file-9317",
+      "status": "name-variant-visual-candidate",
+      "gameVerified": false,
+      "evidence": {
+        "wikiEntryUrl": "https://petitplanet.wiki/Cream_Cheese_Garlic_Bun",
+        "guide": {
+          "postUrl": "https://www.taptap.cn/moment/852148878751829285",
+          "imageUrl": "https://img2-tc.tapimg.com/moment/etag/FsZYOwYgZaGn1z_GUd6Q6xFirI8v_20260924113429.jpg/_tap_ugc.jpg",
+          "sheet": "signature-3",
+          "row": 5,
+          "nameRaw": "蒜香流心奶面包",
+          "nameMatch": "name-variant-candidate"
+        },
+        "visualComparison": "方形木板上的蒜香面包和流心切块与已归档 TapTap 菜名旁图标逐项目视匹配。"
+      },
+      "notes": [
+        "以 Wiki 512 × 512 透明 PNG 替换原 TapTap 150 × 150 显示区域；原攻略图及坐标保留归档。",
+        "品级底色读取当前主图品质记录，图片接入不改写配方或游戏验证状态。",
+        "当前主图菜名为蒜香流心奶黄包，TapTap 标签为蒜香流心奶面包；保留异名候选状态。"
+      ]
+    },
+    {
+      "recipeId": "mt-20260924-guest-004",
+      "recipeNameRaw": "梦幻金玉满堂饭",
+      "originalSource": {
+        "sourceId": "xiaoming-0930-image",
+        "region": "guest",
+        "row": 11
+      },
+      "candidateFileId": "petitplanet-wiki-file-9358",
+      "status": "visual-candidate",
+      "gameVerified": false,
+      "evidence": {
+        "wikiEntryUrl": "https://petitplanet.wiki/Dreamy_Golden_Fried_Rice",
+        "guide": {
+          "postUrl": "https://www.taptap.cn/moment/852582459005469363",
+          "imageUrl": "https://img2-tc.tapimg.com/moment/etag/FjYH8U-FerTjByEipRjQWxNz2r8B_20260925161637.jpg/_tap_ugc.jpg",
+          "sheet": "guest-2",
+          "row": 5,
+          "nameRaw": "梦幻金玉满堂饭",
+          "nameMatch": "same-name-candidate"
+        },
+        "visualComparison": "黄色盘、米饭顶煎蛋及周围虾仁与已归档 TapTap 菜名旁图标逐项目视匹配。"
+      },
+      "notes": [
+        "以 Wiki 512 × 512 透明 PNG 替换原 TapTap 150 × 150 显示区域；原攻略图及坐标保留归档。",
+        "品级底色读取当前主图品质记录，图片接入不改写配方或游戏验证状态。"
+      ]
+    },
+    {
+      "recipeId": "mt-20260924-guest-012",
+      "recipeNameRaw": "梦幻草莓奶蛋糕",
+      "originalSource": {
+        "sourceId": "xiaoming-0930-image",
+        "region": "guest",
+        "row": 12
+      },
+      "candidateFileId": "petitplanet-wiki-file-9401",
+      "status": "visual-candidate",
+      "gameVerified": false,
+      "evidence": {
+        "wikiEntryUrl": "https://petitplanet.wiki/Dreamy_Strawberry_Shortcake",
+        "guide": {
+          "postUrl": "https://www.taptap.cn/moment/852582459005469363",
+          "imageUrl": "https://img2-tc.tapimg.com/moment/etag/FgPBZYSRsFoMtbeFUwLeh9LS-7fq_20260925161637.jpg/_tap_ugc.jpg",
+          "sheet": "guest-1",
+          "row": 6,
+          "nameRaw": "梦幻草莓奶蛋糕",
+          "nameMatch": "same-name-candidate"
+        },
+        "visualComparison": "粉色多层蛋糕、绿色缎带及顶部草莓与已归档 TapTap 菜名旁图标逐项目视匹配。"
+      },
+      "notes": [
+        "以 Wiki 512 × 512 透明 PNG 替换原 TapTap 150 × 150 显示区域；原攻略图及坐标保留归档。",
+        "品级底色读取当前主图品质记录，图片接入不改写配方或游戏验证状态。"
+      ]
+    }
+  ],
+  "unmatchedRecipeIds": ["xm-0927-neighbor-006"],
+  "localArchive": {
+    "savedOn": "2026-10-01",
+    "directory": "docs/references/recipes/wiki-dish-icons-2026-10-01",
+    "fileCount": 6,
+    "totalBytes": 1074096,
+    "format": "PNG",
+    "originalBytesPreserved": true,
+    "verification": "本轮十一张候选均为 512 × 512 RGBA PNG，SHA-1 与 Wiki imageinfo 一致。五张复用旧清单及原文件，六张新增原件记录 SHA-256、字节数和原图 URL。"
+  }
+}

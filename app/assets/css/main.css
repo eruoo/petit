@@ -6,3 +6,83 @@
     @apply bg-petit-background text-petit-foreground antialiased;
   }
 }
+
+@layer base {
+  html {
+    color-scheme: light;
+    scroll-behavior: smooth;
+  }
+  body {
+    font-family:
+      -apple-system, BlinkMacSystemFont, "Segoe UI", "PingFang SC", "Hiragino Sans GB",
+      "Microsoft YaHei", sans-serif;
+  }
+  button:not(:disabled),
+  summary,
+  select {
+    cursor: pointer;
+  }
+  :where(button, a, input, select, summary, [tabindex]):focus-visible {
+    outline: 2px solid var(--petit-color-focus);
+    outline-offset: 3px;
+  }
+  ::selection {
+    background: var(--petit-color-primary);
+    color: var(--petit-color-on-primary);
+  }
+}
+
+@layer components {
+  .dish-quality[data-quality="blue"] {
+    --dish-quality-background: #dceaf0;
+    --dish-quality-foreground: #365f78;
+  }
+  .dish-quality[data-quality="purple"] {
+    --dish-quality-background: #e8dcf0;
+    --dish-quality-foreground: #704985;
+  }
+  .dish-quality[data-quality="gold"] {
+    --dish-quality-background: #f5dfb8;
+    --dish-quality-foreground: #805719;
+  }
+  .icon-button {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    transition: background 0.15s ease;
+  }
+  .icon-button:hover {
+    background: var(--petit-color-surface-hover);
+  }
+  .icon-button svg {
+    width: 18px;
+    height: 18px;
+  }
+  .primary-button {
+    padding: 0.75rem 1.25rem;
+    min-height: 44px;
+    border-radius: 0.5rem;
+    background: var(--petit-color-primary);
+    color: var(--petit-color-on-primary);
+    font-size: 0.85rem;
+    font-weight: 700;
+    transition: background 0.15s ease;
+  }
+  .primary-button:hover {
+    background: var(--petit-color-primary-hover);
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    scroll-behavior: auto !important;
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+  }
+}
