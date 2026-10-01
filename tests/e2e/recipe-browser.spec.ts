@@ -17,10 +17,12 @@ test("初始化完成前禁用操作，完成后首次点击即可打开详情",
     await expect(page.getByLabel("菜谱排序", { exact: true })).toBeDisabled();
     await expect(page.getByRole("button", { name: "图标视图", exact: true })).toBeDisabled();
     await expect(page.getByRole("button", { name: "列表视图", exact: true })).toBeDisabled();
+    await expect(page.getByRole("radio", { name: "招牌菜", exact: true })).toBeDisabled();
   } finally {
     releaseScripts();
   }
   await expect(page.getByRole("list", { name: "菜谱结果" }).getByRole("button")).toHaveCount(1);
+  await expect(page.getByRole("radio", { name: "招牌菜", exact: true })).toBeEnabled();
   await trigger.click();
   await expect(page.getByRole("dialog").getByRole("heading", { name: "竹香苹果冰" })).toBeVisible();
 });
@@ -87,7 +89,7 @@ test("默认图标视图，键盘切换保留搜索、排序和详情焦点", as
   await expect(list).toHaveAttribute("aria-pressed", "true");
 });
 
-test("宽窄屏只显示统一搜索，旧冲突筛选失效，清空和刷新没有隐藏条件", async ({ page }, testInfo) => {
+test("宽窄屏统一搜索，旧冲突筛选失效，清空和刷新没有隐藏条件", async ({ page }, testInfo) => {
   await page.setViewportSize({ width: 1440, height: 1000 });
   await page.goto(
     "/?mode=filter&region=simple&q=煮锅&method=榨汁机&tag=饮品&ingredients=不存在&utm_source=test#recipe-search",
@@ -328,7 +330,9 @@ test("搜索可混合菜名、食材和词条，在手机和刷新后保持", as
   await expect(results).toHaveCount(1);
   await page.setViewportSize({ width: 320, height: 850 });
   await search.fill("谷物 奶 甜点");
-  await expect(results).toHaveCount(1);
+  await expect(results).toHaveCount(2);
+  await expect(results.nth(0)).toHaveAccessibleName("查看香米糕配方");
+  await expect(results.nth(1)).toHaveAccessibleName("查看蒜香流心奶黄包配方");
   expect(await page.evaluate(() => document.documentElement.scrollWidth)).toBeLessThanOrEqual(320);
   await page
     .getByRole("list", { name: "菜谱结果" })

@@ -18,7 +18,7 @@ export function useRecipeBrowser() {
 
   let pendingSearch: RecipeSearch | undefined;
   function updateSearch(patch: Partial<RecipeSearch>) {
-    // 连续输入或排序可能早于上一次 URL 更新完成，须合并尚未落到路由的请求。
+    // 分类、连续输入或排序可能早于上一次 URL 更新完成，须合并尚未落到路由的请求。
     const nextSearch = {
       ...(pendingSearch ?? searchFromQuery(router.currentRoute.value.query)),
       ...patch,
@@ -34,8 +34,8 @@ export function useRecipeBrowser() {
         if (pendingSearch === nextSearch) pendingSearch = undefined;
       });
   }
-  function clearSearch() {
-    return updateSearch({ query: "" });
+  function resetSearch() {
+    return updateSearch({ category: "all", query: "" });
   }
-  return { ready: hydrated, search, recipes, hasSearchQuery, updateSearch, clearSearch };
+  return { ready: hydrated, search, recipes, hasSearchQuery, updateSearch, resetSearch };
 }

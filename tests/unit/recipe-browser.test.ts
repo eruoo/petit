@@ -20,6 +20,48 @@ const byId = (id: string) => {
 };
 
 describe("速查搜索与显示语义", () => {
+  it.each([
+    ["all", 102],
+    ["simple", 37],
+    ["signature", 33],
+    ["guest", 14],
+    ["free", 9],
+    ["neighbor", 9],
+  ] as const)("分类 %s 限定当前菜谱范围，保留原图顺序", (category, count) => {
+    const result = searchRecipes(currentRecipes, { ...defaultSearch, category });
+    expect(result).toHaveLength(count);
+    expect(result).toEqual(
+      currentRecipes.filter((recipe) => category === "all" || recipe.source.region === category),
+    );
+  });
+
+  it("分类与关键词取交集，再按力气排序", () => {
+    const search = {
+      ...defaultSearch,
+      category: "signature" as const,
+      query: "奶",
+      sort: "energy-desc" as const,
+    };
+    expect(searchRecipes(currentRecipes, search).map((recipe) => recipe.name.raw)).toEqual([
+      "漫香果麦奶",
+      "香米糕",
+      "草莓奶蛋糕",
+      "蒜香流心奶黄包",
+      "禾夏米麦奶",
+    ]);
+    expect(searchRecipes(currentRecipes, { ...search, query: "什锦" })).toEqual([]);
+  });
+
+  it("分类可往返 URL，默认值省略，非法值回退全部且重复参数取首值", () => {
+    const search = { ...defaultSearch, category: "neighbor" as const, query: "奶" };
+    expect(searchFromQuery(searchToQuery(search))).toEqual(search);
+    expect(searchToQuery(defaultSearch).category).toBeUndefined();
+    expect(searchFromQuery({ category: ["guest", "simple"] }).category).toBe("guest");
+    for (const category of [undefined, null, "", "all", "bad", "__proto__"]) {
+      expect(searchFromQuery({ category })).toEqual(defaultSearch);
+    }
+  });
+
   it("烹饪方式可完整或部分搜索，并与食材、词条和菜名组合", () => {
     expect(
       searchRecipes(recipes, { ...defaultSearch, query: "榨汁机 饮 奶" }).map(
@@ -182,7 +224,7 @@ describe("速查搜索与显示语义", () => {
       sort: "energy-desc",
     };
     const search = searchFromQuery(staleQuery);
-    expect(search).toEqual({ query: "煮锅", sort: "energy-desc" });
+    expect(search).toEqual({ ...defaultSearch, query: "煮锅", sort: "energy-desc" });
     const samples = recipes.filter((recipe) =>
       ["菌菇汤", "绵绵麦奶", "茄茄擂辣饭"].includes(recipe.name.raw),
     );

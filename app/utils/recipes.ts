@@ -1,10 +1,12 @@
-import { recipeTagSchema } from "#shared/recipes/schema";
+import { imageRegionSchema, recipeTagSchema } from "#shared/recipes/schema";
 import type { Recipe } from "../../shared/recipes/schema";
 
 export type ImageRegion = Recipe["source"]["region"];
+export type RecipeCategory = "all" | ImageRegion;
 export type RecipeSort = "source" | "energy-desc" | "energy-asc";
 export type RecipeView = "grid" | "list";
 export interface RecipeSearch {
+  category: RecipeCategory;
   query: string;
   sort: RecipeSort;
 }
@@ -16,8 +18,12 @@ export const regionLabels: Record<ImageRegion, string> = {
   free: "自由烹饪",
   neighbor: "秘制菜",
 };
+export const recipeCategoryOptions = [
+  { value: "all", label: "全部" },
+  ...imageRegionSchema.options.map((value) => ({ value, label: regionLabels[value] })),
+] satisfies { value: RecipeCategory; label: string }[];
 const recipeTags = recipeTagSchema.options;
-export const defaultSearch: RecipeSearch = { query: "", sort: "source" };
+export const defaultSearch: RecipeSearch = { category: "all", query: "", sort: "source" };
 
 type QueryValues = Record<string, string | null | (string | null)[] | undefined>;
 function first(value: QueryValues[string]) {
@@ -33,6 +39,7 @@ export function searchFromQuery(query: QueryValues): RecipeSearch {
   const search = first(query.q);
   const legacyTerms = legacyIngredientTerms(query.ingredient);
   return {
+    category: imageRegionSchema.safeParse(first(query.category)).data ?? "all",
     // 已有旧食材链接仍转成可见搜索词，不引入隐藏筛选。
     query: legacyTerms.length
       ? [...new Set([...search.split(/\s+/u).filter(Boolean), ...legacyTerms])].join(" ")
@@ -43,9 +50,10 @@ export function searchFromQuery(query: QueryValues): RecipeSearch {
 
 export function searchToQuery(search: RecipeSearch) {
   return {
+    category: search.category === "all" ? undefined : search.category,
     q: search.query || undefined,
     sort: search.sort === "source" ? undefined : search.sort,
-    // 编辑搜索或排序时移除已停用的参数，其他无关查询参数交给路由保留。
+    // 编辑分类、搜索或排序时移除已停用的参数，其他无关查询参数交给路由保留。
     mode: undefined,
     region: undefined,
     method: undefined,
@@ -65,6 +73,7 @@ export function searchRecipes(recipes: Recipe[], search: RecipeSearch): Recipe[]
     terms.filter((term) => recipeTags.some((tag) => normalize(tag) === term)),
   );
   const filtered = recipes.filter((recipe) => {
+    if (search.category !== "all" && recipe.source.region !== search.category) return false;
     const tags = recipe.tags;
     const searchable = normalize(
       [

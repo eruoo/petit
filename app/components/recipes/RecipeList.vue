@@ -75,7 +75,7 @@ const rows = computed(() =>
   <div v-else class="empty-state" role="status">
     <RecipeIcon name="search" />
     <h3>没有找到匹配的菜谱</h3>
-    <p>试试换个菜名、食材、词条或烹饪方式。</p>
+    <p>试试切换分类，或换个菜名、食材、词条、烹饪方式。</p>
     <button type="button" class="primary-button" @click="emit('reset')">清除搜索条件</button>
   </div>
 </template>

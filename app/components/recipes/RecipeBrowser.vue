@@ -2,14 +2,21 @@
 import { computed, nextTick, shallowRef } from "vue";
 import type { Recipe } from "../../../shared/recipes/schema";
 import { useRecipeBrowser } from "../../composables/useRecipeBrowser";
-import type { RecipeSort, RecipeView } from "../../utils/recipes";
+import type { RecipeCategory, RecipeSort, RecipeView } from "../../utils/recipes";
+import RecipeCategoryFilter from "./RecipeCategoryFilter.vue";
 import RecipeSearch from "./RecipeSearch.vue";
 import RecipeList from "./RecipeList.vue";
 import RecipeDetails from "./RecipeDetails.vue";
 import RecipeIcon from "./RecipeIcon.vue";
 import RecipeViewToggle from "./RecipeViewToggle.vue";
 
-const { ready, search, recipes, hasSearchQuery, updateSearch, clearSearch } = useRecipeBrowser();
+const { ready, search, recipes, hasSearchQuery, updateSearch, resetSearch } = useRecipeBrowser();
+const category = computed({
+  get: () => search.value.category,
+  set: (category: RecipeCategory) => {
+    void updateSearch({ category });
+  },
+});
 const searchQuery = computed({
   get: () => search.value.query,
   set: (query: string) => {
@@ -45,7 +52,10 @@ async function restoreFocus() {
         </div>
       </div>
       <div class="browser-layout">
-        <RecipeSearch v-model="searchQuery" :disabled="!ready" />
+        <div class="search-controls">
+          <RecipeCategoryFilter v-model="category" :disabled="!ready" />
+          <RecipeSearch v-model="searchQuery" :disabled="!ready" />
+        </div>
         <section
           id="recipe-results"
           class="results"
@@ -89,7 +99,7 @@ async function restoreFocus() {
             :view="view"
             :disabled="!ready"
             @select="openRecipe"
-            @reset="clearSearch"
+            @reset="resetSearch"
           />
           <footer v-if="recipes.length" class="results-footer">
             <span>已显示全部 {{ recipes.length }} 道菜谱</span
@@ -163,6 +173,10 @@ async function restoreFocus() {
 .results {
   min-width: 0;
   scroll-margin-top: 1.5rem;
+}
+.search-controls {
+  display: grid;
+  gap: 0.75rem;
 }
 .results-toolbar {
   display: flex;
