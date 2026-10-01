@@ -8,8 +8,19 @@ export function useGuideImageViewer(gallery: Readonly<Ref<HTMLElement | null>>) 
   let host: HTMLElement | undefined;
   let trigger: HTMLElement | undefined;
   let originalLink: HTMLAnchorElement | undefined;
+  let previewImage: HTMLImageElement | undefined;
   let caption = "";
   let disposed = false;
+
+  function clearImageErrorHandler() {
+    previewImage?.removeEventListener("error", handleImageError);
+    previewImage = undefined;
+  }
+
+  function handleImageError() {
+    failed.value = true;
+    viewer?.hide(true);
+  }
 
   function prepareControls() {
     if (!host) return;
@@ -71,7 +82,11 @@ export function useGuideImageViewer(gallery: Readonly<Ref<HTMLElement | null>>) 
   }
 
   function updateImage(event: Viewer.ViewEvent) {
-    const { originalImage, index } = event.detail;
+    const { originalImage, index, image } = event.detail;
+    clearImageErrorHandler();
+    previewImage = image;
+    // 图片错误是异步事件，不会进入 openPreview 的 catch。
+    image.addEventListener("error", handleImageError, { once: true });
     caption = originalImage.dataset.caption ?? originalImage.alt;
     if (originalLink) originalLink.href = originalImage.src;
     const count = gallery.value?.querySelectorAll("img").length ?? 0;
@@ -128,6 +143,8 @@ export function useGuideImageViewer(gallery: Readonly<Ref<HTMLElement | null>>) 
           },
           ready: prepareControls,
           view: updateImage,
+          // 关闭或切图会取消旧图片请求，不能将取消误报为加载失败。
+          hide: clearImageErrorHandler,
           hidden: () => {
             if (!disposed && trigger?.isConnected) trigger.focus({ preventScroll: true });
           },
@@ -135,6 +152,7 @@ export function useGuideImageViewer(gallery: Readonly<Ref<HTMLElement | null>>) 
       }
       viewer.view(index);
     } catch {
+      clearImageErrorHandler();
       viewer?.destroy();
       viewer = undefined;
       host?.remove();
@@ -147,6 +165,7 @@ export function useGuideImageViewer(gallery: Readonly<Ref<HTMLElement | null>>) 
 
   onBeforeUnmount(() => {
     disposed = true;
+    clearImageErrorHandler();
     viewer?.destroy();
     host?.remove();
   });

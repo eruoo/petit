@@ -1,4 +1,5 @@
 import { readFile } from "node:fs/promises";
+import { fileURLToPath } from "node:url";
 import { chromium } from "@playwright/test";
 
 // PNG favicons are fallbacks for browsers without SVG icon support; they are rendered
@@ -27,7 +28,7 @@ try {
 </html>`);
     await page.evaluate(() => Promise.all(Array.from(document.images, (image) => image.decode())));
     await page.screenshot({
-      path: new URL(`../public/favicon-${size}.png`, import.meta.url).pathname,
+      path: fileURLToPath(new URL(`../public/favicon-${size}.png`, import.meta.url)),
       type: "png",
       omitBackground: true,
     });

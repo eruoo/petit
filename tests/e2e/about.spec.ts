@@ -1,5 +1,89 @@
 import { expect, test } from "@playwright/test";
 
+test("图鉴图片加载失败显示原图提示，仍可查看另一张并在恢复后重试", async ({ page }) => {
+  const pageErrors: string[] = [];
+  page.on("pageerror", (error) => pageErrors.push(error.message));
+  const failedImage = "**/*xiaoming-09-30*.png";
+  await page.route(failedImage, (route) => route.abort());
+  await page.goto("/");
+  await expect(page.getByRole("searchbox")).toBeEnabled();
+  await page.getByRole("navigation").getByRole("link", { name: "关于", exact: true }).click();
+
+  const trigger = page.locator(".guide-image-link").first();
+  const notice = page.getByText("图片预览暂时不可用，请通过“打开原图”查看。", { exact: true });
+  await trigger.click();
+  await expect(notice).toBeVisible();
+  await expect(page.getByRole("dialog")).toHaveCount(0);
+  await expect(page.locator("body")).not.toHaveClass(/viewer-open/u);
+  await expect(trigger).toBeFocused();
+  await expect(
+    page.locator(".recipe-guide").first().getByRole("link", { name: "打开原图" }),
+  ).toHaveAttribute("href", /xiaoming-09-30\.[\w-]+\.png$/u);
+
+  await page.locator(".guide-image-link").nth(1).click();
+  await expect(
+    page.getByRole("dialog", { name: "明天攻略组 · 图片日期 2026-09-24" }),
+  ).toBeVisible();
+  await expect(notice).not.toBeAttached();
+  await page.keyboard.press("Escape");
+  await expect(page.getByRole("dialog")).toHaveCount(0);
+
+  await page.unroute(failedImage);
+  await trigger.click();
+  const dialog = page.getByRole("dialog", { name: "小铭同学qaQ233 · 图片日期 9月30日" });
+  await expect(dialog).toBeVisible();
+  await expect
+    .poll(() =>
+      dialog
+        .locator(".viewer-canvas > img")
+        .evaluate((image: HTMLImageElement) => image.naturalWidth),
+    )
+    .toBe(1280);
+  await expect(notice).not.toBeAttached();
+  await page.keyboard.press("Escape");
+  await expect(trigger).toBeFocused();
+  expect(pageErrors).toEqual([]);
+});
+
+test("关闭尚未加载的图鉴不会误报图片失败", async ({ page }) => {
+  await page.goto("/");
+  await expect(page.getByRole("searchbox")).toBeEnabled();
+  await page.getByRole("navigation").getByRole("link", { name: "关于", exact: true }).click();
+  const trigger = page.locator(".guide-image-link").first();
+  await expect
+    .poll(() => trigger.locator("img").evaluate((image: HTMLImageElement) => image.naturalWidth))
+    .toBe(1280);
+
+  let releaseImage!: () => void;
+  const imageHeld = new Promise<void>((resolve) => {
+    releaseImage = resolve;
+  });
+  let markRequested!: () => void;
+  const imageRequested = new Promise<void>((resolve) => {
+    markRequested = resolve;
+  });
+  await page.route("**/*xiaoming-09-30*.png", async (route) => {
+    markRequested();
+    await imageHeld;
+    await route.abort();
+  });
+  try {
+    await trigger.click();
+    await imageRequested;
+    await expect(page.getByRole("dialog")).toBeVisible();
+    await page.keyboard.press("Escape");
+    await expect(page.getByRole("dialog")).toHaveCount(0);
+    await expect(trigger).toBeFocused();
+    await expect(page.locator("body")).not.toHaveClass(/viewer-open/u);
+    await expect(
+      page.getByText("图片预览暂时不可用，请通过“打开原图”查看。", { exact: true }),
+    ).not.toBeAttached();
+  } finally {
+    releaseImage();
+    await page.unrouteAll({ behavior: "wait" });
+  }
+});
+
 for (const reducedMotion of ["no-preference", "reduce"] as const) {
   test(`图鉴打开后能立即关闭并返回焦点（${reducedMotion}）`, async ({ page }) => {
     await page.emulateMedia({ reducedMotion });

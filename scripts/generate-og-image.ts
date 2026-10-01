@@ -1,4 +1,5 @@
 import { readFile } from "node:fs/promises";
+import { fileURLToPath } from "node:url";
 import { chromium } from "@playwright/test";
 import { siteMetadata } from "../shared/site.ts";
 
@@ -54,7 +55,7 @@ try {
     await Promise.all(Array.from(document.images, (image) => image.decode()));
   });
   await page.screenshot({
-    path: new URL("../public/og-image.png", import.meta.url).pathname,
+    path: fileURLToPath(new URL("../public/og-image.png", import.meta.url)),
     type: "png",
   });
 } finally {
