@@ -2,35 +2,49 @@ import { createHash } from "node:crypto";
 import { readFileSync } from "node:fs";
 import { describe, expect, it } from "vitest";
 import { recipeDataset } from "../../shared/recipes/index";
+import { currentRecipes } from "../../shared/recipes/current";
 import { recipeImages, recipeImagesById, recipeImageSchema } from "../../shared/recipes/images";
 import wiki from "../../docs/references/recipes/wiki-dish-icons-2026-09-26.json";
+import wikiSupplement from "../../docs/references/recipes/wiki-dish-icons-2026-10-01.json";
 import taptap from "../../docs/references/recipes/taptap-recipe-guides-2026-09-26.json";
 
 describe("菜品配图与独立来源", () => {
-  it("90 条既有菜谱沿用候选配图，新增四条使用同名攻略图", () => {
-    expect(recipeImagesById.size).toBe(94);
+  it("既有 94 条配图延续，补充七道秘制菜后仅甜饼果茶缺图", () => {
+    expect(recipeImagesById.size).toBe(101);
+    expect(recipeDataset.recipes.every((recipe) => recipeImagesById.has(recipe.id))).toBe(true);
     expect([...recipeImagesById.keys()].sort()).toEqual(
-      recipeDataset.recipes.map((recipe) => recipe.id).sort(),
+      currentRecipes
+        .filter((recipe) => recipe.id !== "xm-0927-neighbor-006")
+        .map((recipe) => recipe.id)
+        .sort(),
     );
-    expect(recipeImages.filter((image) => image.provider === "wiki")).toHaveLength(87);
+    expect(recipeImages.filter((image) => image.provider === "wiki")).toHaveLength(98);
     expect(
       recipeImages.filter((image) => image.provider === "taptap").map((image) => image.recipeId),
-    ).toEqual([
-      "mt-20260924-simple-019",
-      "mt-20260924-signature-004",
-      "mt-20260924-signature-025",
-      "mt-20260924-guest-004",
-      "mt-20260924-guest-012",
-      "mt-20260924-guest-013",
-      "mt-20260924-guest-014",
-    ]);
+    ).toEqual(["mt-20260924-signature-004", "mt-20260924-guest-013", "mt-20260924-guest-014"]);
     expect(recipeImages.every((image) => !image.gameVerified)).toBe(true);
   });
 
-  it("新增四菜按原图行定位，同一原图中的两道菜保留各自区域", () => {
+  it("四道菜优先使用高清 Wiki 图，其他攻略区域及旧归档保留", () => {
+    for (const [recipeId, fileId, guideNameRaw, status] of [
+      ["mt-20260924-simple-019", "9299", "胡萝卜炖肉", "visual-candidate"],
+      ["mt-20260924-signature-025", "9317", "蒜香流心奶面包", "name-variant-visual-candidate"],
+      ["mt-20260924-guest-004", "9358", "梦幻金玉满堂饭", "visual-candidate"],
+      ["mt-20260924-guest-012", "9401", "梦幻草莓奶蛋糕", "visual-candidate"],
+    ] as const) {
+      const image = recipeImagesById.get(recipeId);
+      expect(image).toMatchObject({
+        provider: "wiki",
+        assetId: `petitplanet-wiki-file-${fileId}`,
+        width: 512,
+        height: 512,
+        guideNameRaw,
+        status,
+        gameVerified: false,
+      });
+      expect(image?.displayRegion).toBeUndefined();
+    }
     const targets = [
-      { id: "004", name: "梦幻金玉满堂饭", image: 2, row: 5, y: 932 },
-      { id: "012", name: "梦幻草莓奶蛋糕", image: 1, row: 6, y: 1115 },
       { id: "013", name: "梦幻星莓漫游派", image: 2, row: 1, y: 197 },
       { id: "014", name: "梦幻番茄汤汁面", image: 3, row: 2, y: 380 },
     ];
@@ -52,7 +66,9 @@ describe("菜品配图与独立来源", () => {
   });
 
   it("显示文件均可追溯到归档原文件，文件内容未被裁切或覆盖", () => {
-    const files = new Map([...wiki.files, ...taptap.files].map((file) => [file.id, file]));
+    const files = new Map(
+      [...wiki.files, ...wikiSupplement.files, ...taptap.files].map((file) => [file.id, file]),
+    );
     for (const image of recipeImages) {
       const file = files.get(image.assetId);
       expect(file, image.assetId).toBeDefined();
@@ -67,19 +83,19 @@ describe("菜品配图与独立来源", () => {
   });
 
   it("攻略图须有有效的显示区域，越界或缺失区域不能进入页面", () => {
-    const image = recipeImagesById.get("mt-20260924-signature-025")!;
-    expect(image.displayRegion).toEqual({ x: 90, y: 932, width: 150, height: 150 });
+    const image = recipeImagesById.get("mt-20260924-signature-004")!;
+    expect(image.displayRegion).toEqual({ x: 90, y: 749, width: 150, height: 150 });
     expect(recipeImageSchema.safeParse({ ...image, displayRegion: undefined }).success).toBe(false);
     expect(
       recipeImageSchema.safeParse({
         ...image,
-        displayRegion: { x: 1000, y: 932, width: 150, height: 150 },
+        displayRegion: { x: 1000, y: 749, width: 150, height: 150 },
       }).success,
     ).toBe(false);
     expect(
       recipeImageSchema.safeParse({
         ...image,
-        displayRegion: { x: 90, y: 932, width: 0, height: 150 },
+        displayRegion: { x: 90, y: 749, width: 0, height: 150 },
       }).success,
     ).toBe(false);
   });

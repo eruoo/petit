@@ -11,7 +11,7 @@
 - [小铭同学 9 月 30 日主图](references/recipes/xiaoming-09-30.md)：102 行清点、新增秘制菜、修订字段与未说明配方。
 - [小铭同学 9 月 27 日历史补充图](references/recipes/xiaoming-09-27.md)：99 行独立转录、五道补充秘制菜及问号与未知字段；当前采用规则见菜谱数据约定。
 - [当前网站与小铭图的差异 diff](references/recipes/current-xiaoming-diff.md)：以小铭 9/30 为主体、外婆菜饭去问号后的采用值，以及明天补充信息与展示文案差异。
-- [菜品图片候选索引](references/recipes/dish-image-candidates.md)：Wiki 独立 PNG 来源、TapTap 图鉴的旧版 90 条核对，以及新增四道宴客菜的来源与显示区域；六张 TapTap 原图分目录归档，既有 94 条候选配图；小铭新增八道暂缺图。
+- [菜品图片候选索引](references/recipes/dish-image-candidates.md)：Wiki 独立 PNG 与 TapTap 图鉴来源、原图归档和显示区域；10 月 1 日补齐七道秘制菜、替换四道高清图，共 101 道候选配图，仅甜饼果茶缺图。
 - [Wiki 图标覆盖核对与本地原图](references/recipes/wiki-dish-icons-2026-09-26.md)：已保存的 95 张原始 PNG、来源与校验清单、90 条菜谱的逐项候选、3 条缺图及共用图形。
 - [Wiki 与 TapTap 图片对比](references/recipes/wiki-taptap-image-comparison-2026-09-26.md)：既有 94 条的双源覆盖、86 组主体图形比对、什锦料理的底色差异与单方缺图名单。
 

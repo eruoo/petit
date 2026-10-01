@@ -65,10 +65,12 @@ test("手机展示当前配方与增益时长，详情没有来源面板", async
   expect(await dialog.evaluate((element) => element.scrollWidth <= element.clientWidth)).toBe(true);
 });
 
-test("秘制菜更新力气与效果，缺图不阻断详情", async ({ page }) => {
+test("秘制菜显示配图和当前力气与效果", async ({ page }) => {
   await page.goto("/?q=卡拉红汁炖肉");
   const trigger = page.getByRole("button", { name: "查看卡拉红汁炖肉配方", exact: true });
-  await expect(trigger).toContainText("暂无图片");
+  await expect(
+    trigger.getByRole("img", { name: "卡拉红汁炖肉（候选配图）", exact: true }),
+  ).toBeVisible();
   await trigger.click();
   const dialog = page.getByRole("dialog");
   await expect(dialog).toContainText("配方获取：哈佩诺");

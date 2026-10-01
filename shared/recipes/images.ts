@@ -1,7 +1,9 @@
 import { z } from "zod";
 import wiki from "../../docs/references/recipes/wiki-dish-icons-2026-09-26.json" with { type: "json" };
+import wikiSupplement from "../../docs/references/recipes/wiki-dish-icons-2026-10-01.json" with { type: "json" };
 import taptap from "../../docs/references/recipes/taptap-recipe-guides-2026-09-26.json" with { type: "json" };
 import { recipeDataset } from "./index.ts";
+import { currentRecipes } from "./current.ts";
 
 export const imageStatusLabels = {
   "visual-candidate": "图形候选",
@@ -59,11 +61,19 @@ export const recipeImageSchema = z
 
 export type RecipeImage = z.infer<typeof recipeImageSchema>;
 
-const wikiFiles = new Map(wiki.files.map((file) => [file.id, file]));
+const wikiFileRecords = [...wiki.files, ...wikiSupplement.files];
+const wikiFiles = new Map(wikiFileRecords.map((file) => [file.id, file]));
+if (wikiFiles.size !== wikiFileRecords.length) throw new Error("Duplicate Wiki image file ID");
+const wikiCandidates = [...wiki.recipes, ...wikiSupplement.recipes];
+const wikiRecipeIds = new Set(
+  wikiCandidates
+    .filter((candidate) => candidate.candidateFileId)
+    .map((candidate) => candidate.recipeId),
+);
 
 // 已核对清单是图片对应关系的唯一来源；配图资料不回写原始菜谱字段。
 const candidateImages = z.array(recipeImageSchema).parse([
-  ...wiki.recipes.flatMap((candidate) => {
+  ...wikiCandidates.flatMap((candidate) => {
     if (!candidate.candidateFileId) return [];
     const file = wikiFiles.get(candidate.candidateFileId);
     if (!file) throw new Error(`Missing image file: ${candidate.candidateFileId}`);
@@ -77,7 +87,7 @@ const candidateImages = z.array(recipeImageSchema).parse([
         provider: "wiki",
         sourceLabel: "Petit Planet Wiki",
         sourceUrl: file.filePageUrl,
-        guideNameRaw: candidate.evidence.guide?.nameRaw,
+        guideNameRaw: "guide" in candidate.evidence ? candidate.evidence.guide?.nameRaw : undefined,
         status: candidate.status,
         gameVerified: candidate.gameVerified,
         notes: candidate.notes,
@@ -85,22 +95,25 @@ const candidateImages = z.array(recipeImageSchema).parse([
     ];
   }),
   ...taptap.files.flatMap((file) =>
-    file.targetRecipes.map((target) => ({
-      recipeId: target.recipeId,
-      assetId: file.id,
-      localPath: file.localPath,
-      width: file.width,
-      height: file.height,
-      provider: "taptap",
-      sourceLabel: `TapTap · ${file.author}`,
-      sourceUrl: file.postUrl,
-      sourceLocation: `${file.guideSection}第 ${file.imageNumber} 张 · 第 ${target.row} 行`,
-      guideNameRaw: target.guideNameRaw,
-      status: target.status,
-      gameVerified: target.gameVerified,
-      notes: ["显示完整攻略图中的菜品区域；原图与作者署名保留，可打开核对。"],
-      displayRegion: target.displayRegion,
-    })),
+    // 已核对的 Wiki 独立图优先，旧攻略候选与原文件继续保留归档。
+    file.targetRecipes
+      .filter((target) => !wikiRecipeIds.has(target.recipeId))
+      .map((target) => ({
+        recipeId: target.recipeId,
+        assetId: file.id,
+        localPath: file.localPath,
+        width: file.width,
+        height: file.height,
+        provider: "taptap",
+        sourceLabel: `TapTap · ${file.author}`,
+        sourceUrl: file.postUrl,
+        sourceLocation: `${file.guideSection}第 ${file.imageNumber} 张 · 第 ${target.row} 行`,
+        guideNameRaw: target.guideNameRaw,
+        status: target.status,
+        gameVerified: target.gameVerified,
+        notes: ["显示完整攻略图中的菜品区域；原图与作者署名保留，可打开核对。"],
+        displayRegion: target.displayRegion,
+      })),
   ),
 ]);
 
@@ -108,8 +121,13 @@ const candidateImages = z.array(recipeImageSchema).parse([
 const candidateImagesById = new Map(candidateImages.map((image) => [image.recipeId, image]));
 if (candidateImagesById.size !== candidateImages.length)
   throw new Error("Duplicate recipe image candidate mapping");
-export const recipeImages = recipeDataset.recipes.flatMap((recipe) => {
-  const image = candidateImagesById.get(recipe.previousRecipeId ?? recipe.id);
+const previousRecipeIds = new Map(
+  recipeDataset.recipes.map((recipe) => [recipe.id, recipe.previousRecipeId ?? recipe.id]),
+);
+export const recipeImages = currentRecipes.flatMap((recipe) => {
+  const image =
+    candidateImagesById.get(recipe.id) ??
+    candidateImagesById.get(previousRecipeIds.get(recipe.id) ?? recipe.id);
   return image ? [{ ...image, recipeId: recipe.id }] : [];
 });
 
