@@ -128,7 +128,8 @@ export const recipeSchema = z
     verification: z.literal("image-transcribed-game-unverified"),
     name: observation(text),
     dishCategory: observation(text),
-    ingredients: z.array(ingredientSlotSchema).min(1),
+    // 空数组表示原图未提供配方及槽位数量，不伪造一个未知食材槽位。
+    ingredients: z.array(ingredientSlotSchema),
     cookingMethod: observation(z.enum(["煮锅", "榨汁机", "烤箱"])),
     energy: energySchema,
     tags: observation(z.array(recipeTagSchema).min(1)),

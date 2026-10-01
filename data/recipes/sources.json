@@ -236,5 +236,103 @@
       },
       "note": "沿用用户关于截图食材底色代表所需品质的说明，应用于本张图。无底色仍为未说明；加粗不推定品质。"
     }
+  },
+  {
+    "id": "xiaoming-0930-image",
+    "titleRaw": "简单菜 整理by小铭同学qaQ233 9月30日",
+    "creator": "小铭同学qaQ233",
+    "imageDate": {
+      "raw": "9月30日",
+      "value": null,
+      "reason": "图片未注明年份，不能据接收日期补全年份。"
+    },
+    "origin": {
+      "kind": "user-provided-image",
+      "label": "用户提供图片",
+      "originalPostUrl": {
+        "status": "unknown",
+        "raw": "",
+        "reason": "用户未提供原帖链接。"
+      }
+    },
+    "publishedAt": {
+      "status": "not-stated",
+      "raw": ""
+    },
+    "gameVersion": {
+      "status": "not-stated",
+      "raw": ""
+    },
+    "asset": {
+      "path": "docs/references/recipes/xiaoming-09-30.png",
+      "originalFilename": "31cc724502886962abbeeacc148473f1_720.png",
+      "mimeType": "image/png",
+      "width": 1280,
+      "height": 702,
+      "bytes": 661403,
+      "sha256": "5c1e25a534c3eb780f754f73a6d0606d2c68894a0dd835562f82a9b705cd1312"
+    },
+    "evidence": "player-record",
+    "visualLegend": {
+      "status": "not-stated",
+      "raw": "",
+      "reason": "图中有单元格底色及一级至九级的等级列，但未说明等级与品质颜色、效果阶级的关系。"
+    },
+    "notes": [
+      {
+        "id": "xiaoming-0930-seafood",
+        "raw": "海鲜是指赶海获得的海岸生物，不是鱼。",
+        "bounds": [828, 431, 452, 15],
+        "appliesTo": ["simple", "signature", "guest", "free", "neighbor"],
+        "evidence": "player-record"
+      },
+      {
+        "id": "xiaoming-0930-tentative-ingredients",
+        "raw": "带问号的谷物，水果和蔬菜是小铭用双星看到的左侧图标，具体还需测试。",
+        "bounds": [828, 445, 452, 15],
+        "appliesTo": ["simple", "signature", "guest", "free", "neighbor"],
+        "evidence": "player-record"
+      },
+      {
+        "id": "xiaoming-0930-free-cooking",
+        "raw": "烹饪界面左下角切换至自由模式，可解锁什锦系列菜谱。",
+        "bounds": [828, 459, 452, 15],
+        "appliesTo": ["free"],
+        "evidence": "player-record"
+      },
+      {
+        "id": "xiaoming-0930-juicer",
+        "raw": "榨汁机不能使用生物，什锦饮需要对应品质蔬菜或水果等。",
+        "bounds": [828, 473, 452, 15],
+        "appliesTo": ["free"],
+        "evidence": "player-record"
+      },
+      {
+        "id": "xiaoming-0930-ingredient-exploration",
+        "raw": "可用未捐赠生物食材探索菜谱，即可看到正确食材类型~",
+        "bounds": [828, 487, 452, 15],
+        "appliesTo": ["simple", "signature", "guest", "free", "neighbor"],
+        "evidence": "player-record"
+      },
+      {
+        "id": "xiaoming-0930-categories",
+        "raw": "谷物包括小麦、水稻、玉米。绿色水果为甜瓜",
+        "bounds": [828, 501, 452, 15],
+        "appliesTo": ["simple", "signature", "guest", "free", "neighbor"],
+        "evidence": "player-record"
+      }
+    ],
+    "ingredientQualityInterpretation": {
+      "id": "xiaoming-0930-ingredient-background",
+      "kind": "user-confirmation",
+      "confirmedOn": "2026-09-26",
+      "statementRaw": "截图表格中所需食材，如果有背景底色的也代表对应需求的品质",
+      "backgroundToQuality": {
+        "blue": "blue",
+        "purple": "purple",
+        "yellow": "gold"
+      },
+      "note": "沿用用户关于截图食材底色代表所需品质的说明，应用于本张图。无底色仍为未说明；加粗不推定品质。"
+    }
   }
 ]

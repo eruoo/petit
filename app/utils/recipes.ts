@@ -110,6 +110,8 @@ export function effectSummary(
     };
   }
   const effect = recipe.specialEffect;
+  if (!recipe.ingredients.length && effect.status === "not-stated")
+    return { label: "未说明", note: "" };
   if (effect.status === "recorded") {
     return {
       label: `${effect.value.name} · ${["", "一阶", "二阶", "三阶"][effect.value.tier]}`,

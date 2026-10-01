@@ -234,7 +234,10 @@ describe("速查搜索与显示语义", () => {
     const current = currentRecipes.find((recipe) => recipe.id === byId("simple-001").id)!;
     const supplement = getEffectEvidence(current);
     expect(effectSummary(current, supplement)).toEqual({ label: "无特殊效果", note: "" });
-    expect(current.specialEffect).toMatchObject({ status: "unresolved", raw: "/" });
+    expect(current.specialEffect).toMatchObject({ status: "not-stated", raw: "" });
+    expect(
+      effectSummary(currentRecipes.find((recipe) => recipe.name.raw === "轰炸大菇肉")!),
+    ).toEqual({ label: "未说明", note: "" });
     expect(
       effectSummary(
         {

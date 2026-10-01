@@ -21,7 +21,8 @@ const slots = computed(() =>
 </script>
 
 <template>
-  <ol class="ingredient-slots" :class="{ expanded }" aria-label="有序食材">
+  <p v-if="!slots.length" class="ingredient-slots">食材未说明</p>
+  <ol v-else class="ingredient-slots" :class="{ expanded }" aria-label="有序食材">
     <li
       v-for="slot in slots"
       :key="slot.index"

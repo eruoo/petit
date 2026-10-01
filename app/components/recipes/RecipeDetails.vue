@@ -81,7 +81,9 @@ function restoreFocus(event: Event) {
             <section class="detail-section">
               <div class="section-title">
                 <h3>所需食材</h3>
-                <span>{{ recipe.ingredients.length }} 个食材槽位</span>
+                <span v-if="recipe.ingredients.length"
+                  >{{ recipe.ingredients.length }} 个食材槽位</span
+                >
               </div>
               <IngredientSlots :recipe="recipe" expanded />
             </section>

@@ -1,10 +1,10 @@
 import {
   primaryRecipeDataset,
   primaryRecipeSource,
-  primaryRecipesById,
   supplementalRecipeDataset,
   supplementalRecipeSource,
   supplementalRecipesById,
+  previousXiaomingRecipeDataset,
 } from "./primary.ts";
 import { recipeQualitySchema } from "./qualities.ts";
 import type { RecipeQuality } from "./qualities.ts";
@@ -12,47 +12,37 @@ import { recipeSchema } from "./schema.ts";
 import type { Recipe } from "./schema.ts";
 import { applyRecipeDecision, recipeDecisions, recipeDecisionsById } from "./decisions.ts";
 
-// 默认采用明天原文并补资料字段；显式用户决定在最后应用，原始转录不回写。
+// 配方完整采用最新图；旧图只补未提供的词条、产出概率与菜名品质底色。
 export function resolveCurrentRecipe(primary: Recipe): Recipe {
   const supplemental = supplementalRecipesById.get(primary.id);
   return applyRecipeDecision(
     recipeSchema.parse({
       ...primary,
-      guideDetails:
-        primary.guideDetails ??
-        (supplemental?.guideDetails && {
-          levelRaw: supplemental.guideDetails.levelRaw,
-          acquisitionRaw: supplemental.guideDetails.acquisitionRaw,
-          // 合并格槽位依赖小铭图的食材顺序，不能挂到明天配方上。
-          groupedIngredients: [],
-        }),
+      tags: supplemental?.tags ?? primary.tags,
+      productionChance: supplemental?.productionChance ?? primary.productionChance,
     }),
   );
 }
 
-export const currentRecipes = [
-  ...primaryRecipeDataset.recipes,
-  ...supplementalRecipeDataset.recipes.filter((recipe) => !primaryRecipesById.has(recipe.id)),
-].map(resolveCurrentRecipe);
+export const currentRecipes = primaryRecipeDataset.recipes.map(resolveCurrentRecipe);
 export const currentRecipeSources = [primaryRecipeSource, supplementalRecipeSource];
 
 // 逐字段引用让汇总视图仍可追溯，不将参考图字段冒充主体图记录。
 export const currentRecipeFieldSourcesById = new Map(
   currentRecipes.map((recipe) => {
-    const primary = primaryRecipesById.get(recipe.id);
     const supplemental = supplementalRecipesById.get(recipe.id);
     const decision = recipeDecisionsById.get(recipe.id);
     return [
       recipe.id,
       {
         recipe: recipe.source,
-        tags: recipe.source,
-        productionChance: recipe.source,
+        tags: supplemental?.source ?? recipe.source,
+        productionChance: supplemental?.source ?? recipe.source,
         ingredients: {
           source: decision?.action === "use-ingredients" ? decision.source : recipe.source,
           userDecision: decision ? { id: recipeDecisions.id, recipeId: recipe.id } : undefined,
         },
-        guideDetails: primary?.guideDetails ? primary.source : supplemental?.source,
+        guideDetails: recipe.source,
       },
     ];
   }),
@@ -143,7 +133,7 @@ function ingredientRequirements(recipe: Recipe) {
   );
 }
 export function getRecipeDifferences(recipeId: string): RecipeDifference[] {
-  const previous = supplementalRecipesById.get(recipeId);
+  const previous = previousXiaomingRecipeDataset.recipes.find((recipe) => recipe.id === recipeId);
   const current = currentRecipes.find((recipe) => recipe.id === recipeId);
   if (!previous || !current) return [];
   const differences: RecipeDifference[] = [];

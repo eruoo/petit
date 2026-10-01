@@ -39,21 +39,21 @@ test("图鉴预览支持原尺寸、缩放拖动、切图和键盘返回", async
     .getByRole("navigation", { name: "主导航" })
     .getByRole("link", { name: "关于", exact: true })
     .click();
-  const trigger = page.getByRole("link", { name: "查看明天攻略组图鉴（2026-09-24）" });
+  const trigger = page.getByRole("link", { name: "查看小铭同学qaQ233图鉴（9月30日）" });
   await trigger.click();
-  const dialog = page.getByRole("dialog", { name: "明天攻略组 · 图片日期 2026-09-24" });
+  const dialog = page.getByRole("dialog", { name: "小铭同学qaQ233 · 图片日期 9月30日" });
   await expect(dialog).toBeVisible();
   expect(context.pages()).toHaveLength(1);
   const image = dialog.locator(".viewer-canvas > img");
   await expect
     .poll(() => image.evaluate((element: HTMLImageElement) => element.naturalWidth))
-    .toBe(4355);
+    .toBe(1280);
   await expect(dialog.getByRole("button", { name: "下一张", exact: true })).toHaveAttribute(
     "aria-disabled",
     "false",
   );
   await dialog.getByRole("button", { name: "下一张", exact: true }).click();
-  const referenceDialog = page.getByRole("dialog", { name: "小铭同学qaQ233 · 图片日期 9月27日" });
+  const referenceDialog = page.getByRole("dialog", { name: "明天攻略组 · 图片日期 2026-09-24" });
   await expect(referenceDialog).toBeVisible();
   await expect
     .poll(() =>
@@ -61,10 +61,10 @@ test("图鉴预览支持原尺寸、缩放拖动、切图和键盘返回", async
         .locator(".viewer-canvas > img")
         .evaluate((element: HTMLImageElement) => element.naturalWidth),
     )
-    .toBe(1979);
+    .toBe(4355);
   await expect(referenceDialog.getByRole("link", { name: "打开原图" })).toHaveAttribute(
     "href",
-    /xiaoming-09-27\.[\w-]+\.jpg$/u,
+    /tomorrow-2026-09-24\.[\w-]+\.jpg$/u,
   );
   await expect(
     referenceDialog.getByRole("button", { name: "下一张", exact: true }),
@@ -75,7 +75,7 @@ test("图鉴预览支持原尺寸、缩放拖动、切图和键盘返回", async
   const width = () => image.evaluate((element) => element.getBoundingClientRect().width);
   await dialog.getByRole("button", { name: "原尺寸", exact: true }).focus();
   await page.keyboard.press("Enter");
-  await expect.poll(width).toBe(4355);
+  await expect.poll(width).toBe(1280);
   const oldX = await image.evaluate((element) => element.getBoundingClientRect().x);
   await page.mouse.move(500, 220);
   await page.mouse.down();
@@ -87,6 +87,10 @@ test("图鉴预览支持原尺寸、缩放拖动、切图和键盘返回", async
 
   await dialog.getByRole("button", { name: "适应屏幕", exact: true }).click();
   await expect.poll(width).toBeLessThan(page.viewportSize()!.width);
+  // 新图原宽已接近视口；必须等适应动画结束后再记录缩放基准。
+  await image.evaluate(async (element) => {
+    await Promise.all(element.getAnimations().map((animation) => animation.finished));
+  });
   const fittedWidth = await width();
   await dialog.getByRole("button", { name: "放大", exact: true }).focus();
   await page.keyboard.press("Space");
@@ -106,14 +110,14 @@ test("图鉴预览支持原尺寸、缩放拖动、切图和键盘返回", async
   const popupPromise = page.waitForEvent("popup");
   await dialog.getByRole("link", { name: "打开原图" }).click();
   const popup = await popupPromise;
-  await expect(popup).toHaveURL(/tomorrow-2026-09-24\.[\w-]+\.jpg$/u);
+  await expect(popup).toHaveURL(/xiaoming-09-30\.[\w-]+\.png$/u);
   await popup.close();
   await dialog.getByRole("button", { name: "下一张", exact: true }).click();
-  const otherDialog = page.getByRole("dialog", { name: "小铭同学qaQ233 · 图片日期 9月27日" });
+  const otherDialog = page.getByRole("dialog", { name: "明天攻略组 · 图片日期 2026-09-24" });
   await expect(otherDialog).toBeVisible();
   await expect(otherDialog.getByRole("link", { name: "打开原图" })).toHaveAttribute(
     "href",
-    /xiaoming-09-27\.[\w-]+\.jpg$/u,
+    /tomorrow-2026-09-24\.[\w-]+\.jpg$/u,
   );
   await expect(otherDialog.getByRole("button", { name: "下一张", exact: true })).toHaveAttribute(
     "aria-disabled",
@@ -158,14 +162,14 @@ test("手机图鉴预览支持触摸缩放，按钮无溢出并可返回原位�
     .getByRole("navigation", { name: "主导航" })
     .getByRole("link", { name: "关于", exact: true })
     .click();
-  const trigger = page.getByRole("link", { name: "查看明天攻略组图鉴（2026-09-24）" });
+  const trigger = page.getByRole("link", { name: "查看小铭同学qaQ233图鉴（9月30日）" });
   await trigger.tap();
-  const dialog = page.getByRole("dialog", { name: "明天攻略组 · 图片日期 2026-09-24" });
+  const dialog = page.getByRole("dialog", { name: "小铭同学qaQ233 · 图片日期 9月30日" });
   await expect(dialog).toBeVisible();
   const image = dialog.locator(".viewer-canvas > img");
   await expect
     .poll(() => image.evaluate((element: HTMLImageElement) => element.naturalWidth))
-    .toBe(4355);
+    .toBe(1280);
   const width = () => image.evaluate((element) => element.getBoundingClientRect().width);
   const fittedWidth = await width();
   const session = await context.newCDPSession(page);
@@ -188,7 +192,7 @@ test("手机图鉴预览支持触摸缩放，按钮无溢出并可返回原位�
   await session.send("Input.dispatchTouchEvent", { type: "touchEnd", touchPoints: [] });
   await expect.poll(width).toBeGreaterThan(fittedWidth * 1.5);
   await dialog.getByRole("button", { name: "原尺寸", exact: true }).tap();
-  await expect.poll(width).toBe(4355);
+  await expect.poll(width).toBe(1280);
   await dialog.getByRole("button", { name: "适应屏幕", exact: true }).tap();
   await expect.poll(width).toBeLessThan(390);
   for (const control of await dialog.locator('[role="button"]:visible, a[href]').all()) {
@@ -215,11 +219,11 @@ test("禁用脚本时图鉴仍提供可访问的原图链接", async ({ browser,
   const context = await browser.newContext({ baseURL, javaScriptEnabled: false });
   const page = await context.newPage();
   await page.goto("/about/");
-  const trigger = page.getByRole("link", { name: "查看小铭同学qaQ233图鉴（9月27日）" });
+  const trigger = page.getByRole("link", { name: "查看小铭同学qaQ233图鉴（9月30日）" });
   const popupPromise = page.waitForEvent("popup");
   await trigger.click();
   const popup = await popupPromise;
-  await expect(popup).toHaveURL(/xiaoming-09-27\.[\w-]+\.jpg$/u);
+  await expect(popup).toHaveURL(/xiaoming-09-30\.[\w-]+\.png$/u);
   await context.close();
 });
 
@@ -238,25 +242,25 @@ test("关于页简述资料来源，分列图片来源与致谢并展示两张�
   const imageSources = page.getByRole("region", { name: "菜品图片来源", exact: true });
   const thanks = page.getByRole("region", { name: "特别致谢", exact: true });
   await expect(page.getByRole("main")).not.toContainText("雪菜");
-  await expect(recipeSource).toContainText("明天攻略组、小铭同学qaQ233 的菜谱图鉴");
+  await expect(recipeSource).toContainText("小铭同学qaQ233、明天攻略组 的菜谱图鉴");
   await expect(recipeSource).toContainText("用户提供的游戏截图与文字资料");
   await expect(recipeSource).not.toContainText(/Wiki|TapTap/u);
   await expect(imageSources).toContainText("Petit Planet Wiki");
   await expect(imageSources).toContainText("TapTap 作者「阿Zz」");
-  await expect(thanks).toContainText("明天攻略组、小铭同学qaQ233");
+  await expect(thanks).toContainText("小铭同学qaQ233、明天攻略组");
   await expect(thanks).toContainText("Petit Planet Wiki 社区");
   await expect(thanks).toContainText("作者「阿Zz」");
-  const latestImage = page.getByRole("link", { name: "查看小铭同学qaQ233图鉴（9月27日）" });
-  await expect(latestImage).toHaveAttribute("href", /xiaoming-09-27\.[\w-]+\.jpg$/u);
+  const latestImage = page.getByRole("link", { name: "查看小铭同学qaQ233图鉴（9月30日）" });
+  await expect(latestImage).toHaveAttribute("href", /xiaoming-09-30\.[\w-]+\.png$/u);
   const guideImage = latestImage.getByRole("img");
   await expect(page.getByRole("main").getByRole("img")).toHaveCount(2);
   await expect
     .poll(() => guideImage.evaluate((image: HTMLImageElement) => image.naturalWidth))
-    .toBe(1979);
+    .toBe(1280);
   await expect(page.getByRole("main")).not.toContainText(/2026-09-23|历史资料|如何阅读这些记录/u);
   const latestImageResponse = await page.request.get((await latestImage.getAttribute("href"))!);
   expect(latestImageResponse.status()).toBe(200);
-  expect(latestImageResponse.headers()["content-type"]).toContain("image/jpeg");
+  expect(latestImageResponse.headers()["content-type"]).toContain("image/png");
   const tomorrowImageLink = page.getByRole("link", { name: "查看明天攻略组图鉴（2026-09-24）" });
   await expect(tomorrowImageLink).toHaveAttribute("href", /tomorrow-2026-09-24\.[\w-]+\.jpg$/u);
   const tomorrowImage = tomorrowImageLink.getByRole("img", {
@@ -274,20 +278,20 @@ test("关于页简述资料来源，分列图片来源与致谢并展示两张�
   await expect(page.locator("#tomorrow-20260924-image figcaption")).toContainText(
     "明天攻略组 · 图片日期 2026-09-24",
   );
-  const referenceImage = page.getByRole("link", { name: "查看小铭同学qaQ233图鉴（9月27日）" });
-  await expect(referenceImage).toHaveAttribute("href", /xiaoming-09-27\.[\w-]+\.jpg$/u);
+  const referenceImage = page.getByRole("link", { name: "查看小铭同学qaQ233图鉴（9月30日）" });
+  await expect(referenceImage).toHaveAttribute("href", /xiaoming-09-30\.[\w-]+\.png$/u);
   await expect
     .poll(() =>
       referenceImage.getByRole("img").evaluate((image: HTMLImageElement) => image.naturalWidth),
     )
-    .toBe(1979);
+    .toBe(1280);
   const referenceImageResponse = await page.request.get(
     (await referenceImage.getAttribute("href"))!,
   );
   expect(referenceImageResponse.status()).toBe(200);
-  expect(referenceImageResponse.headers()["content-type"]).toContain("image/jpeg");
-  await expect(page.locator("#xiaoming-0927-image figcaption")).toContainText(
-    "小铭同学qaQ233 · 图片日期 9月27日",
+  expect(referenceImageResponse.headers()["content-type"]).toContain("image/png");
+  await expect(page.locator("#xiaoming-0930-image figcaption")).toContainText(
+    "小铭同学qaQ233 · 图片日期 9月30日",
   );
   await expect(imageSources.getByRole("link", { name: "Wiki 菜品图标目录" })).toHaveAttribute(
     "href",

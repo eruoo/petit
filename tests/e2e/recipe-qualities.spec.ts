@@ -8,7 +8,7 @@ test("同图什锦饮以品质底色和文字区分，未知品质保持待确�
   for (const [name, label] of [
     ["家常什锦饮", "蓝色品质"],
     ["珍稀什锦饮", "紫色品质"],
-    ["梦幻什锦饮", "金色品质"],
+    ["梦幻什锦饮?", "金色品质"],
   ] as const) {
     const row = results.getByRole("button", { name: `查看${name}配方`, exact: true });
     await expect(row.getByText(label, { exact: true })).toBeVisible();
@@ -30,7 +30,7 @@ test("同图什锦饮以品质底色和文字区分，未知品质保持待确�
   await expect(dialog.getByText("品质待确认", { exact: true })).toBeVisible();
 });
 
-test("手机详情显示品质和问号食材，不附来源核对面板", async ({ page }) => {
+test("手机详情显示新版品质和食材，不附来源核对面板", async ({ page }) => {
   await page.setViewportSize({ width: 390, height: 844 });
   await page.goto("/?q=梦幻海岸虾鱼筵");
   const trigger = page.getByRole("button", { name: "查看梦幻海岸虾鱼筵配方", exact: true });
@@ -38,8 +38,8 @@ test("手机详情显示品质和问号食材，不附来源核对面板", async
   await trigger.click();
   const dialog = page.getByRole("dialog");
   await expect(dialog.getByText("金色品质", { exact: true })).toBeVisible();
-  await expect(dialog.getByText("虾类?", { exact: true })).toBeVisible();
-  await expect(dialog.getByText("待确认", { exact: true })).toBeVisible();
+  await expect(dialog.getByText("虾类", { exact: true })).toBeVisible();
+  await expect(dialog.getByText("待确认", { exact: true })).toHaveCount(0);
   await expect(dialog).not.toContainText(/来源|品质依据|核对/u);
   expect(await page.evaluate(() => document.documentElement.scrollWidth)).toBeLessThanOrEqual(390);
 });

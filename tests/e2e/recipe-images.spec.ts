@@ -38,7 +38,7 @@ test("构建只发布当前使用的 Wiki 图标，未使用的文件继续归�
 test("菜谱列表与详情显示本地候选配图", async ({ page }) => {
   await page.goto("/");
   const results = page.getByRole("list", { name: "菜谱结果" });
-  await expect(results.getByRole("img")).toHaveCount(99);
+  await expect(results.getByRole("img")).toHaveCount(102);
   await expect(results.locator("img")).toHaveCount(94);
   const firstImage = results.getByRole("img", { name: "和煦花果茶（候选配图）", exact: true });
   await expect
@@ -64,7 +64,7 @@ test("菜谱列表与详情显示本地候选配图", async ({ page }) => {
 test("手机上三道缺少 Wiki 图标的菜在列表与详情显示相同攻略区域", async ({ page }) => {
   await page.setViewportSize({ width: 390, height: 844 });
   await page.goto("/");
-  for (const name of ["胡萝卜炖肉", "茄茄擂辣饭", "蒜香流心奶面包"]) {
+  for (const name of ["胡萝卜炖肉", "茄茄擂辣饭", "蒜香流心奶黄包"]) {
     await page.getByLabel("搜索菜名、食材、词条或烹饪方式", { exact: true }).fill(name);
     const trigger = page.getByRole("button", { name: `查看${name}配方`, exact: true });
     const thumbnail = trigger.getByRole("img", { name: `${name}（候选配图）`, exact: true });
@@ -112,7 +112,7 @@ test("新增四道宴客菜显示本地攻略配图和当前食材", async ({ pa
   await page.setViewportSize({ width: 390, height: 844 });
   await page.goto("/");
   const results = page.getByRole("list", { name: "菜谱结果" });
-  await expect(results.getByRole("button")).toHaveCount(99);
+  await expect(results.getByRole("button")).toHaveCount(102);
   const dialog = page.getByRole("dialog");
   for (const name of [
     "梦幻金玉满堂饭",
@@ -140,7 +140,8 @@ test("新增四道宴客菜显示本地攻略配图和当前食材", async ({ pa
   await results.getByRole("button", { name: "查看梦幻番茄汤汁面配方", exact: true }).click();
   const ingredients = dialog.getByRole("list", { name: "有序食材" }).getByRole("listitem");
   await expect(ingredients).toHaveCount(4);
-  await expect(ingredients.nth(3)).toContainText("未知食材 ?");
+  await expect(ingredients.nth(3)).toContainText("番茄?");
+  await expect(ingredients.nth(3)).toContainText("需金色品质");
   await expect(dialog.getByText("+150", { exact: true })).toBeVisible();
   await expect(dialog.getByText("快速翻土 · 三阶", { exact: true })).toBeVisible();
 });

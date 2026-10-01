@@ -13,7 +13,11 @@ import {
   currentRecipeQualitiesById,
   getRecipeDifferences,
 } from "../shared/recipes/current.ts";
-import { primaryRecipeDataset, supplementalRecipeDataset } from "../shared/recipes/primary.ts";
+import {
+  primaryRecipeDataset,
+  supplementalRecipeDataset,
+  previousXiaomingRecipeDataset,
+} from "../shared/recipes/primary.ts";
 import { gameEffectEvidence, collectCurrentEvidenceConflicts } from "../shared/recipes/effects.ts";
 import { recipeDecisions } from "../shared/recipes/decisions.ts";
 
@@ -92,6 +96,9 @@ if (import.meta.main) {
   );
   console.log(`旧版快照与跨版本引用校验通过：${previousRecipeDataset.recipes.length} 条历史记录。`);
   console.log(
+    `小铭 9/27 历史转录独立校验通过：${previousXiaomingRecipeDataset.recipes.length} 行。`,
+  );
+  console.log(
     `用户逐项决定及原文、来源引用校验通过：${recipeDecisions.decisions.length} 条；不代表游戏实测。`,
   );
   const qualityCounts = Object.fromEntries(
@@ -125,7 +132,7 @@ if (import.meta.main) {
   );
   console.log(`食材品质底色与用户解释引用校验通过：${JSON.stringify(ingredientQualityCounts)}。`);
   console.log(
-    `当前 ${currentRecipes.length} 道：明天主体 ${primaryRecipeDataset.recipes.length} 道、小铭新增 ${currentRecipes.filter((recipe) => recipe.source.sourceId === supplementalRecipeDataset.inventory.sourceId).length} 道；独立游戏截图 ${gameEffectEvidence.screenshots.length} 张、用户文字确认 ${gameEffectEvidence.confirmations.length} 条。`,
+    `当前 ${currentRecipes.length} 道：小铭 9/30 主体 ${primaryRecipeDataset.recipes.length} 道、明天补充资料 ${supplementalRecipeDataset.recipes.length} 道；独立游戏截图 ${gameEffectEvidence.screenshots.length} 张、用户文字确认 ${gameEffectEvidence.confirmations.length} 条。`,
   );
   const conflicts = collectCurrentEvidenceConflicts(currentRecipes);
   console.log(
