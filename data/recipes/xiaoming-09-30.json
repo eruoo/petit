@@ -2435,8 +2435,8 @@
     "verification": "image-transcribed-game-unverified",
     "name": {
       "status": "recorded",
-      "raw": "波香烤鱼串",
-      "value": "波香烤鱼串"
+      "raw": "菠香烤鱼串",
+      "value": "菠香烤鱼串"
     },
     "dishCategory": {
       "status": "not-stated",
@@ -5655,8 +5655,8 @@
     "verification": "image-transcribed-game-unverified",
     "name": {
       "status": "recorded",
-      "raw": "田园蔬烩披萨",
-      "value": "田园蔬烩披萨"
+      "raw": "田园蔬荟披萨",
+      "value": "田园蔬荟披萨"
     },
     "dishCategory": {
       "status": "not-stated",
@@ -7031,8 +7031,8 @@
     "verification": "image-transcribed-game-unverified",
     "name": {
       "status": "recorded",
-      "raw": "梦幻仙风龙虾锅",
-      "value": "梦幻仙风龙虾锅"
+      "raw": "梦幻鲜风龙虾锅",
+      "value": "梦幻鲜风龙虾锅"
     },
     "dishCategory": {
       "status": "not-stated",
@@ -10389,10 +10389,9 @@
     },
     "verification": "image-transcribed-game-unverified",
     "name": {
-      "status": "tentative",
-      "raw": "红糯绛桃包",
-      "candidate": "红糯绛桃包",
-      "reason": "附件分辨率有限，菜名中部字形待用户确认；不据 OCR 候选断言准确写法。"
+      "status": "recorded",
+      "raw": "红穗绛桃包",
+      "value": "红穗绛桃包"
     },
     "dishCategory": {
       "status": "not-stated",
@@ -10475,15 +10474,10 @@
       "xiaoming-0930-ingredient-exploration",
       "xiaoming-0930-categories"
     ],
-    "reviewNotes": [
-      {
-        "field": "guideDetails.acquisitionRaw",
-        "reason": "友邻名字暂读为“蜜蜜”，字形待用户确认。"
-      }
-    ],
+    "reviewNotes": [],
     "guideDetails": {
       "levelRaw": "",
-      "acquisitionRaw": "蜜蜜",
+      "acquisitionRaw": "蛮蛮",
       "groupedIngredients": []
     }
   },
@@ -10580,7 +10574,7 @@
     "reviewNotes": [],
     "guideDetails": {
       "levelRaw": "",
-      "acquisitionRaw": "提卡",
+      "acquisitionRaw": "缇卡",
       "groupedIngredients": []
     }
   },

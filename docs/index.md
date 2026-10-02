@@ -3,17 +3,11 @@
 ## 文档导航
 
 - [开发指南](development.md)：技术栈、环境安装、本地开发、检查与测试、静态构建、cf CLI 安装与部署、分享元数据与域名配置、robots 与 sitemap 生成和 Git hooks。
-- [小星球品牌素材](references/branding/cake-planet.md)：当前矢量星球图标（草地、河流与曲奇地面）的设计取舍、源文件与 favicon 导出、静态分享图，以及历史 3D 苹果树星球的原图、提示词与小尺寸对照。
+- [小星球品牌素材](references/branding/cake-planet.md)：当前矢量星球图标的设计取舍、唯一源文件、favicon 与静态分享图的导出方式。
 - [菜谱数据约定](recipes.md)：小铭 9/30 主体与明天补充 JSON、Zod schema、当前读取视图、用户逐项确认与采用决定、字段状态、来源引用、食材品质、菜品品质与增益证据。
 - [本地菜谱速查页面](specs/recipe-browser.md)：全站资料手册定位与星球标识、默认图标视图与列表切换、菜名／食材／词条／烹饪方式统一搜索、搜索框上方的单选分类与宽窄屏布局、旧筛选参数清理与旧食材链接兼容、按候选清单构建配图、关于页的分项来源与致谢、两份图鉴与 Viewer.js 预览、精简料理详情、组件边界与页面验收。
-- [2026-09-23 图片转录报告](references/recipes/tomorrow-2026-09-23.md)：原图来源、独立分区清点、录入覆盖率、待核对字段与验证结果。
-- [2026-09-24 转录与版本差异](references/recipes/tomorrow-2026-09-24.md)：94 条基线的独立清点、新增 4 道菜、既有配方变化、待核对字段及旧版快照。
-- [小铭同学 9 月 30 日主图](references/recipes/xiaoming-09-30.md)：102 行清点、新增秘制菜、修订字段与未说明配方。
-- [小铭同学 9 月 27 日历史补充图](references/recipes/xiaoming-09-27.md)：99 行独立转录、五道补充秘制菜及问号与未知字段；当前采用规则见菜谱数据约定。
-- [当前网站与小铭图的差异 diff](references/recipes/current-xiaoming-diff.md)：以小铭 9/30 为主体、外婆菜饭去问号后的采用值，以及明天补充信息与展示文案差异。
-- [菜品图片候选索引](references/recipes/dish-image-candidates.md)：Wiki 独立 PNG 与 TapTap 图鉴来源、原图归档和显示区域；10 月 1 日补齐七道秘制菜、替换四道高清图，共 101 道候选配图，仅甜饼果茶缺图。
-- [Wiki 图标覆盖核对与本地原图](references/recipes/wiki-dish-icons-2026-09-26.md)：已保存的 95 张原始 PNG、来源与校验清单、90 条菜谱的逐项候选、3 条缺图及共用图形。
-- [Wiki 与 TapTap 图片对比](references/recipes/wiki-taptap-image-comparison-2026-09-26.md)：既有 94 条的双源覆盖、86 组主体图形比对、什锦料理的底色差异与单方缺图名单。
+- [小铭同学 9 月 30 日主图](references/recipes/xiaoming-09-30.md)：102 行清点、逐区复核后的文字更正、问号与未说明字段。
+- [菜品图片候选索引](references/recipes/dish-image-candidates.md)：101 道候选配图的读取规则、Wiki 与 TapTap 来源清单、共用原文件与缺图边界。
 
 ## 目录约定
 
