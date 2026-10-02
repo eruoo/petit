@@ -5,7 +5,7 @@
   "type": "module",
   "scripts": {
     "dev": "nuxt dev",
-    "build": "nuxt generate && cf-wrangler build",
+    "build": "nuxt generate --preset static && cf-wrangler build",
     "brand:favicons": "node scripts/generate-favicons.ts",
     "brand:og-image": "node scripts/generate-og-image.ts",
     "preview": "cf-wrangler dev",

@@ -93,7 +93,9 @@ pnpm preview
 
 `cloudflare.config.ts` 使用 [cf 的 TypeScript 配置](https://developers.cloudflare.com/cf/projects/cloudflare-config/)，维护 Worker 名称、兼容日期与静态路由行为。`worker.assets.htmlHandling` 使用 `drop-trailing-slash`，让 `/about` 直接返回 200；带尾斜杠及 HTML 别名的请求重定向到无尾斜杠地址，与 canonical、站内链接保持一致，首页保留 `/`。`worker.assets.notFoundHandling` 使用 `404-page`，未知路径返回 404。静态资源输入目录由 `wrangler.config.ts` 的 `assetsDirectory` 指定为 `.output/public`。
 
-当前锁定的 cf Beta 会自动识别 Nuxt；直接运行 `cf build` 会调用 `nuxt build`，无法为本项目的 SSG 流程生成 Cloudflare Build Output。项目因此先执行 `nuxt generate`，再调用 Wrangler 包随附、供 cf 使用的 `cf-wrangler build` 适配入口；`pnpm preview` 同样调用 `cf-wrangler dev`，读取上述新配置并绑定本地回环地址。保留 Wrangler 开发依赖用于这两个适配入口，不再维护旧的 `wrangler.jsonc`。升级 cf 后应重新确认这项限制。
+当前锁定的 cf Beta 会自动识别 Nuxt；直接运行 `cf build` 会调用 `nuxt build`，无法为本项目的 SSG 流程生成 Cloudflare Build Output。项目因此先执行 `nuxt generate --preset static`，再调用 Wrangler 包随附、供 cf 使用的 `cf-wrangler build` 适配入口；`pnpm preview` 同样调用 `cf-wrangler dev`，读取上述新配置并绑定本地回环地址。保留 Wrangler 开发依赖用于这两个适配入口，不再维护旧的 `wrangler.jsonc`。升级 cf 后应重新确认这项限制。
+
+构建命令显式固定 `static` preset，使本地与 Workers Builds 都启用页面抓取。当前 Nitro 会根据 Workers Builds 的 `WORKERS_CI` 环境变量自动选择 `cloudflare-module`，其默认 `crawlLinks: false` 会让未显式列入预渲染清单的首页和关于页被遗漏。构建后的 `.output/public` 与最终 `.cloudflare/output/v0/workers/default/assets` 都应包含 `index.html`、`about/index.html` 及对应 payload；页面 HTTP 状态和无脚本元数据由现有 `tests/e2e/seo.spec.ts` 验证。
 
 静态部署不提供运行时服务端 API；新增动态页面时，需要保证构建阶段能枚举或抓取对应路由。当前业务页面只有首页和关于页；菜谱详情由首页弹窗展示，不生成逐菜 HTML，旧 `/recipes/<id>` 地址返回 404。交互约定见[内容与交互](specs/recipe-browser.md#内容与交互)。
 
