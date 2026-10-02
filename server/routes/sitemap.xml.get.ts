@@ -1,11 +1,9 @@
-import { currentRecipes } from "#shared/recipes/current";
-
 export default defineEventHandler((event) => {
   const siteUrl = useRuntimeConfig(event).public.siteUrl.trim();
   if (!siteUrl) {
     throw createError({ statusCode: 404, statusMessage: "Site URL is not configured" });
   }
-  const paths = ["/", "/about", ...currentRecipes.map((recipe) => `/recipes/${recipe.id}`)];
+  const paths = ["/", "/about"];
   const entries = paths.map((path) => {
     const url = new URL(path, siteUrl).href
       .replaceAll("&", "&amp;")

@@ -35,7 +35,7 @@ test("构建只发布当前使用的 Wiki 图标，未使用的文件继续归�
       .map((name) => hash(new URL(name, outputDirectory)))
       .filter((value) => archiveHashes.has(value)),
   );
-  expect(archiveFiles).toHaveLength(101);
+  expect(archiveFiles).toHaveLength(93);
   expect(publishedHashes).toEqual(usedHashes);
 });
 

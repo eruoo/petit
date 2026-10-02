@@ -27,6 +27,11 @@ const taptapPosts = [
     <section aria-labelledby="sources-heading">
       <h2 id="sources-heading">菜谱资料来源</h2>
       <p>菜谱资料参考了 {{ guideCreators }} 的菜谱图鉴，以及用户提供的游戏截图与文字资料。</p>
+      <div class="source-links">
+        <a href="https://space.bilibili.com/203145268" target="_blank" rel="noopener noreferrer">
+          小铭同学的 B 站主页<RecipeIcon name="external" />
+        </a>
+      </div>
       <GuideImageGallery :guides="guides" />
     </section>
     <section aria-labelledby="image-sources-heading">

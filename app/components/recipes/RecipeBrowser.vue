@@ -7,7 +7,6 @@ import RecipeCategoryFilter from "./RecipeCategoryFilter.vue";
 import RecipeSearch from "./RecipeSearch.vue";
 import RecipeList from "./RecipeList.vue";
 import RecipeDetails from "./RecipeDetails.vue";
-import RecipeIcon from "./RecipeIcon.vue";
 import RecipeViewToggle from "./RecipeViewToggle.vue";
 
 const { ready, search, recipes, hasSearchQuery, updateSearch, resetSearch } = useRecipeBrowser();
@@ -46,9 +45,6 @@ async function restoreFocus() {
           <p class="page-eyebrow">星布谷地 · 烹饪速查</p>
           <h1>菜谱速查</h1>
           <p class="page-description">按菜名、食材、词条与烹饪方式查找配方。</p>
-        </div>
-        <div class="heading-index" aria-hidden="true">
-          <RecipeIcon name="book" /><span>RECIPE<br />INDEX</span>
         </div>
       </div>
       <div class="browser-layout">
@@ -146,24 +142,6 @@ async function restoreFocus() {
   color: var(--petit-color-foreground-muted);
   margin-top: 0.65rem;
 }
-.heading-index {
-  display: flex;
-  align-items: center;
-  gap: 0.7rem;
-  padding: 1rem 0 1rem 1.5rem;
-  border-left: 1px solid color-mix(in srgb, var(--petit-color-border-strong) 23%, transparent);
-  color: var(--petit-color-foreground-muted);
-}
-.heading-index svg {
-  width: 34px;
-  height: 34px;
-  stroke-width: 1.1;
-}
-.heading-index span {
-  font-size: 0.63rem;
-  letter-spacing: 0.18em;
-  line-height: 1.65;
-}
 .browser-layout {
   display: grid;
   grid-template-columns: minmax(0, 1fr);
@@ -242,9 +220,6 @@ async function restoreFocus() {
   }
 }
 @media (max-width: 600px) {
-  .heading-index {
-    display: none;
-  }
   .app-main {
     padding-top: 1.9rem;
   }

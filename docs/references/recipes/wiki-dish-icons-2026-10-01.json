@@ -168,7 +168,7 @@
     },
     {
       "recipeId": "xm-0930-neighbor-006",
-      "recipeNameRaw": "红糯绛桃包",
+      "recipeNameRaw": "红穗绛桃包",
       "originalSource": {
         "sourceId": "xiaoming-0930-image",
         "region": "neighbor",
@@ -182,7 +182,7 @@
         "wikiRecipeSourceRaw": "Manna"
       },
       "notes": [
-        "英文菜名和桃形包图案提供对应线索；主图中文菜名仍为待核对状态，图片接入不构成菜名或友邻原文确认。",
+        "英文菜名和桃形包图案提供对应线索；中文菜名与友邻以小铭 9/30 主图转录为准，图片候选不构成游戏内身份确认。",
         "以英文条目和外观线索建立图片候选，尚无逐项中文标签图桥接；品级底色读取当前主图品质记录，不从 Wiki 颜色或数值推断。"
       ]
     },

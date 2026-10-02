@@ -1,7 +1,14 @@
+<script setup lang="ts">
+import { siteMetadata } from "#shared/site";
+</script>
+
 <template>
   <footer class="site-footer">
     <span>Petit · 星布谷地资料手册</span>
-    <NuxtLink to="/about">关于与信息来源</NuxtLink>
+    <nav class="footer-links" aria-label="页脚导航">
+      <NuxtLink to="/about">关于与信息来源</NuxtLink>
+      <a :href="siteMetadata.repositoryUrl" target="_blank" rel="noopener noreferrer">GitHub</a>
+    </nav>
   </footer>
 </template>
 
@@ -22,6 +29,12 @@
   color: var(--petit-color-link);
   text-decoration: underline;
   text-underline-offset: 4px;
+}
+.footer-links {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 1.25rem;
 }
 @media (max-width: 900px) {
   .site-footer {

@@ -57,7 +57,7 @@ function restoreFocus(event: Event) {
             /></DialogClose>
           </div>
           <div class="dialog-body">
-            <RecipeDetailContent :recipe="recipe" heading-tag="h3" />
+            <RecipeDetailContent :recipe="recipe" />
           </div>
         </template>
       </DialogContent>

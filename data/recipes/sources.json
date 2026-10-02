@@ -288,7 +288,7 @@
       },
       {
         "id": "xiaoming-0930-tentative-ingredients",
-        "raw": "带问号的谷物，水果和蔬菜是小铭用双星看到的左侧图标，具体还需测试。",
+        "raw": "带问号的谷物，水果和蔬菜是小铭用观星看到的左侧图标，具体还需测试。",
         "bounds": [828, 445, 452, 15],
         "appliesTo": ["simple", "signature", "guest", "free", "neighbor"],
         "evidence": "player-record"

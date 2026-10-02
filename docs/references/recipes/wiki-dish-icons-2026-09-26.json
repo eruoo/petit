@@ -724,7 +724,7 @@
       "sha256": "9e5fe65d188804ecc2759a64571e62d2ec92780d2ba93946678b440c681e517b",
       "rgbaSha256": "5750f706b16ac898b3b86edc0faa431fce53d96dbdfebdfde6467b4655cf5da2",
       "wikiUploadTimestamp": "2026-05-08T15:09:55Z",
-      "localPath": "docs/references/recipes/wiki-dish-icons-2026-09-26/Homestyle_Blend_Icon.png"
+      "localPath": "docs/references/recipes/wiki-dish-icons-2026-09-26/Fruit_&_Veggie_Juice_Icon.png"
     },
     {
       "id": "petitplanet-wiki-file-4001",
@@ -1018,7 +1018,7 @@
       "sha256": "930d0248bff5e0b5a5df836e33f5a4632232d1359509323e12aa9c2897341129",
       "rgbaSha256": "0a599a5be11abad0f077baaca1242df3bc0ddcb733f5681888f3852a7ecc11b2",
       "wikiUploadTimestamp": "2026-05-08T12:46:12Z",
-      "localPath": "docs/references/recipes/wiki-dish-icons-2026-09-26/Rare_Assorted_Claypot_Stew_Icon.png"
+      "localPath": "docs/references/recipes/wiki-dish-icons-2026-09-26/Homestyle_Assorted_Claypot_Stew_Icon.png"
     },
     {
       "id": "petitplanet-wiki-file-3904",
@@ -1046,7 +1046,7 @@
       "sha256": "930d0248bff5e0b5a5df836e33f5a4632232d1359509323e12aa9c2897341129",
       "rgbaSha256": "0a599a5be11abad0f077baaca1242df3bc0ddcb733f5681888f3852a7ecc11b2",
       "wikiUploadTimestamp": "2026-05-08T12:49:31Z",
-      "localPath": "docs/references/recipes/wiki-dish-icons-2026-09-26/Miracle_Assorted_Claypot_Stew_Icon.png"
+      "localPath": "docs/references/recipes/wiki-dish-icons-2026-09-26/Homestyle_Assorted_Claypot_Stew_Icon.png"
     },
     {
       "id": "petitplanet-wiki-file-3940",
@@ -1060,7 +1060,7 @@
       "sha256": "b99b5b551e6dccbec926a343bb40bd0346a55654925691402350a523801b4836",
       "rgbaSha256": "6bc38b977218404a812a89de23f76bfc5ba8440d2012c53542002a25722b38a0",
       "wikiUploadTimestamp": "2026-05-08T14:33:03Z",
-      "localPath": "docs/references/recipes/wiki-dish-icons-2026-09-26/Rare_Assorted_Skewers_Icon.png"
+      "localPath": "docs/references/recipes/wiki-dish-icons-2026-09-26/Homestyle_Assorted_Skewers_Icon.png"
     },
     {
       "id": "petitplanet-wiki-file-3941",
@@ -1074,7 +1074,7 @@
       "sha256": "b99b5b551e6dccbec926a343bb40bd0346a55654925691402350a523801b4836",
       "rgbaSha256": "6bc38b977218404a812a89de23f76bfc5ba8440d2012c53542002a25722b38a0",
       "wikiUploadTimestamp": "2026-05-08T14:33:21Z",
-      "localPath": "docs/references/recipes/wiki-dish-icons-2026-09-26/Miracle_Assorted_Skewers_Icon.png"
+      "localPath": "docs/references/recipes/wiki-dish-icons-2026-09-26/Homestyle_Assorted_Skewers_Icon.png"
     },
     {
       "id": "petitplanet-wiki-file-3942",
@@ -1144,7 +1144,7 @@
       "sha256": "b99b5b551e6dccbec926a343bb40bd0346a55654925691402350a523801b4836",
       "rgbaSha256": "6bc38b977218404a812a89de23f76bfc5ba8440d2012c53542002a25722b38a0",
       "wikiUploadTimestamp": "2026-05-08T14:38:30Z",
-      "localPath": "docs/references/recipes/wiki-dish-icons-2026-09-26/Mushroom,_Fruit_&_Veggie_Skewers_Icon.png"
+      "localPath": "docs/references/recipes/wiki-dish-icons-2026-09-26/Homestyle_Assorted_Skewers_Icon.png"
     },
     {
       "id": "petitplanet-wiki-file-3951",
@@ -1298,7 +1298,7 @@
       "sha256": "9e5fe65d188804ecc2759a64571e62d2ec92780d2ba93946678b440c681e517b",
       "rgbaSha256": "5750f706b16ac898b3b86edc0faa431fce53d96dbdfebdfde6467b4655cf5da2",
       "wikiUploadTimestamp": "2026-05-08T15:10:11Z",
-      "localPath": "docs/references/recipes/wiki-dish-icons-2026-09-26/Rare_Blend_Icon.png"
+      "localPath": "docs/references/recipes/wiki-dish-icons-2026-09-26/Fruit_&_Veggie_Juice_Icon.png"
     },
     {
       "id": "petitplanet-wiki-file-4000",
@@ -1312,7 +1312,7 @@
       "sha256": "9e5fe65d188804ecc2759a64571e62d2ec92780d2ba93946678b440c681e517b",
       "rgbaSha256": "5750f706b16ac898b3b86edc0faa431fce53d96dbdfebdfde6467b4655cf5da2",
       "wikiUploadTimestamp": "2026-05-08T15:10:19Z",
-      "localPath": "docs/references/recipes/wiki-dish-icons-2026-09-26/Miracle_Blend_Icon.png"
+      "localPath": "docs/references/recipes/wiki-dish-icons-2026-09-26/Fruit_&_Veggie_Juice_Icon.png"
     },
     {
       "id": "petitplanet-wiki-file-4002",
@@ -4093,10 +4093,11 @@
   "localArchive": {
     "savedOn": "2026-09-26",
     "directory": "docs/references/recipes/wiki-dish-icons-2026-09-26",
-    "fileCount": 95,
-    "totalBytes": 15872480,
+    "fileCount": 87,
+    "totalBytes": 14461591,
     "format": "PNG",
     "originalBytesPreserved": true,
-    "verification": "All local files match recorded SHA-256, SHA-1, byte size and PNG dimensions. Original filenames and duplicate file entries are preserved."
+    "verification": "95 条来源记录共用 87 个字节不同的原文件；仅合并 SHA-256 与完整字节一致的副本，保留各自文件 ID、原始文件名、来源 URL 和校验值。所有 localPath 文件均匹配对应记录的 SHA-256、SHA-1、字节数与 PNG 尺寸。",
+    "deduplicatedOn": "2026-10-02"
   }
 }

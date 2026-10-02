@@ -1,6 +1,7 @@
 export const siteMetadata = {
   name: "Petit",
   origin: "https://petit.eruoo.dev",
+  repositoryUrl: "https://github.com/eruoo/petit",
   title: "Petit · 星布谷地资料手册",
   description: "Petit 是一个非官方的《星布谷地》资料站，方便玩家查阅游戏信息。目前提供菜谱速查。",
   image: {
