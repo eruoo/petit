@@ -2,17 +2,17 @@
 
 ## 技术栈
 
-| 范围         | 选择与配置入口                                                        |
-| ------------ | --------------------------------------------------------------------- |
-| 应用         | Nuxt 4、Vue 3、TypeScript，配置见 `nuxt.config.ts`、`tsconfig.json`。 |
-| 渲染         | SSG，`pnpm build` 生成 `.output/public`。                             |
-| 样式         | Tailwind CSS 4、petit-ui，入口为 `app/assets/css/main.css`。          |
-| 交互组件     | Reka UI，通过 `reka-ui/nuxt` 按需自动导入。                           |
-| 图鉴预览     | Viewer.js，关于页首次预览时动态加载。                                 |
-| 数据校验     | Zod；JSON 数据接入时定义对应 schema，在读取边界校验。                 |
-| 代码检查     | Oxlint、Oxfmt、Nuxt 类型检查。                                        |
-| 测试         | Vitest、Nuxt Test Utils、Vue Test Utils、happy-dom、Playwright。      |
-| 静态托管准备 | Wrangler、Cloudflare Workers Static Assets，配置见 `wrangler.jsonc`。 |
+| 范围         | 选择与配置入口                                                                                                 |
+| ------------ | -------------------------------------------------------------------------------------------------------------- |
+| 应用         | Nuxt 4、Vue 3、TypeScript，配置见 `nuxt.config.ts`、`tsconfig.json`。                                          |
+| 渲染         | SSG，`pnpm build` 生成 `.output/public` 和 Cloudflare Build Output。                                           |
+| 样式         | Tailwind CSS 4、petit-ui，入口为 `app/assets/css/main.css`。                                                   |
+| 交互组件     | Reka UI，通过 `reka-ui/nuxt` 按需自动导入。                                                                    |
+| 图鉴预览     | Viewer.js，关于页首次预览时动态加载。                                                                          |
+| 数据校验     | Zod；JSON 数据接入时定义对应 schema，在读取边界校验。                                                          |
+| 代码检查     | Oxlint、Oxfmt、Nuxt 类型检查。                                                                                 |
+| 测试         | Vitest、Nuxt Test Utils、Vue Test Utils、happy-dom、Playwright。                                               |
+| 静态托管准备 | cf CLI、Cloudflare Workers Static Assets，部署配置见 `cloudflare.config.ts`，构建适配见 `wrangler.config.ts`。 |
 
 依赖的准确版本由 `package.json` 和锁文件维护。首页为[本地菜谱速查页面](specs/recipe-browser.md)，使用 Vue 响应式状态与 URL 参数搜索；本地菜谱 JSON、Zod schema、读取边界与来源资料见[菜谱数据约定](recipes.md)。暂不引入 Pinia、数据库或 CMS。
 
@@ -50,8 +50,9 @@ Nuxt 开发服务默认运行在 `http://localhost:3000`。应用入口是 `app/
 | `pnpm test`         | 运行 Vitest。                                                         |
 | `pnpm test:watch`   | 以监听模式运行 Vitest。                                               |
 | `pnpm test:e2e`     | 构建静态站点后运行 Chromium 端到端测试。                              |
-| `pnpm build`        | 生成静态站点到 `.output/public`。                                     |
-| `pnpm preview`      | 使用 Wrangler 在本地预览静态产物，默认端口 8787。                     |
+| `pnpm build`        | 生成静态站点与 `.cloudflare/output/v0/` 部署产物。                    |
+| `pnpm preview`      | 通过 cf 的 Wrangler 适配层预览静态产物，默认端口 8787。               |
+| `pnpm deploy`       | 重新构建后通过 cf 发布到 Cloudflare，需要部署认证。                   |
 | `pnpm prepare`      | 生成 Nuxt 类型并安装或更新 Git hooks。                                |
 
 Oxlint 配置见 `oxlint.config.ts`，启用 TypeScript、Vue 等内置规则插件。Oxfmt 配置见 `.oxfmtrc.json`，采用默认格式规则，并排除由 pnpm 管理的锁文件。生成目录通过 `.gitignore` 排除。
@@ -90,15 +91,47 @@ pnpm build
 pnpm preview
 ```
 
-`wrangler.jsonc` 按[Workers SSG 配置](https://developers.cloudflare.com/workers/static-assets/routing/static-site-generation/)提供静态资源目录，将未知路径返回为 404。`assets.html_handling` 显式使用 `drop-trailing-slash`，让 `/about` 与 `/recipes/<id>` 直接返回 200；带尾斜杠及 HTML 别名的请求重定向到无尾斜杠地址，与 canonical、站内链接保持一致，首页保留 `/`。静态部署不提供运行时服务端 API；新增动态页面时，需要保证构建阶段能枚举或抓取对应路由。当前配方页由首页的完整配方链接自动发现，内容与入口约定见[完整配方页与抓取入口](specs/recipe-browser.md#完整配方页与抓取入口)。
+`cloudflare.config.ts` 使用 [cf 的 TypeScript 配置](https://developers.cloudflare.com/cf/projects/cloudflare-config/)，维护 Worker 名称、兼容日期与静态路由行为。`worker.assets.htmlHandling` 使用 `drop-trailing-slash`，让 `/about` 与 `/recipes/<id>` 直接返回 200；带尾斜杠及 HTML 别名的请求重定向到无尾斜杠地址，与 canonical、站内链接保持一致，首页保留 `/`。`worker.assets.notFoundHandling` 使用 `404-page`，未知路径返回 404。静态资源输入目录由 `wrangler.config.ts` 的 `assetsDirectory` 指定为 `.output/public`。
 
-当前配置用于本地验证和后续托管准备，尚未发布。用户已确认计划使用的正式域名，默认地址由 `shared/site.ts` 维护；该配置不代表已完成域名绑定或部署，首次发布前仍需确认 Cloudflare 账号、部署目标和域名绑定。
+当前锁定的 cf Beta 会自动识别 Nuxt；直接运行 `cf build` 会调用 `nuxt build`，无法为本项目的 SSG 流程生成 Cloudflare Build Output。项目因此先执行 `nuxt generate`，再调用 Wrangler 包随附、供 cf 使用的 `cf-wrangler build` 适配入口；`pnpm preview` 同样调用 `cf-wrangler dev`，读取上述新配置并绑定本地回环地址。保留 Wrangler 开发依赖用于这两个适配入口，不再维护旧的 `wrangler.jsonc`。升级 cf 后应重新确认这项限制。
+
+静态部署不提供运行时服务端 API；新增动态页面时，需要保证构建阶段能枚举或抓取对应路由。当前配方页由首页的完整配方链接自动发现，内容与入口约定见[完整配方页与抓取入口](specs/recipe-browser.md#完整配方页与抓取入口)。
+
+### cf CLI 安装与部署
+
+cf 已作为开发依赖固定版本，运行 `pnpm install --frozen-lockfile` 后可使用 `pnpm exec cf --version`。本项目的 Node.js 24 满足 cf 加载配置所需的 Node.js 22.18 及以上要求。需要在项目外使用时，可选全局安装：
+
+```sh
+pnpm add --global cf
+cf --version
+```
+
+cf 仍处于 Beta，命令和配置可能变化；安装、认证规则见[官方入门文档](https://developers.cloudflare.com/cf/get-started/)。全局命令在项目内会采用项目锁定的版本。cf 使用自己的登录凭据，首次发布时运行：
+
+```sh
+pnpm exec cf auth login
+pnpm exec cf auth whoami
+pnpm deploy
+```
+
+`pnpm deploy` 先重新构建，再执行 `cf deploy --prebuilt` 上传该次产物。只检查部署内容而不上传时运行：
+
+```sh
+pnpm build
+pnpm exec cf deploy --prebuilt --dry-run
+```
+
+`--prebuilt` 读取 `.cloudflare/output/v0/`，不会再次触发框架自动构建；干运行无需登录。构建输出及本地生成内容由 `.gitignore` 排除，参见[官方构建与部署说明](https://developers.cloudflare.com/cf/projects/)。
+
+使用 Cloudflare Workers Builds 连接仓库时，生产分支设为 `main`、根目录为仓库根目录，构建命令使用 `pnpm check && pnpm build`，部署命令使用 `pnpm exec cf deploy --prebuilt`。构建环境使用 Node.js 24 与 `package.json` 声明的 pnpm 版本；外部 CI 使用 `pnpm install --frozen-lockfile` 安装，并通过 `CLOUDFLARE_API_TOKEN` 和 `CLOUDFLARE_ACCOUNT_ID` 提供部署认证，参见[cf CI 文档](https://developers.cloudflare.com/cf/ci/)。
+
+正式域名的默认地址由 `shared/site.ts` 维护，`cloudflare.config.ts` 的 `worker.domains` 从该地址提取主机名，部署时绑定正式域名。`NUXT_PUBLIC_SITE_URL` 只覆盖构建时的页面地址，不改变部署绑定。首次发布前须确认目标 Cloudflare 账号有对应域名的管理权限；当前本地配置与干运行不代表已经完成线上部署或域名绑定。
 
 ### 分享元数据与站点域名
 
 普通 `pnpm build` 使用 `shared/site.ts` 中的默认正式域名，无须另建 `.env`。需要覆盖部署地址时，可从 `.env.example` 复制为本地 `.env` 并修改 `NUXT_PUBLIC_SITE_URL`，或由构建环境注入同名变量。该值须为 HTTP(S) 根域名；支持尾部 `/`，不支持子路径、查询参数、片段或凭据。
 
-这是静态站点，canonical、Open Graph 页面地址和分享图片绝对地址在构建时写入 HTML；域名变化后需要重新构建，单独修改 Wrangler 的运行环境不会更新已有产物。显式将 `NUXT_PUBLIC_SITE_URL` 设为空字符串时，省略依赖域名的标签。元数据字段、页面差异与 URL 规则见[页面约定](specs/recipe-browser.md#页面元数据与分享预览)。
+这是静态站点，canonical、Open Graph 页面地址和分享图片绝对地址在构建时写入 HTML；域名变化后需要重新构建，单独修改 Cloudflare 的运行环境不会更新已有产物。显式将 `NUXT_PUBLIC_SITE_URL` 设为空字符串时，省略依赖域名的标签。元数据字段、页面差异与 URL 规则见[页面约定](specs/recipe-browser.md#页面元数据与分享预览)。
 
 `server/routes/robots.txt.get.ts` 与 `sitemap.xml.get.ts` 在构建时预渲染为 `.output/public/robots.txt` 和 `sitemap.xml`，不需要额外模块或部署运行时服务。robots 允许抓取全站并声明 sitemap 的绝对地址；sitemap 从 `currentRecipes` 枚举首页、关于页与全部配方页，使用与 canonical 一致的域名和路径，不包含展示参数或不存在的页面，也不填入缺乏可靠依据的 `lastmod`。两个文件同样随构建域名更新；显式空域名时只生成不含 Sitemap 声明的 robots，省略 sitemap，访问后者返回 404。
 
