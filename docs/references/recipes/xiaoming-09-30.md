@@ -46,7 +46,7 @@
 
 ## 验证
 
-2026-10-02 复核后验证：
+2026-10-02 文字复核完成时的验证记录如下。当时包含的独立配方页及其测试已在后续交互精简中移除，当前交互以[页面规格](../../specs/recipe-browser.md#内容与交互)为准。
 
 - `pnpm check` 通过，包含清点覆盖、来源附件、类型与格式检查，以及 101 项单元测试。
 - `pnpm test:e2e tests/e2e/recipe-images.spec.ts tests/e2e/about.spec.ts tests/e2e/recipe-pages.spec.ts` 的 20 项浏览器用例通过，启动阶段的静态构建通过。

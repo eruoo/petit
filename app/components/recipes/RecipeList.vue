@@ -69,13 +69,6 @@ const rows = computed(() =>
           >
           <RecipeIcon v-if="view === 'list'" class="row-arrow" name="chevron" />
         </button>
-        <NuxtLink
-          :to="`/recipes/${row.recipe.id}`"
-          :prefetch="false"
-          class="recipe-page-link"
-          :aria-label="`${row.recipe.name.raw}的完整配方`"
-          >完整配方 <span aria-hidden="true">→</span></NuxtLink
-        >
       </li>
     </ul>
   </div>
@@ -120,19 +113,8 @@ const rows = computed(() =>
   background: var(--petit-color-surface-hover);
 }
 .recipe-row:focus-visible {
+  outline-color: var(--petit-color-border-selected);
   outline-offset: -2px;
-}
-.recipe-page-link {
-  display: flex;
-  align-items: center;
-  gap: 0.35rem;
-  width: fit-content;
-  min-height: 32px;
-  margin: 0 0.65rem 0.35rem auto;
-  font-size: 0.72rem;
-  color: var(--petit-color-link);
-  text-decoration: underline;
-  text-underline-offset: 3px;
 }
 .recipe-title {
   display: grid;

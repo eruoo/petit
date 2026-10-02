@@ -7,9 +7,7 @@ import { effectSummary } from "../../utils/recipes";
 import IngredientSlots from "./IngredientSlots.vue";
 import RecipeEffectEvidence from "./RecipeEffectEvidence.vue";
 
-const props = withDefaults(defineProps<{ recipe: Recipe; headingTag?: "h2" | "h3" }>(), {
-  headingTag: "h2",
-});
+const props = defineProps<{ recipe: Recipe }>();
 const effect = computed(() => effectSummary(props.recipe, getEffectEvidence(props.recipe)));
 const accessNotes = computed(() => {
   const source = currentRecipeSources.find((item) => item.id === props.recipe.source.sourceId);
@@ -35,7 +33,7 @@ const accessNotes = computed(() => {
     </div>
     <section class="detail-section">
       <div class="section-title">
-        <component :is="headingTag" class="detail-heading">所需食材</component>
+        <h3 class="detail-heading">所需食材</h3>
         <span v-if="recipe.ingredients.length">{{ recipe.ingredients.length }} 个食材槽位</span>
       </div>
       <IngredientSlots :recipe="recipe" expanded />
@@ -58,9 +56,9 @@ const accessNotes = computed(() => {
       </div>
     </dl>
     <section class="effect-detail detail-section">
-      <component :is="headingTag" class="detail-heading">
+      <h3 class="detail-heading">
         {{ recipe.productionChance.status === "unspecified-probability" ? "菜品产出" : "特殊效果" }}
-      </component>
+      </h3>
       <p class="effect-name">{{ effect?.label }}</p>
       <p v-if="effect?.note" class="detail-muted">{{ effect.note }}</p>
       <RecipeEffectEvidence :recipe="recipe" />
