@@ -5,6 +5,7 @@ node_modules/
 /dist
 coverage/
 .wrangler/
+.cloudflare/
 playwright-report/
 test-results/
 .env
