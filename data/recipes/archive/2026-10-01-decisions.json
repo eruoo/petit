@@ -1,0 +1,17 @@
+{
+  "id": "user-recipe-decisions-20261001",
+  "receivedOn": "2026-10-01",
+  "source": "user-message",
+  "statementRaw": "以这张图片作为最新的数据源更新，其中外婆菜饭的谷物后的问号不用保留",
+  "gameVerified": false,
+  "decisions": [
+    {
+      "recipeId": "mt-20260924-guest-005",
+      "nameRaw": "外婆菜饭",
+      "action": "confirm-ingredient",
+      "slot": 3,
+      "previousRaw": "谷物?",
+      "raw": "谷物"
+    }
+  ]
+}

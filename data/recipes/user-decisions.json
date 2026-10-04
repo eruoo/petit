@@ -1,8 +1,8 @@
 {
-  "id": "user-recipe-decisions-20261001",
-  "receivedOn": "2026-10-01",
+  "id": "user-recipe-decisions-20261003",
+  "receivedOn": "2026-10-03",
   "source": "user-message",
-  "statementRaw": "以这张图片作为最新的数据源更新，其中外婆菜饭的谷物后的问号不用保留",
+  "statementRaw": "你发现的差异采用明天图，更新数据，最后详细看一下有没有文本错误",
   "gameVerified": false,
   "decisions": [
     {
@@ -12,6 +12,204 @@
       "slot": 3,
       "previousRaw": "谷物?",
       "raw": "谷物"
+    },
+    {
+      "recipeId": "mt-20260924-simple-028",
+      "nameRaw": "绵绵麦奶",
+      "action": "use-fields",
+      "fields": ["ingredients"],
+      "source": {
+        "sourceId": "tomorrow-20260929-image",
+        "region": "simple",
+        "row": 28
+      }
+    },
+    {
+      "recipeId": "mt-20260924-signature-015",
+      "nameRaw": "梦幻三仙过海鱼",
+      "action": "use-fields",
+      "fields": ["ingredients"],
+      "source": {
+        "sourceId": "tomorrow-20260929-image",
+        "region": "signature",
+        "row": 16
+      }
+    },
+    {
+      "recipeId": "mt-20260924-signature-021",
+      "nameRaw": "漫香果麦奶",
+      "action": "use-fields",
+      "fields": ["ingredients"],
+      "source": {
+        "sourceId": "tomorrow-20260929-image",
+        "region": "signature",
+        "row": 22
+      }
+    },
+    {
+      "recipeId": "mt-20260924-signature-025",
+      "nameRaw": "蒜香流心奶黄包",
+      "action": "use-fields",
+      "fields": ["name", "ingredients"],
+      "source": {
+        "sourceId": "tomorrow-20260929-image",
+        "region": "signature",
+        "row": 26
+      }
+    },
+    {
+      "recipeId": "mt-20260924-signature-026",
+      "nameRaw": "田园蔬荟披萨",
+      "action": "use-fields",
+      "fields": ["name"],
+      "source": {
+        "sourceId": "tomorrow-20260929-image",
+        "region": "signature",
+        "row": 27
+      }
+    },
+    {
+      "recipeId": "mt-20260924-guest-003",
+      "nameRaw": "梦幻鲜风龙虾锅",
+      "action": "use-fields",
+      "fields": ["name"],
+      "source": {
+        "sourceId": "tomorrow-20260929-image",
+        "region": "guest",
+        "row": 3
+      }
+    },
+    {
+      "recipeId": "mt-20260924-guest-004",
+      "nameRaw": "梦幻金玉满堂饭",
+      "action": "use-fields",
+      "fields": ["ingredients"],
+      "source": {
+        "sourceId": "tomorrow-20260929-image",
+        "region": "guest",
+        "row": 4
+      }
+    },
+    {
+      "recipeId": "mt-20260924-guest-014",
+      "nameRaw": "梦幻番茄汤汁面",
+      "action": "use-fields",
+      "fields": ["ingredients"],
+      "source": {
+        "sourceId": "tomorrow-20260929-image",
+        "region": "guest",
+        "row": 5
+      }
+    },
+    {
+      "recipeId": "mt-20260924-guest-010",
+      "nameRaw": "时蔬烧烤派对",
+      "action": "use-fields",
+      "fields": ["specialEffect"],
+      "source": {
+        "sourceId": "tomorrow-20260929-image",
+        "region": "guest",
+        "row": 11
+      }
+    },
+    {
+      "recipeId": "mt-20260924-guest-011",
+      "nameRaw": "三色蔬焗饭",
+      "action": "use-fields",
+      "fields": ["ingredients"],
+      "source": {
+        "sourceId": "tomorrow-20260929-image",
+        "region": "guest",
+        "row": 12
+      }
+    },
+    {
+      "recipeId": "mt-20260924-free-002",
+      "nameRaw": "珍稀什锦砂锅",
+      "action": "use-fields",
+      "fields": ["energy"],
+      "source": {
+        "sourceId": "tomorrow-20260929-image",
+        "region": "free",
+        "row": 2
+      }
+    },
+    {
+      "recipeId": "mt-20260924-free-006",
+      "nameRaw": "梦幻什锦饮?",
+      "action": "use-fields",
+      "fields": ["name"],
+      "source": {
+        "sourceId": "tomorrow-20260929-image",
+        "region": "free",
+        "row": 6
+      }
+    },
+    {
+      "recipeId": "xm-0930-neighbor-008",
+      "nameRaw": "轰炸大菇肉",
+      "action": "use-fields",
+      "fields": ["ingredients", "energy", "cookingMethod", "specialEffect", "acquisition"],
+      "source": {
+        "sourceId": "tomorrow-20260929-image",
+        "region": "neighbor",
+        "row": 3
+      }
+    },
+    {
+      "recipeId": "xm-0927-neighbor-002",
+      "nameRaw": "独角仙米面包",
+      "action": "use-fields",
+      "fields": ["ingredients"],
+      "source": {
+        "sourceId": "tomorrow-20260929-image",
+        "region": "neighbor",
+        "row": 5
+      }
+    },
+    {
+      "recipeId": "xm-0930-neighbor-006",
+      "nameRaw": "红穗绛桃包",
+      "action": "use-fields",
+      "fields": ["ingredients"],
+      "source": {
+        "sourceId": "tomorrow-20260929-image",
+        "region": "neighbor",
+        "row": 6
+      }
+    },
+    {
+      "recipeId": "xm-0930-neighbor-007",
+      "nameRaw": "百果甜甜圈",
+      "action": "use-fields",
+      "fields": ["ingredients"],
+      "source": {
+        "sourceId": "tomorrow-20260929-image",
+        "region": "neighbor",
+        "row": 7
+      }
+    },
+    {
+      "recipeId": "xm-0927-neighbor-005",
+      "nameRaw": "露营方便烤鱼",
+      "action": "use-fields",
+      "fields": ["ingredients"],
+      "source": {
+        "sourceId": "tomorrow-20260929-image",
+        "region": "neighbor",
+        "row": 8
+      }
+    },
+    {
+      "recipeId": "xm-0927-neighbor-006",
+      "nameRaw": "甜饼果茶",
+      "action": "use-fields",
+      "fields": ["cookingMethod", "specialEffect", "acquisition"],
+      "source": {
+        "sourceId": "tomorrow-20260929-image",
+        "region": "neighbor",
+        "row": 10
+      }
     }
   ]
 }

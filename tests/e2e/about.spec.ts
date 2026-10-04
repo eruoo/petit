@@ -22,7 +22,7 @@ test("图鉴图片加载失败显示原图提示，仍可查看另一张并在�
 
   await page.locator(".guide-image-link").nth(1).click();
   await expect(
-    page.getByRole("dialog", { name: "明天攻略组 · 图片日期 2026-09-24" }),
+    page.getByRole("dialog", { name: "明天攻略组 · 图片日期 2026-09-29" }),
   ).toBeVisible();
   await expect(notice).not.toBeAttached();
   await page.keyboard.press("Escape");
@@ -137,7 +137,7 @@ test("图鉴预览支持原尺寸、缩放拖动、切图和键盘返回", async
     "false",
   );
   await dialog.getByRole("button", { name: "下一张", exact: true }).click();
-  const referenceDialog = page.getByRole("dialog", { name: "明天攻略组 · 图片日期 2026-09-24" });
+  const referenceDialog = page.getByRole("dialog", { name: "明天攻略组 · 图片日期 2026-09-29" });
   await expect(referenceDialog).toBeVisible();
   await expect
     .poll(() =>
@@ -145,10 +145,10 @@ test("图鉴预览支持原尺寸、缩放拖动、切图和键盘返回", async
         .locator(".viewer-canvas > img")
         .evaluate((element: HTMLImageElement) => element.naturalWidth),
     )
-    .toBe(4355);
+    .toBe(1748);
   await expect(referenceDialog.getByRole("link", { name: "打开原图" })).toHaveAttribute(
     "href",
-    /tomorrow-2026-09-24\.[\w-]+\.jpg$/u,
+    /tomorrow-2026-09-29\.[\w-]+\.jpg$/u,
   );
   await expect(
     referenceDialog.getByRole("button", { name: "下一张", exact: true }),
@@ -197,11 +197,11 @@ test("图鉴预览支持原尺寸、缩放拖动、切图和键盘返回", async
   await expect(popup).toHaveURL(/xiaoming-09-30\.[\w-]+\.png$/u);
   await popup.close();
   await dialog.getByRole("button", { name: "下一张", exact: true }).click();
-  const otherDialog = page.getByRole("dialog", { name: "明天攻略组 · 图片日期 2026-09-24" });
+  const otherDialog = page.getByRole("dialog", { name: "明天攻略组 · 图片日期 2026-09-29" });
   await expect(otherDialog).toBeVisible();
   await expect(otherDialog.getByRole("link", { name: "打开原图" })).toHaveAttribute(
     "href",
-    /tomorrow-2026-09-24\.[\w-]+\.jpg$/u,
+    /tomorrow-2026-09-29\.[\w-]+\.jpg$/u,
   );
   await expect(otherDialog.getByRole("button", { name: "下一张", exact: true })).toHaveAttribute(
     "aria-disabled",
@@ -345,22 +345,22 @@ test("关于页简述资料来源，分列图片来源与致谢并展示两张�
   const latestImageResponse = await page.request.get((await latestImage.getAttribute("href"))!);
   expect(latestImageResponse.status()).toBe(200);
   expect(latestImageResponse.headers()["content-type"]).toContain("image/png");
-  const tomorrowImageLink = page.getByRole("link", { name: "查看明天攻略组图鉴（2026-09-24）" });
-  await expect(tomorrowImageLink).toHaveAttribute("href", /tomorrow-2026-09-24\.[\w-]+\.jpg$/u);
+  const tomorrowImageLink = page.getByRole("link", { name: "查看明天攻略组图鉴（2026-09-29）" });
+  await expect(tomorrowImageLink).toHaveAttribute("href", /tomorrow-2026-09-29\.[\w-]+\.jpg$/u);
   const tomorrowImage = tomorrowImageLink.getByRole("img", {
-    name: "明天攻略组 星布谷地菜谱图鉴（2026-09-24）",
+    name: "明天攻略组 星布谷地菜谱图鉴（2026-09-29）",
     exact: true,
   });
   await expect
     .poll(() => tomorrowImage.evaluate((image: HTMLImageElement) => image.naturalWidth))
-    .toBe(4355);
+    .toBe(1748);
   const tomorrowImageResponse = await page.request.get(
     (await tomorrowImageLink.getAttribute("href"))!,
   );
   expect(tomorrowImageResponse.status()).toBe(200);
   expect(tomorrowImageResponse.headers()["content-type"]).toContain("image/jpeg");
-  await expect(page.locator("#tomorrow-20260924-image figcaption")).toContainText(
-    "明天攻略组 · 图片日期 2026-09-24",
+  await expect(page.locator("#tomorrow-20260929-image figcaption")).toContainText(
+    "明天攻略组 · 图片日期 2026-09-29",
   );
   const referenceImage = page.getByRole("link", { name: "查看小铭同学qaQ233图鉴（9月30日）" });
   await expect(referenceImage).toHaveAttribute("href", /xiaoming-09-30\.[\w-]+\.png$/u);

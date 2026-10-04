@@ -80,7 +80,7 @@ test("秘制菜显示配图和当前力气与效果", async ({ page }) => {
   await expect(dialog.getByRole("list", { name: "有序食材" }).getByRole("listitem")).toHaveCount(2);
 });
 
-test("外婆菜饭采用去问号的金色谷物，新菜空配方保留未说明", async ({ page }) => {
+test("外婆菜饭保留确认的金色谷物，轰炸大菇肉采用明天资料并保留未知食材", async ({ page }) => {
   await page.goto("/?q=外婆菜饭");
   await page.getByRole("button", { name: "查看外婆菜饭配方", exact: true }).click();
   const dialog = page.getByRole("dialog");
@@ -90,9 +90,41 @@ test("外婆菜饭采用去问号的金色谷物，新菜空配方保留未说�
   await page.keyboard.press("Escape");
   await page.getByLabel("搜索菜名、食材、词条或烹饪方式", { exact: true }).fill("轰炸大菇肉");
   await page.getByRole("button", { name: "查看轰炸大菇肉配方", exact: true }).click();
+  await expect(dialog.getByText("未知食材 ?", { exact: true })).toHaveCount(3);
+  await expect(dialog).toContainText("配方获取：热贝尔");
+  await expect(dialog.locator(".recipe-facts")).toContainText("+90");
+  await expect(dialog.locator(".recipe-facts")).toContainText("煮锅");
+  await expect(dialog.locator(".effect-detail")).toContainText("未知");
+  await expect(dialog.locator(".effect-detail")).not.toContainText("无特殊效果");
+});
+
+test("奇迹盛宴可分类与词条搜索，详情显示概率产出且不捏造固定配方", async ({ page }) => {
+  await page.goto("/?category=miracle");
+  const results = page.getByRole("list", { name: "菜谱结果" });
+  await expect(results.getByRole("button")).toHaveCount(8);
+  await page.getByRole("searchbox").fill("汤羹");
+  await expect(results.getByRole("button")).toHaveCount(1);
+  await results.getByRole("button", { name: "查看奇迹盛宴瓦罐汤配方", exact: true }).click();
+  const dialog = page.getByRole("dialog");
+  await expect(dialog).toContainText("+180");
   await expect(dialog).toContainText("食材未说明");
   await expect(dialog).not.toContainText("0 个食材槽位");
-  await expect(dialog.locator(".recipe-facts")).toContainText("未知");
-  await expect(dialog.locator(".effect-detail")).toContainText("未说明");
+  await expect(dialog.locator(".effect-detail")).toContainText("由烹饪对应词条食物概率产出");
   await expect(dialog.locator(".effect-detail")).not.toContainText("无特殊效果");
+});
+
+test("甜饼果茶采用厨具、任务和二阶效果，云朵小饼干保持未知数值", async ({ page }) => {
+  await page.goto("/?q=甜饼果茶");
+  await page.getByRole("button", { name: "查看甜饼果茶配方", exact: true }).click();
+  const dialog = page.getByRole("dialog");
+  await expect(dialog).toContainText("配方获取：最重要的消费者");
+  await expect(dialog.locator(".recipe-facts")).toContainText("煮锅");
+  await expect(dialog.locator(".effect-detail")).toContainText("钓鱼之力 · 二阶");
+  await page.keyboard.press("Escape");
+  await page.getByRole("searchbox").fill("云朵小饼干");
+  await page.getByRole("button", { name: "查看云朵小饼干配方", exact: true }).click();
+  await expect(dialog).toContainText("配方获取：绵朵莉");
+  await expect(dialog.locator(".recipe-facts")).toContainText("烤箱");
+  await expect(dialog.locator(".recipe-facts")).toContainText("未知");
+  await expect(dialog.locator(".recipe-facts")).not.toContainText("+0");
 });

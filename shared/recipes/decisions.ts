@@ -6,6 +6,15 @@ import type { Recipe } from "./schema.ts";
 
 const text = z.string().min(1);
 const identity = { recipeId: recipeSchema.shape.id, nameRaw: text };
+const adoptedFieldSchema = z.enum([
+  "name",
+  "ingredients",
+  "cookingMethod",
+  "energy",
+  "specialEffect",
+  "acquisition",
+]);
+type AdoptedField = z.infer<typeof adoptedFieldSchema>;
 export const recipeDecisionsSchema = z
   .strictObject({
     id: recipeSchema.shape.id,
@@ -26,6 +35,15 @@ export const recipeDecisionsSchema = z
           z.strictObject({
             ...identity,
             action: z.literal("use-ingredients"),
+            source: recipeSchema.shape.source,
+          }),
+          z.strictObject({
+            ...identity,
+            action: z.literal("use-fields"),
+            fields: z
+              .array(adoptedFieldSchema)
+              .min(1)
+              .refine((fields) => new Set(fields).size === fields.length, "采用字段不能重复"),
             source: recipeSchema.shape.source,
           }),
           z.strictObject({ ...identity, action: z.literal("keep-primary"), reason: text }),
@@ -49,12 +67,14 @@ export const recipeDecisionsSchema = z
           selection.candidate.kind !== "any-of" &&
           selection.candidate.name === decision.raw &&
           !/[?？()（）]/u.test(decision.raw);
-      } else if (decision.action === "use-ingredients") {
+      } else if (decision.action === "use-ingredients" || decision.action === "use-fields") {
         const recipe = supplementalRecipesById.get(decision.recipeId);
         valid &&=
           recipe?.source.sourceId === decision.source.sourceId &&
           recipe.source.region === decision.source.region &&
           recipe.source.row === decision.source.row;
+        if (decision.action === "use-fields" && decision.fields.includes("acquisition"))
+          valid &&= Boolean(recipe?.guideDetails?.acquisitionRaw);
       }
       if (!valid)
         context.addIssue({
@@ -70,19 +90,53 @@ export const recipeDecisionsById = new Map(
   recipeDecisions.decisions.map((entry) => [entry.recipeId, entry]),
 );
 
+export function usesSupplementalField(recipeId: string, field: AdoptedField): boolean {
+  const decision = recipeDecisionsById.get(recipeId);
+  return decision?.action === "use-fields"
+    ? decision.fields.includes(field)
+    : decision?.action === "use-ingredients" && field === "ingredients";
+}
+
 export function applyRecipeDecision(recipe: Recipe): Recipe {
   const decision = recipeDecisionsById.get(recipe.id);
   if (!decision || decision.action === "keep-primary") return recipe;
-  if (decision.action === "use-ingredients") {
+  if (decision.action === "use-ingredients" || decision.action === "use-fields") {
     const selected = supplementalRecipesById.get(recipe.id)!;
+    const adopts = (field: AdoptedField) => usesSupplementalField(recipe.id, field);
+    const replacedFields: readonly string[] =
+      decision.action === "use-ingredients" ? ["ingredients"] : decision.fields;
     return recipeSchema.parse({
       ...recipe,
-      ingredients: selected.ingredients,
-      // 品质和加粗随同一来源的有序食材一起读取，不能留在旧槽位上。
-      visualCues: [
-        ...recipe.visualCues.filter((cue) => cue.field === "name"),
-        ...selected.visualCues.filter((cue) => cue.field.startsWith("ingredients.")),
+      name: adopts("name") ? selected.name : recipe.name,
+      ingredients: adopts("ingredients") ? selected.ingredients : recipe.ingredients,
+      cookingMethod: adopts("cookingMethod") ? selected.cookingMethod : recipe.cookingMethod,
+      energy: adopts("energy") ? selected.energy : recipe.energy,
+      specialEffect: adopts("specialEffect") ? selected.specialEffect : recipe.specialEffect,
+      effectTrigger: adopts("specialEffect") ? selected.effectTrigger : recipe.effectTrigger,
+      reviewNotes: [
+        ...recipe.reviewNotes.filter(
+          (note) => !note.field.split("/").every((field) => replacedFields.includes(field)),
+        ),
+        ...selected.reviewNotes.filter((note) =>
+          note.field.split("/").some((field) => replacedFields.includes(field)),
+        ),
       ],
+      guideDetails: recipe.guideDetails && {
+        ...recipe.guideDetails,
+        acquisitionRaw: adopts("acquisition")
+          ? selected.guideDetails!.acquisitionRaw
+          : recipe.guideDetails.acquisitionRaw,
+        groupedIngredients: adopts("ingredients")
+          ? (selected.guideDetails?.groupedIngredients ?? [])
+          : recipe.guideDetails.groupedIngredients,
+      },
+      // 品质和加粗随同一来源的有序食材一起读取，不能留在旧槽位上。
+      visualCues: adopts("ingredients")
+        ? [
+            ...recipe.visualCues.filter((cue) => cue.field === "name"),
+            ...selected.visualCues.filter((cue) => cue.field.startsWith("ingredients.")),
+          ]
+        : recipe.visualCues,
     });
   }
   return recipeSchema.parse({

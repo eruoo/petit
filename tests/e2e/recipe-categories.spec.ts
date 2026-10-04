@@ -10,7 +10,7 @@ test("分类在搜索上方，与关键词组合并保留排序和视图，分�
   const recipes = page.getByRole("list", { name: "菜谱结果" }).getByRole("button");
   await expect(search).toBeEnabled();
   await expect(categories.getByRole("radio", { name: "全部", exact: true })).toBeChecked();
-  await expect(recipes).toHaveCount(102);
+  await expect(recipes).toHaveCount(111);
   const bounds = await categories.locator("label").evaluateAll((elements) =>
     elements.map((element) => {
       const { y, bottom } = element.getBoundingClientRect();
@@ -54,7 +54,7 @@ test("分类在搜索上方，与关键词组合并保留排序和视图，分�
   await search.fill("什锦");
   await expect(page.getByRole("heading", { name: "没有找到匹配的菜谱" })).toBeVisible();
   await page.getByRole("button", { name: "清除搜索条件", exact: true }).click();
-  await expect(recipes).toHaveCount(102);
+  await expect(recipes).toHaveCount(111);
   await expect(search).toHaveValue("");
   await expect(categories.getByRole("radio", { name: "全部", exact: true })).toBeChecked();
   await expect(page.getByLabel("菜谱排序", { exact: true })).toHaveValue("energy-desc");
@@ -64,7 +64,7 @@ test("分类在搜索上方，与关键词组合并保留排序和视图，分�
   );
 });
 
-test("手机分类三列两行，支持方向键、刷新与导航恢复", async ({ page }, testInfo) => {
+test("手机分类三列自动换行，支持方向键、刷新与导航恢复", async ({ page }, testInfo) => {
   await page.setViewportSize({ width: 320, height: 850 });
   await page.goto("/?category=guest&q=奶&sort=energy-asc&utm_source=test");
   const categories = page.getByRole("group", { name: "菜谱分类", exact: true });
@@ -91,12 +91,12 @@ test("手机分类三列两行，支持方向键、刷新与导航恢复", async
         return { x, y, width, height, bottom };
       }),
     );
-    expect(bounds).toHaveLength(6);
+    expect(bounds).toHaveLength(7);
     expect(new Set(bounds.slice(0, 3).map((box) => box.y)).size).toBe(1);
-    expect(new Set(bounds.slice(3).map((box) => box.y)).size).toBe(1);
+    expect(new Set(bounds.slice(3, 6).map((box) => box.y)).size).toBe(1);
     expect(bounds[3]!.y).toBeGreaterThan(bounds[0]!.y);
     expect(bounds.every((box) => box.height >= 44 && box.width >= 44)).toBe(true);
-    expect((await search.locator("..").boundingBox())!.y - bounds[5]!.bottom).toBeCloseTo(12);
+    expect((await search.locator("..").boundingBox())!.y - bounds[6]!.bottom).toBeCloseTo(12);
     expect(await page.evaluate(() => document.documentElement.scrollWidth)).toBeLessThanOrEqual(
       width,
     );

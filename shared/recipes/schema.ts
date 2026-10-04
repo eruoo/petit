@@ -28,7 +28,14 @@ function observation<T extends z.ZodType>(value: T) {
   ]);
 }
 
-export const imageRegionSchema = z.enum(["simple", "signature", "guest", "free", "neighbor"]);
+export const imageRegionSchema = z.enum([
+  "simple",
+  "signature",
+  "guest",
+  "free",
+  "neighbor",
+  "miracle",
+]);
 export const recipeTagSchema = z.enum([
   "饮品",
   "素菜",
@@ -112,6 +119,11 @@ const productionChanceSchema = z.union([
     status: z.literal("unspecified-probability"),
     raw: z.literal("概率出"),
     basis: z.literal("effect-column-cell"),
+  }),
+  z.strictObject({
+    status: z.literal("unspecified-probability"),
+    raw: z.literal("概率产出"),
+    basis: z.literal("region-heading"),
   }),
 ]);
 
@@ -203,12 +215,14 @@ export const recipeSchema = z
     }
     if (
       recipe.productionChance.status === "unspecified-probability" &&
-      recipe.source.region !== "free"
+      ((recipe.productionChance.basis === "effect-column-cell" &&
+        recipe.source.region !== "free") ||
+        (recipe.productionChance.basis === "region-heading" && recipe.source.region !== "miracle"))
     ) {
       context.addIssue({
         code: "custom",
         path: ["productionChance"],
-        message: "当前图片仅自由烹饪记录概率出",
+        message: "概率产出依据须对应自由烹饪效果单元格或奇迹盛宴区标题",
       });
     }
     if (
@@ -221,11 +235,14 @@ export const recipeSchema = z
         message: "效果触发概率须关联已转录的特殊效果",
       });
     }
-    if (recipe.source.region === "free" && recipe.effectTrigger.status !== "not-stated") {
+    if (
+      ["free", "miracle"].includes(recipe.source.region) &&
+      recipe.effectTrigger.status !== "not-stated"
+    ) {
       context.addIssue({
         code: "custom",
         path: ["effectTrigger"],
-        message: "自由烹饪的概率出不是效果触发概率",
+        message: "菜品概率产出不是效果触发概率",
       });
     }
     for (const [index, cue] of recipe.visualCues.entries()) {
@@ -322,7 +339,8 @@ export const inventorySchema = z.strictObject({
           .min(1),
       }),
     )
-    .length(5),
+    .min(5)
+    .max(6),
 });
 
 export const recipeDatasetSchema = z
