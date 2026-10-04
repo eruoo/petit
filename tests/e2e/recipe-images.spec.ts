@@ -13,7 +13,7 @@ function expectLocalImage(value: string | null, pageUrl: string, extension: "png
 
 test("构建只发布当前使用的 Wiki 图标，未使用的文件继续归档", () => {
   const hash = (path: URL) => createHash("sha256").update(readFileSync(path)).digest("hex");
-  const archiveFiles = ["2026-09-26", "2026-10-01"].flatMap((date) => {
+  const archiveFiles = ["2026-09-26", "2026-10-01", "2026-10-04"].flatMap((date) => {
     const directory = new URL(
       `../../docs/references/recipes/wiki-dish-icons-${date}/`,
       import.meta.url,
@@ -35,7 +35,7 @@ test("构建只发布当前使用的 Wiki 图标，未使用的文件继续归�
       .map((name) => hash(new URL(name, outputDirectory)))
       .filter((value) => archiveHashes.has(value)),
   );
-  expect(archiveFiles).toHaveLength(93);
+  expect(archiveFiles).toHaveLength(96);
   expect(publishedHashes).toEqual(usedHashes);
 });
 
@@ -43,7 +43,8 @@ test("菜谱列表与详情显示本地候选配图", async ({ page }) => {
   await page.goto("/");
   const results = page.getByRole("list", { name: "菜谱结果" });
   await expect(results.getByRole("img")).toHaveCount(111);
-  await expect(results.locator("img")).toHaveCount(101);
+  await expect(results.locator("img")).toHaveCount(104);
+  await expect(results.getByRole("img", { name: /：图片暂不可用$/u })).toHaveCount(7);
   const firstImage = results.getByRole("img", { name: "和煦花果茶（候选配图）", exact: true });
   await expect
     .poll(() => firstImage.evaluate((element: HTMLImageElement) => element.naturalWidth))
@@ -65,10 +66,10 @@ test("菜谱列表与详情显示本地候选配图", async ({ page }) => {
   );
 });
 
-test("手机上三道缺少 Wiki 图标的菜在列表与详情显示相同攻略区域", async ({ page }) => {
+test("手机上两道缺少 Wiki 图标的菜在列表与详情显示相同攻略区域", async ({ page }) => {
   await page.setViewportSize({ width: 390, height: 844 });
   await page.goto("/");
-  for (const name of ["茄茄擂辣饭", "梦幻星莓漫游派", "梦幻番茄汤汁面"]) {
+  for (const name of ["梦幻星莓漫游派", "梦幻番茄汤汁面"]) {
     await page.getByLabel("搜索菜名、食材、词条或烹饪方式", { exact: true }).fill(name);
     const trigger = page.getByRole("button", { name: `查看${name}配方`, exact: true });
     const thumbnail = trigger.getByRole("img", { name: `${name}（候选配图）`, exact: true });
@@ -112,7 +113,7 @@ test("图片加载失败显示占位，仍可打开配方和继续查找", async
     .toBe(512);
 });
 
-test("四道菜显示本地高清 PNG 与对应品质，既有配方保持", async ({ page }) => {
+test("补图与替换显示本地高清 PNG，品质和既有配方保持", async ({ page }) => {
   await page.setViewportSize({ width: 390, height: 844 });
   await page.goto("/");
   const results = page.getByRole("list", { name: "菜谱结果" });
@@ -123,20 +124,34 @@ test("四道菜显示本地高清 PNG 与对应品质，既有配方保持", asy
     ["蒜香流心奶面包", "紫色品质", "rgb(232, 220, 240)"],
     ["梦幻金玉满堂饭", "金色品质", "rgb(245, 223, 184)"],
     ["梦幻草莓奶蛋糕", "金色品质", "rgb(245, 223, 184)"],
+    ["茄茄擂辣饭", "紫色品质", "rgb(232, 220, 240)"],
+    ["云朵小饼干", "紫色品质", "rgb(232, 220, 240)"],
+    ["甜饼果茶", "品质待确认", undefined],
+    ["奇迹盛宴畅饮桶", "金色品质", "rgb(245, 223, 184)"],
   ] as const) {
     const trigger = results.getByRole("button", { name: `查看${name}配方`, exact: true });
     const thumbnail = trigger.getByRole("img", { name: `${name}（候选配图）`, exact: true });
     const src = await thumbnail.getAttribute("src");
     expectLocalImage(src, page.url(), "png");
     await expect(trigger.getByText(quality, { exact: true })).toBeVisible();
-    await expect(trigger.locator(".recipe-image")).toHaveCSS("background-color", background);
+    await expect(trigger.locator(".recipe-image")).not.toHaveClass(/guide-region/u);
+    if (background) {
+      await expect(trigger.locator(".recipe-image")).toHaveCSS("background-color", background);
+    } else {
+      await expect(trigger.locator(".recipe-image")).toHaveAttribute("data-quality", "unknown");
+    }
     await trigger.click();
     const image = dialog.getByRole("img", { name: `${name}（候选配图）`, exact: true });
     await expect
       .poll(() => image.evaluate((element: HTMLImageElement) => element.naturalWidth))
       .toBe(512);
     await expect(dialog.getByText(quality, { exact: true })).toBeVisible();
-    await expect(dialog.locator(".recipe-image")).toHaveCSS("background-color", background);
+    await expect(dialog.locator(".recipe-image")).not.toHaveClass(/guide-region/u);
+    if (background) {
+      await expect(dialog.locator(".recipe-image")).toHaveCSS("background-color", background);
+    } else {
+      await expect(dialog.locator(".recipe-image")).toHaveAttribute("data-quality", "unknown");
+    }
     await expect
       .poll(() => image.evaluate((element: HTMLImageElement) => element.src))
       .toBe(new URL(src!, page.url()).href);

@@ -1,0 +1,166 @@
+{
+  "checkedOn": "2026-10-04",
+  "scope": "为云朵小饼干、甜饼果茶、奇迹盛宴畅饮桶补充 Wiki 独立 PNG 候选，并以独立 PNG 替换茄茄擂辣饭的攻略显示区域。",
+  "wikiCatalogUrl": "https://petitplanet.wiki/Category:Dish_Icons",
+  "wikiMetadataApi": "https://petitplanet.wiki/api.php",
+  "existingFilesManifest": "docs/references/recipes/wiki-dish-icons-2026-09-26.json",
+  "comparisonMethod": "核对 Wiki 菜谱正文、imageinfo 元数据与 PNG 原文件的 SHA-1、字节数、尺寸及透明通道，逐张查看图形。云朵小饼干和甜饼果茶依据英文条目建立候选；畅饮桶与茄茄擂辣饭另有 TapTap 中文菜名旁图形对应。全部采用独立原图，不裁切或重编码，不以图片资料改写配方和品质。",
+  "files": [
+    {
+      "id": "petitplanet-wiki-file-9450",
+      "title": "File:Waffle Fruit Tea Icon.png",
+      "filePageUrl": "https://petitplanet.wiki/File:Waffle_Fruit_Tea_Icon.png",
+      "originalUrl": "https://petitplanet.wiki/images/d/d0/Waffle_Fruit_Tea_Icon.png",
+      "width": 512,
+      "height": 512,
+      "bytes": 158659,
+      "sha1": "4db18d0fce8b5a7add33f3cf751a66bdc097b813",
+      "sha256": "d311935936d2571e4a892d4571985ba02afb3f81b8e3f7eca5ad3236a93e6753",
+      "wikiUploadTimestamp": "2026-10-01T19:35:53Z",
+      "localPath": "docs/references/recipes/wiki-dish-icons-2026-10-04/Waffle_Fruit_Tea_Icon.png"
+    },
+    {
+      "id": "petitplanet-wiki-file-9483",
+      "title": "File:Miracle Feast Barrel Punch Icon.png",
+      "filePageUrl": "https://petitplanet.wiki/File:Miracle_Feast_Barrel_Punch_Icon.png",
+      "originalUrl": "https://petitplanet.wiki/images/1/14/Miracle_Feast_Barrel_Punch_Icon.png",
+      "width": 512,
+      "height": 512,
+      "bytes": 172058,
+      "sha1": "921b31539a7078f9f3e5f915ef0a9a835862718a",
+      "sha256": "8b98e632ddc5774d702df51057ef2bdc37f56595f7a25f06a2a4111b74c38f30",
+      "wikiUploadTimestamp": "2026-10-03T06:10:46Z",
+      "localPath": "docs/references/recipes/wiki-dish-icons-2026-10-04/Miracle_Feast_Barrel_Punch_Icon.png"
+    },
+    {
+      "id": "petitplanet-wiki-file-9439",
+      "title": "File:Spicy Smash-atouille Rice Icon.png",
+      "filePageUrl": "https://petitplanet.wiki/File:Spicy_Smash-atouille_Rice_Icon.png",
+      "originalUrl": "https://petitplanet.wiki/images/a/a5/Spicy_Smash-atouille_Rice_Icon.png",
+      "width": 512,
+      "height": 512,
+      "bytes": 147423,
+      "sha1": "8950243c8f22fa7b45b58e2cca791e1fb39fc798",
+      "sha256": "610f736fc25f612065c24b5e1d4a766a32a5f573bea310058e4347afd0a36ca2",
+      "wikiUploadTimestamp": "2026-10-01T16:05:36Z",
+      "localPath": "docs/references/recipes/wiki-dish-icons-2026-10-04/Spicy_Smash-atouille_Rice_Icon.png"
+    }
+  ],
+  "recipes": [
+    {
+      "recipeId": "mt-20260929-neighbor-009",
+      "recipeNameRaw": "云朵小饼干",
+      "originalSource": {
+        "sourceId": "tomorrow-20260929-image",
+        "region": "neighbor",
+        "row": 9
+      },
+      "candidateFileId": "petitplanet-wiki-file-4014",
+      "status": "english-entry-candidate",
+      "gameVerified": false,
+      "evidence": {
+        "wikiEntryUrl": "https://petitplanet.wiki/Cloudlet_Cookies",
+        "wikiRecipeSourceRaw": "Medowlyn"
+      },
+      "notes": [
+        "英文菜名、蓝白渐变云朵饼干图形及 Medowlyn 友邻来源提供对应线索；尚无中文菜名与图标的直接对应证据，保留英文条目候选状态。",
+        "复用 9/26 清单中的 512 × 512 透明 PNG 原文件，不重复保存。Wiki 的小麦、奶配方与力气 70 不回写当前数据，明天图中的未知食材、力气、词条与效果继续保留。"
+      ]
+    },
+    {
+      "recipeId": "xm-0927-neighbor-006",
+      "recipeNameRaw": "甜饼果茶",
+      "originalSource": {
+        "sourceId": "xiaoming-0930-image",
+        "region": "neighbor",
+        "row": 9
+      },
+      "candidateFileId": "petitplanet-wiki-file-9450",
+      "status": "english-entry-candidate",
+      "gameVerified": false,
+      "evidence": {
+        "wikiEntryUrl": "https://petitplanet.wiki/Waffle_Fruit_Tea",
+        "wikiRecipeSourceRaw": "Memo Task Reward"
+      },
+      "notes": [
+        "英文菜名、华夫饼与水果饮品图形提供对应线索；Wiki 的小麦／水果、煮锅与任务奖励描述同当前采用数据相容，尚无中文菜名与图标的直接对应证据。",
+        "使用 Wiki 512 × 512 透明 PNG 原文件。两份用户图鉴均未提供品质底色，当前品质继续保持未知，不采用 Wiki 的 Uncommon 品级。"
+      ]
+    },
+    {
+      "recipeId": "mt-20260929-miracle-007",
+      "recipeNameRaw": "奇迹盛宴畅饮桶",
+      "originalSource": {
+        "sourceId": "tomorrow-20260929-image",
+        "region": "miracle",
+        "row": 7
+      },
+      "candidateFileId": "petitplanet-wiki-file-9483",
+      "status": "visual-candidate",
+      "gameVerified": false,
+      "evidence": {
+        "wikiEntryUrl": "https://petitplanet.wiki/Miracle_Feast_Barrel_Punch",
+        "guide": {
+          "postUrl": "https://www.taptap.cn/moment/854684374887565375",
+          "imageUrl": "https://img2-tc.tapimg.com/moment/etag/lnhXm-fzO0xhE6aEpid1XlAwN_Ui_20261001112947.jpg/_tap_ugc.jpg",
+          "author": "猫冲冲佛系摸鱼",
+          "sheet": "miracle-2",
+          "row": 4,
+          "nameRaw": "奇迹盛宴畅饮桶",
+          "nameMatch": "same-name-candidate"
+        },
+        "visualComparison": "TapTap 中文菜名旁的菠萝形饮料桶、蓝绿色叶冠、龙头、格纹托盘与配杯同 Wiki PNG 逐项目视匹配。"
+      },
+      "notes": [
+        "页面使用 Wiki 512 × 512 透明 PNG 原文件，TapTap 攻略只作为中文菜名与图形对应的证据，不截取攻略图作为素材。",
+        "Wiki 的力气 180 与饮品分类同当前数据相符；配图不补猜食材、厨具或具体产出概率，品质仍读取明天图底色。"
+      ]
+    },
+    {
+      "recipeId": "mt-20260924-signature-004",
+      "recipeNameRaw": "茄茄擂辣饭",
+      "originalSource": {
+        "sourceId": "xiaoming-0930-image",
+        "region": "signature",
+        "row": 18
+      },
+      "candidateFileId": "petitplanet-wiki-file-9439",
+      "status": "visual-candidate",
+      "gameVerified": false,
+      "evidence": {
+        "wikiEntryUrl": "https://petitplanet.wiki/Spicy_Smash-atouille_Rice",
+        "guide": {
+          "postUrl": "https://www.taptap.cn/moment/852148878751829285",
+          "imageUrl": "https://img2-tc.tapimg.com/moment/etag/FgaP2gm12_Wr6Y0eIpOrQ4X61OVE_20260924113429.jpg/_tap_ugc.jpg",
+          "sheet": "signature-1",
+          "row": 4,
+          "nameRaw": "茄茄擂辣饭",
+          "nameMatch": "same-name-candidate"
+        },
+        "visualComparison": "橙红色碗、成叠茄子、红辣椒与绿色配菜同已归档 TapTap 中文菜名旁的图标逐项目视匹配。"
+      },
+      "notes": [
+        "以 Wiki 512 × 512 透明 PNG 原文件替换原 TapTap 150 × 150 显示区域，原攻略图及坐标保留归档。",
+        "配图接入不改写配方、品质或游戏验证状态。"
+      ]
+    }
+  ],
+  "unmatchedRecipeIds": [
+    "mt-20260929-miracle-001",
+    "mt-20260929-miracle-002",
+    "mt-20260929-miracle-003",
+    "mt-20260929-miracle-004",
+    "mt-20260929-miracle-005",
+    "mt-20260929-miracle-006",
+    "mt-20260929-miracle-008"
+  ],
+  "localArchive": {
+    "savedOn": "2026-10-04",
+    "directory": "docs/references/recipes/wiki-dish-icons-2026-10-04",
+    "fileCount": 3,
+    "totalBytes": 478140,
+    "format": "PNG",
+    "originalBytesPreserved": true,
+    "verification": "四张候选均为 512 × 512 RGBA PNG；云朵小饼干复用 9/26 原文件，三张新增原件的 SHA-1、尺寸与字节数均同 Wiki imageinfo 一致，并记录 SHA-256。"
+  }
+}
