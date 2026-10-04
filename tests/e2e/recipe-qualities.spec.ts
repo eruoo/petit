@@ -8,7 +8,7 @@ test("同图什锦饮以品质底色和文字区分，未知品质保持待确�
   for (const [name, label] of [
     ["家常什锦饮", "蓝色品质"],
     ["珍稀什锦饮", "紫色品质"],
-    ["梦幻什锦饮?", "金色品质"],
+    ["梦幻什锦饮", "金色品质"],
   ] as const) {
     const row = results.getByRole("button", { name: `查看${name}配方`, exact: true });
     await expect(row.getByText(label, { exact: true })).toBeVisible();

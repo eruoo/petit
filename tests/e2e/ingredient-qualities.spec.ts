@@ -30,8 +30,8 @@ test("列表与详情显示具体食材的品质要求，重复槽位和候选�
   await page.keyboard.press("Escape");
   await search.fill("漫香果麦奶");
   await page.getByRole("button", { name: "查看漫香果麦奶配方", exact: true }).click();
-  await expect(slots.nth(0)).toContainText("水果?");
-  await expect(slots.nth(0)).toContainText("待确认");
+  await expect(slots.nth(2)).toContainText(/水果\s*需紫色品质/u);
+  await expect(slots.nth(2)).not.toContainText("待确认");
   await expect(slots.nth(1)).not.toContainText("待确认");
 });
 
@@ -51,10 +51,10 @@ test("手机四槽食材品质与补全食材不会溢出或混成菜品品质",
   await page.getByRole("button", { name: "查看梦幻番茄汤汁面配方", exact: true }).click();
   const slots = dialog.getByRole("list", { name: "有序食材" }).getByRole("listitem");
   await expect(slots).toHaveCount(4);
-  await expect(slots.nth(0)).toContainText("蔬菜?");
+  await expect(slots.nth(0)).toContainText(/番茄\s*需金色品质/u);
   await expect(slots.nth(1)).not.toContainText("品质");
-  await expect(slots.nth(2)).toContainText("奶");
+  await expect(slots.nth(2)).toContainText("大蒜");
   await expect(slots.nth(2)).not.toContainText("品质");
-  await expect(slots.nth(3)).toContainText(/番茄\?\s*需金色品质/u);
-  await expect(slots.nth(3)).toContainText("待确认");
+  await expect(slots.nth(3)).toContainText("奶");
+  await expect(slots.nth(3)).not.toContainText("待确认");
 });

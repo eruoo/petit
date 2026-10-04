@@ -9,12 +9,14 @@ import wikiSupplement from "../../docs/references/recipes/wiki-dish-icons-2026-1
 import taptap from "../../docs/references/recipes/taptap-recipe-guides-2026-09-26.json";
 
 describe("菜品配图与独立来源", () => {
-  it("既有 94 条配图延续，补充七道秘制菜后仅甜饼果茶缺图", () => {
+  it("既有 101 条配图延续，新增九道菜与甜饼果茶使用缺图占位", () => {
     expect(recipeImagesById.size).toBe(101);
     expect(recipeDataset.recipes.every((recipe) => recipeImagesById.has(recipe.id))).toBe(true);
     expect([...recipeImagesById.keys()].sort()).toEqual(
       currentRecipes
-        .filter((recipe) => recipe.id !== "xm-0927-neighbor-006")
+        .filter(
+          (recipe) => recipe.id !== "xm-0927-neighbor-006" && !recipe.id.startsWith("mt-20260929-"),
+        )
         .map((recipe) => recipe.id)
         .sort(),
     );

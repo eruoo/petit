@@ -42,7 +42,7 @@ test("构建只发布当前使用的 Wiki 图标，未使用的文件继续归�
 test("菜谱列表与详情显示本地候选配图", async ({ page }) => {
   await page.goto("/");
   const results = page.getByRole("list", { name: "菜谱结果" });
-  await expect(results.getByRole("img")).toHaveCount(102);
+  await expect(results.getByRole("img")).toHaveCount(111);
   await expect(results.locator("img")).toHaveCount(101);
   const firstImage = results.getByRole("img", { name: "和煦花果茶（候选配图）", exact: true });
   await expect
@@ -116,11 +116,11 @@ test("四道菜显示本地高清 PNG 与对应品质，既有配方保持", asy
   await page.setViewportSize({ width: 390, height: 844 });
   await page.goto("/");
   const results = page.getByRole("list", { name: "菜谱结果" });
-  await expect(results.getByRole("button")).toHaveCount(102);
+  await expect(results.getByRole("button")).toHaveCount(111);
   const dialog = page.getByRole("dialog");
   for (const [name, quality, background] of [
     ["胡萝卜炖肉", "紫色品质", "rgb(232, 220, 240)"],
-    ["蒜香流心奶黄包", "紫色品质", "rgb(232, 220, 240)"],
+    ["蒜香流心奶面包", "紫色品质", "rgb(232, 220, 240)"],
     ["梦幻金玉满堂饭", "金色品质", "rgb(245, 223, 184)"],
     ["梦幻草莓奶蛋糕", "金色品质", "rgb(245, 223, 184)"],
   ] as const) {
@@ -148,8 +148,8 @@ test("四道菜显示本地高清 PNG 与对应品质，既有配方保持", asy
   await results.getByRole("button", { name: "查看梦幻番茄汤汁面配方", exact: true }).click();
   const ingredients = dialog.getByRole("list", { name: "有序食材" }).getByRole("listitem");
   await expect(ingredients).toHaveCount(4);
-  await expect(ingredients.nth(3)).toContainText("番茄?");
-  await expect(ingredients.nth(3)).toContainText("需金色品质");
+  await expect(ingredients.nth(0)).toContainText("番茄");
+  await expect(ingredients.nth(0)).toContainText("需金色品质");
   await expect(dialog.getByText("+150", { exact: true })).toBeVisible();
   await expect(dialog.getByText("快速翻土 · 三阶", { exact: true })).toBeVisible();
 });

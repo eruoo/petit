@@ -85,7 +85,7 @@ test("默认图标视图，键盘切换保留搜索、排序和详情焦点", as
   await page.getByLabel("搜索菜名、食材、词条或烹饪方式", { exact: true }).fill("不存在的料理");
   await expect(page.getByRole("heading", { name: "没有找到匹配的菜谱" })).toBeVisible();
   await page.getByRole("button", { name: "清除搜索条件", exact: true }).click();
-  await expect(buttons).toHaveCount(102);
+  await expect(buttons).toHaveCount(111);
   await expect(list).toHaveAttribute("aria-pressed", "true");
 });
 
@@ -100,7 +100,7 @@ test("宽窄屏统一搜索，旧冲突筛选失效，清空和刷新没有隐�
   });
   const results = page.getByRole("list", { name: "菜谱结果" }).getByRole("button");
   await expect(search).toHaveValue("煮锅");
-  await expect(results).toHaveCount(55);
+  await expect(results).toHaveCount(57);
   await expect(page.getByRole("tablist")).not.toBeAttached();
   await expect(page.getByRole("complementary", { name: "菜谱筛选" })).not.toBeAttached();
   await expect(page.getByRole("button", { name: /展开菜谱筛选|选择食材/u })).not.toBeAttached();
@@ -111,7 +111,7 @@ test("宽窄屏统一搜索，旧冲突筛选失效，清空和刷新没有隐�
   expect(resultsBounds!.width).toBeCloseTo(searchBounds!.width);
   expect(resultsBounds!.width).toBeGreaterThan(1300);
   await page.getByLabel("菜谱排序", { exact: true }).selectOption("energy-desc");
-  await expect(results).toHaveCount(55);
+  await expect(results).toHaveCount(57);
   await expect(results.first()).toHaveAccessibleName("查看梦幻鱼鲜寿司配方");
   await expect.poll(() => new URL(page.url()).searchParams.has("method")).toBe(false);
   const params = new URL(page.url()).searchParams;
@@ -128,18 +128,18 @@ test("宽窄屏统一搜索，旧冲突筛选失效，清空和刷新没有隐�
   await page.screenshot({ path: testInfo.outputPath("recipe-search-only-desktop.png") });
   await page.setViewportSize({ width: 320, height: 850 });
   await expect(search).toHaveValue("煮锅");
-  await expect(results).toHaveCount(55);
+  await expect(results).toHaveCount(57);
   expect(await page.evaluate(() => document.documentElement.scrollWidth)).toBeLessThanOrEqual(320);
   await page.screenshot({ path: testInfo.outputPath("recipe-search-only-mobile.png") });
   await page.getByRole("button", { name: "清空搜索", exact: true }).click();
-  await expect(results).toHaveCount(102);
+  await expect(results).toHaveCount(111);
   await expect(page.getByLabel("菜谱排序", { exact: true })).toHaveValue("energy-desc");
   await page.reload();
   await expect(search).toHaveValue("");
-  await expect(results).toHaveCount(102);
+  await expect(results).toHaveCount(111);
   await page.goto("/?region=neighbor&method=榨汁机&tag=甜点&ingredients=未收录&mode=filter");
   await expect(search).toHaveValue("");
-  await expect(results).toHaveCount(102);
+  await expect(results).toHaveCount(111);
 });
 
 test("窄屏图标视图双列排列，搜索和视图控件不溢出", async ({ page }, testInfo) => {
@@ -184,7 +184,7 @@ test("搜索、刷新恢复和重复食材详情可用", async ({ page }) => {
   await page.goto("/");
   await expect(page).toHaveTitle("Petit · 星布谷地资料手册");
   await expect(page.getByRole("heading", { level: 1, name: "菜谱速查" })).toBeVisible();
-  await expect(page.getByRole("list", { name: "菜谱结果" }).getByRole("button")).toHaveCount(102);
+  await expect(page.getByRole("list", { name: "菜谱结果" }).getByRole("button")).toHaveCount(111);
   const search = page.getByLabel("搜索菜名、食材、词条或烹饪方式", { exact: true });
   await search.fill("暖暖 小麦 煮锅");
   await expect(page.getByRole("list", { name: "菜谱结果" }).getByRole("button")).toHaveCount(1);
@@ -221,14 +221,14 @@ test("回到搜索后输入和清空保留锚点，不滚回页顶", async ({ pa
   expect(searchScroll).toBeGreaterThan(100);
 
   await search.fill("饮");
-  await expect(results).toHaveCount(17);
+  await expect(results).toHaveCount(19);
   await expect.poll(() => page.evaluate(() => window.scrollY)).toBeCloseTo(searchScroll, 0);
   await expect(page).toHaveURL(/#recipe-search$/u);
   await expect(search).toHaveValue("饮");
   await expect(search).toBeFocused();
 
   await page.getByRole("button", { name: "清空搜索", exact: true }).click();
-  await expect(results).toHaveCount(102);
+  await expect(results).toHaveCount(111);
   await expect.poll(() => page.evaluate(() => window.scrollY)).toBeCloseTo(searchScroll, 0);
   await expect(page).toHaveURL(/#recipe-search$/u);
 });
@@ -243,14 +243,14 @@ test("纯空白不视为有效搜索，输入中的分隔空格保留", async ({
   for (const whitespace of ["   ", "　", "\u00a0"]) {
     await search.fill(whitespace);
     await expect(search).toHaveValue(whitespace);
-    await expect(results).toHaveCount(102);
-    await expect(page.getByRole("heading", { name: "102 道菜谱", exact: true })).toBeVisible();
+    await expect(results).toHaveCount(111);
+    await expect(page.getByRole("heading", { name: "111 道菜谱", exact: true })).toBeVisible();
   }
   await page.reload();
   await expect(search).toBeEnabled();
-  await expect(results).toHaveCount(102);
+  await expect(results).toHaveCount(111);
   await search.fill("饮 ");
-  await expect(results).toHaveCount(17);
+  await expect(results).toHaveCount(19);
   await expect(search).toHaveValue("饮 ");
   await search.pressSequentially("奶");
   await expect(results).toHaveCount(3);
@@ -268,7 +268,7 @@ test("统一搜索承接旧食材链接，编辑、清空、排序和浏览器�
   await expect(search).toHaveValue("小麦 海鲜");
   await expect(results).toHaveCount(2);
   await page.getByRole("button", { name: "清空搜索", exact: true }).click();
-  await expect(results).toHaveCount(102);
+  await expect(results).toHaveCount(111);
   expect(new URL(page.url()).searchParams.has("ingredient")).toBe(false);
   expect(new URL(page.url()).searchParams.has("region")).toBe(false);
   expect(new URL(page.url()).searchParams.get("sort")).toBe("energy-desc");
@@ -295,9 +295,9 @@ test("烹饪方式支持完整和部分搜索，与食材及词条组合", async
   });
   const results = page.getByRole("list", { name: "菜谱结果" }).getByRole("button");
   for (const [method, count] of [
-    ["煮锅", 55],
-    ["榨汁机", 15],
-    ["烤箱", 31],
+    ["煮锅", 57],
+    ["榨汁机", 14],
+    ["烤箱", 32],
   ] as const) {
     await search.fill(method);
     await expect(results).toHaveCount(count);
@@ -310,7 +310,7 @@ test("烹饪方式支持完整和部分搜索，与食材及词条组合", async
   await search.fill("煮锅 榨汁机");
   await expect(page.getByRole("heading", { name: "没有找到匹配的菜谱" })).toBeVisible();
   await page.getByRole("button", { name: "清除搜索条件", exact: true }).click();
-  await expect(results).toHaveCount(102);
+  await expect(results).toHaveCount(111);
 });
 
 test("搜索可混合菜名、食材和词条，在手机和刷新后保持", async ({ page }, testInfo) => {
@@ -321,18 +321,17 @@ test("搜索可混合菜名、食材和词条，在手机和刷新后保持", as
   });
   const results = page.getByRole("list", { name: "菜谱结果" }).getByRole("button");
   await expect(search).toHaveAttribute("placeholder", /词条/u);
-  await search.fill("蒜香 谷物 甜点");
+  await search.fill("蒜香 小麦 甜点");
   await expect(results).toHaveCount(1);
-  await expect(results).toHaveAccessibleName("查看蒜香流心奶黄包配方");
+  await expect(results).toHaveAccessibleName("查看蒜香流心奶面包配方");
   await page.getByRole("button", { name: "列表视图", exact: true }).click();
   await page.reload();
-  await expect(search).toHaveValue("蒜香 谷物 甜点");
+  await expect(search).toHaveValue("蒜香 小麦 甜点");
   await expect(results).toHaveCount(1);
   await page.setViewportSize({ width: 320, height: 850 });
   await search.fill("谷物 奶 甜点");
-  await expect(results).toHaveCount(2);
+  await expect(results).toHaveCount(1);
   await expect(results.nth(0)).toHaveAccessibleName("查看香米糕配方");
-  await expect(results.nth(1)).toHaveAccessibleName("查看蒜香流心奶黄包配方");
   expect(await page.evaluate(() => document.documentElement.scrollWidth)).toBeLessThanOrEqual(320);
   await page
     .getByRole("list", { name: "菜谱结果" })
@@ -345,14 +344,14 @@ test("搜索可混合菜名、食材和词条，在手机和刷新后保持", as
     fullPage: true,
   });
   await page.getByRole("button", { name: "清空搜索", exact: true }).click();
-  await expect(results).toHaveCount(102);
+  await expect(results).toHaveCount(111);
   await search.fill("饮");
-  await expect(results).toHaveCount(17);
+  await expect(results).toHaveCount(19);
   await expect(page.getByRole("button", { name: "查看和煦花果茶配方", exact: true })).toBeVisible();
   await expect(page.getByRole("button", { name: "查看珍蔬麦饮配方", exact: true })).toBeVisible();
   await page.reload();
   await expect(search).toHaveValue("饮");
-  await expect(results).toHaveCount(17);
+  await expect(results).toHaveCount(19);
   await search.fill("饮 奶");
   await expect(results).toHaveCount(3);
 });
@@ -374,7 +373,7 @@ test("手机上展示新版自由烹饪力气与概率产出", async ({ page }, 
   await page.goto("/?q=什锦+榨汁机&sort=energy-desc");
   const results = page.getByRole("list", { name: "菜谱结果" });
   await expect(results.getByRole("button")).toHaveCount(3);
-  await expect(results.getByRole("button").first()).toHaveAccessibleName("查看梦幻什锦饮?配方");
+  await expect(results.getByRole("button").first()).toHaveAccessibleName("查看梦幻什锦饮配方");
   await expect(results.getByRole("button").first()).toBeInViewport();
   await page.getByRole("button", { name: "查看珍稀什锦饮配方", exact: true }).click();
   const dialog = page.getByRole("dialog");
@@ -412,6 +411,6 @@ test("友邻配方获取信息和清除空结果可用", async ({ page }) => {
   await page.getByLabel("搜索菜名、食材、词条或烹饪方式", { exact: true }).fill("不存在的料理");
   await expect(page.getByRole("heading", { name: "没有找到匹配的菜谱" })).toBeVisible();
   await page.getByRole("button", { name: "清除搜索条件", exact: true }).click();
-  await expect(page.getByRole("list", { name: "菜谱结果" }).getByRole("button")).toHaveCount(102);
+  await expect(page.getByRole("list", { name: "菜谱结果" }).getByRole("button")).toHaveCount(111);
   await expect(page.getByLabel("搜索菜名、食材、词条或烹饪方式", { exact: true })).toHaveValue("");
 });

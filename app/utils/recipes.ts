@@ -17,6 +17,7 @@ export const regionLabels: Record<ImageRegion, string> = {
   guest: "宴客菜",
   free: "自由烹饪",
   neighbor: "秘制菜",
+  miracle: "奇迹盛宴",
 };
 export const recipeCategoryOptions = [
   { value: "all", label: "全部" },

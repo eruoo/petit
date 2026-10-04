@@ -25,7 +25,7 @@ defineProps<{ disabled: boolean }>();
 <style scoped>
 .category-filter {
   display: grid;
-  grid-template-columns: repeat(6, auto);
+  grid-template-columns: repeat(7, auto);
   justify-content: start;
   min-width: 0;
   margin: 0;

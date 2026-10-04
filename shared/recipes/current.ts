@@ -1,6 +1,7 @@
 import {
   primaryRecipeDataset,
   primaryRecipeSource,
+  primaryRecipesById,
   supplementalRecipeDataset,
   supplementalRecipeSource,
   supplementalRecipesById,
@@ -10,9 +11,14 @@ import { recipeQualitySchema } from "./qualities.ts";
 import type { RecipeQuality } from "./qualities.ts";
 import { recipeSchema } from "./schema.ts";
 import type { Recipe } from "./schema.ts";
-import { applyRecipeDecision, recipeDecisions, recipeDecisionsById } from "./decisions.ts";
+import {
+  applyRecipeDecision,
+  recipeDecisions,
+  recipeDecisionsById,
+  usesSupplementalField,
+} from "./decisions.ts";
 
-// 配方完整采用最新图；旧图只补未提供的词条、产出概率与菜名品质底色。
+// 小铭保留原有顺序与等级；明天补充词条、概率，并按用户决定采用差异字段。
 export function resolveCurrentRecipe(primary: Recipe): Recipe {
   const supplemental = supplementalRecipesById.get(primary.id);
   return applyRecipeDecision(
@@ -24,7 +30,10 @@ export function resolveCurrentRecipe(primary: Recipe): Recipe {
   );
 }
 
-export const currentRecipes = primaryRecipeDataset.recipes.map(resolveCurrentRecipe);
+export const currentRecipes = [
+  ...primaryRecipeDataset.recipes.map(resolveCurrentRecipe),
+  ...supplementalRecipeDataset.recipes.filter((recipe) => !primaryRecipesById.has(recipe.id)),
+];
 export const currentRecipeSources = [primaryRecipeSource, supplementalRecipeSource];
 
 // 逐字段引用让汇总视图仍可追溯，不将参考图字段冒充主体图记录。
@@ -32,6 +41,12 @@ export const currentRecipeFieldSourcesById = new Map(
   currentRecipes.map((recipe) => {
     const supplemental = supplementalRecipesById.get(recipe.id);
     const decision = recipeDecisionsById.get(recipe.id);
+    const fieldSource = (field: Parameters<typeof usesSupplementalField>[1]) => ({
+      source: usesSupplementalField(recipe.id, field) ? supplemental!.source : recipe.source,
+      userDecision: usesSupplementalField(recipe.id, field)
+        ? { id: recipeDecisions.id, recipeId: recipe.id }
+        : undefined,
+    });
     return [
       recipe.id,
       {
@@ -39,9 +54,17 @@ export const currentRecipeFieldSourcesById = new Map(
         tags: supplemental?.source ?? recipe.source,
         productionChance: supplemental?.source ?? recipe.source,
         ingredients: {
-          source: decision?.action === "use-ingredients" ? decision.source : recipe.source,
-          userDecision: decision ? { id: recipeDecisions.id, recipeId: recipe.id } : undefined,
+          ...fieldSource("ingredients"),
+          ...(decision?.action === "confirm-ingredient"
+            ? { userDecision: { id: recipeDecisions.id, recipeId: recipe.id } }
+            : {}),
         },
+        name: fieldSource("name"),
+        cookingMethod: fieldSource("cookingMethod"),
+        energy: fieldSource("energy"),
+        specialEffect: fieldSource("specialEffect"),
+        effectTrigger: fieldSource("specialEffect"),
+        acquisition: fieldSource("acquisition"),
         guideDetails: recipe.source,
       },
     ];
@@ -49,13 +72,12 @@ export const currentRecipeFieldSourcesById = new Map(
 );
 
 export function currentSourceRow(recipe: Recipe) {
+  const source = currentRecipeFieldSourcesById.get(recipe.id)?.name.source ?? recipe.source;
   const dataset =
-    recipe.source.sourceId === primaryRecipeSource.id
-      ? primaryRecipeDataset
-      : supplementalRecipeDataset;
+    source.sourceId === primaryRecipeSource.id ? primaryRecipeDataset : supplementalRecipeDataset;
   return dataset.inventory.regions
-    .find((region) => region.id === recipe.source.region)
-    ?.rows.find((row) => row.row === recipe.source.row);
+    .find((region) => region.id === source.region)
+    ?.rows.find((row) => row.row === source.row);
 }
 
 const qualityLabels = { blue: "蓝", purple: "紫", gold: "金" };
@@ -65,7 +87,9 @@ export const currentRecipeQualitiesById = new Map<string, RecipeQuality>(
     const reference = supplementalRecipesById.get(recipe.id);
     const background =
       primaryBackground ?? reference?.visualCues.find((cue) => cue.field === "name")?.background;
-    const sourceRecipe = primaryBackground ? recipe : reference;
+    const sourceRecipe = primaryBackground
+      ? (primaryRecipesById.get(recipe.id) ?? recipe)
+      : reference;
     const color = background === "yellow" ? "gold" : background;
     const quality: RecipeQuality =
       color && sourceRecipe
