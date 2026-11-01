@@ -13,7 +13,7 @@ function expectLocalImage(value: string | null, pageUrl: string, extension: "png
 
 test("构建只发布当前使用的 Wiki 图标，未使用的文件继续归档", () => {
   const hash = (path: URL) => createHash("sha256").update(readFileSync(path)).digest("hex");
-  const archiveFiles = ["2026-09-26", "2026-10-01", "2026-10-04"].flatMap((date) => {
+  const archiveFiles = ["2026-09-26", "2026-10-01", "2026-10-04", "2026-11-01"].flatMap((date) => {
     const directory = new URL(
       `../../docs/references/recipes/wiki-dish-icons-${date}/`,
       import.meta.url,
@@ -35,7 +35,7 @@ test("构建只发布当前使用的 Wiki 图标，未使用的文件继续归�
       .map((name) => hash(new URL(name, outputDirectory)))
       .filter((value) => archiveHashes.has(value)),
   );
-  expect(archiveFiles).toHaveLength(96);
+  expect(archiveFiles).toHaveLength(105);
   expect(publishedHashes).toEqual(usedHashes);
 });
 
@@ -43,8 +43,8 @@ test("菜谱列表与详情显示本地候选配图", async ({ page }) => {
   await page.goto("/");
   const results = page.getByRole("list", { name: "菜谱结果" });
   await expect(results.getByRole("img")).toHaveCount(111);
-  await expect(results.locator("img")).toHaveCount(104);
-  await expect(results.getByRole("img", { name: /：图片暂不可用$/u })).toHaveCount(7);
+  await expect(results.locator("img")).toHaveCount(111);
+  await expect(results.getByRole("img", { name: /：图片暂不可用$/u })).toHaveCount(0);
   const firstImage = results.getByRole("img", { name: "和煦花果茶（候选配图）", exact: true });
   await expect
     .poll(() => firstImage.evaluate((element: HTMLImageElement) => element.naturalWidth))
@@ -64,31 +64,6 @@ test("菜谱列表与详情显示本地候选配图", async ({ page }) => {
     page.url(),
     "png",
   );
-});
-
-test("手机上两道缺少 Wiki 图标的菜在列表与详情显示相同攻略区域", async ({ page }) => {
-  await page.setViewportSize({ width: 390, height: 844 });
-  await page.goto("/");
-  for (const name of ["梦幻星莓漫游派", "梦幻番茄汤汁面"]) {
-    await page.getByLabel("搜索菜名、食材、词条或烹饪方式", { exact: true }).fill(name);
-    const trigger = page.getByRole("button", { name: `查看${name}配方`, exact: true });
-    const thumbnail = trigger.getByRole("img", { name: `${name}（候选配图）`, exact: true });
-    await expect
-      .poll(() => thumbnail.evaluate((element: HTMLImageElement) => element.naturalWidth))
-      .toBe(1080);
-    const thumbnailUrl = await thumbnail.getAttribute("src");
-    expectLocalImage(thumbnailUrl, page.url(), "jpg");
-    await trigger.click();
-    const dialog = page.getByRole("dialog");
-    const image = dialog.getByRole("img", { name: `${name}（候选配图）`, exact: true });
-    await expect(image).toBeVisible();
-    await expect(image).toHaveAttribute("src", thumbnailUrl!);
-    expect(await page.evaluate(() => document.documentElement.scrollWidth)).toBeLessThanOrEqual(
-      390,
-    );
-    await page.keyboard.press("Escape");
-    await expect(trigger).toBeFocused();
-  }
 });
 
 test("图片加载失败显示占位，仍可打开配方和继续查找", async ({ page }) => {
@@ -128,6 +103,10 @@ test("补图与替换显示本地高清 PNG，品质和既有配方保持", asyn
     ["云朵小饼干", "紫色品质", "rgb(232, 220, 240)"],
     ["甜饼果茶", "品质待确认", undefined],
     ["奇迹盛宴畅饮桶", "金色品质", "rgb(245, 223, 184)"],
+    ["奇迹盛宴大锅炖", "金色品质", "rgb(245, 223, 184)"],
+    ["奇迹盛宴炸串碗", "金色品质", "rgb(245, 223, 184)"],
+    ["梦幻星莓漫游派", "金色品质", "rgb(245, 223, 184)"],
+    ["梦幻番茄汤汁面", "金色品质", "rgb(245, 223, 184)"],
   ] as const) {
     const trigger = results.getByRole("button", { name: `查看${name}配方`, exact: true });
     const thumbnail = trigger.getByRole("img", { name: `${name}（候选配图）`, exact: true });

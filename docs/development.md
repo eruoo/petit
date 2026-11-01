@@ -69,7 +69,7 @@ TypeScript 暂固定在 6.x，以兼容当前 vue-tsc 所需的编译器 API；�
 - `tests/nuxt/**/*.test.ts`：需要 Nuxt 自动导入、路由或组件挂载的测试，使用 Nuxt 与 happy-dom 环境。
 - `tests/e2e/**/*.spec.ts`：Playwright 测试，针对构建后的静态站点运行。
 
-`tests/unit/recipes.test.ts` 覆盖菜谱数据、附件完整性、来源引用和关键转录行为；`tests/unit/recipe-browser.test.ts` 覆盖搜索、排序和展示语义；`tests/unit/recipe-images.test.ts` 检查配图覆盖、归档文件哈希、来源与显示区域。`tests/e2e/recipe-browser.spec.ts` 验证静态页面的搜索、URL 恢复、详情和手机操作；`recipe-images.spec.ts` 验证本地图片加载、攻略图区域和加载失败占位；`about.spec.ts` 验证关于页导航、直接刷新、分项来源与两位作者的图鉴。`recipe-qualities.test.ts` 校验独立品质状态、颜色与原底色、来源引用及未知值；`recipe-qualities.spec.ts` 验证品质底色、文字和未知状态。`ingredient-qualities.test.ts` 校验食材品质与底色、用户解释引用及独立清点数量；`ingredient-qualities.spec.ts` 验证食材品质文字、重复槽位、待确认食材与手机布局。当前没有单独的 Nuxt 组件测试。首次运行端到端测试前安装浏览器：
+`tests/unit/recipes.test.ts` 覆盖菜谱数据、附件完整性、来源引用和关键转录行为；`tests/unit/recipe-browser.test.ts` 覆盖搜索、排序和展示语义；`tests/unit/recipe-images.test.ts` 检查配图覆盖、归档文件哈希、来源与显示区域。`tests/e2e/recipe-browser.spec.ts` 验证静态页面的搜索、URL 恢复、详情和手机操作；`recipe-images.spec.ts` 验证本地图片加载、补图后的品质底色和加载失败占位；`about.spec.ts` 验证关于页导航、直接刷新、分项来源与两位作者的图鉴。`recipe-qualities.test.ts` 校验独立品质状态、颜色与原底色、来源引用及未知值；`recipe-qualities.spec.ts` 验证品质底色、文字和未知状态。`ingredient-qualities.test.ts` 校验食材品质与底色、用户解释引用及独立清点数量；`ingredient-qualities.spec.ts` 验证食材品质文字、重复槽位、待确认食材与手机布局。当前没有单独的 Nuxt 组件测试。首次运行端到端测试前安装浏览器：
 
 ```sh
 pnpm exec playwright install chromium

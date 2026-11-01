@@ -1,0 +1,404 @@
+{
+  "checkedOn": "2026-11-01",
+  "scope": "为七道缺图的奇迹盛宴补充 Wiki 独立 PNG 候选，并以独立 PNG 替换梦幻星莓漫游派与梦幻番茄汤汁面的攻略显示区域。",
+  "wikiCatalogUrl": "https://petitplanet.wiki/Category:Dish_Icons",
+  "wikiMetadataApi": "https://petitplanet.wiki/api.php",
+  "existingFilesManifest": "docs/references/recipes/wiki-dish-icons-2026-10-04.json",
+  "comparisonMethod": "核对 Wiki 菜谱正文、imageinfo 元数据与 PNG 原文件的 SHA-1、字节数、尺寸及透明通道，逐张查看图形。奇迹盛宴以 TapTap 猫冲冲两张收集攻略中的中文菜名旁图形对应，并核对 Wiki 力气与类型；两道梦幻菜以已归档的阿Zz宴客菜攻略显示区域及相同图鉴编号对应。全部采用独立原图，不裁切或重编码，不以图片资料改写配方和品质。",
+  "files": [
+    {
+      "id": "petitplanet-wiki-file-9542",
+      "title": "File:Dreamy Stargazy Blueberry Pie Icon.png",
+      "filePageUrl": "https://petitplanet.wiki/File:Dreamy_Stargazy_Blueberry_Pie_Icon.png",
+      "originalUrl": "https://cdn.petitplanet.wiki/Dreamy_Stargazy_Blueberry_Pie_Icon.png",
+      "width": 512,
+      "height": 512,
+      "bytes": 214901,
+      "sha1": "9b11c3878cecc13c6311c376fb90ee4ffb4fd22d",
+      "sha256": "6293b0d2da1ef9c6c17377523a8ac76bf4c63e0e0bccd032c6043cde3ce3923e",
+      "wikiUploadTimestamp": "2026-10-05T20:39:17Z",
+      "localPath": "docs/references/recipes/wiki-dish-icons-2026-11-01/Dreamy_Stargazy_Blueberry_Pie_Icon.png"
+    },
+    {
+      "id": "petitplanet-wiki-file-9544",
+      "title": "File:Dreamy Tomato Noodle Soup Icon.png",
+      "filePageUrl": "https://petitplanet.wiki/File:Dreamy_Tomato_Noodle_Soup_Icon.png",
+      "originalUrl": "https://cdn.petitplanet.wiki/Dreamy_Tomato_Noodle_Soup_Icon.png",
+      "width": 512,
+      "height": 512,
+      "bytes": 201499,
+      "sha1": "798cb820f6242075c405170cb018b5a7b2cd416c",
+      "sha256": "38376ac5f5a9117a472202c1b23d80ecd3bb5175b4606a9a5b15487ba42184f0",
+      "wikiUploadTimestamp": "2026-10-05T20:43:54Z",
+      "localPath": "docs/references/recipes/wiki-dish-icons-2026-11-01/Dreamy_Tomato_Noodle_Soup_Icon.png"
+    },
+    {
+      "id": "petitplanet-wiki-file-9546",
+      "title": "File:Miracle Feast Dessert Tower Icon.png",
+      "filePageUrl": "https://petitplanet.wiki/File:Miracle_Feast_Dessert_Tower_Icon.png",
+      "originalUrl": "https://cdn.petitplanet.wiki/Miracle_Feast_Dessert_Tower_Icon.png",
+      "width": 512,
+      "height": 512,
+      "bytes": 149185,
+      "sha1": "dc383a3d411ab3c6aa5ef857f4004e337fca8833",
+      "sha256": "4dfb888df84a2547fea1079b4ae640fe133750f35f26e917990e86c8ef2a65cf",
+      "wikiUploadTimestamp": "2026-10-06T06:39:51Z",
+      "localPath": "docs/references/recipes/wiki-dish-icons-2026-11-01/Miracle_Feast_Dessert_Tower_Icon.png"
+    },
+    {
+      "id": "petitplanet-wiki-file-9548",
+      "title": "File:Miracle Feast Mega Skewer Icon.png",
+      "filePageUrl": "https://petitplanet.wiki/File:Miracle_Feast_Mega_Skewer_Icon.png",
+      "originalUrl": "https://cdn.petitplanet.wiki/Miracle_Feast_Mega_Skewer_Icon.png",
+      "width": 512,
+      "height": 512,
+      "bytes": 150014,
+      "sha1": "ee207d94be01878e882fe8cd486b73dc478b03de",
+      "sha256": "90f1af3819488d30127f70dac9b67cbdaa8d430530b1db336747662572473c8b",
+      "wikiUploadTimestamp": "2026-10-06T08:50:16Z",
+      "localPath": "docs/references/recipes/wiki-dish-icons-2026-11-01/Miracle_Feast_Mega_Skewer_Icon.png"
+    },
+    {
+      "id": "petitplanet-wiki-file-9596",
+      "title": "File:Miracle Feast Bountiful Rice Icon.png",
+      "filePageUrl": "https://petitplanet.wiki/File:Miracle_Feast_Bountiful_Rice_Icon.png",
+      "originalUrl": "https://cdn.petitplanet.wiki/Miracle_Feast_Bountiful_Rice_Icon.png",
+      "width": 512,
+      "height": 512,
+      "bytes": 231670,
+      "sha1": "199759a4b6d2fe7672fb82679d2df63ee1eba53c",
+      "sha256": "20ed8e5e2285fa1a2f617c21443ccd574580a78c93dc25d13764f56218a54f8f",
+      "wikiUploadTimestamp": "2026-10-07T17:50:33Z",
+      "localPath": "docs/references/recipes/wiki-dish-icons-2026-11-01/Miracle_Feast_Bountiful_Rice_Icon.png"
+    },
+    {
+      "id": "petitplanet-wiki-file-9598",
+      "title": "File:Miracle Feast Blazing Stir-Fry Icon.png",
+      "filePageUrl": "https://petitplanet.wiki/File:Miracle_Feast_Blazing_Stir-Fry_Icon.png",
+      "originalUrl": "https://cdn.petitplanet.wiki/Miracle_Feast_Blazing_Stir-Fry_Icon.png",
+      "width": 512,
+      "height": 512,
+      "bytes": 264220,
+      "sha1": "1789c84a0f2435ba49d7a86a14b7a6e35fa5f50b",
+      "sha256": "4fa807393df3ce29f4d011323fecf84bdcab22a97ac4784f3023251d36a246fe",
+      "wikiUploadTimestamp": "2026-10-07T18:17:49Z",
+      "localPath": "docs/references/recipes/wiki-dish-icons-2026-11-01/Miracle_Feast_Blazing_Stir-Fry_Icon.png"
+    },
+    {
+      "id": "petitplanet-wiki-file-9600",
+      "title": "File:Miracle Feast Claypot Soup Icon.png",
+      "filePageUrl": "https://petitplanet.wiki/File:Miracle_Feast_Claypot_Soup_Icon.png",
+      "originalUrl": "https://cdn.petitplanet.wiki/Miracle_Feast_Claypot_Soup_Icon.png",
+      "width": 512,
+      "height": 512,
+      "bytes": 190843,
+      "sha1": "cc5854410dac6338f3ec152b183bf79a3c5af778",
+      "sha256": "ec7e493e7c916b74e3d7036dd4e259814240f6ebd831e92468b3ad555c3e41c6",
+      "wikiUploadTimestamp": "2026-10-07T18:21:10Z",
+      "localPath": "docs/references/recipes/wiki-dish-icons-2026-11-01/Miracle_Feast_Claypot_Soup_Icon.png"
+    },
+    {
+      "id": "petitplanet-wiki-file-10671",
+      "title": "File:Miracle Feast Stew Icon.png",
+      "filePageUrl": "https://petitplanet.wiki/File:Miracle_Feast_Stew_Icon.png",
+      "originalUrl": "https://cdn.petitplanet.wiki/Miracle_Feast_Stew_Icon.png",
+      "width": 512,
+      "height": 512,
+      "bytes": 239930,
+      "sha1": "ee6acf5c45be1ce9e78a7c57ded7c1b5799c2651",
+      "sha256": "578067017290e695d8fb09ce51cc83af35b8170cf49dddeef1dea5b95899493e",
+      "wikiUploadTimestamp": "2026-10-18T07:11:24Z",
+      "localPath": "docs/references/recipes/wiki-dish-icons-2026-11-01/Miracle_Feast_Stew_Icon.png"
+    },
+    {
+      "id": "petitplanet-wiki-file-10672",
+      "title": "File:Miracle Feast Golden Fry Bowl Icon.png",
+      "filePageUrl": "https://petitplanet.wiki/File:Miracle_Feast_Golden_Fry_Bowl_Icon.png",
+      "originalUrl": "https://cdn.petitplanet.wiki/Miracle_Feast_Golden_Fry_Bowl_Icon.png",
+      "width": 512,
+      "height": 512,
+      "bytes": 147231,
+      "sha1": "785ab327d789895310d1a5c5053bc069af390049",
+      "sha256": "d48b7f7cbaf3f5479deeac20fb31a13e11e98e15efa09e6d5fff6ee619621fbe",
+      "wikiUploadTimestamp": "2026-10-18T07:12:27Z",
+      "localPath": "docs/references/recipes/wiki-dish-icons-2026-11-01/Miracle_Feast_Golden_Fry_Bowl_Icon.png"
+    }
+  ],
+  "recipes": [
+    {
+      "recipeId": "mt-20260929-miracle-001",
+      "recipeNameRaw": "奇迹盛宴大锅炖",
+      "originalSource": {
+        "sourceId": "tomorrow-20260929-image",
+        "region": "miracle",
+        "row": 1
+      },
+      "candidateFileId": "petitplanet-wiki-file-10671",
+      "status": "visual-candidate",
+      "gameVerified": false,
+      "evidence": {
+        "wikiEntryUrl": "https://petitplanet.wiki/Miracle_Feast_Stew",
+        "guide": {
+          "postUrl": "https://www.taptap.cn/moment/854684374887565375",
+          "imageUrl": "https://img2-tc.tapimg.com/moment/etag/lmcrCdvwd733vop7JtYCoBW44vwU_20261001112947.jpg/_tap_ugc.jpg",
+          "author": "猫冲冲佛系摸鱼",
+          "sheet": "miracle-1",
+          "row": 1,
+          "nameRaw": "奇迹盛宴大锅炖",
+          "nameMatch": "same-name-candidate"
+        },
+        "visualComparison": "TapTap 中文菜名旁的带双耳的金边大锅、方块豆腐、肉丸、竹笋与绿叶同 Wiki PNG 逐项目视匹配。"
+      },
+      "notes": [
+        "页面使用 Wiki 512 × 512 透明 PNG 原文件，TapTap 攻略只作为中文菜名与图形对应的证据，不截取攻略图作为素材。",
+        "Wiki 的力气 180 与 Stew 类型同明天图的 180 和“炖菜”词条相符；配图不补猜食材、厨具或具体产出概率，品质仍读取明天图底色。"
+      ]
+    },
+    {
+      "recipeId": "mt-20260929-miracle-002",
+      "recipeNameRaw": "奇迹盛宴大烤串",
+      "originalSource": {
+        "sourceId": "tomorrow-20260929-image",
+        "region": "miracle",
+        "row": 2
+      },
+      "candidateFileId": "petitplanet-wiki-file-9548",
+      "status": "visual-candidate",
+      "gameVerified": false,
+      "evidence": {
+        "wikiEntryUrl": "https://petitplanet.wiki/Miracle_Feast_Mega_Skewer",
+        "guide": {
+          "postUrl": "https://www.taptap.cn/moment/854684374887565375",
+          "imageUrl": "https://img2-tc.tapimg.com/moment/etag/lmcrCdvwd733vop7JtYCoBW44vwU_20261001112947.jpg/_tap_ugc.jpg",
+          "author": "猫冲冲佛系摸鱼",
+          "sheet": "miracle-1",
+          "row": 2,
+          "nameRaw": "奇迹盛宴大烤串",
+          "nameMatch": "same-name-candidate"
+        },
+        "visualComparison": "TapTap 中文菜名旁的竖立的长串肉块与蔬果、灰色圆托盘、柠檬片与两碟酱料同 Wiki PNG 逐项目视匹配。"
+      },
+      "notes": [
+        "页面使用 Wiki 512 × 512 透明 PNG 原文件，TapTap 攻略只作为中文菜名与图形对应的证据，不截取攻略图作为素材。",
+        "Wiki 的力气 180 与 Grilled Dish 类型同明天图的 180 和“烧烤”词条相符；配图不补猜食材、厨具或具体产出概率，品质仍读取明天图底色。"
+      ]
+    },
+    {
+      "recipeId": "mt-20260929-miracle-003",
+      "recipeNameRaw": "奇迹盛宴丰年饭",
+      "originalSource": {
+        "sourceId": "tomorrow-20260929-image",
+        "region": "miracle",
+        "row": 3
+      },
+      "candidateFileId": "petitplanet-wiki-file-9596",
+      "status": "visual-candidate",
+      "gameVerified": false,
+      "evidence": {
+        "wikiEntryUrl": "https://petitplanet.wiki/Miracle_Feast_Bountiful_Rice",
+        "guide": {
+          "postUrl": "https://www.taptap.cn/moment/854684374887565375",
+          "imageUrl": "https://img2-tc.tapimg.com/moment/etag/lmcrCdvwd733vop7JtYCoBW44vwU_20261001112947.jpg/_tap_ugc.jpg",
+          "author": "猫冲冲佛系摸鱼",
+          "sheet": "miracle-1",
+          "row": 3,
+          "nameRaw": "奇迹盛宴丰年饭",
+          "nameMatch": "same-name-candidate"
+        },
+        "visualComparison": "TapTap 中文菜名旁的红色帆船造型、白色浪花底座与船身上的海鲜饭同 Wiki PNG 逐项目视匹配。"
+      },
+      "notes": [
+        "页面使用 Wiki 512 × 512 透明 PNG 原文件，TapTap 攻略只作为中文菜名与图形对应的证据，不截取攻略图作为素材。",
+        "Wiki 的力气 180 与 Main Dish 类型同明天图的 180 和“主食”词条相符；配图不补猜食材、厨具或具体产出概率，品质仍读取明天图底色。"
+      ]
+    },
+    {
+      "recipeId": "mt-20260929-miracle-004",
+      "recipeNameRaw": "奇迹盛宴极火炒",
+      "originalSource": {
+        "sourceId": "tomorrow-20260929-image",
+        "region": "miracle",
+        "row": 4
+      },
+      "candidateFileId": "petitplanet-wiki-file-9598",
+      "status": "visual-candidate",
+      "gameVerified": false,
+      "evidence": {
+        "wikiEntryUrl": "https://petitplanet.wiki/Miracle_Feast_Blazing_Stir-Fry",
+        "guide": {
+          "postUrl": "https://www.taptap.cn/moment/854684374887565375",
+          "imageUrl": "https://img2-tc.tapimg.com/moment/etag/lmcrCdvwd733vop7JtYCoBW44vwU_20261001112947.jpg/_tap_ugc.jpg",
+          "author": "猫冲冲佛系摸鱼",
+          "sheet": "miracle-1",
+          "row": 4,
+          "nameRaw": "奇迹盛宴极火炒",
+          "nameMatch": "same-name-candidate"
+        },
+        "visualComparison": "TapTap 中文菜名旁的圆形木盘、分格摆放的虾与肉丸、中央绿叶与橙色配料同 Wiki PNG 逐项目视匹配。"
+      },
+      "notes": [
+        "页面使用 Wiki 512 × 512 透明 PNG 原文件，TapTap 攻略只作为中文菜名与图形对应的证据，不截取攻略图作为素材。",
+        "Wiki 的力气 180 与 Stir-Fry 类型同明天图的 180 和“炒菜”词条相符；配图不补猜食材、厨具或具体产出概率，品质仍读取明天图底色。"
+      ]
+    },
+    {
+      "recipeId": "mt-20260929-miracle-005",
+      "recipeNameRaw": "奇迹盛宴甜点塔",
+      "originalSource": {
+        "sourceId": "tomorrow-20260929-image",
+        "region": "miracle",
+        "row": 5
+      },
+      "candidateFileId": "petitplanet-wiki-file-9546",
+      "status": "visual-candidate",
+      "gameVerified": false,
+      "evidence": {
+        "wikiEntryUrl": "https://petitplanet.wiki/Miracle_Feast_Dessert_Tower",
+        "guide": {
+          "postUrl": "https://www.taptap.cn/moment/854684374887565375",
+          "imageUrl": "https://img2-tc.tapimg.com/moment/etag/lnhXm-fzO0xhE6aEpid1XlAwN_Ui_20261001112947.jpg/_tap_ugc.jpg",
+          "author": "猫冲冲佛系摸鱼",
+          "sheet": "miracle-2",
+          "row": 1,
+          "nameRaw": "奇迹盛宴甜点塔",
+          "nameMatch": "same-name-candidate"
+        },
+        "visualComparison": "TapTap 中文菜名旁的蓝白多层蛋糕塔、星形饰带与金色星星顶饰同 Wiki PNG 逐项目视匹配。"
+      },
+      "notes": [
+        "页面使用 Wiki 512 × 512 透明 PNG 原文件，TapTap 攻略只作为中文菜名与图形对应的证据，不截取攻略图作为素材。",
+        "Wiki 的力气 180 与 Dessert 类型同明天图的 180 和“甜点”词条相符；配图不补猜食材、厨具或具体产出概率，品质仍读取明天图底色。"
+      ]
+    },
+    {
+      "recipeId": "mt-20260929-miracle-006",
+      "recipeNameRaw": "奇迹盛宴瓦罐汤",
+      "originalSource": {
+        "sourceId": "tomorrow-20260929-image",
+        "region": "miracle",
+        "row": 6
+      },
+      "candidateFileId": "petitplanet-wiki-file-9600",
+      "status": "visual-candidate",
+      "gameVerified": false,
+      "evidence": {
+        "wikiEntryUrl": "https://petitplanet.wiki/Miracle_Feast_Claypot_Soup",
+        "guide": {
+          "postUrl": "https://www.taptap.cn/moment/854684374887565375",
+          "imageUrl": "https://img2-tc.tapimg.com/moment/etag/lnhXm-fzO0xhE6aEpid1XlAwN_Ui_20261001112947.jpg/_tap_ugc.jpg",
+          "author": "猫冲冲佛系摸鱼",
+          "sheet": "miracle-2",
+          "row": 2,
+          "nameRaw": "奇迹盛宴瓦罐汤",
+          "nameMatch": "same-name-candidate"
+        },
+        "visualComparison": "TapTap 中文菜名旁的棕色瓦罐、白色罐口、黄色浓汤中的胡萝卜与绿叶及长柄勺同 Wiki PNG 逐项目视匹配。"
+      },
+      "notes": [
+        "页面使用 Wiki 512 × 512 透明 PNG 原文件，TapTap 攻略只作为中文菜名与图形对应的证据，不截取攻略图作为素材。",
+        "Wiki 的力气 180 与 Soup 类型同明天图的 180 和“汤羹”词条相符；配图不补猜食材、厨具或具体产出概率，品质仍读取明天图底色。"
+      ]
+    },
+    {
+      "recipeId": "mt-20260929-miracle-008",
+      "recipeNameRaw": "奇迹盛宴炸串碗",
+      "originalSource": {
+        "sourceId": "tomorrow-20260929-image",
+        "region": "miracle",
+        "row": 8
+      },
+      "candidateFileId": "petitplanet-wiki-file-10672",
+      "status": "visual-candidate",
+      "gameVerified": false,
+      "evidence": {
+        "wikiEntryUrl": "https://petitplanet.wiki/Miracle_Feast_Golden_Fry_Bowl",
+        "guide": {
+          "postUrl": "https://www.taptap.cn/moment/854684374887565375",
+          "imageUrl": "https://img2-tc.tapimg.com/moment/etag/lnhXm-fzO0xhE6aEpid1XlAwN_Ui_20261001112947.jpg/_tap_ugc.jpg",
+          "author": "猫冲冲佛系摸鱼",
+          "sheet": "miracle-2",
+          "row": 3,
+          "nameRaw": "奇迹盛宴炸串碗",
+          "nameMatch": "same-name-candidate"
+        },
+        "visualComparison": "TapTap 中文菜名旁的蓝边碗、生菜上的金黄炸物与红色虾尾同 Wiki PNG 逐项目视匹配。"
+      },
+      "notes": [
+        "页面使用 Wiki 512 × 512 透明 PNG 原文件，TapTap 攻略只作为中文菜名与图形对应的证据，不截取攻略图作为素材。",
+        "Wiki 的力气 180 与 Fried Food 类型同明天图的 180 和“炸物”词条相符；配图不补猜食材、厨具或具体产出概率，品质仍读取明天图底色。"
+      ]
+    },
+    {
+      "recipeId": "mt-20260924-guest-013",
+      "recipeNameRaw": "梦幻星莓漫游派",
+      "originalSource": {
+        "sourceId": "xiaoming-0930-image",
+        "region": "guest",
+        "row": 13
+      },
+      "candidateFileId": "petitplanet-wiki-file-9542",
+      "status": "visual-candidate",
+      "gameVerified": false,
+      "evidence": {
+        "wikiEntryUrl": "https://petitplanet.wiki/Dreamy_Stargazy_Blueberry_Pie",
+        "wikiCatalogNumberRaw": "062",
+        "guide": {
+          "id": "taptap-852582459005469363-guest-2",
+          "postUrl": "https://www.taptap.cn/moment/852582459005469363",
+          "imageUrl": "https://img2-tc.tapimg.com/moment/etag/FjYH8U-FerTjByEipRjQWxNz2r8B_20260925161637.jpg/_tap_ugc.jpg",
+          "author": "阿Zz",
+          "row": 1,
+          "catalogNumberRaw": "062",
+          "nameRaw": "梦幻星莓漫游派",
+          "nameMatch": "same-name-candidate"
+        },
+        "visualComparison": "已归档 TapTap 显示区域中的紫色派底、蓝色星点派面与三条探出的银色鱼头同 Wiki PNG 逐项目视匹配，图鉴编号同为 062。"
+      },
+      "notes": [
+        "以 Wiki 512 × 512 透明 PNG 原文件替换原 TapTap 150 × 150 显示区域，原攻略图及坐标保留归档。",
+        "Wiki 的烤箱、力气 170、敲伐三阶及鱼类／小麦／贝类／蓝莓配方同当前采用数据相符；配图接入不改写配方、品质或游戏验证状态。"
+      ]
+    },
+    {
+      "recipeId": "mt-20260924-guest-014",
+      "recipeNameRaw": "梦幻番茄汤汁面",
+      "originalSource": {
+        "sourceId": "xiaoming-0930-image",
+        "region": "guest",
+        "row": 14
+      },
+      "candidateFileId": "petitplanet-wiki-file-9544",
+      "status": "visual-candidate",
+      "gameVerified": false,
+      "evidence": {
+        "wikiEntryUrl": "https://petitplanet.wiki/Dreamy_Tomato_Noodle_Soup",
+        "wikiCatalogNumberRaw": "113",
+        "guide": {
+          "id": "taptap-852582459005469363-guest-3",
+          "postUrl": "https://www.taptap.cn/moment/852582459005469363",
+          "imageUrl": "https://img2-tc.tapimg.com/moment/etag/FiURXwk0DpWVZkvrDNlMq3G0X7vY_20260925161637.jpg/_tap_ugc.jpg",
+          "author": "阿Zz",
+          "row": 2,
+          "catalogNumberRaw": "113",
+          "nameRaw": "梦幻番茄汤汁面",
+          "nameMatch": "same-name-candidate"
+        },
+        "visualComparison": "已归档 TapTap 显示区域中的红色圆盘、盘旋的面条、顶部番茄与绿叶同 Wiki PNG 逐项目视匹配，图鉴编号同为 113。"
+      },
+      "notes": [
+        "以 Wiki 512 × 512 透明 PNG 原文件替换原 TapTap 150 × 150 显示区域，原攻略图及坐标保留归档。",
+        "Wiki 的煮锅、力气 150、快速翻土三阶同当前采用数据相符；Wiki 配方的四项食材顺序与明天图不同，不回写当前顺序；配图接入不改写配方、品质或游戏验证状态。"
+      ]
+    }
+  ],
+  "unmatchedRecipeIds": [],
+  "localArchive": {
+    "savedOn": "2026-11-01",
+    "directory": "docs/references/recipes/wiki-dish-icons-2026-11-01",
+    "fileCount": 9,
+    "totalBytes": 1789493,
+    "format": "PNG",
+    "originalBytesPreserved": true,
+    "verification": "9 张新增原件均为 512 × 512 RGBA PNG，SHA-1、尺寸与字节数均同 Wiki imageinfo 一致，并记录 SHA-256。"
+  }
+}
