@@ -112,7 +112,7 @@ describe("小铭 9/30 主体与历史资料的读取边界", () => {
 
   it("新版去除的符号、蓝莓配方和厨具／阶级修订生效，其他问号不扩大确认", () => {
     for (const [name, index, raw] of [
-      ["田园蔬烩披萨", 2, "黄瓜"],
+      ["田园蔬荟披萨", 2, "黄瓜"],
       ["梦幻锦绣香蔬宴", 1, "蔬菜"],
       ["梦幻海岸虾鱼筵", 0, "虾类"],
       ["多果流彩捞饭", 3, "谷物"],
@@ -140,6 +140,19 @@ describe("小铭 9/30 主体与历史资料的读取边界", () => {
     expect(getRecipeDifferences(recipe("梦幻星莓漫游派").id)).toContainEqual(
       expect.objectContaining({ field: "ingredients", current: "鱼类 + 小麦 + 贝类 + 蓝莓" }),
     );
+  });
+
+  it("菜名按小铭原文显示鲜风与蔬荟，鲜笃鱼汤按两图更正", () => {
+    expect(recipeDecisions.decisions).toHaveLength(17);
+    for (const name of ["梦幻鲜风龙虾锅", "田园蔬荟披萨", "鲜笃鱼汤"]) {
+      const current = recipe(name);
+      expect(current.name).toMatchObject({ status: "recorded", raw: name });
+      expect(currentRecipeFieldSourcesById.get(current.id)?.name).toEqual({
+        source: current.source,
+        userDecision: undefined,
+      });
+    }
+    expect(currentRecipes.some((entry) => /仙风|蔬烩|鲜笋/u.test(entry.name.raw))).toBe(false);
   });
 
   it("新版食材顺序、重复槽位、合并格及品质需求一起采用", () => {
