@@ -330,10 +330,10 @@ test("关于页简述资料来源，分列图片来源与致谢并展示两张�
   await expect(recipeSource).toContainText("用户提供的游戏截图与文字资料");
   await expect(recipeSource).not.toContainText(/Wiki|TapTap/u);
   await expect(imageSources).toContainText("Petit Planet Wiki");
-  await expect(imageSources).toContainText("TapTap 作者「阿Zz」、「猫冲冲佛系摸鱼」");
+  await expect(imageSources).toContainText("TapTap 作者「阿Zz」、「猫冲冲」的菜谱攻略");
   await expect(thanks).toContainText("小铭同学qaQ233、明天攻略组");
   await expect(thanks).toContainText("Petit Planet Wiki 社区");
-  await expect(thanks).toContainText("作者「阿Zz」、「猫冲冲佛系摸鱼」分享攻略");
+  await expect(thanks).toContainText("作者「阿Zz」、「猫冲冲」分享攻略");
   const latestImage = page.getByRole("link", { name: "查看小铭同学qaQ233图鉴（9月30日）" });
   await expect(latestImage).toHaveAttribute("href", /xiaoming-09-30\.[\w-]+\.png$/u);
   const guideImage = latestImage.getByRole("img");

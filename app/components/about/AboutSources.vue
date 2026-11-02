@@ -16,13 +16,15 @@ const guideCreators = guides.map(({ source }) => source.creator).join("、");
 const miracleGuides = miracleCandidates.recipes.flatMap((recipe) =>
   recipe.evidence.guide?.sheet?.startsWith("miracle-") ? [recipe.evidence.guide] : [],
 );
+// 清单保存 TapTap 账号名；致谢按作者在攻略图上的署名“@猫冲冲”显示。
+const creditNames: Record<string, string> = { 猫冲冲佛系摸鱼: "猫冲冲" };
 const taptapAuthors = [
   ...new Set([
     ...taptapArchive.files.map((file) => file.author),
     ...miracleGuides.map((guide) => guide.author),
   ]),
 ]
-  .map((author) => `「${author}」`)
+  .map((author) => `「${creditNames[author] ?? author}」`)
   .join("、");
 const taptapPosts = [
   ...new Map([
