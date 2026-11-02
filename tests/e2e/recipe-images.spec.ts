@@ -13,7 +13,13 @@ function expectLocalImage(value: string | null, pageUrl: string, extension: "png
 
 test("构建只发布当前使用的 Wiki 图标，未使用的文件继续归档", () => {
   const hash = (path: URL) => createHash("sha256").update(readFileSync(path)).digest("hex");
-  const archiveFiles = ["2026-09-26", "2026-10-01", "2026-10-04", "2026-11-01"].flatMap((date) => {
+  const archiveFiles = [
+    "2026-09-26",
+    "2026-10-01",
+    "2026-10-04",
+    "2026-11-01",
+    "2026-11-02",
+  ].flatMap((date) => {
     const directory = new URL(
       `../../docs/references/recipes/wiki-dish-icons-${date}/`,
       import.meta.url,
@@ -35,15 +41,15 @@ test("构建只发布当前使用的 Wiki 图标，未使用的文件继续归�
       .map((name) => hash(new URL(name, outputDirectory)))
       .filter((value) => archiveHashes.has(value)),
   );
-  expect(archiveFiles).toHaveLength(105);
+  expect(archiveFiles).toHaveLength(108);
   expect(publishedHashes).toEqual(usedHashes);
 });
 
 test("菜谱列表与详情显示本地候选配图", async ({ page }) => {
   await page.goto("/");
   const results = page.getByRole("list", { name: "菜谱结果" });
-  await expect(results.getByRole("img")).toHaveCount(111);
-  await expect(results.locator("img")).toHaveCount(111);
+  await expect(results.getByRole("img")).toHaveCount(114);
+  await expect(results.locator("img")).toHaveCount(114);
   await expect(results.getByRole("img", { name: /：图片暂不可用$/u })).toHaveCount(0);
   const firstImage = results.getByRole("img", { name: "和煦花果茶（候选配图）", exact: true });
   await expect
@@ -92,7 +98,7 @@ test("补图与替换显示本地高清 PNG，品质和既有配方保持", asyn
   await page.setViewportSize({ width: 390, height: 844 });
   await page.goto("/");
   const results = page.getByRole("list", { name: "菜谱结果" });
-  await expect(results.getByRole("button")).toHaveCount(111);
+  await expect(results.getByRole("button")).toHaveCount(114);
   const dialog = page.getByRole("dialog");
   for (const [name, quality, background] of [
     ["胡萝卜炖肉", "紫色品质", "rgb(232, 220, 240)"],

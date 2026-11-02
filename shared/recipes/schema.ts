@@ -137,7 +137,11 @@ export const recipeSchema = z
       region: imageRegionSchema,
       row: z.number().int().positive(),
     }),
-    verification: z.literal("image-transcribed-game-unverified"),
+    // 图片转录与按用户要求从外部资料整理的条目分别标记，二者都不表示游戏实测。
+    verification: z.enum([
+      "image-transcribed-game-unverified",
+      "reference-compiled-game-unverified",
+    ]),
     name: observation(text),
     dishCategory: observation(text),
     // 空数组表示原图未提供配方及槽位数量，不伪造一个未知食材槽位。
@@ -413,6 +417,8 @@ export const recipeDatasetSchema = z
         issue(["recipes", index, "source"], "菜谱引用的清点行不存在");
       if (row && recipe.name.raw !== row.nameRaw)
         issue(["recipes", index, "name"], "菜名原文与独立清点表不符");
+      if (recipe.verification !== "image-transcribed-game-unverified")
+        issue(["recipes", index, "verification"], "图片转录不能标记为外部资料整理");
       const key = `${ref.sourceId}/${ref.region}/${ref.row}`;
       if (rowKeys.has(key)) issue(["recipes", index, "source"], "同一图片行被重复录入");
       rowKeys.add(key);

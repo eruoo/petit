@@ -8,11 +8,12 @@ import wiki from "../../docs/references/recipes/wiki-dish-icons-2026-09-26.json"
 import wikiSupplement from "../../docs/references/recipes/wiki-dish-icons-2026-10-01.json";
 import wikiOctober4 from "../../docs/references/recipes/wiki-dish-icons-2026-10-04.json";
 import wikiNovember1 from "../../docs/references/recipes/wiki-dish-icons-2026-11-01.json";
+import wikiNovember2 from "../../docs/references/recipes/wiki-dish-icons-2026-11-02.json";
 import taptap from "../../docs/references/recipes/taptap-recipe-guides-2026-09-26.json";
 
 describe("菜品配图与独立来源", () => {
-  it("111 条 Wiki 独立配图覆盖全部当前菜谱", () => {
-    expect(recipeImagesById.size).toBe(111);
+  it("114 条 Wiki 独立配图覆盖全部当前菜谱", () => {
+    expect(recipeImagesById.size).toBe(114);
     expect(recipeDataset.recipes.every((recipe) => recipeImagesById.has(recipe.id))).toBe(true);
     expect([...recipeImagesById.keys()].sort()).toEqual(
       currentRecipes.map((recipe) => recipe.id).sort(),
@@ -41,6 +42,9 @@ describe("菜品配图与独立来源", () => {
       ["mt-20260929-miracle-008", "10672", "奇迹盛宴炸串碗", "visual-candidate"],
       ["mt-20260924-guest-013", "9542", "梦幻星莓漫游派", "visual-candidate"],
       ["mt-20260924-guest-014", "9544", "梦幻番茄汤汁面", "visual-candidate"],
+      ["ref-20261102-neighbor-001", "10708", undefined, "english-entry-candidate"],
+      ["ref-20261102-neighbor-002", "10703", undefined, "english-entry-candidate"],
+      ["ref-20261102-neighbor-003", "10706", undefined, "english-entry-candidate"],
     ] as const) {
       const image = recipeImagesById.get(recipeId);
       expect(image).toMatchObject({
@@ -68,6 +72,7 @@ describe("菜品配图与独立来源", () => {
         ...wikiSupplement.files,
         ...wikiOctober4.files,
         ...wikiNovember1.files,
+        ...wikiNovember2.files,
         ...taptap.files,
       ].map((file) => [file.id, file]),
     );

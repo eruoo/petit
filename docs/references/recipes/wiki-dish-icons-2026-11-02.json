@@ -1,0 +1,118 @@
+{
+  "checkedOn": "2026-11-02",
+  "scope": "为按用户要求从外部参考补入的橙香桃包、斑斓桃包、蓝莓桃包补充 Wiki 独立 PNG 候选。",
+  "wikiCatalogUrl": "https://petitplanet.wiki/Category:Dish_Icons",
+  "wikiMetadataApi": "https://petitplanet.wiki/api.php",
+  "existingFilesManifest": "docs/references/recipes/wiki-dish-icons-2026-11-01.json",
+  "comparisonMethod": "核对 Wiki 菜谱正文、imageinfo 元数据与 PNG 原文件的 SHA-1、字节数、尺寸及透明通道，逐张查看图形。中文菜名依据 xbgdwiki 数据页描述与 Wiki 英文描述逐句对应；全部采用独立原图，不裁切或重编码。",
+  "files": [
+    {
+      "id": "petitplanet-wiki-file-10706",
+      "title": "File:Blueberry Peach Bun Icon.png",
+      "filePageUrl": "https://petitplanet.wiki/File:Blueberry_Peach_Bun_Icon.png",
+      "originalUrl": "https://cdn.petitplanet.wiki/Blueberry_Peach_Bun_Icon.png",
+      "width": 512,
+      "height": 512,
+      "bytes": 151022,
+      "sha1": "03969ce6d60c87b4b5b166b249feba678a5b2628",
+      "sha256": "53b20613bec4a6bb8fabd69e737eb5d427e08d26b589c11c48e56a028e83a133",
+      "wikiUploadTimestamp": "2026-10-19T06:20:34Z",
+      "localPath": "docs/references/recipes/wiki-dish-icons-2026-11-02/Blueberry_Peach_Bun_Icon.png"
+    },
+    {
+      "id": "petitplanet-wiki-file-10708",
+      "title": "File:Citrus Peach Bun Icon.png",
+      "filePageUrl": "https://petitplanet.wiki/File:Citrus_Peach_Bun_Icon.png",
+      "originalUrl": "https://cdn.petitplanet.wiki/Citrus_Peach_Bun_Icon.png",
+      "width": 512,
+      "height": 512,
+      "bytes": 152290,
+      "sha1": "0c4d4dade742a11c6033eace1b9344d5fd6e86f9",
+      "sha256": "019d32ddb8ff152a5e7c6bb8b3ed2f105a7bb9f42f68f7b1bc42c22dc131c14c",
+      "wikiUploadTimestamp": "2026-10-19T07:42:09Z",
+      "localPath": "docs/references/recipes/wiki-dish-icons-2026-11-02/Citrus_Peach_Bun_Icon.png"
+    },
+    {
+      "id": "petitplanet-wiki-file-10703",
+      "title": "File:Pandan Peach Bun Icon.png",
+      "filePageUrl": "https://petitplanet.wiki/File:Pandan_Peach_Bun_Icon.png",
+      "originalUrl": "https://cdn.petitplanet.wiki/Pandan_Peach_Bun_Icon.png",
+      "width": 512,
+      "height": 512,
+      "bytes": 153809,
+      "sha1": "2a026be5bb5a2f487fb6448d40e4e4e6bfecaffc",
+      "sha256": "b7730d87f3e5307a3a41e753e532ae2e8bd74de428cb0bb6d3e242994f2c7573",
+      "wikiUploadTimestamp": "2026-10-19T05:42:16Z",
+      "localPath": "docs/references/recipes/wiki-dish-icons-2026-11-02/Pandan_Peach_Bun_Icon.png"
+    }
+  ],
+  "recipes": [
+    {
+      "recipeId": "ref-20261102-neighbor-001",
+      "recipeNameRaw": "橙香桃包",
+      "originalSource": {
+        "sourceId": "user-reference-supplements-20261102",
+        "region": "neighbor"
+      },
+      "candidateFileId": "petitplanet-wiki-file-10708",
+      "status": "english-entry-candidate",
+      "gameVerified": false,
+      "evidence": {
+        "wikiEntryUrl": "https://petitplanet.wiki/Citrus_Peach_Bun",
+        "imageComparison": "橙色桃形包子三只盛于绿边白盘，与菜名及“甜橙清香”描述一致。"
+      },
+      "notes": [
+        "英文条目与 xbgdwiki 中文描述逐句对应，提供中文菜名线索；尚无中文菜名旁图形的直接对应证据，保留英文条目候选状态。",
+        "使用 Wiki 512 × 512 透明 PNG 原文件；配图不改写配方或品质。"
+      ]
+    },
+    {
+      "recipeId": "ref-20261102-neighbor-002",
+      "recipeNameRaw": "斑斓桃包",
+      "originalSource": {
+        "sourceId": "user-reference-supplements-20261102",
+        "region": "neighbor"
+      },
+      "candidateFileId": "petitplanet-wiki-file-10703",
+      "status": "english-entry-candidate",
+      "gameVerified": false,
+      "evidence": {
+        "wikiEntryUrl": "https://petitplanet.wiki/Pandan_Peach_Bun",
+        "imageComparison": "绿色桃形包子三只盛于绿边白盘，与菜名及“草本清香”描述一致。"
+      },
+      "notes": [
+        "英文条目与 xbgdwiki 中文描述逐句对应，提供中文菜名线索；尚无中文菜名旁图形的直接对应证据，保留英文条目候选状态。",
+        "使用 Wiki 512 × 512 透明 PNG 原文件；配图不改写配方或品质。"
+      ]
+    },
+    {
+      "recipeId": "ref-20261102-neighbor-003",
+      "recipeNameRaw": "蓝莓桃包",
+      "originalSource": {
+        "sourceId": "user-reference-supplements-20261102",
+        "region": "neighbor"
+      },
+      "candidateFileId": "petitplanet-wiki-file-10706",
+      "status": "english-entry-candidate",
+      "gameVerified": false,
+      "evidence": {
+        "wikiEntryUrl": "https://petitplanet.wiki/Blueberry_Peach_Bun",
+        "imageComparison": "蓝紫色桃形包子三只盛于绿边白盘，与菜名及“蓝莓甜香”描述一致。"
+      },
+      "notes": [
+        "英文条目与 xbgdwiki 中文描述逐句对应，提供中文菜名线索；尚无中文菜名旁图形的直接对应证据，保留英文条目候选状态。",
+        "使用 Wiki 512 × 512 透明 PNG 原文件；配图不改写配方或品质。"
+      ]
+    }
+  ],
+  "unmatchedRecipeIds": [],
+  "localArchive": {
+    "savedOn": "2026-11-02",
+    "directory": "docs/references/recipes/wiki-dish-icons-2026-11-02",
+    "fileCount": 3,
+    "totalBytes": 457121,
+    "format": "PNG",
+    "originalBytesPreserved": true,
+    "verification": "3 张新增原件均为 512 × 512 RGBA PNG，SHA-1、尺寸与字节数均同 Wiki imageinfo 一致，并记录 SHA-256。"
+  }
+}

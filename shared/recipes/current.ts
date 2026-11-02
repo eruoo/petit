@@ -19,6 +19,7 @@ import {
 } from "./decisions.ts";
 import {
   applyReferenceSupplement,
+  buildReferenceRecipes,
   referenceQuality,
   referenceSupplements,
   usesReferenceField,
@@ -41,7 +42,10 @@ export function resolveCurrentRecipe(primary: Recipe): Recipe {
 export const currentRecipes = [
   ...primaryRecipeDataset.recipes.map(resolveCurrentRecipe),
   ...supplementalRecipeDataset.recipes.filter((recipe) => !primaryRecipesById.has(recipe.id)),
-].map((recipe) => applyReferenceSupplement(recipe));
+]
+  .map((recipe) => applyReferenceSupplement(recipe))
+  // 两图都没有的菜按用户要求整条补入，排在图片条目之后。
+  .concat(buildReferenceRecipes());
 export const currentRecipeSources = [primaryRecipeSource, supplementalRecipeSource];
 
 // 逐字段引用让汇总视图仍可追溯，不将参考图字段冒充主体图记录。
@@ -56,7 +60,7 @@ export const currentRecipeFieldSourcesById = new Map(
         : undefined,
     });
     const referenceFields = (
-      ["ingredients", "energy", "tags", "specialEffect", "quality"] as const
+      ["recipe", "ingredients", "energy", "tags", "specialEffect", "quality"] as const
     ).filter((field: ReferenceField) => usesReferenceField(recipe.id, field));
     return [
       recipe.id,
@@ -88,6 +92,9 @@ export const currentRecipeFieldSourcesById = new Map(
 
 export function currentSourceRow(recipe: Recipe) {
   const source = currentRecipeFieldSourcesById.get(recipe.id)?.name.source ?? recipe.source;
+  // 外部资料补入的条目没有图片行。
+  if (![primaryRecipeSource.id, supplementalRecipeSource.id].includes(source.sourceId))
+    return undefined;
   const dataset =
     source.sourceId === primaryRecipeSource.id ? primaryRecipeDataset : supplementalRecipeDataset;
   return dataset.inventory.regions
