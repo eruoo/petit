@@ -103,7 +103,7 @@ if (import.meta.main) {
     `用户逐项决定及原文、来源引用校验通过：${recipeDecisions.decisions.length} 条；不代表游戏实测。`,
   );
   console.log(
-    `外部参考补齐：${referenceSupplements.recipes.length} 道菜（用户明确改写图片值 ${referenceSupplements.recipes.filter((entry) => entry.overrides).length} 道，其余只填问号或无底色字段），增益有效量参考 ${gameEffectEvidence.references.length} 条；均不代表游戏实测。`,
+    `外部参考补齐：${referenceSupplements.recipes.length} 道菜（用户明确改写图片值 ${referenceSupplements.recipes.filter((entry) => entry.overrides).length} 道，其余只填问号或无底色字段），整条补入 ${referenceSupplements.additions.length} 道，增益有效量参考 ${gameEffectEvidence.references.length} 条；均不代表游戏实测。`,
   );
   const qualityCounts = Object.fromEntries(
     ["blue", "purple", "gold", "unknown"].map((color) => [
@@ -136,7 +136,7 @@ if (import.meta.main) {
   );
   console.log(`食材品质底色与用户解释引用校验通过：${JSON.stringify(ingredientQualityCounts)}。`);
   console.log(
-    `当前 ${currentRecipes.length} 道：小铭 9/30 主体 ${primaryRecipeDataset.recipes.length} 道、明天补充资料 ${supplementalRecipeDataset.recipes.length} 道；独立游戏截图 ${gameEffectEvidence.screenshots.length} 张、用户文字确认 ${gameEffectEvidence.confirmations.length} 条。`,
+    `当前 ${currentRecipes.length} 道：小铭 9/30 主体 ${primaryRecipeDataset.recipes.length} 道、明天补充资料 ${supplementalRecipeDataset.recipes.length} 道、外部参考补入 ${referenceSupplements.additions.length} 道；独立游戏截图 ${gameEffectEvidence.screenshots.length} 张、用户文字确认 ${gameEffectEvidence.confirmations.length} 条。`,
   );
   const conflicts = collectCurrentEvidenceConflicts(currentRecipes);
   console.log(

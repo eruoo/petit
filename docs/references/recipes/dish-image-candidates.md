@@ -1,6 +1,6 @@
 # 菜品图片候选索引
 
-当前 111 道菜均有候选配图，全部使用 Wiki 独立 PNG；页面不再显示 TapTap 攻略图区域，也没有缺图占位。配方采用规则见[菜谱数据约定](../../recipes.md)。
+当前 114 道菜均有候选配图，全部使用 Wiki 独立 PNG；页面不再显示 TapTap 攻略图区域，也没有缺图占位。配方采用规则见[菜谱数据约定](../../recipes.md)。
 
 ## 权威清单与读取
 
@@ -10,6 +10,7 @@
 | [Wiki 10/01 补充清单](wiki-dish-icons-2026-10-01.json)  | 七道秘制菜候选及四道高清替换，六个新增原文件，五个原文件引用前一清单。                       |
 | [Wiki 10/04 补充清单](wiki-dish-icons-2026-10-04.json)  | 云朵小饼干、甜饼果茶、畅饮桶补图及茄茄擂辣饭替换，三个新增原文件，云朵小饼干复用 9/26 原件。 |
 | [Wiki 11/01 补充清单](wiki-dish-icons-2026-11-01.json)  | 其余七道奇迹盛宴补图，梦幻星莓漫游派与梦幻番茄汤汁面替换攻略区域，九个新增原文件。           |
+| [Wiki 11/02 补充清单](wiki-dish-icons-2026-11-02.json)  | 外部参考补入的三道桃包，三个新增原文件，均为英文条目候选。                                   |
 | [TapTap 清单](taptap-recipe-guides-2026-09-26.json)     | 六张完整攻略 JPEG、七个菜品显示区域、作者、原帖与图片 URL。                                  |
 | [TapTap 品质资料](../../../data/recipes/qualities.json) | 17 张攻略图的来源身份、逐行菜名及圆底观察；不覆盖当前主体品质。                              |
 
@@ -27,7 +28,7 @@ Wiki 的 `files[].localPath` 相对于项目根目录，指向未经裁切或重
 - Homestyle Assorted Claypot Stew、Rare Assorted Claypot Stew、Miracle Assorted Claypot Stew。
 - Homestyle Assorted Skewers、Rare Assorted Skewers、Miracle Assorted Skewers、Mushroom, Fruit & Veggie Skewers。
 
-Premium Shellfish Rice Bake 与 Seafood Clay Pot Rice 的解码像素相同、文件字节不同，仍分别保留。相同图形不代表菜谱或来源记录可以合并。10/01 新增六个 PNG，10/04 新增三个 PNG，11/01 新增九个 PNG，合计归档 105 个 Wiki 原文件；TapTap 的六张完整 JPEG 继续独立保存。
+Premium Shellfish Rice Bake 与 Seafood Clay Pot Rice 的解码像素相同、文件字节不同，仍分别保留。相同图形不代表菜谱或来源记录可以合并。10/01 新增六个 PNG，10/04 新增三个 PNG，11/01 新增九个 PNG，11/02 新增三个 PNG，合计归档 108 个 Wiki 原文件；TapTap 的六张完整 JPEG 继续独立保存。
 
 TapTap 原图保留作者署名、菜名和品质圆底；`displayRegion` 记录菜品区域。七个历史显示区域均已被 Wiki 高清图替代，原件仍用于核对当时的对应证据。10/04 畅饮桶的 TapTap 中文攻略仅用于核对图形，页面采用 Wiki 独立 PNG。
 

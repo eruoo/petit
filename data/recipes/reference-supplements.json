@@ -13,6 +13,12 @@
       "receivedOn": "2026-11-02",
       "statementRaw": "改掉这三条，然后提交推送并合并",
       "scope": "红穗绛桃包第二项改为红色水果，甜饼果茶品质改为蓝色，蒜香流心奶面包第三项改为谷物。"
+    },
+    {
+      "id": "user-reference-request-20261102-peach-buns",
+      "receivedOn": "2026-11-02",
+      "statementRaw": "把三道桃包也补上",
+      "scope": "按 Wiki 与 xbgdwiki 补入两图均未收录的橙香桃包、斑斓桃包、蓝莓桃包。"
     }
   ],
   "gameVerified": false,
@@ -50,6 +56,34 @@
       "site": "Petit Planet Wiki",
       "url": "https://petitplanet.wiki/index.php?title=Waffle_Fruit_Tea&oldid=32007",
       "revision": "32007",
+      "retrievedOn": "2026-11-02"
+    },
+    {
+      "id": "petitplanet-wiki-citrus-peach-bun",
+      "site": "Petit Planet Wiki",
+      "url": "https://petitplanet.wiki/index.php?title=Citrus_Peach_Bun&oldid=35087",
+      "revision": "35087",
+      "retrievedOn": "2026-11-02"
+    },
+    {
+      "id": "petitplanet-wiki-pandan-peach-bun",
+      "site": "Petit Planet Wiki",
+      "url": "https://petitplanet.wiki/index.php?title=Pandan_Peach_Bun&oldid=35081",
+      "revision": "35081",
+      "retrievedOn": "2026-11-02"
+    },
+    {
+      "id": "petitplanet-wiki-blueberry-peach-bun",
+      "site": "Petit Planet Wiki",
+      "url": "https://petitplanet.wiki/index.php?title=Blueberry_Peach_Bun&oldid=35083",
+      "revision": "35083",
+      "retrievedOn": "2026-11-02"
+    },
+    {
+      "id": "xbgdwiki-dish-data",
+      "site": "xbgdwiki.com",
+      "url": "https://xbgdwiki.com/api/pages/%E6%95%B0%E6%8D%AE%EF%BC%9A%E8%8F%9C%E8%82%B4",
+      "revision": "1（2026-10-10 14:02:33）",
       "retrievedOn": "2026-11-02"
     }
   ],
@@ -219,6 +253,252 @@
         }
       },
       "notes": ["两图均未给甜饼果茶菜名底色；Wiki 标为 Uncommon，按品质名对应为蓝色。"]
+    }
+  ],
+  "additions": [
+    {
+      "recipeId": "ref-20261102-neighbor-001",
+      "requestId": "user-reference-request-20261102-peach-buns",
+      "sourceIds": [
+        "petitplanet-wiki-citrus-peach-bun",
+        "xbgdwiki-dish-data",
+        "xbgd-wiki-mirror-cooking"
+      ],
+      "nameRaw": "橙香桃包",
+      "nameEn": "Citrus Peach Bun",
+      "catalogNumberRaw": "050",
+      "region": "neighbor",
+      "acquisitionRaw": "蛮蛮",
+      "ingredients": [
+        {
+          "raw": "小麦",
+          "value": {
+            "kind": "item",
+            "name": "小麦"
+          },
+          "quality": "Rare",
+          "sourceRaw": {
+            "en": "Plump Wheat / Strange Wheat",
+            "zh": "小麦"
+          }
+        },
+        {
+          "raw": "黄色水果",
+          "value": {
+            "kind": "category",
+            "name": "黄色水果"
+          },
+          "sourceRaw": {
+            "en": "Yellow Fruit",
+            "zh": "黄色水果"
+          }
+        }
+      ],
+      "cookingMethod": {
+        "raw": "煮锅",
+        "sourceRaw": {
+          "en": "Cooking Pot",
+          "zh": "煮锅"
+        }
+      },
+      "energy": {
+        "raw": "80",
+        "value": 80,
+        "sourceRaw": {
+          "en": "80",
+          "zh": "80"
+        }
+      },
+      "tags": {
+        "raw": "甜点",
+        "value": ["甜点"],
+        "sourceRaw": {
+          "en": "Dessert",
+          "zh": "甜点"
+        }
+      },
+      "specialEffect": {
+        "raw": "大力播洒 一阶",
+        "value": {
+          "name": "大力播洒",
+          "tier": 1
+        },
+        "sourceRaw": {
+          "en": "Power Spread I",
+          "zh": "大力播洒一阶*10秒"
+        }
+      },
+      "quality": {
+        "raw": "Rare",
+        "sourceRaw": {
+          "en": "Rare",
+          "zh": ""
+        }
+      },
+      "notes": [
+        "中文菜名依据 xbgdwiki 数据页，其描述与 Wiki 英文描述逐句对应；友邻按 Wiki 的 Manna 写作本站已有的“蛮蛮”。小麦一项 Wiki 标为 Rare，按品质名解释为紫色品质要求；菜品品质 Rare 显示为紫色。",
+        "Wiki 修订 35087 与 xbgd-wiki 镜像的配方、厨具、力气与效果一致；描述“散发甜橙清香……心想事橙”对应 sweet orange scent。"
+      ]
+    },
+    {
+      "recipeId": "ref-20261102-neighbor-002",
+      "requestId": "user-reference-request-20261102-peach-buns",
+      "sourceIds": ["petitplanet-wiki-pandan-peach-bun", "xbgdwiki-dish-data"],
+      "nameRaw": "斑斓桃包",
+      "nameEn": "Pandan Peach Bun",
+      "catalogNumberRaw": "051",
+      "region": "neighbor",
+      "acquisitionRaw": "蛮蛮",
+      "ingredients": [
+        {
+          "raw": "小麦",
+          "value": {
+            "kind": "item",
+            "name": "小麦"
+          },
+          "quality": "Rare",
+          "sourceRaw": {
+            "en": "Plump Wheat / Strange Wheat",
+            "zh": "小麦"
+          }
+        },
+        {
+          "raw": "绿色水果",
+          "value": {
+            "kind": "category",
+            "name": "绿色水果"
+          },
+          "sourceRaw": {
+            "en": "Green Fruit",
+            "zh": ""
+          }
+        }
+      ],
+      "cookingMethod": {
+        "raw": "煮锅",
+        "sourceRaw": {
+          "en": "Cooking Pot",
+          "zh": ""
+        }
+      },
+      "energy": {
+        "raw": "80",
+        "value": 80,
+        "sourceRaw": {
+          "en": "80",
+          "zh": ""
+        }
+      },
+      "tags": {
+        "raw": "甜点",
+        "value": ["甜点"],
+        "sourceRaw": {
+          "en": "Dessert",
+          "zh": ""
+        }
+      },
+      "specialEffect": {
+        "raw": "快速翻土 一阶",
+        "value": {
+          "name": "快速翻土",
+          "tier": 1
+        },
+        "sourceRaw": {
+          "en": "Quick Tilling I",
+          "zh": ""
+        }
+      },
+      "quality": {
+        "raw": "Rare",
+        "sourceRaw": {
+          "en": "Rare",
+          "zh": ""
+        }
+      },
+      "notes": [
+        "中文菜名依据 xbgdwiki 数据页，其描述与 Wiki 英文描述逐句对应；友邻按 Wiki 的 Manna 写作本站已有的“蛮蛮”。小麦一项 Wiki 标为 Rare，按品质名解释为紫色品质要求；菜品品质 Rare 显示为紫色。",
+        "配方、厨具、力气与效果仅见 Wiki 修订 35081；描述“散发草本清香……清香四溢”对应 fresh herbal scent。"
+      ]
+    },
+    {
+      "recipeId": "ref-20261102-neighbor-003",
+      "requestId": "user-reference-request-20261102-peach-buns",
+      "sourceIds": ["petitplanet-wiki-blueberry-peach-bun", "xbgdwiki-dish-data"],
+      "nameRaw": "蓝莓桃包",
+      "nameEn": "Blueberry Peach Bun",
+      "catalogNumberRaw": "052",
+      "region": "neighbor",
+      "acquisitionRaw": "蛮蛮",
+      "ingredients": [
+        {
+          "raw": "小麦",
+          "value": {
+            "kind": "item",
+            "name": "小麦"
+          },
+          "quality": "Rare",
+          "sourceRaw": {
+            "en": "Plump Wheat / Strange Wheat",
+            "zh": "小麦"
+          }
+        },
+        {
+          "raw": "蓝色水果",
+          "value": {
+            "kind": "category",
+            "name": "蓝色水果"
+          },
+          "sourceRaw": {
+            "en": "Blue Fruit",
+            "zh": ""
+          }
+        }
+      ],
+      "cookingMethod": {
+        "raw": "煮锅",
+        "sourceRaw": {
+          "en": "Cooking Pot",
+          "zh": ""
+        }
+      },
+      "energy": {
+        "raw": "80",
+        "value": 80,
+        "sourceRaw": {
+          "en": "80",
+          "zh": ""
+        }
+      },
+      "tags": {
+        "raw": "甜点",
+        "value": ["甜点"],
+        "sourceRaw": {
+          "en": "Dessert",
+          "zh": ""
+        }
+      },
+      "specialEffect": {
+        "raw": "大力播洒 一阶",
+        "value": {
+          "name": "大力播洒",
+          "tier": 1
+        },
+        "sourceRaw": {
+          "en": "Power Spread I",
+          "zh": ""
+        }
+      },
+      "quality": {
+        "raw": "Rare",
+        "sourceRaw": {
+          "en": "Rare",
+          "zh": ""
+        }
+      },
+      "notes": [
+        "中文菜名依据 xbgdwiki 数据页，其描述与 Wiki 英文描述逐句对应；友邻按 Wiki 的 Manna 写作本站已有的“蛮蛮”。小麦一项 Wiki 标为 Rare，按品质名解释为紫色品质要求；菜品品质 Rare 显示为紫色。",
+        "配方、厨具、力气与效果仅见 Wiki 修订 35083；描述“散发蓝莓甜香……甜甜蜜蜜”对应 sweet blueberry scent。"
+      ]
     }
   ]
 }

@@ -44,8 +44,8 @@ describe("小铭 9/30 主体与历史资料的读取边界", () => {
     expect(
       supplementalRecipeDataset.inventory.regions.map((region) => region.expectedRows),
     ).toEqual([37, 33, 14, 9, 10, 8]);
-    expect(currentRecipes).toHaveLength(111);
-    expect(new Set(currentRecipes.map((entry) => entry.id)).size).toBe(111);
+    expect(currentRecipes).toHaveLength(114);
+    expect(new Set(currentRecipes.map((entry) => entry.id)).size).toBe(114);
     const ids = new Set(currentRecipes.map((entry) => entry.id));
     expect(previousXiaomingRecipeDataset.recipes.every((entry) => ids.has(entry.id))).toBe(true);
     expect(recipeDataset.recipes.every((entry) => ids.has(entry.id))).toBe(true);
@@ -60,7 +60,9 @@ describe("小铭 9/30 主体与历史资料的读取边界", () => {
       expect(recipeDatasetSchema.safeParse(missing).success).toBe(false);
     }
     for (const entry of currentRecipes)
-      expect(currentSourceRow(entry)?.nameRaw).toBe(entry.name.raw);
+      expect(currentSourceRow(entry)?.nameRaw).toBe(
+        entry.verification === "image-transcribed-game-unverified" ? entry.name.raw : undefined,
+      );
     expect(() => verifySourceAssets(recipeDataset.sources)).not.toThrow();
   });
 
@@ -483,7 +485,39 @@ describe("用户要求的外部参考补齐", () => {
     expect(referenceSupplements.requests.map((request) => request.id)).toEqual([
       "user-reference-request-20261102-gaps",
       "user-reference-request-20261102-conflicts",
+      "user-reference-request-20261102-peach-buns",
     ]);
+  });
+
+  it("整条补入三道桃包，标为外部资料整理并按 Wiki 品质名显示紫色", () => {
+    const buns = currentRecipes.slice(-3);
+    expect(buns.map((entry) => entry.name.raw)).toEqual(["橙香桃包", "斑斓桃包", "蓝莓桃包"]);
+    for (const [bun, fruit, effect] of [
+      [buns[0]!, "黄色水果", "大力播洒 一阶"],
+      [buns[1]!, "绿色水果", "快速翻土 一阶"],
+      [buns[2]!, "蓝色水果", "大力播洒 一阶"],
+    ] as const) {
+      expect(bun.verification).toBe("reference-compiled-game-unverified");
+      expect(bun.source).toMatchObject({ sourceId: referenceSupplements.id, region: "neighbor" });
+      expect(bun.ingredients.map((slot) => slot.selection.raw)).toEqual(["小麦", fruit]);
+      expect(bun.ingredients[0]!.quality).toMatchObject({ status: "interpreted", color: "purple" });
+      expect(bun.cookingMethod.raw).toBe("煮锅");
+      expect(bun.energy).toEqual({ status: "recorded", raw: "80", value: 80 });
+      expect(bun.specialEffect.raw).toBe(effect);
+      expect(bun.guideDetails?.acquisitionRaw).toBe("蛮蛮");
+      expect(currentRecipeQualitiesById.get(bun.id)).toMatchObject({
+        status: "referenced",
+        color: "purple",
+      });
+      expect(currentRecipeFieldSourcesById.get(bun.id)?.reference?.fields).toEqual(["recipe"]);
+      expect(getEffectEvidence(bun)?.limit).toBeDefined();
+    }
+    const broken = structuredClone(referenceSupplements);
+    broken.additions[0]!.recipeId = broken.recipes[0]!.recipeId;
+    expect(referenceSupplementsSchema.safeParse(broken).success).toBe(false);
+    const fake = structuredClone(primaryRecipeDataset);
+    fake.recipes[0]!.verification = "reference-compiled-game-unverified";
+    expect(recipeDatasetSchema.safeParse(fake).success).toBe(false);
   });
 
   it("改写声明的原文变化时拒绝套用", () => {

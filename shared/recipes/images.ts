@@ -3,6 +3,7 @@ import wiki from "../../docs/references/recipes/wiki-dish-icons-2026-09-26.json"
 import wikiSupplement from "../../docs/references/recipes/wiki-dish-icons-2026-10-01.json" with { type: "json" };
 import wikiOctober4 from "../../docs/references/recipes/wiki-dish-icons-2026-10-04.json" with { type: "json" };
 import wikiNovember1 from "../../docs/references/recipes/wiki-dish-icons-2026-11-01.json" with { type: "json" };
+import wikiNovember2 from "../../docs/references/recipes/wiki-dish-icons-2026-11-02.json" with { type: "json" };
 import taptap from "../../docs/references/recipes/taptap-recipe-guides-2026-09-26.json" with { type: "json" };
 import { recipeDataset } from "./index.ts";
 import { currentRecipes } from "./current.ts";
@@ -68,6 +69,7 @@ const wikiFileRecords = [
   ...wikiSupplement.files,
   ...wikiOctober4.files,
   ...wikiNovember1.files,
+  ...wikiNovember2.files,
 ];
 const wikiFiles = new Map(wikiFileRecords.map((file) => [file.id, file]));
 if (wikiFiles.size !== wikiFileRecords.length) throw new Error("Duplicate Wiki image file ID");
@@ -76,6 +78,7 @@ const wikiCandidates = [
   ...wikiSupplement.recipes,
   ...wikiOctober4.recipes,
   ...wikiNovember1.recipes,
+  ...wikiNovember2.recipes,
 ];
 const wikiRecipeIds = new Set(
   wikiCandidates

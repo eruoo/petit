@@ -2,6 +2,7 @@ import { z } from "zod";
 import data from "../../data/recipes/reference-supplements.json" with { type: "json" };
 import {
   externalReferenceSourceSchema,
+  imageRegionSchema,
   ingredientQualityColorSchema,
   ingredientTermSchema,
   recipeSchema,
@@ -12,6 +13,17 @@ import type { Recipe } from "./schema.ts";
 const text = z.string().min(1);
 const sourceRaw = z.strictObject({ en: z.string(), zh: z.string() });
 const qualityName = z.enum(["Uncommon", "Rare", "Stellar"]);
+const referenceSlot = z.strictObject({
+  raw: text,
+  value: ingredientTermSchema,
+  quality: qualityName.optional(),
+  sourceRaw,
+});
+const referenceEffect = z.strictObject({
+  raw: text,
+  value: z.strictObject({ name: text, tier: z.union([z.literal(1), z.literal(2), z.literal(3)]) }),
+  sourceRaw,
+});
 
 // 用户要求补齐时，外部玩家资料默认只填入原图问号的字段；改写图片已有值必须逐项声明原值。
 export const referenceSupplementsSchema = z
@@ -50,17 +62,7 @@ export const referenceSupplementsSchema = z
         // 用户明确要求改写的图片字段及其当前原文；原文变化时拒绝套用，避免静默覆盖新转录。
         overrides: z.strictObject({ ingredients: z.array(text).min(1) }).optional(),
         quality: z.strictObject({ raw: qualityName, sourceRaw }).optional(),
-        ingredients: z
-          .array(
-            z.strictObject({
-              raw: text,
-              value: ingredientTermSchema,
-              quality: qualityName.optional(),
-              sourceRaw,
-            }),
-          )
-          .min(1)
-          .optional(),
+        ingredients: z.array(referenceSlot).min(1).optional(),
         energy: z
           .strictObject({ raw: text, value: z.number().int().positive(), sourceRaw })
           .optional(),
@@ -69,17 +71,30 @@ export const referenceSupplementsSchema = z
           .optional(),
         specialEffect: z
           .union([
-            z.strictObject({
-              raw: text,
-              value: z.strictObject({
-                name: text,
-                tier: z.union([z.literal(1), z.literal(2), z.literal(3)]),
-              }),
-              sourceRaw,
-            }),
+            referenceEffect,
             z.strictObject({ status: z.literal("not-stated"), reason: text, sourceRaw }),
           ])
           .optional(),
+        notes: z.array(text),
+      }),
+    ),
+    // 两图都没有收录、按用户要求整条补入的菜；只来自外部玩家资料，不冒充图片转录。
+    additions: z.array(
+      z.strictObject({
+        recipeId: recipeSchema.shape.id,
+        requestId: recipeSchema.shape.id,
+        sourceIds: z.array(recipeSchema.shape.id).min(1),
+        nameRaw: text,
+        nameEn: text,
+        catalogNumberRaw: z.string().regex(/^\d{3}$/u),
+        region: imageRegionSchema,
+        acquisitionRaw: text,
+        ingredients: z.array(referenceSlot).min(1),
+        cookingMethod: z.strictObject({ raw: z.enum(["煮锅", "榨汁机", "烤箱"]), sourceRaw }),
+        energy: z.strictObject({ raw: text, value: z.number().int().positive(), sourceRaw }),
+        tags: z.strictObject({ raw: text, value: z.array(recipeTagSchema).min(1), sourceRaw }),
+        specialEffect: referenceEffect,
+        quality: z.strictObject({ raw: qualityName, sourceRaw }),
         notes: z.array(text),
       }),
     ),
@@ -115,16 +130,83 @@ export const referenceSupplementsSchema = z
           message: "补充引用的资料不存在",
         });
     });
+    dataset.additions.forEach((entry, index) => {
+      const path = ["additions", index];
+      if (recipeIds.has(entry.recipeId))
+        context.addIssue({ code: "custom", path, message: "补入菜谱 ID 重复" });
+      recipeIds.add(entry.recipeId);
+      if (!requestIds.has(entry.requestId))
+        context.addIssue({ code: "custom", path, message: "补入引用的用户要求不存在" });
+      if (entry.sourceIds.some((id) => !sourceIds.has(id)))
+        context.addIssue({ code: "custom", path, message: "补入引用的资料不存在" });
+    });
   });
 export type ReferenceSupplements = z.infer<typeof referenceSupplementsSchema>;
 export const referenceSupplements = referenceSupplementsSchema.parse(data);
 export const referenceSupplementsById = new Map(
   referenceSupplements.recipes.map((entry) => [entry.recipeId, entry]),
 );
-export type ReferenceField = "ingredients" | "energy" | "tags" | "specialEffect" | "quality";
+export type ReferenceField =
+  | "recipe"
+  | "ingredients"
+  | "energy"
+  | "tags"
+  | "specialEffect"
+  | "quality";
 
 export function usesReferenceField(recipeId: string, field: ReferenceField): boolean {
+  if (field === "recipe")
+    return referenceSupplements.additions.some((entry) => entry.recipeId === recipeId);
   return referenceSupplementsById.get(recipeId)?.[field] !== undefined;
+}
+
+function referenceIngredients(
+  slots: z.infer<typeof referenceSlot>[],
+  dataset: ReferenceSupplements,
+) {
+  const { nameToColor, id: interpretationId } = dataset.qualityInterpretation;
+  return slots.map((slot) => ({
+    selection: { status: "recorded", raw: slot.raw, value: slot.value },
+    quality: slot.quality
+      ? {
+          status: "interpreted",
+          color: ingredientQualityColorSchema.parse(nameToColor[slot.quality]),
+          interpretationId,
+        }
+      : { status: "not-stated", raw: "" },
+  }));
+}
+
+// 补入条目的 source 指向本清单，row 为补入顺序，不是任何图片行号。
+export function buildReferenceRecipes(dataset = referenceSupplements): Recipe[] {
+  return dataset.additions.map((entry, index) =>
+    recipeSchema.parse({
+      id: entry.recipeId,
+      source: { sourceId: dataset.id, region: entry.region, row: index + 1 },
+      verification: "reference-compiled-game-unverified",
+      name: { status: "recorded", raw: entry.nameRaw, value: entry.nameRaw },
+      dishCategory: { status: "not-stated", raw: "" },
+      ingredients: referenceIngredients(entry.ingredients, dataset),
+      cookingMethod: {
+        status: "recorded",
+        raw: entry.cookingMethod.raw,
+        value: entry.cookingMethod.raw,
+      },
+      energy: { status: "recorded", raw: entry.energy.raw, value: entry.energy.value },
+      tags: { status: "recorded", raw: entry.tags.raw, value: entry.tags.value },
+      specialEffect: {
+        status: "recorded",
+        raw: entry.specialEffect.raw,
+        value: entry.specialEffect.value,
+      },
+      effectTrigger: { status: "not-stated", raw: "" },
+      productionChance: { status: "not-stated", raw: "" },
+      visualCues: [],
+      noteIds: [],
+      reviewNotes: [],
+      guideDetails: { levelRaw: "", acquisitionRaw: entry.acquisitionRaw, groupedIngredients: [] },
+    }),
+  );
 }
 
 export function applyReferenceSupplement(recipe: Recipe, dataset = referenceSupplements): Recipe {
@@ -144,21 +226,11 @@ export function applyReferenceSupplement(recipe: Recipe, dataset = referenceSupp
   if (entry.energy) gap(recipe.energy.status, "力气");
   if (entry.tags) gap(recipe.tags.status, "词条");
   if (entry.specialEffect) gap(recipe.specialEffect.status, "特殊效果");
-  const { nameToColor, id: interpretationId } = dataset.qualityInterpretation;
   const effect = entry.specialEffect;
   return recipeSchema.parse({
     ...recipe,
     ingredients: entry.ingredients
-      ? entry.ingredients.map((slot) => ({
-          selection: { status: "recorded", raw: slot.raw, value: slot.value },
-          quality: slot.quality
-            ? {
-                status: "interpreted",
-                color: ingredientQualityColorSchema.parse(nameToColor[slot.quality]),
-                interpretationId,
-              }
-            : { status: "not-stated", raw: "" },
-        }))
+      ? referenceIngredients(entry.ingredients, dataset)
       : recipe.ingredients,
     energy: entry.energy
       ? { status: "recorded", raw: entry.energy.raw, value: entry.energy.value }
@@ -180,7 +252,9 @@ export function applyReferenceSupplement(recipe: Recipe, dataset = referenceSupp
 
 // 品质只在两图都没有底色时读取外部品质名，结果交给当前品质视图。
 export function referenceQuality(recipeId: string, dataset = referenceSupplements) {
-  const entry = dataset.recipes.find((candidate) => candidate.recipeId === recipeId);
+  const entry = [...dataset.recipes, ...dataset.additions].find(
+    (candidate) => candidate.recipeId === recipeId,
+  );
   if (!entry?.quality) return undefined;
   return {
     color: dataset.qualityInterpretation.nameToColor[entry.quality.raw],

@@ -10,7 +10,7 @@ test("分类在搜索上方，与关键词组合并保留排序和视图，分�
   const recipes = page.getByRole("list", { name: "菜谱结果" }).getByRole("button");
   await expect(search).toBeEnabled();
   await expect(categories.getByRole("radio", { name: "全部", exact: true })).toBeChecked();
-  await expect(recipes).toHaveCount(111);
+  await expect(recipes).toHaveCount(114);
   const bounds = await categories.locator("label").evaluateAll((elements) =>
     elements.map((element) => {
       const { y, bottom } = element.getBoundingClientRect();
@@ -54,7 +54,7 @@ test("分类在搜索上方，与关键词组合并保留排序和视图，分�
   await search.fill("什锦");
   await expect(page.getByRole("heading", { name: "没有找到匹配的菜谱" })).toBeVisible();
   await page.getByRole("button", { name: "清除搜索条件", exact: true }).click();
-  await expect(recipes).toHaveCount(111);
+  await expect(recipes).toHaveCount(114);
   await expect(search).toHaveValue("");
   await expect(categories.getByRole("radio", { name: "全部", exact: true })).toBeChecked();
   await expect(page.getByLabel("菜谱排序", { exact: true })).toHaveValue("energy-desc");
