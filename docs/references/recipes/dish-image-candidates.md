@@ -1,6 +1,6 @@
 # 菜品图片候选索引
 
-当前 111 道菜中，104 道有候选配图：102 道使用 Wiki 独立 PNG，梦幻星莓漫游派、梦幻番茄汤汁面使用 TapTap 攻略图区域；除畅饮桶外的七道奇迹盛宴显示缺图占位。配方采用规则见[菜谱数据约定](../../recipes.md)。
+当前 111 道菜均有候选配图，全部使用 Wiki 独立 PNG；页面不再显示 TapTap 攻略图区域，也没有缺图占位。配方采用规则见[菜谱数据约定](../../recipes.md)。
 
 ## 权威清单与读取
 
@@ -9,6 +9,7 @@
 | [Wiki 9/26 清单](wiki-dish-icons-2026-09-26.json)       | 95 个来源文件条目的元数据、最初 90 道菜的候选对应、逐项证据与共用图形分组。                  |
 | [Wiki 10/01 补充清单](wiki-dish-icons-2026-10-01.json)  | 七道秘制菜候选及四道高清替换，六个新增原文件，五个原文件引用前一清单。                       |
 | [Wiki 10/04 补充清单](wiki-dish-icons-2026-10-04.json)  | 云朵小饼干、甜饼果茶、畅饮桶补图及茄茄擂辣饭替换，三个新增原文件，云朵小饼干复用 9/26 原件。 |
+| [Wiki 11/01 补充清单](wiki-dish-icons-2026-11-01.json)  | 其余七道奇迹盛宴补图，梦幻星莓漫游派与梦幻番茄汤汁面替换攻略区域，九个新增原文件。           |
 | [TapTap 清单](taptap-recipe-guides-2026-09-26.json)     | 六张完整攻略 JPEG、七个菜品显示区域、作者、原帖与图片 URL。                                  |
 | [TapTap 品质资料](../../../data/recipes/qualities.json) | 17 张攻略图的来源身份、逐行菜名及圆底观察；不覆盖当前主体品质。                              |
 
@@ -26,9 +27,9 @@ Wiki 的 `files[].localPath` 相对于项目根目录，指向未经裁切或重
 - Homestyle Assorted Claypot Stew、Rare Assorted Claypot Stew、Miracle Assorted Claypot Stew。
 - Homestyle Assorted Skewers、Rare Assorted Skewers、Miracle Assorted Skewers、Mushroom, Fruit & Veggie Skewers。
 
-Premium Shellfish Rice Bake 与 Seafood Clay Pot Rice 的解码像素相同、文件字节不同，仍分别保留。相同图形不代表菜谱或来源记录可以合并。10/01 新增六个 PNG，10/04 新增三个 PNG，合计归档 96 个 Wiki 原文件；TapTap 的六张完整 JPEG 继续独立保存。
+Premium Shellfish Rice Bake 与 Seafood Clay Pot Rice 的解码像素相同、文件字节不同，仍分别保留。相同图形不代表菜谱或来源记录可以合并。10/01 新增六个 PNG，10/04 新增三个 PNG，11/01 新增九个 PNG，合计归档 105 个 Wiki 原文件；TapTap 的六张完整 JPEG 继续独立保存。
 
-TapTap 原图保留作者署名、菜名和品质圆底；页面通过 `displayRegion` 显示菜品区域。历史五个显示区域虽已被 Wiki 高清图替代，其原件仍用于核对当时的对应证据。10/04 畅饮桶的 TapTap 中文攻略仅用于核对图形，页面采用 Wiki 独立 PNG。
+TapTap 原图保留作者署名、菜名和品质圆底；`displayRegion` 记录菜品区域。七个历史显示区域均已被 Wiki 高清图替代，原件仍用于核对当时的对应证据。10/04 畅饮桶的 TapTap 中文攻略仅用于核对图形，页面采用 Wiki 独立 PNG。
 
 ## 候选与来源边界
 
@@ -40,6 +41,6 @@ TapTap 原图保留作者署名、菜名和品质圆底；页面通过 `displayR
 - 茄茄擂辣饭已改用 Wiki 512 × 512 PNG；同奇迹盛宴畅饮桶一样，另有 TapTap 中文菜名旁图形支持对应关系，仍保留候选状态。
 - 塔法果一杯与青蔬果汁、三种什锦饮共用相似图形，不能仅凭图形确定独立菜名。竹香苹果冰只有英文条目候选，Wiki 力气 70 与用户图鉴 60 的差异保留。
 - Wiki 图标为透明底，TapTap 图标带蓝灰、紫或橙金圆底，分辨率也不同。什锦系列的主体图形可以相同、品质底色不同；当前页面底色读取当前品质视图。
-- 截至 2026-10-04，七道奇迹盛宴仍未找到独立原图，梦幻星莓漫游派与梦幻番茄汤汁面暂未找到可替换的独立原图。按用户偏好优先寻找直接可用的原图，七道缺图不新增攻略截取素材；检索结果不代表其他来源不存在图片。
+- 2026-11-01 补入其余七道奇迹盛宴的 Wiki PNG，并以猫冲冲的两张 TapTap 收集攻略核对中文菜名旁图形；Wiki 的力气 180 与类型同明天图词条一一对应。梦幻星莓漫游派、梦幻番茄汤汁面改用 Wiki 独立 PNG，图形与已归档的阿Zz攻略区域一致，Wiki 图鉴编号 062、113 也与攻略相同。全部保留候选状态。
 
-最初 Wiki 范围为 [Dish Icons 目录](https://petitplanet.wiki/Category:Dish_Icons)；TapTap 来源为阿Zz的[简单菜篇](https://www.taptap.cn/moment/851862566224266917)、[招牌菜篇](https://www.taptap.cn/moment/852148878751829285)和[宴客菜篇](https://www.taptap.cn/moment/852582459005469363)。图片版权与网页正文许可分别看待，归档和候选对应不表示取得再分发授权；关于页保留来源与版权说明。
+最初 Wiki 范围为 [Dish Icons 目录](https://petitplanet.wiki/Category:Dish_Icons)；奇迹盛宴图形核对参考猫冲冲的[收集攻略](https://www.taptap.cn/moment/854684374887565375)；TapTap 配图来源为阿Zz的[简单菜篇](https://www.taptap.cn/moment/851862566224266917)、[招牌菜篇](https://www.taptap.cn/moment/852148878751829285)和[宴客菜篇](https://www.taptap.cn/moment/852582459005469363)。图片版权与网页正文许可分别看待，归档和候选对应不表示取得再分发授权；关于页保留来源与版权说明。

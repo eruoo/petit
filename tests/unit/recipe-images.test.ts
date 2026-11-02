@@ -7,30 +7,22 @@ import { recipeImages, recipeImagesById, recipeImageSchema } from "../../shared/
 import wiki from "../../docs/references/recipes/wiki-dish-icons-2026-09-26.json";
 import wikiSupplement from "../../docs/references/recipes/wiki-dish-icons-2026-10-01.json";
 import wikiOctober4 from "../../docs/references/recipes/wiki-dish-icons-2026-10-04.json";
+import wikiNovember1 from "../../docs/references/recipes/wiki-dish-icons-2026-11-01.json";
 import taptap from "../../docs/references/recipes/taptap-recipe-guides-2026-09-26.json";
 
 describe("菜品配图与独立来源", () => {
-  it("104 条配图覆盖当前菜谱，七道奇迹盛宴使用缺图占位", () => {
-    expect(recipeImagesById.size).toBe(104);
+  it("111 条 Wiki 独立配图覆盖全部当前菜谱", () => {
+    expect(recipeImagesById.size).toBe(111);
     expect(recipeDataset.recipes.every((recipe) => recipeImagesById.has(recipe.id))).toBe(true);
     expect([...recipeImagesById.keys()].sort()).toEqual(
-      currentRecipes
-        .filter(
-          (recipe) =>
-            !recipe.id.startsWith("mt-20260929-miracle-") ||
-            recipe.id === "mt-20260929-miracle-007",
-        )
-        .map((recipe) => recipe.id)
-        .sort(),
+      currentRecipes.map((recipe) => recipe.id).sort(),
     );
-    expect(recipeImages.filter((image) => image.provider === "wiki")).toHaveLength(102);
-    expect(
-      recipeImages.filter((image) => image.provider === "taptap").map((image) => image.recipeId),
-    ).toEqual(["mt-20260924-guest-013", "mt-20260924-guest-014"]);
+    expect(recipeImages.every((image) => image.provider === "wiki")).toBe(true);
+    expect(recipeImages.every((image) => image.displayRegion === undefined)).toBe(true);
     expect(recipeImages.every((image) => !image.gameVerified)).toBe(true);
   });
 
-  it("补图与替换采用独立 Wiki 原图，其他攻略区域及旧归档保留", () => {
+  it("补图与替换采用独立 Wiki 原图，旧攻略区域保留归档", () => {
     for (const [recipeId, fileId, guideNameRaw, status] of [
       ["mt-20260924-simple-019", "9299", "胡萝卜炖肉", "visual-candidate"],
       ["mt-20260924-signature-025", "9317", "蒜香流心奶面包", "name-variant-visual-candidate"],
@@ -40,6 +32,15 @@ describe("菜品配图与独立来源", () => {
       ["mt-20260929-neighbor-009", "4014", undefined, "english-entry-candidate"],
       ["xm-0927-neighbor-006", "9450", undefined, "english-entry-candidate"],
       ["mt-20260929-miracle-007", "9483", "奇迹盛宴畅饮桶", "visual-candidate"],
+      ["mt-20260929-miracle-001", "10671", "奇迹盛宴大锅炖", "visual-candidate"],
+      ["mt-20260929-miracle-002", "9548", "奇迹盛宴大烤串", "visual-candidate"],
+      ["mt-20260929-miracle-003", "9596", "奇迹盛宴丰年饭", "visual-candidate"],
+      ["mt-20260929-miracle-004", "9598", "奇迹盛宴极火炒", "visual-candidate"],
+      ["mt-20260929-miracle-005", "9546", "奇迹盛宴甜点塔", "visual-candidate"],
+      ["mt-20260929-miracle-006", "9600", "奇迹盛宴瓦罐汤", "visual-candidate"],
+      ["mt-20260929-miracle-008", "10672", "奇迹盛宴炸串碗", "visual-candidate"],
+      ["mt-20260924-guest-013", "9542", "梦幻星莓漫游派", "visual-candidate"],
+      ["mt-20260924-guest-014", "9544", "梦幻番茄汤汁面", "visual-candidate"],
     ] as const) {
       const image = recipeImagesById.get(recipeId);
       expect(image).toMatchObject({
@@ -53,21 +54,7 @@ describe("菜品配图与独立来源", () => {
       });
       expect(image?.displayRegion).toBeUndefined();
     }
-    const targets = [
-      { id: "013", name: "梦幻星莓漫游派", image: 2, row: 1, y: 197 },
-      { id: "014", name: "梦幻番茄汤汁面", image: 3, row: 2, y: 380 },
-    ];
-    for (const target of targets) {
-      expect(recipeImagesById.get(`mt-20260924-guest-${target.id}`)).toMatchObject({
-        assetId: `taptap-852582459005469363-guest-${target.image}`,
-        guideNameRaw: target.name,
-        sourceUrl: "https://www.taptap.cn/moment/852582459005469363",
-        sourceLocation: `宴客菜第 ${target.image} 张 · 第 ${target.row} 行`,
-        displayRegion: { x: 90, y: target.y, width: 150, height: 150 },
-        status: "same-name-image-candidate",
-        gameVerified: false,
-      });
-    }
+    expect(wikiNovember1.unmatchedRecipeIds).toEqual([]);
     expect(taptap.files).toHaveLength(6);
     expect(new Set(taptap.files.map((file) => file.localPath)).size).toBe(6);
     expect(taptap.files.flatMap((file) => file.targetRecipes)).toHaveLength(7);
@@ -76,9 +63,13 @@ describe("菜品配图与独立来源", () => {
 
   it("显示文件均可追溯到归档原文件，文件内容未被裁切或覆盖", () => {
     const files = new Map(
-      [...wiki.files, ...wikiSupplement.files, ...wikiOctober4.files, ...taptap.files].map(
-        (file) => [file.id, file],
-      ),
+      [
+        ...wiki.files,
+        ...wikiSupplement.files,
+        ...wikiOctober4.files,
+        ...wikiNovember1.files,
+        ...taptap.files,
+      ].map((file) => [file.id, file]),
     );
     for (const image of recipeImages) {
       const file = files.get(image.assetId);
@@ -94,8 +85,19 @@ describe("菜品配图与独立来源", () => {
   });
 
   it("攻略图须有有效的显示区域，越界或缺失区域不能进入页面", () => {
-    const image = recipeImagesById.get("mt-20260924-guest-013")!;
+    const file = taptap.files.find((entry) => entry.id === "taptap-852582459005469363-guest-2")!;
+    const image = {
+      ...recipeImagesById.get("mt-20260924-guest-013")!,
+      assetId: file.id,
+      localPath: file.localPath,
+      width: file.width,
+      height: file.height,
+      provider: "taptap",
+      sourceUrl: file.postUrl,
+      displayRegion: file.targetRecipes[0]!.displayRegion,
+    };
     expect(image.displayRegion).toEqual({ x: 90, y: 197, width: 150, height: 150 });
+    expect(recipeImageSchema.safeParse(image).success).toBe(true);
     expect(recipeImageSchema.safeParse({ ...image, displayRegion: undefined }).success).toBe(false);
     expect(
       recipeImageSchema.safeParse({

@@ -4243,10 +4243,9 @@
     },
     "verification": "image-transcribed-game-unverified",
     "name": {
-      "status": "tentative",
+      "status": "recorded",
       "raw": "珍蟹腌笃鲜",
-      "candidate": "珍蟹腌笃鲜",
-      "reason": "第四字暂辨读为“笃”，原图字形待二次核对"
+      "value": "珍蟹腌笃鲜"
     },
     "dishCategory": {
       "status": "not-stated",
@@ -7498,6 +7497,10 @@
       {
         "field": "ingredients.2",
         "bold": true
+      },
+      {
+        "field": "ingredients.3",
+        "bold": true
       }
     ],
     "noteIds": ["ingredient-notes"],
@@ -7618,8 +7621,7 @@
       },
       {
         "field": "ingredients.0",
-        "background": "yellow",
-        "bold": true
+        "background": "yellow"
       },
       {
         "field": "ingredients.1",

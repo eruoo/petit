@@ -36,7 +36,11 @@ const taptapPosts = [
     </section>
     <section aria-labelledby="image-sources-heading">
       <h2 id="image-sources-heading">菜品图片来源</h2>
-      <p>菜品配图来自 Petit Planet Wiki 和 TapTap 作者「{{ taptapAuthors }}」的菜谱图鉴。</p>
+      <p>
+        菜品配图来自 Petit Planet Wiki，并参考 TapTap 作者「{{
+          taptapAuthors
+        }}」的菜谱图鉴核对中文菜名。
+      </p>
       <div class="source-links">
         <a :href="wikiArchive.wikiCatalogUrl" target="_blank" rel="noopener noreferrer">
           Wiki 菜品图标目录<RecipeIcon name="external" />
@@ -56,7 +60,7 @@ const taptapPosts = [
       <h2 id="thanks-heading">特别致谢</h2>
       <p>
         感谢 {{ guideCreators }}制作菜谱图鉴，用户补充游戏截图，Petit Planet Wiki
-        社区整理菜品图标，以及 TapTap 作者「{{ taptapAuthors }}」分享攻略与配图。
+        社区整理菜品图标，以及 TapTap 作者「{{ taptapAuthors }}」分享攻略。
       </p>
     </section>
   </div>
