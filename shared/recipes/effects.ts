@@ -1,6 +1,6 @@
 import { z } from "zod";
 import data from "../../data/recipes/effect-evidence.json" with { type: "json" };
-import { energySchema, sourceSchema } from "./schema.ts";
+import { energySchema, externalReferenceSourceSchema, sourceSchema } from "./schema.ts";
 import type { Recipe } from "./schema.ts";
 import { currentRecipes } from "./current.ts";
 
@@ -79,10 +79,27 @@ export const effectEvidenceSchema = z
         limit: effectLimitSchema,
       }),
     ),
+    references: z.array(
+      z
+        .strictObject({
+          id: text,
+          source: externalReferenceSourceSchema,
+          raw: text,
+          effectName,
+          tier,
+          limit: effectLimitSchema,
+        })
+        .refine(
+          (entry) =>
+            entry.raw ===
+            `${entry.effectName}${["", "一阶", "二阶", "三阶"][entry.tier]}*${entry.limit.value}${entry.limit.unit === "uses" ? "次" : "秒"}`,
+          { path: ["raw"], message: "参考资料原文与效果、阶级或有效量不符" },
+        ),
+    ),
   })
   .superRefine((dataset, context) => {
     const ids = new Set<string>();
-    for (const item of [...dataset.screenshots, ...dataset.confirmations]) {
+    for (const item of [...dataset.screenshots, ...dataset.confirmations, ...dataset.references]) {
       if (ids.has(item.id))
         context.addIssue({ code: "custom", message: `增益证据 ID 重复：${item.id}` });
       ids.add(item.id);
@@ -119,6 +136,9 @@ export function getEffectEvidence(recipe: Recipe, dataset = gameEffectEvidence) 
   const confirmations = dataset.confirmations.filter(
     (entry) => entry.effectName === evidenceName && entry.tier === tier,
   );
+  const references = dataset.references.filter(
+    (entry) => entry.effectName === evidenceName && entry.tier === tier,
+  );
   const description =
     screenshots.find((shot) => shot.descriptionComplete) ??
     dataset.screenshots.find(
@@ -131,6 +151,7 @@ export function getEffectEvidence(recipe: Recipe, dataset = gameEffectEvidence) 
         : [],
     ),
     ...confirmations.map((entry) => ({ id: entry.id, ...entry.limit })),
+    ...references.map((entry) => ({ id: entry.id, ...entry.limit })),
   ];
   const distinct = new Set(candidates.map((entry) => `${entry.unit}:${entry.value}`));
   const first = candidates[0];
@@ -142,6 +163,7 @@ export function getEffectEvidence(recipe: Recipe, dataset = gameEffectEvidence) 
     description,
     screenshots,
     confirmations,
+    references,
     limit,
     limitEvidenceIds: candidates.map((entry) => entry.id),
     limitConflict: distinct.size > 1,

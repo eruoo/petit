@@ -443,5 +443,55 @@
         "value": 60
       }
     }
+  ],
+  "references": [
+    {
+      "id": "xbgdwiki-lightfoot-3",
+      "source": {
+        "site": "xbgdwiki.com",
+        "url": "https://xbgdwiki.com/api/pages/%E7%83%B9%E9%A5%AA",
+        "revision": "11（2026-10-07 15:54:03）",
+        "retrievedOn": "2026-11-02"
+      },
+      "raw": "轻盈潜行三阶*60秒",
+      "effectName": "轻盈潜行",
+      "tier": 3,
+      "limit": {
+        "unit": "seconds",
+        "value": 60
+      }
+    },
+    {
+      "id": "xbgdwiki-mighty-strike-3",
+      "source": {
+        "site": "xbgdwiki.com",
+        "url": "https://xbgdwiki.com/api/pages/%E7%83%B9%E9%A5%AA",
+        "revision": "11（2026-10-07 15:54:03）",
+        "retrievedOn": "2026-11-02"
+      },
+      "raw": "大力敲伐三阶*15次",
+      "effectName": "大力敲伐",
+      "tier": 3,
+      "limit": {
+        "unit": "uses",
+        "value": 15
+      }
+    },
+    {
+      "id": "xbgd-mirror-mighty-strike-2",
+      "source": {
+        "site": "github.com/qingyanghuabendan/xbgd-wiki",
+        "url": "https://github.com/qingyanghuabendan/xbgd-wiki/blob/1d5b7d72cc1b99e7576bd56ad4bb57574235bc11/docs/p04.html",
+        "revision": "1d5b7d72cc1b99e7576bd56ad4bb57574235bc11",
+        "retrievedOn": "2026-11-02"
+      },
+      "raw": "大力敲伐二阶*9次",
+      "effectName": "大力敲伐",
+      "tier": 2,
+      "limit": {
+        "unit": "uses",
+        "value": 9
+      }
+    }
   ]
 }

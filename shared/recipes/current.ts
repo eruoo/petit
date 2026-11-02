@@ -17,6 +17,12 @@ import {
   recipeDecisionsById,
   usesSupplementalField,
 } from "./decisions.ts";
+import {
+  applyReferenceSupplement,
+  referenceSupplements,
+  usesReferenceField,
+} from "./references.ts";
+import type { ReferenceField } from "./references.ts";
 
 // 小铭保留原有顺序与等级；明天补充词条、概率，并按用户决定采用差异字段。
 export function resolveCurrentRecipe(primary: Recipe): Recipe {
@@ -30,10 +36,11 @@ export function resolveCurrentRecipe(primary: Recipe): Recipe {
   );
 }
 
+// 外部参考只在用户要求后填补两图仍为问号的字段，最后套用，不改写图片转录或用户采用结果。
 export const currentRecipes = [
   ...primaryRecipeDataset.recipes.map(resolveCurrentRecipe),
   ...supplementalRecipeDataset.recipes.filter((recipe) => !primaryRecipesById.has(recipe.id)),
-];
+].map((recipe) => applyReferenceSupplement(recipe));
 export const currentRecipeSources = [primaryRecipeSource, supplementalRecipeSource];
 
 // 逐字段引用让汇总视图仍可追溯，不将参考图字段冒充主体图记录。
@@ -47,6 +54,9 @@ export const currentRecipeFieldSourcesById = new Map(
         ? { id: recipeDecisions.id, recipeId: recipe.id }
         : undefined,
     });
+    const referenceFields = (["ingredients", "energy", "tags", "specialEffect"] as const).filter(
+      (field: ReferenceField) => usesReferenceField(recipe.id, field),
+    );
     return [
       recipe.id,
       {
@@ -66,6 +76,10 @@ export const currentRecipeFieldSourcesById = new Map(
         effectTrigger: fieldSource("specialEffect"),
         acquisition: fieldSource("acquisition"),
         guideDetails: recipe.source,
+        // 列出由外部参考补齐的字段；其余字段仍按上面的图片来源与用户决定读取。
+        reference: referenceFields.length
+          ? { id: referenceSupplements.id, recipeId: recipe.id, fields: referenceFields }
+          : undefined,
       },
     ];
   }),

@@ -58,28 +58,6 @@
       }
     },
     {
-      "recipeId": "mt-20260924-signature-026",
-      "nameRaw": "田园蔬荟披萨",
-      "action": "use-fields",
-      "fields": ["name"],
-      "source": {
-        "sourceId": "tomorrow-20260929-image",
-        "region": "signature",
-        "row": 27
-      }
-    },
-    {
-      "recipeId": "mt-20260924-guest-003",
-      "nameRaw": "梦幻鲜风龙虾锅",
-      "action": "use-fields",
-      "fields": ["name"],
-      "source": {
-        "sourceId": "tomorrow-20260929-image",
-        "region": "guest",
-        "row": 3
-      }
-    },
-    {
       "recipeId": "mt-20260924-guest-004",
       "nameRaw": "梦幻金玉满堂饭",
       "action": "use-fields",

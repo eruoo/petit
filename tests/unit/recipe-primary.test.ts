@@ -27,6 +27,11 @@ import {
 import { verifySourceAssets } from "../../scripts/check-recipes";
 
 import { recipeDecisions, recipeDecisionsSchema } from "../../shared/recipes/decisions";
+import {
+  applyReferenceSupplement,
+  referenceSupplements,
+  referenceSupplementsSchema,
+} from "../../shared/recipes/references";
 
 const recipe = (name: string) => currentRecipes.find((entry) => entry.name.raw === name)!;
 
@@ -112,7 +117,7 @@ describe("小铭 9/30 主体与历史资料的读取边界", () => {
 
   it("新版去除的符号、蓝莓配方和厨具／阶级修订生效，其他问号不扩大确认", () => {
     for (const [name, index, raw] of [
-      ["田园蔬烩披萨", 2, "黄瓜"],
+      ["田园蔬荟披萨", 2, "黄瓜"],
       ["梦幻锦绣香蔬宴", 1, "蔬菜"],
       ["梦幻海岸虾鱼筵", 0, "虾类"],
       ["多果流彩捞饭", 3, "谷物"],
@@ -140,6 +145,19 @@ describe("小铭 9/30 主体与历史资料的读取边界", () => {
     expect(getRecipeDifferences(recipe("梦幻星莓漫游派").id)).toContainEqual(
       expect.objectContaining({ field: "ingredients", current: "鱼类 + 小麦 + 贝类 + 蓝莓" }),
     );
+  });
+
+  it("菜名按小铭原文显示鲜风与蔬荟，鲜笃鱼汤按两图更正", () => {
+    expect(recipeDecisions.decisions).toHaveLength(17);
+    for (const name of ["梦幻鲜风龙虾锅", "田园蔬荟披萨", "鲜笃鱼汤"]) {
+      const current = recipe(name);
+      expect(current.name).toMatchObject({ status: "recorded", raw: name });
+      expect(currentRecipeFieldSourcesById.get(current.id)?.name).toEqual({
+        source: current.source,
+        userDecision: undefined,
+      });
+    }
+    expect(currentRecipes.some((entry) => /仙风|蔬烩|鲜笋/u.test(entry.name.raw))).toBe(false);
   });
 
   it("新版食材顺序、重复槽位、合并格及品质需求一起采用", () => {
@@ -197,14 +215,15 @@ describe("小铭 9/30 主体与历史资料的读取边界", () => {
       "水果类",
     ]);
     const incomplete = recipe("轰炸大菇肉");
-    expect(incomplete.ingredients.map((slot) => slot.selection.status)).toEqual([
+    const original = supplementalRecipesById.get(incomplete.id)!;
+    expect(original.ingredients.map((slot) => slot.selection.status)).toEqual([
       "unknown",
       "unknown",
       "unknown",
     ]);
+    expect(original.specialEffect.status).toBe("unknown");
     expect(incomplete.cookingMethod.raw).toBe("煮锅");
     expect(incomplete.energy).toEqual({ status: "recorded", raw: "90", value: 90 });
-    expect(incomplete.specialEffect.status).toBe("unknown");
     expect(incomplete.guideDetails?.acquisitionRaw).toBe("热贝尔");
     expect(incomplete.reviewNotes).toEqual([]);
     expect(recipe("独角仙米面包").ingredients[0]!.selection.raw).toBe("稻米");
@@ -223,7 +242,7 @@ describe("小铭 9/30 主体与历史资料的读取边界", () => {
     const cookie = recipe("云朵小饼干");
     expect(cookie.guideDetails?.acquisitionRaw).toBe("绵朵莉");
     expect(cookie.cookingMethod.raw).toBe("烤箱");
-    expect(cookie.energy.status).toBe("unknown");
+    expect(supplementalRecipesById.get(cookie.id)!.energy.status).toBe("unknown");
     const miracles = currentRecipes.filter((entry) => entry.source.region === "miracle");
     expect(miracles.map((entry) => entry.name.raw)).toEqual([
       "奇迹盛宴大锅炖",
@@ -316,8 +335,21 @@ describe("独立游戏增益证据", () => {
       unit: "seconds",
       value: 70,
     });
-    expect(getEffectEvidence(recipe("梦幻草莓奶蛋糕"))?.limit).toBeUndefined();
-    expect(getEffectEvidence(recipe("梦幻奇迹蒜龙虾"))?.limit).toBeUndefined();
+    expect(gameEffectEvidence.references).toHaveLength(3);
+    expect(
+      currentRecipes.filter(
+        (entry) => entry.specialEffect.status === "recorded" && !getEffectEvidence(entry)?.limit,
+      ),
+    ).toEqual([]);
+    expect(getEffectEvidence(recipe("梦幻草莓奶蛋糕"))).toMatchObject({
+      limit: { unit: "uses", value: 15 },
+      limitEvidenceIds: ["xbgdwiki-mighty-strike-3"],
+      screenshots: [],
+    });
+    expect(getEffectEvidence(recipe("梦幻奇迹蒜龙虾"))?.limit).toEqual({
+      unit: "seconds",
+      value: 60,
+    });
     expect(getEffectEvidence(recipe("果香鱼壶"))?.limit).toEqual({ unit: "seconds", value: 25 });
     expect(getEffectEvidence(recipe("梦幻鱼鲜寿司"))?.limit).toEqual({
       unit: "seconds",
@@ -370,5 +402,71 @@ describe("独立游戏增益证据", () => {
     expect(effectLimitSchema.safeParse({ unit: "seconds", value: 0 }).success).toBe(false);
     expect(effectLimitSchema.safeParse({ unit: "seconds", value: -1 }).success).toBe(false);
     expect(effectLimitSchema.safeParse({ unit: "percent", value: 100 }).success).toBe(false);
+  });
+});
+
+describe("用户要求的外部参考补齐", () => {
+  it("只填补两图问号，按 Wiki 品质名解释槽位品质并记录补齐字段", () => {
+    const meatshrooms = recipe("轰炸大菇肉");
+    expect(meatshrooms.ingredients).toEqual([
+      {
+        selection: { status: "recorded", raw: "蘑菇", value: { kind: "item", name: "蘑菇" } },
+        quality: { status: "not-stated", raw: "" },
+      },
+      {
+        selection: {
+          status: "recorded",
+          raw: "海鲜",
+          value: { kind: "unspecified", name: "海鲜" },
+        },
+        quality: {
+          status: "interpreted",
+          color: "purple",
+          interpretationId: "petitplanet-wiki-quality-names",
+        },
+      },
+    ]);
+    expect(meatshrooms.specialEffect).toMatchObject({
+      status: "recorded",
+      value: { name: "大力敲伐", tier: 2 },
+    });
+    expect(meatshrooms.visualCues.some((cue) => cue.field.startsWith("ingredients."))).toBe(false);
+    expect(currentRecipeFieldSourcesById.get(meatshrooms.id)?.reference).toEqual({
+      id: referenceSupplements.id,
+      recipeId: meatshrooms.id,
+      fields: ["ingredients", "specialEffect"],
+    });
+
+    const cookie = recipe("云朵小饼干");
+    expect(cookie.ingredients.map((slot) => [slot.selection.raw, slot.quality.status])).toEqual([
+      ["小麦", "interpreted"],
+      ["奶", "not-stated"],
+    ]);
+    expect(cookie.energy).toEqual({ status: "recorded", raw: "70", value: 70 });
+    expect(cookie.tags).toMatchObject({ status: "recorded", value: ["甜点"] });
+    expect(cookie.specialEffect).toMatchObject({ status: "not-stated", raw: "" });
+    expect(currentRecipeFieldSourcesById.get(cookie.id)?.reference?.fields).toEqual([
+      "ingredients",
+      "energy",
+      "tags",
+      "specialEffect",
+    ]);
+    expect(currentRecipeFieldSourcesById.get(recipe("谷物粥").id)?.reference).toBeUndefined();
+    expect(referenceSupplements.gameVerified).toBe(false);
+  });
+
+  it("拒绝覆盖图片已有值、菜名不符、引用缺失与游戏实测声明", () => {
+    expect(() => applyReferenceSupplement(recipe("轰炸大菇肉"))).toThrow(/不能用参考资料覆盖/u);
+    const renamed = structuredClone(referenceSupplements);
+    renamed.recipes[0]!.nameRaw = "别的菜";
+    expect(() =>
+      applyReferenceSupplement(supplementalRecipesById.get(renamed.recipes[0]!.recipeId)!, renamed),
+    ).toThrow(/菜名不符/u);
+    const missing = structuredClone(referenceSupplements);
+    missing.recipes[0]!.sourceIds.push("missing-source");
+    expect(referenceSupplementsSchema.safeParse(missing).success).toBe(false);
+    expect(
+      referenceSupplementsSchema.safeParse({ ...referenceSupplements, gameVerified: true }).success,
+    ).toBe(false);
   });
 });
