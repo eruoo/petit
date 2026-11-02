@@ -2,6 +2,7 @@
 import { currentRecipeSources } from "#shared/recipes/current";
 import wikiArchive from "../../../docs/references/recipes/wiki-dish-icons-2026-09-26.json";
 import taptapArchive from "../../../docs/references/recipes/taptap-recipe-guides-2026-09-26.json";
+import miracleCandidates from "../../../docs/references/recipes/wiki-dish-icons-2026-11-01.json";
 import { getRecipeSourceImageUrl } from "../../utils/recipe-sources";
 import RecipeIcon from "../recipes/RecipeIcon.vue";
 import GuideImageGallery from "./GuideImageGallery.vue";
@@ -11,14 +12,27 @@ const guides = currentRecipeSources.map((source) => ({
   imageUrl: getRecipeSourceImageUrl(source),
 }));
 const guideCreators = guides.map(({ source }) => source.creator).join("、");
-const taptapAuthors = [...new Set(taptapArchive.files.map((file) => file.author))].join("、");
+// 奇迹盛宴配图以 TapTap 收集攻略核对中文菜名；作者与原帖读取同一份候选清单。
+const miracleGuides = miracleCandidates.recipes.flatMap((recipe) =>
+  recipe.evidence.guide?.sheet?.startsWith("miracle-") ? [recipe.evidence.guide] : [],
+);
+const taptapAuthors = [
+  ...new Set([
+    ...taptapArchive.files.map((file) => file.author),
+    ...miracleGuides.map((guide) => guide.author),
+  ]),
+]
+  .map((author) => `「${author}」`)
+  .join("、");
 const taptapPosts = [
-  ...new Map(
-    taptapArchive.files.map((file) => [
-      file.postUrl,
-      { url: file.postUrl, title: `${file.guideSection}篇` },
-    ]),
-  ).values(),
+  ...new Map([
+    ...taptapArchive.files.map(
+      (file) => [file.postUrl, { url: file.postUrl, title: `${file.guideSection}篇` }] as const,
+    ),
+    ...miracleGuides.map(
+      (guide) => [guide.postUrl, { url: guide.postUrl, title: "奇迹盛宴篇" }] as const,
+    ),
+  ]).values(),
 ];
 </script>
 
@@ -37,9 +51,9 @@ const taptapPosts = [
     <section aria-labelledby="image-sources-heading">
       <h2 id="image-sources-heading">菜品图片来源</h2>
       <p>
-        菜品配图来自 Petit Planet Wiki，并参考 TapTap 作者「{{
+        菜品配图来自 Petit Planet Wiki，并参考 TapTap 作者{{
           taptapAuthors
-        }}」的菜谱图鉴核对中文菜名。
+        }}的菜谱攻略核对中文菜名。
       </p>
       <div class="source-links">
         <a :href="wikiArchive.wikiCatalogUrl" target="_blank" rel="noopener noreferrer">
@@ -60,7 +74,7 @@ const taptapPosts = [
       <h2 id="thanks-heading">特别致谢</h2>
       <p>
         感谢 {{ guideCreators }}制作菜谱图鉴，用户补充游戏截图，Petit Planet Wiki
-        社区整理菜品图标，以及 TapTap 作者「{{ taptapAuthors }}」分享攻略。
+        社区整理菜品图标，以及 TapTap 作者{{ taptapAuthors }}分享攻略。
       </p>
     </section>
   </div>
