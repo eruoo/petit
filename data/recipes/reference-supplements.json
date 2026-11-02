@@ -1,0 +1,105 @@
+{
+  "id": "user-reference-supplements-20261102",
+  "receivedOn": "2026-11-02",
+  "source": "user-message",
+  "statementRaw": "提交，然后补 5 个时长和两道菜的空缺",
+  "gameVerified": false,
+  "sources": [
+    {
+      "id": "petitplanet-wiki-bbq-meatshrooms",
+      "site": "Petit Planet Wiki",
+      "url": "https://petitplanet.wiki/index.php?title=BBQ_Meatshrooms&oldid=35016",
+      "revision": "35016",
+      "retrievedOn": "2026-11-02"
+    },
+    {
+      "id": "petitplanet-wiki-cloudlet-cookies",
+      "site": "Petit Planet Wiki",
+      "url": "https://petitplanet.wiki/index.php?title=Cloudlet_Cookies&oldid=35028",
+      "revision": "35028",
+      "retrievedOn": "2026-11-02"
+    },
+    {
+      "id": "xbgd-wiki-mirror-cooking",
+      "site": "github.com/qingyanghuabendan/xbgd-wiki",
+      "url": "https://github.com/qingyanghuabendan/xbgd-wiki/blob/1d5b7d72cc1b99e7576bd56ad4bb57574235bc11/docs/p04.html",
+      "revision": "1d5b7d72cc1b99e7576bd56ad4bb57574235bc11",
+      "retrievedOn": "2026-11-02"
+    }
+  ],
+  "qualityInterpretation": {
+    "id": "petitplanet-wiki-quality-names",
+    "nameToColor": {
+      "Uncommon": "blue",
+      "Rare": "purple",
+      "Stellar": "gold"
+    },
+    "basis": "2026-11-02 对照 72 道同时有 Wiki 品质与当前菜名底色的菜：Uncommon 均为蓝、Rare 与 Purple 均为紫、Stellar 均为金，无例外。"
+  },
+  "recipes": [
+    {
+      "recipeId": "xm-0930-neighbor-008",
+      "nameRaw": "轰炸大菇肉",
+      "sourceIds": ["petitplanet-wiki-bbq-meatshrooms", "xbgd-wiki-mirror-cooking"],
+      "ingredients": [
+        {
+          "raw": "蘑菇",
+          "value": { "kind": "item", "name": "蘑菇" },
+          "sourceRaw": { "en": "Mushroom", "zh": "蘑菇" }
+        },
+        {
+          "raw": "海鲜",
+          "value": { "kind": "unspecified", "name": "海鲜" },
+          "quality": "Rare",
+          "sourceRaw": { "en": "Seafood", "zh": "海岸生物" }
+        }
+      ],
+      "specialEffect": {
+        "raw": "大力敲伐 二阶",
+        "value": { "name": "大力敲伐", "tier": 2 },
+        "sourceRaw": { "en": "Mighty Strike II", "zh": "大力敲伐二阶*9次" }
+      },
+      "notes": [
+        "两项食材与槽位数按 Wiki 配方模板；镜像写作“海岸生物、蘑菇”，并注明食材顺序不固定。小铭图备注说明“海鲜”即赶海获得的海岸生物，因此沿用本站已有的“海鲜”写法。",
+        "Wiki 将海鲜一项标为 Rare，按品质名解释为紫色品质要求。厨具、力气与词条继续使用明天 9/29 图的原有采用值。"
+      ]
+    },
+    {
+      "recipeId": "mt-20260929-neighbor-009",
+      "nameRaw": "云朵小饼干",
+      "sourceIds": ["petitplanet-wiki-cloudlet-cookies", "xbgd-wiki-mirror-cooking"],
+      "ingredients": [
+        {
+          "raw": "小麦",
+          "value": { "kind": "item", "name": "小麦" },
+          "quality": "Rare",
+          "sourceRaw": { "en": "Plump Wheat / Strange Wheat", "zh": "小麦" }
+        },
+        {
+          "raw": "奶",
+          "value": { "kind": "item", "name": "奶" },
+          "sourceRaw": { "en": "Milk", "zh": "奶" }
+        }
+      ],
+      "energy": {
+        "raw": "70",
+        "value": 70,
+        "sourceRaw": { "en": "70", "zh": "70" }
+      },
+      "tags": {
+        "raw": "甜点",
+        "value": ["甜点"],
+        "sourceRaw": { "en": "Dessert", "zh": "甜点" }
+      },
+      "specialEffect": {
+        "status": "not-stated",
+        "reason": "Wiki 与镜像均未列出特殊效果。",
+        "sourceRaw": { "en": "", "zh": "" }
+      },
+      "notes": [
+        "Wiki 小麦一项标为 Rare，列出两种可用小麦，按品质名解释为紫色品质要求；镜像同为小麦、奶与力气 70。",
+        "厨具“烤箱”和友邻“绵朵莉”继续读取明天 9/29 图。"
+      ]
+    }
+  ]
+}

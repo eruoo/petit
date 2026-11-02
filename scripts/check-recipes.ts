@@ -20,6 +20,7 @@ import {
 } from "../shared/recipes/primary.ts";
 import { gameEffectEvidence, collectCurrentEvidenceConflicts } from "../shared/recipes/effects.ts";
 import { recipeDecisions } from "../shared/recipes/decisions.ts";
+import { referenceSupplements } from "../shared/recipes/references.ts";
 
 function readImageDimensions(bytes: Buffer, mimeType: RecipeSource["asset"]["mimeType"]) {
   if (mimeType === "image/png") {
@@ -100,6 +101,9 @@ if (import.meta.main) {
   );
   console.log(
     `用户逐项决定及原文、来源引用校验通过：${recipeDecisions.decisions.length} 条；不代表游戏实测。`,
+  );
+  console.log(
+    `外部参考补齐：${referenceSupplements.recipes.length} 道菜只填原图问号字段，增益有效量参考 ${gameEffectEvidence.references.length} 条；均不代表游戏实测。`,
   );
   const qualityCounts = Object.fromEntries(
     ["blue", "purple", "gold", "unknown"].map((color) => [

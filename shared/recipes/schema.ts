@@ -57,7 +57,7 @@ const boundsSchema = z.tuple([
   z.number().int().positive(),
   z.number().int().positive(),
 ]);
-const ingredientTermSchema = z.strictObject({
+export const ingredientTermSchema = z.strictObject({
   kind: z.enum(["item", "category", "unspecified"]),
   name: text,
 });
@@ -258,6 +258,14 @@ export const recipeSchema = z
       }
     }
   });
+
+// 外部玩家资料只记录固定版本与原文，用于补齐图片问号或无截图的有效量，不代表游戏实测。
+export const externalReferenceSourceSchema = z.strictObject({
+  site: text,
+  url: z.url(),
+  revision: text,
+  retrievedOn: z.iso.date(),
+});
 
 export const sourceSchema = z.strictObject({
   id,

@@ -365,7 +365,7 @@ test("四槽位配方完整显示食材、力气和特殊效果", async ({ page 
   await expect(slots.nth(3)).toContainText("贝");
   await expect(dialog.getByText("+140", { exact: true })).toBeVisible();
   await expect(dialog.getByText("轻盈潜行 · 三阶", { exact: true })).toBeVisible();
-  await expect(dialog.locator(".effect-detail")).not.toContainText("60 秒");
+  await expect(dialog.locator(".effect-detail")).toContainText("60 秒 · 可能获得增益");
 });
 
 test("手机上展示新版自由烹饪力气与概率产出", async ({ page }, testInfo) => {

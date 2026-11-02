@@ -278,9 +278,11 @@ describe("速查搜索与显示语义", () => {
     const supplement = getEffectEvidence(current);
     expect(effectSummary(current, supplement)).toEqual({ label: "无特殊效果", note: "" });
     expect(current.specialEffect).toMatchObject({ status: "not-stated", raw: "" });
-    expect(
-      effectSummary(currentRecipes.find((recipe) => recipe.name.raw === "轰炸大菇肉")!),
-    ).toEqual({ label: "未知", note: "" });
+    const meatshrooms = currentRecipes.find((recipe) => recipe.name.raw === "轰炸大菇肉")!;
+    expect(effectSummary(meatshrooms, getEffectEvidence(meatshrooms))).toEqual({
+      label: "大力敲伐 · 二阶",
+      note: "9 次内有效 · 可能获得增益",
+    });
     expect(
       effectSummary(
         {

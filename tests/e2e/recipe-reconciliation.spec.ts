@@ -27,7 +27,7 @@ test("详情保留食材与增益，不展示来源、核对或依据截图", as
   const cakeSlots = dialog.getByRole("list", { name: "有序食材" }).getByRole("listitem");
   await expect(cakeSlots.nth(3)).toContainText(/草莓\s*需金色品质/u);
   await expect(cakeSlots.nth(0)).not.toContainText("品质");
-  await expect(effect).not.toContainText("15 次内有效");
+  await expect(effect).toContainText("15 次内有效");
   await expect(effect).toContainText("可能获得增益");
   await expect(dialog).not.toContainText(/核对|图鉴对照/u);
   await page.keyboard.press("Escape");
@@ -80,7 +80,7 @@ test("秘制菜显示配图和当前力气与效果", async ({ page }) => {
   await expect(dialog.getByRole("list", { name: "有序食材" }).getByRole("listitem")).toHaveCount(2);
 });
 
-test("外婆菜饭保留确认的金色谷物，轰炸大菇肉采用明天资料并保留未知食材", async ({ page }) => {
+test("外婆菜饭保留确认的金色谷物，轰炸大菇肉按参考资料补齐食材与效果", async ({ page }) => {
   await page.goto("/?q=外婆菜饭");
   await page.getByRole("button", { name: "查看外婆菜饭配方", exact: true }).click();
   const dialog = page.getByRole("dialog");
@@ -90,12 +90,16 @@ test("外婆菜饭保留确认的金色谷物，轰炸大菇肉采用明天资�
   await page.keyboard.press("Escape");
   await page.getByLabel("搜索菜名、食材、词条或烹饪方式", { exact: true }).fill("轰炸大菇肉");
   await page.getByRole("button", { name: "查看轰炸大菇肉配方", exact: true }).click();
-  await expect(dialog.getByText("未知食材 ?", { exact: true })).toHaveCount(3);
+  const meatshroomSlots = dialog.getByRole("list", { name: "有序食材" }).getByRole("listitem");
+  await expect(meatshroomSlots).toHaveCount(2);
+  await expect(meatshroomSlots.nth(0)).toContainText("蘑菇");
+  await expect(meatshroomSlots.nth(1)).toContainText(/海鲜\s*需紫色品质/u);
+  await expect(dialog.getByText("未知食材 ?", { exact: true })).toHaveCount(0);
   await expect(dialog).toContainText("配方获取：热贝尔");
   await expect(dialog.locator(".recipe-facts")).toContainText("+90");
   await expect(dialog.locator(".recipe-facts")).toContainText("煮锅");
-  await expect(dialog.locator(".effect-detail")).toContainText("未知");
-  await expect(dialog.locator(".effect-detail")).not.toContainText("无特殊效果");
+  await expect(dialog.locator(".effect-detail")).toContainText("大力敲伐 · 二阶");
+  await expect(dialog.locator(".effect-detail")).toContainText("9 次内有效");
 });
 
 test("奇迹盛宴可分类与词条搜索，详情显示概率产出且不捏造固定配方", async ({ page }) => {
@@ -113,7 +117,7 @@ test("奇迹盛宴可分类与词条搜索，详情显示概率产出且不捏�
   await expect(dialog.locator(".effect-detail")).not.toContainText("无特殊效果");
 });
 
-test("甜饼果茶采用厨具、任务和二阶效果，云朵小饼干保持未知数值", async ({ page }) => {
+test("甜饼果茶采用厨具、任务和二阶效果，云朵小饼干按参考资料补齐", async ({ page }) => {
   await page.goto("/?q=甜饼果茶");
   await page.getByRole("button", { name: "查看甜饼果茶配方", exact: true }).click();
   const dialog = page.getByRole("dialog");
@@ -125,6 +129,11 @@ test("甜饼果茶采用厨具、任务和二阶效果，云朵小饼干保持�
   await page.getByRole("button", { name: "查看云朵小饼干配方", exact: true }).click();
   await expect(dialog).toContainText("配方获取：绵朵莉");
   await expect(dialog.locator(".recipe-facts")).toContainText("烤箱");
-  await expect(dialog.locator(".recipe-facts")).toContainText("未知");
-  await expect(dialog.locator(".recipe-facts")).not.toContainText("+0");
+  await expect(dialog.locator(".recipe-facts")).toContainText("+70");
+  await expect(dialog.locator(".recipe-facts")).toContainText("甜点");
+  const cookieSlots = dialog.getByRole("list", { name: "有序食材" }).getByRole("listitem");
+  await expect(cookieSlots).toHaveCount(2);
+  await expect(cookieSlots.nth(0)).toContainText(/小麦\s*需紫色品质/u);
+  await expect(cookieSlots.nth(1)).toContainText("奶");
+  await expect(dialog.locator(".effect-detail")).toContainText("无特殊效果");
 });
