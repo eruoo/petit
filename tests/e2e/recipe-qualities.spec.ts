@@ -1,6 +1,6 @@
 import { expect, test } from "@playwright/test";
 
-test("同图什锦饮以品质底色和文字区分，未知品质保持待确认", async ({ page }) => {
+test("同图什锦饮以品质底色和文字区分，甜饼果茶按参考品质显示蓝色", async ({ page }) => {
   await page.goto("/?q=什锦饮");
   const results = page.getByRole("list", { name: "菜谱结果" });
   await expect(results.getByRole("button")).toHaveCount(3);
@@ -24,10 +24,11 @@ test("同图什锦饮以品质底色和文字区分，未知品质保持待确�
   await expect(dialog.getByText("紫色品质", { exact: true })).toBeVisible();
   await page.keyboard.press("Escape");
   await page.getByLabel("搜索菜名、食材、词条或烹饪方式", { exact: true }).fill("甜饼果茶");
-  const unknown = results.getByRole("button", { name: "查看甜饼果茶配方", exact: true });
-  await expect(unknown.getByText("品质待确认", { exact: true })).toBeVisible();
-  await unknown.click();
-  await expect(dialog.getByText("品质待确认", { exact: true })).toBeVisible();
+  const tea = results.getByRole("button", { name: "查看甜饼果茶配方", exact: true });
+  await expect(tea.getByText("蓝色品质", { exact: true })).toBeVisible();
+  await expect(tea.getByText("品质待确认", { exact: true })).toHaveCount(0);
+  await tea.click();
+  await expect(dialog.getByText("蓝色品质", { exact: true })).toBeVisible();
 });
 
 test("手机详情显示新版品质和食材，不附来源核对面板", async ({ page }) => {

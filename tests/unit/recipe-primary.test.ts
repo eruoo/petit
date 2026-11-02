@@ -148,7 +148,7 @@ describe("小铭 9/30 主体与历史资料的读取边界", () => {
   });
 
   it("菜名按小铭原文显示鲜风与蔬荟，鲜笃鱼汤按两图更正", () => {
-    expect(recipeDecisions.decisions).toHaveLength(17);
+    expect(recipeDecisions.decisions).toHaveLength(16);
     for (const name of ["梦幻鲜风龙虾锅", "田园蔬荟披萨", "鲜笃鱼汤"]) {
       const current = recipe(name);
       expect(current.name).toMatchObject({ status: "recorded", raw: name });
@@ -203,7 +203,13 @@ describe("小铭 9/30 主体与历史资料的读取边界", () => {
       color: "blue",
       source: { guideId: "tomorrow-20260929-image" },
     });
-    expect(currentRecipeQualitiesById.get(recipe("甜饼果茶").id)?.status).toBe("unknown");
+    expect(currentRecipeQualitiesById.get(recipe("甜饼果茶").id)).toEqual({
+      recipeId: recipe("甜饼果茶").id,
+      status: "referenced",
+      color: "blue",
+      qualityRaw: "Uncommon",
+      referenceId: "user-reference-supplements-20261102",
+    });
   });
 
   it("秘制菜采用明天食材、友邻与力气，问号仍为未知", () => {
@@ -227,7 +233,7 @@ describe("小铭 9/30 主体与历史资料的读取边界", () => {
     expect(incomplete.guideDetails?.acquisitionRaw).toBe("热贝尔");
     expect(incomplete.reviewNotes).toEqual([]);
     expect(recipe("独角仙米面包").ingredients[0]!.selection.raw).toBe("稻米");
-    expect(recipe("红穗绛桃包").ingredients[1]!.selection.raw).toBe("苹果");
+    expect(recipe("红穗绛桃包").ingredients[1]!.selection.raw).toBe("红色水果");
     expect(recipe("露营方便烤鱼").ingredients.map((slot) => slot.quality.status)).toEqual([
       "interpreted",
       "not-stated",
@@ -453,6 +459,42 @@ describe("用户要求的外部参考补齐", () => {
     ]);
     expect(currentRecipeFieldSourcesById.get(recipe("谷物粥").id)?.reference).toBeUndefined();
     expect(referenceSupplements.gameVerified).toBe(false);
+  });
+
+  it("按用户要求改写红穗绛桃包与蒜香流心奶面包，甜饼果茶按 Wiki 品质名显示蓝色", () => {
+    const bun = recipe("红穗绛桃包");
+    expect(bun.ingredients.map((slot) => slot.selection.raw)).toEqual(["小麦", "红色水果"]);
+    expect(bun.ingredients[0]!.quality).toMatchObject({ status: "interpreted", color: "purple" });
+    expect(currentRecipeFieldSourcesById.get(bun.id)?.ingredients.userDecision).toBeUndefined();
+    expect(currentRecipeFieldSourcesById.get(bun.id)?.reference?.fields).toEqual(["ingredients"]);
+    const garlicBun = recipe("蒜香流心奶面包");
+    expect(garlicBun.ingredients.map((slot) => slot.selection.raw)).toEqual(["大蒜", "谷物", "奶"]);
+    expect(currentRecipeFieldSourcesById.get(garlicBun.id)?.ingredients).toEqual({
+      source: garlicBun.source,
+      userDecision: undefined,
+    });
+    expect(currentRecipeFieldSourcesById.get(garlicBun.id)?.name.userDecision).toBeDefined();
+    expect(currentRecipeFieldSourcesById.get(recipe("甜饼果茶").id)?.reference?.fields).toEqual([
+      "quality",
+    ]);
+    expect([...currentRecipeQualitiesById.values()].some((q) => q.status === "unknown")).toBe(
+      false,
+    );
+    expect(referenceSupplements.requests.map((request) => request.id)).toEqual([
+      "user-reference-request-20261102-gaps",
+      "user-reference-request-20261102-conflicts",
+    ]);
+  });
+
+  it("改写声明的原文变化时拒绝套用", () => {
+    const stale = structuredClone(referenceSupplements);
+    stale.recipes.find((entry) => entry.nameRaw === "红穗绛桃包")!.overrides!.ingredients = [
+      "小麦",
+      "苹果",
+    ];
+    const base = primaryRecipeDataset.recipes.find((entry) => entry.name.raw === "红穗绛桃包")!;
+    expect(() => applyReferenceSupplement(base, stale)).toThrow(/需重新确认改写/u);
+    expect(applyReferenceSupplement(base).ingredients[1]!.selection.raw).toBe("红色水果");
   });
 
   it("拒绝覆盖图片已有值、菜名不符、引用缺失与游戏实测声明", () => {

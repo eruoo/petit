@@ -32,6 +32,14 @@ export const recipeQualitySchema = z
     z.strictObject({ ...observedQualityFields, status: z.literal("recorded") }),
     z.strictObject({ ...observedQualityFields, status: z.literal("tentative"), reason: text }),
     z.strictObject({ recipeId: text, status: z.literal("unknown"), reason: text }),
+    // 两图均无底色时，按用户要求读取外部资料的品质名；只用于当前视图，不进入历史图鉴记录。
+    z.strictObject({
+      recipeId: text,
+      status: z.literal("referenced"),
+      color: dishQualityColorSchema,
+      qualityRaw: text,
+      referenceId: text,
+    }),
   ])
   .superRefine((quality, context) => {
     const tableBackgroundLabels = {
@@ -41,6 +49,7 @@ export const recipeQualitySchema = z
     };
     if (
       quality.status !== "unknown" &&
+      quality.status !== "referenced" &&
       quality.backgroundRaw !== backgroundLabels[quality.color] &&
       quality.backgroundRaw !== tableBackgroundLabels[quality.color]
     ) {
@@ -87,7 +96,9 @@ export const recipeQualityDatasetSchema = z
         context.addIssue({ code: "custom", path, message: "菜品品质 ID 重复" });
       }
       recipeIds.add(quality.recipeId);
-      if (quality.status === "unknown") return;
+      if (quality.status === "referenced")
+        context.addIssue({ code: "custom", path, message: "历史品质资料不接受外部参考" });
+      if (quality.status === "unknown" || quality.status === "referenced") return;
       const guide = guides.get(quality.source.guideId);
       if (!guide || quality.source.row > guide.rowCount) {
         context.addIssue({

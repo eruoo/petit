@@ -85,7 +85,8 @@ describe("独立菜品品质与底色依据", () => {
     ]) {
       const broken = structuredClone(recipeQualityDataset);
       const quality = broken.recipes[0]!;
-      if (quality.status === "unknown") throw new Error("fixture must have a source");
+      if (quality.status === "unknown" || quality.status === "referenced")
+        throw new Error("fixture must have a source");
       quality.source = { ...quality.source, ...source };
       expect(recipeQualityDatasetSchema.safeParse(broken).success).toBe(false);
     }
@@ -118,7 +119,12 @@ describe("独立菜品品质与底色依据", () => {
     const promoted = recipeQualityDatasetSchema.parse({
       ...recipeQualityDataset,
       recipes: recipeQualityDataset.recipes.map((item) => {
-        if (item.recipeId !== quality.recipeId || item.status === "unknown") return item;
+        if (
+          item.recipeId !== quality.recipeId ||
+          item.status === "unknown" ||
+          item.status === "referenced"
+        )
+          return item;
         return {
           recipeId: item.recipeId,
           status: "recorded",

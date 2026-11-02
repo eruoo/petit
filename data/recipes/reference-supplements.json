@@ -1,8 +1,20 @@
 {
   "id": "user-reference-supplements-20261102",
-  "receivedOn": "2026-11-02",
   "source": "user-message",
-  "statementRaw": "提交，然后补 5 个时长和两道菜的空缺",
+  "requests": [
+    {
+      "id": "user-reference-request-20261102-gaps",
+      "receivedOn": "2026-11-02",
+      "statementRaw": "提交，然后补 5 个时长和两道菜的空缺",
+      "scope": "补齐 5 个增益有效量，以及轰炸大菇肉、云朵小饼干在两图仍为问号的字段。"
+    },
+    {
+      "id": "user-reference-request-20261102-conflicts",
+      "receivedOn": "2026-11-02",
+      "statementRaw": "改掉这三条，然后提交推送并合并",
+      "scope": "红穗绛桃包第二项改为红色水果，甜饼果茶品质改为蓝色，蒜香流心奶面包第三项改为谷物。"
+    }
+  ],
   "gameVerified": false,
   "sources": [
     {
@@ -25,6 +37,20 @@
       "url": "https://github.com/qingyanghuabendan/xbgd-wiki/blob/1d5b7d72cc1b99e7576bd56ad4bb57574235bc11/docs/p04.html",
       "revision": "1d5b7d72cc1b99e7576bd56ad4bb57574235bc11",
       "retrievedOn": "2026-11-02"
+    },
+    {
+      "id": "petitplanet-wiki-crimson-tassel-peach-bun",
+      "site": "Petit Planet Wiki",
+      "url": "https://petitplanet.wiki/index.php?title=Crimson_Tassel_Peach_Bun&oldid=35076",
+      "revision": "35076",
+      "retrievedOn": "2026-11-02"
+    },
+    {
+      "id": "petitplanet-wiki-waffle-fruit-tea",
+      "site": "Petit Planet Wiki",
+      "url": "https://petitplanet.wiki/index.php?title=Waffle_Fruit_Tea&oldid=32007",
+      "revision": "32007",
+      "retrievedOn": "2026-11-02"
     }
   ],
   "qualityInterpretation": {
@@ -40,24 +66,43 @@
     {
       "recipeId": "xm-0930-neighbor-008",
       "nameRaw": "轰炸大菇肉",
+      "requestId": "user-reference-request-20261102-gaps",
       "sourceIds": ["petitplanet-wiki-bbq-meatshrooms", "xbgd-wiki-mirror-cooking"],
       "ingredients": [
         {
           "raw": "蘑菇",
-          "value": { "kind": "item", "name": "蘑菇" },
-          "sourceRaw": { "en": "Mushroom", "zh": "蘑菇" }
+          "value": {
+            "kind": "item",
+            "name": "蘑菇"
+          },
+          "sourceRaw": {
+            "en": "Mushroom",
+            "zh": "蘑菇"
+          }
         },
         {
           "raw": "海鲜",
-          "value": { "kind": "unspecified", "name": "海鲜" },
+          "value": {
+            "kind": "unspecified",
+            "name": "海鲜"
+          },
           "quality": "Rare",
-          "sourceRaw": { "en": "Seafood", "zh": "海岸生物" }
+          "sourceRaw": {
+            "en": "Seafood",
+            "zh": "海岸生物"
+          }
         }
       ],
       "specialEffect": {
         "raw": "大力敲伐 二阶",
-        "value": { "name": "大力敲伐", "tier": 2 },
-        "sourceRaw": { "en": "Mighty Strike II", "zh": "大力敲伐二阶*9次" }
+        "value": {
+          "name": "大力敲伐",
+          "tier": 2
+        },
+        "sourceRaw": {
+          "en": "Mighty Strike II",
+          "zh": "大力敲伐二阶*9次"
+        }
       },
       "notes": [
         "两项食材与槽位数按 Wiki 配方模板；镜像写作“海岸生物、蘑菇”，并注明食材顺序不固定。小铭图备注说明“海鲜”即赶海获得的海岸生物，因此沿用本站已有的“海鲜”写法。",
@@ -67,39 +112,113 @@
     {
       "recipeId": "mt-20260929-neighbor-009",
       "nameRaw": "云朵小饼干",
+      "requestId": "user-reference-request-20261102-gaps",
       "sourceIds": ["petitplanet-wiki-cloudlet-cookies", "xbgd-wiki-mirror-cooking"],
       "ingredients": [
         {
           "raw": "小麦",
-          "value": { "kind": "item", "name": "小麦" },
+          "value": {
+            "kind": "item",
+            "name": "小麦"
+          },
           "quality": "Rare",
-          "sourceRaw": { "en": "Plump Wheat / Strange Wheat", "zh": "小麦" }
+          "sourceRaw": {
+            "en": "Plump Wheat / Strange Wheat",
+            "zh": "小麦"
+          }
         },
         {
           "raw": "奶",
-          "value": { "kind": "item", "name": "奶" },
-          "sourceRaw": { "en": "Milk", "zh": "奶" }
+          "value": {
+            "kind": "item",
+            "name": "奶"
+          },
+          "sourceRaw": {
+            "en": "Milk",
+            "zh": "奶"
+          }
         }
       ],
       "energy": {
         "raw": "70",
         "value": 70,
-        "sourceRaw": { "en": "70", "zh": "70" }
+        "sourceRaw": {
+          "en": "70",
+          "zh": "70"
+        }
       },
       "tags": {
         "raw": "甜点",
         "value": ["甜点"],
-        "sourceRaw": { "en": "Dessert", "zh": "甜点" }
+        "sourceRaw": {
+          "en": "Dessert",
+          "zh": "甜点"
+        }
       },
       "specialEffect": {
         "status": "not-stated",
         "reason": "Wiki 与镜像均未列出特殊效果。",
-        "sourceRaw": { "en": "", "zh": "" }
+        "sourceRaw": {
+          "en": "",
+          "zh": ""
+        }
       },
       "notes": [
         "Wiki 小麦一项标为 Rare，列出两种可用小麦，按品质名解释为紫色品质要求；镜像同为小麦、奶与力气 70。",
         "厨具“烤箱”和友邻“绵朵莉”继续读取明天 9/29 图。"
       ]
+    },
+    {
+      "recipeId": "xm-0930-neighbor-006",
+      "nameRaw": "红穗绛桃包",
+      "requestId": "user-reference-request-20261102-conflicts",
+      "sourceIds": ["petitplanet-wiki-crimson-tassel-peach-bun", "xbgd-wiki-mirror-cooking"],
+      "overrides": {
+        "ingredients": ["小麦", "水果"]
+      },
+      "ingredients": [
+        {
+          "raw": "小麦",
+          "value": {
+            "kind": "item",
+            "name": "小麦"
+          },
+          "quality": "Rare",
+          "sourceRaw": {
+            "en": "Plump Wheat / Strange Wheat",
+            "zh": "小麦"
+          }
+        },
+        {
+          "raw": "红色水果",
+          "value": {
+            "kind": "category",
+            "name": "红色水果"
+          },
+          "sourceRaw": {
+            "en": "Red Fruit",
+            "zh": "红色水果"
+          }
+        }
+      ],
+      "notes": [
+        "小铭图写“小麦（紫底）＋水果”，明天图写“小麦＋苹果”；Wiki 与镜像均为小麦＋红色水果，蛮蛮的另外三种桃包在 Wiki 中分别使用黄、绿、蓝色水果，因此按用户要求细化为红色水果。",
+        "小麦仍为紫色品质要求，与小铭图底色一致；厨具、力气、效果与友邻继续读取小铭图。"
+      ]
+    },
+    {
+      "recipeId": "xm-0927-neighbor-006",
+      "nameRaw": "甜饼果茶",
+      "requestId": "user-reference-request-20261102-conflicts",
+      "sourceIds": ["petitplanet-wiki-waffle-fruit-tea"],
+      "quality": {
+        "raw": "Uncommon",
+        "sourceRaw": {
+          "en": "Uncommon",
+          "zh": ""
+        }
+      },
+      "notes": ["两图均未给甜饼果茶菜名底色；Wiki 标为 Uncommon，按品质名对应为蓝色。"]
     }
   ]
 }

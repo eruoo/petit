@@ -103,7 +103,7 @@ if (import.meta.main) {
     `用户逐项决定及原文、来源引用校验通过：${recipeDecisions.decisions.length} 条；不代表游戏实测。`,
   );
   console.log(
-    `外部参考补齐：${referenceSupplements.recipes.length} 道菜只填原图问号字段，增益有效量参考 ${gameEffectEvidence.references.length} 条；均不代表游戏实测。`,
+    `外部参考补齐：${referenceSupplements.recipes.length} 道菜（用户明确改写图片值 ${referenceSupplements.recipes.filter((entry) => entry.overrides).length} 道，其余只填问号或无底色字段），增益有效量参考 ${gameEffectEvidence.references.length} 条；均不代表游戏实测。`,
   );
   const qualityCounts = Object.fromEntries(
     ["blue", "purple", "gold", "unknown"].map((color) => [
