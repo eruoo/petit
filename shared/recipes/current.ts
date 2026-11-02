@@ -19,6 +19,7 @@ import {
 } from "./decisions.ts";
 import {
   applyReferenceSupplement,
+  referenceQuality,
   referenceSupplements,
   usesReferenceField,
 } from "./references.ts";
@@ -54,9 +55,9 @@ export const currentRecipeFieldSourcesById = new Map(
         ? { id: recipeDecisions.id, recipeId: recipe.id }
         : undefined,
     });
-    const referenceFields = (["ingredients", "energy", "tags", "specialEffect"] as const).filter(
-      (field: ReferenceField) => usesReferenceField(recipe.id, field),
-    );
+    const referenceFields = (
+      ["ingredients", "energy", "tags", "specialEffect", "quality"] as const
+    ).filter((field: ReferenceField) => usesReferenceField(recipe.id, field));
     return [
       recipe.id,
       {
@@ -105,8 +106,12 @@ export const currentRecipeQualitiesById = new Map<string, RecipeQuality>(
       ? (primaryRecipesById.get(recipe.id) ?? recipe)
       : reference;
     const color = background === "yellow" ? "gold" : background;
-    const quality: RecipeQuality =
-      color && sourceRecipe
+    const referenced = referenceQuality(recipe.id);
+    if (referenced && color)
+      throw new Error(`${recipe.name.raw}：已有图片底色，不能用参考品质覆盖`);
+    const quality: RecipeQuality = referenced
+      ? { recipeId: recipe.id, status: "referenced", ...referenced }
+      : color && sourceRecipe
         ? {
             recipeId: recipe.id,
             status: "recorded",

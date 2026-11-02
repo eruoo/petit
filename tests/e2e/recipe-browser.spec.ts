@@ -321,17 +321,18 @@ test("搜索可混合菜名、食材和词条，在手机和刷新后保持", as
   });
   const results = page.getByRole("list", { name: "菜谱结果" }).getByRole("button");
   await expect(search).toHaveAttribute("placeholder", /词条/u);
-  await search.fill("蒜香 小麦 甜点");
+  await search.fill("蒜香 谷物 甜点");
   await expect(results).toHaveCount(1);
   await expect(results).toHaveAccessibleName("查看蒜香流心奶面包配方");
   await page.getByRole("button", { name: "列表视图", exact: true }).click();
   await page.reload();
-  await expect(search).toHaveValue("蒜香 小麦 甜点");
+  await expect(search).toHaveValue("蒜香 谷物 甜点");
   await expect(results).toHaveCount(1);
   await page.setViewportSize({ width: 320, height: 850 });
   await search.fill("谷物 奶 甜点");
-  await expect(results).toHaveCount(1);
+  await expect(results).toHaveCount(2);
   await expect(results.nth(0)).toHaveAccessibleName("查看香米糕配方");
+  await expect(results.nth(1)).toHaveAccessibleName("查看蒜香流心奶面包配方");
   expect(await page.evaluate(() => document.documentElement.scrollWidth)).toBeLessThanOrEqual(320);
   await page
     .getByRole("list", { name: "菜谱结果" })

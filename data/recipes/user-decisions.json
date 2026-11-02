@@ -50,7 +50,7 @@
       "recipeId": "mt-20260924-signature-025",
       "nameRaw": "蒜香流心奶黄包",
       "action": "use-fields",
-      "fields": ["name", "ingredients"],
+      "fields": ["name"],
       "source": {
         "sourceId": "tomorrow-20260929-image",
         "region": "signature",
@@ -143,17 +143,6 @@
         "sourceId": "tomorrow-20260929-image",
         "region": "neighbor",
         "row": 5
-      }
-    },
-    {
-      "recipeId": "xm-0930-neighbor-006",
-      "nameRaw": "红穗绛桃包",
-      "action": "use-fields",
-      "fields": ["ingredients"],
-      "source": {
-        "sourceId": "tomorrow-20260929-image",
-        "region": "neighbor",
-        "row": 6
       }
     },
     {
