@@ -9,16 +9,20 @@ import wikiSupplement from "../../docs/references/recipes/wiki-dish-icons-2026-1
 import wikiOctober4 from "../../docs/references/recipes/wiki-dish-icons-2026-10-04.json";
 import wikiNovember1 from "../../docs/references/recipes/wiki-dish-icons-2026-11-01.json";
 import wikiNovember2 from "../../docs/references/recipes/wiki-dish-icons-2026-11-02.json";
+import wikiNovember10 from "../../docs/references/recipes/wiki-dish-icons-2026-11-10.json";
 import taptap from "../../docs/references/recipes/taptap-recipe-guides-2026-09-26.json";
 
 describe("菜品配图与独立来源", () => {
-  it("114 条 Wiki 独立配图覆盖除地三鲜外的全部当前菜谱", () => {
-    expect(recipeImagesById.size).toBe(114);
+  it("115 条 Wiki 独立配图覆盖全部当前菜谱", () => {
+    expect(recipeImagesById.size).toBe(115);
     expect(recipeDataset.recipes.every((recipe) => recipeImagesById.has(recipe.id))).toBe(true);
-    // 地三鲜随小铭 10/14 新增，尚未核对配图来源，页面显示占位。
-    expect(currentRecipes.filter((recipe) => !recipeImagesById.has(recipe.id))).toEqual([
-      currentRecipes.find((recipe) => recipe.name.raw === "地三鲜"),
-    ]);
+    expect([...recipeImagesById.keys()].sort()).toEqual(
+      currentRecipes.map((recipe) => recipe.id).sort(),
+    );
+    expect(recipeImagesById.get("xm-1014-neighbor-008")).toMatchObject({
+      assetId: "petitplanet-wiki-file-9329",
+      status: "english-entry-candidate",
+    });
     expect(recipeImages.every((image) => image.provider === "wiki")).toBe(true);
     expect(recipeImages.every((image) => image.displayRegion === undefined)).toBe(true);
     expect(recipeImages.every((image) => !image.gameVerified)).toBe(true);
@@ -74,6 +78,7 @@ describe("菜品配图与独立来源", () => {
         ...wikiOctober4.files,
         ...wikiNovember1.files,
         ...wikiNovember2.files,
+        ...wikiNovember10.files,
         ...taptap.files,
       ].map((file) => [file.id, file]),
     );

@@ -19,6 +19,7 @@ test("构建只发布当前使用的 Wiki 图标，未使用的文件继续归�
     "2026-10-04",
     "2026-11-01",
     "2026-11-02",
+    "2026-11-10",
   ].flatMap((date) => {
     const directory = new URL(
       `../../docs/references/recipes/wiki-dish-icons-${date}/`,
@@ -41,20 +42,17 @@ test("构建只发布当前使用的 Wiki 图标，未使用的文件继续归�
       .map((name) => hash(new URL(name, outputDirectory)))
       .filter((value) => archiveHashes.has(value)),
   );
-  expect(archiveFiles).toHaveLength(108);
+  expect(archiveFiles).toHaveLength(109);
   expect(publishedHashes).toEqual(usedHashes);
 });
 
 test("菜谱列表与详情显示本地候选配图", async ({ page }) => {
   await page.goto("/");
   const results = page.getByRole("list", { name: "菜谱结果" });
-  // 地三鲜随小铭 10/14 新增，尚无核对过的配图，显示占位。
   await expect(results.getByRole("img")).toHaveCount(115);
-  await expect(results.locator("img")).toHaveCount(114);
-  await expect(results.getByRole("img", { name: /：图片暂不可用$/u })).toHaveCount(1);
-  await expect(
-    results.getByRole("img", { name: "地三鲜：图片暂不可用", exact: true }),
-  ).toBeVisible();
+  await expect(results.locator("img")).toHaveCount(115);
+  await expect(results.getByRole("img", { name: /：图片暂不可用$/u })).toHaveCount(0);
+  await expect(results.getByRole("img", { name: "地三鲜（候选配图）", exact: true })).toBeVisible();
   const firstImage = results.getByRole("img", { name: "和煦花果茶（候选配图）", exact: true });
   await expect
     .poll(() => firstImage.evaluate((element: HTMLImageElement) => element.naturalWidth))

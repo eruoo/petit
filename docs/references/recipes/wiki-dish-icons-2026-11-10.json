@@ -1,0 +1,44 @@
+{
+  "checkedOn": "2026-11-10",
+  "scope": "为随小铭 10/14 图新增的地三鲜补充 Wiki 独立 PNG 候选。",
+  "wikiCatalogUrl": "https://petitplanet.wiki/Category:Dish_Icons",
+  "wikiMetadataApi": "https://petitplanet.wiki/api.php",
+  "existingFilesManifest": "docs/references/recipes/wiki-dish-icons-2026-11-02.json",
+  "comparisonMethod": "核对 Wiki 菜谱正文修订 35077、imageinfo 元数据与 PNG 原文件的 SHA-1、字节数、尺寸及透明通道，查看图形。条目名 Di San Xian 为“地三鲜”拼音，配方、厨具、力气、效果与友邻均与小铭 10/14 图一致；采用独立原图，不裁切或重编码。",
+  "files": [
+    {
+      "id": "petitplanet-wiki-file-9329",
+      "title": "File:Di San Xian Icon.png",
+      "filePageUrl": "https://petitplanet.wiki/File:Di_San_Xian_Icon.png",
+      "originalUrl": "https://cdn.petitplanet.wiki/Di_San_Xian_Icon.png",
+      "width": 512,
+      "height": 512,
+      "bytes": 195808,
+      "sha1": "ee7b8422b09d6d5e622276515f0cdd28749cea5e",
+      "sha256": "49b6198612b9a8bca23660ab6b2ab49f689c0a5a168fbc20ec4e42c273f70ab5",
+      "wikiUploadTimestamp": "2026-09-27T20:41:56Z",
+      "localPath": "docs/references/recipes/wiki-dish-icons-2026-11-10/Di_San_Xian_Icon.png"
+    }
+  ],
+  "recipes": [
+    {
+      "recipeId": "xm-1014-neighbor-008",
+      "recipeNameRaw": "地三鲜",
+      "originalSource": {
+        "sourceId": "xiaoming-1014-image",
+        "region": "neighbor"
+      },
+      "candidateFileId": "petitplanet-wiki-file-9329",
+      "status": "english-entry-candidate",
+      "gameVerified": false,
+      "evidence": {
+        "wikiEntryUrl": "https://petitplanet.wiki/Di_San_Xian",
+        "imageComparison": "土豆块、紫色茄子与青椒盛于橙点白盘，与 Wiki 配方 Potato＋Eggplant（Rare）＋Pepper 及小铭图“土豆＋茄子（紫）＋辣椒”一致。"
+      },
+      "notes": [
+        "Wiki 条目 Di San Xian（修订 35077）为地三鲜拼音，配方为煮锅、力气 80、Power Spread I、友邻 Heyu，与小铭 10/14 图的煮锅、80、大力播洒一阶、鹤玉一致；尚无中文菜名旁图形的直接对应证据，保留英文条目候选状态。",
+        "使用 Wiki 512 × 512 透明 PNG 原文件；配图不改写配方或品质。"
+      ]
+    }
+  ]
+}
