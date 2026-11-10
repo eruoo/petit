@@ -21,12 +21,12 @@ const byId = (id: string) => {
 
 describe("速查搜索与显示语义", () => {
   it.each([
-    ["all", 114],
+    ["all", 115],
     ["simple", 37],
     ["signature", 33],
     ["guest", 14],
     ["free", 9],
-    ["neighbor", 13],
+    ["neighbor", 14],
     ["miracle", 8],
   ] as const)("分类 %s 限定当前菜谱范围，保留原图顺序", (category, count) => {
     const result = searchRecipes(currentRecipes, { ...defaultSearch, category });
@@ -47,7 +47,7 @@ describe("速查搜索与显示语义", () => {
       "漫香果麦奶",
       "香米糕",
       "草莓奶蛋糕",
-      "蒜香流心奶面包",
+      "蒜香流心奶棉包",
       "禾夏米麦奶",
     ]);
     expect(searchRecipes(currentRecipes, { ...search, query: "什锦" })).toEqual([]);

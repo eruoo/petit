@@ -1,5 +1,7 @@
-import recipes from "../../data/recipes/xiaoming-09-30.json" with { type: "json" };
-import inventory from "../../docs/references/recipes/xiaoming-09-30.inventory.json" with { type: "json" };
+import recipes from "../../data/recipes/xiaoming-10-14.json" with { type: "json" };
+import inventory from "../../docs/references/recipes/xiaoming-10-14.inventory.json" with { type: "json" };
+import september30Recipes from "../../data/recipes/xiaoming-09-30.json" with { type: "json" };
+import september30Inventory from "../../docs/references/recipes/xiaoming-09-30.inventory.json" with { type: "json" };
 import previousRecipes from "../../data/recipes/xiaoming.json" with { type: "json" };
 import previousInventory from "../../docs/references/recipes/xiaoming-09-27.inventory.json" with { type: "json" };
 import tomorrowRecipes from "../../data/recipes/tomorrow-09-29.json" with { type: "json" };
@@ -8,7 +10,7 @@ import { recipeDataset } from "./index.ts";
 import { recipeDatasetSchema } from "./schema.ts";
 
 export const primaryRecipeSource = recipeDataset.sources.find(
-  (source) => source.id === "xiaoming-0930-image",
+  (source) => source.id === "xiaoming-1014-image",
 )!;
 export const primaryRecipeDataset = recipeDatasetSchema.parse({
   sources: [primaryRecipeSource],
@@ -32,6 +34,12 @@ export const supplementalRecipeDataset = recipeDatasetSchema.parse({
 export const supplementalRecipesById = new Map(
   supplementalRecipeDataset.recipes.map((recipe) => [recipe.id, recipe]),
 );
+// 小铭 9/30 为上一版主图，原始转录继续独立校验，不参与当前采用。
+export const september30XiaomingRecipeDataset = recipeDatasetSchema.parse({
+  sources: recipeDataset.sources.filter((source) => source.id === "xiaoming-0930-image"),
+  inventory: september30Inventory,
+  recipes: september30Recipes,
+});
 export const previousXiaomingRecipeDataset = recipeDatasetSchema.parse({
   sources: recipeDataset.sources.filter((source) => source.id === "xiaoming-0927-image"),
   inventory: previousInventory,

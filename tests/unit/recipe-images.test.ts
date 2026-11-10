@@ -12,12 +12,13 @@ import wikiNovember2 from "../../docs/references/recipes/wiki-dish-icons-2026-11
 import taptap from "../../docs/references/recipes/taptap-recipe-guides-2026-09-26.json";
 
 describe("菜品配图与独立来源", () => {
-  it("114 条 Wiki 独立配图覆盖全部当前菜谱", () => {
+  it("114 条 Wiki 独立配图覆盖除地三鲜外的全部当前菜谱", () => {
     expect(recipeImagesById.size).toBe(114);
     expect(recipeDataset.recipes.every((recipe) => recipeImagesById.has(recipe.id))).toBe(true);
-    expect([...recipeImagesById.keys()].sort()).toEqual(
-      currentRecipes.map((recipe) => recipe.id).sort(),
-    );
+    // 地三鲜随小铭 10/14 新增，尚未核对配图来源，页面显示占位。
+    expect(currentRecipes.filter((recipe) => !recipeImagesById.has(recipe.id))).toEqual([
+      currentRecipes.find((recipe) => recipe.name.raw === "地三鲜"),
+    ]);
     expect(recipeImages.every((image) => image.provider === "wiki")).toBe(true);
     expect(recipeImages.every((image) => image.displayRegion === undefined)).toBe(true);
     expect(recipeImages.every((image) => !image.gameVerified)).toBe(true);

@@ -4,6 +4,7 @@ import {
   primaryRecipeDataset,
   supplementalRecipeDataset,
   supplementalRecipesById,
+  september30XiaomingRecipeDataset,
   previousXiaomingRecipeDataset,
 } from "../../shared/recipes/primary";
 import {
@@ -29,46 +30,54 @@ import { verifySourceAssets } from "../../scripts/check-recipes";
 import { recipeDecisions, recipeDecisionsSchema } from "../../shared/recipes/decisions";
 import {
   applyReferenceSupplement,
+  buildReferenceRecipes,
   referenceSupplements,
   referenceSupplementsSchema,
 } from "../../shared/recipes/references";
 
 const recipe = (name: string) => currentRecipes.find((entry) => entry.name.raw === name)!;
 
-describe("小铭 9/30 主体与历史资料的读取边界", () => {
-  it("独立覆盖 102 行，保留已有 99 道的 ID，空配方菜不漏录", () => {
+describe("小铭 10/14 主体与历史资料的读取边界", () => {
+  it("独立覆盖 115 行，保留已有 ID，新增地三鲜不漏录", () => {
     expect(primaryRecipeDataset.inventory.regions.map((region) => region.expectedRows)).toEqual([
-      37, 33, 14, 9, 9,
+      37, 33, 14, 9, 14, 8,
     ]);
-    expect(primaryRecipeDataset.recipes).toHaveLength(102);
+    expect(primaryRecipeDataset.recipes).toHaveLength(115);
     expect(
       supplementalRecipeDataset.inventory.regions.map((region) => region.expectedRows),
     ).toEqual([37, 33, 14, 9, 10, 8]);
-    expect(currentRecipes).toHaveLength(114);
-    expect(new Set(currentRecipes.map((entry) => entry.id)).size).toBe(114);
+    expect(currentRecipes).toHaveLength(115);
+    expect(new Set(currentRecipes.map((entry) => entry.id)).size).toBe(115);
     const ids = new Set(currentRecipes.map((entry) => entry.id));
-    expect(previousXiaomingRecipeDataset.recipes.every((entry) => ids.has(entry.id))).toBe(true);
-    expect(recipeDataset.recipes.every((entry) => ids.has(entry.id))).toBe(true);
-    expect(currentRecipes.filter((entry) => entry.id.startsWith("xm-0930-"))).toHaveLength(3);
+    for (const dataset of [
+      september30XiaomingRecipeDataset,
+      previousXiaomingRecipeDataset,
+      supplementalRecipeDataset,
+      recipeDataset,
+    ])
+      expect(dataset.recipes.every((entry) => ids.has(entry.id))).toBe(true);
+    expect(recipe("地三鲜").id).toBe("xm-1014-neighbor-008");
     for (const dataset of [
       primaryRecipeDataset,
       supplementalRecipeDataset,
+      september30XiaomingRecipeDataset,
       previousXiaomingRecipeDataset,
     ]) {
       const missing = structuredClone(dataset);
       missing.recipes.pop();
       expect(recipeDatasetSchema.safeParse(missing).success).toBe(false);
     }
-    for (const entry of currentRecipes)
-      expect(currentSourceRow(entry)?.nameRaw).toBe(
-        entry.verification === "image-transcribed-game-unverified" ? entry.name.raw : undefined,
-      );
+    for (const entry of currentRecipes) {
+      expect(entry.verification).toBe("image-transcribed-game-unverified");
+      expect(currentSourceRow(entry)?.nameRaw).toBe(entry.name.raw);
+    }
+    expect(buildReferenceRecipes()).toEqual([]);
     expect(() => verifySourceAssets(recipeDataset.sources)).not.toThrow();
   });
 
-  it("明天 9/29 补充词条与产出，采用决定不修改任一原始转录", () => {
+  it("明天 9/29 补充词条、产出与奇迹盛宴力气，不修改任一原始转录", () => {
     expect(currentRecipeSources.map((source) => source.id)).toEqual([
-      "xiaoming-0930-image",
+      "xiaoming-1014-image",
       "tomorrow-20260929-image",
     ]);
     const before = JSON.stringify([primaryRecipeDataset, supplementalRecipeDataset]);
@@ -86,72 +95,87 @@ describe("小铭 9/30 主体与历史资料的读取边界", () => {
     const cake = recipe("梦幻草莓奶蛋糕");
     expect(cake.tags.raw).toBe("甜点");
     expect(currentRecipeFieldSourcesById.get(cake.id)).toMatchObject({
-      recipe: { sourceId: "xiaoming-0930-image", region: "guest", row: 12 },
+      recipe: { sourceId: "xiaoming-1014-image", region: "guest", row: 12 },
       tags: { sourceId: "tomorrow-20260929-image" },
-      guideDetails: { sourceId: "xiaoming-0930-image" },
+      energy: { source: { sourceId: "xiaoming-1014-image" } },
+      guideDetails: { sourceId: "xiaoming-1014-image" },
     });
     expect(recipe("甜饼果茶").tags.raw).toBe("饮品");
     expect(recipe("轰炸大菇肉").tags.raw).toBe("荤素菜/炸物");
+    expect(recipe("地三鲜").tags.status).toBe("not-stated");
   });
 
-  it("外婆菜饭只移除已授权问号，原图仍保留问号与金色需求", () => {
+  it("10/14 写明 9/30 的问号，旧图原始转录仍保留问号", () => {
+    for (const entry of primaryRecipeDataset.recipes) {
+      expect(entry.name.status).toBe("recorded");
+      expect(entry.ingredients.every((slot) => slot.selection.status === "recorded")).toBe(true);
+    }
     const current = recipe("外婆菜饭");
-    const original = primaryRecipeDataset.recipes.find((entry) => entry.id === current.id)!;
-    expect(original.ingredients[3]!.selection).toMatchObject({ status: "tentative", raw: "谷物?" });
+    const september30 = september30XiaomingRecipeDataset.recipes.find(
+      (entry) => entry.id === current.id,
+    )!;
+    expect(september30.ingredients[3]!.selection).toMatchObject({
+      status: "tentative",
+      raw: "谷物?",
+    });
     expect(current.ingredients[3]!.selection).toEqual({
       status: "recorded",
       raw: "谷物",
       value: { kind: "category", name: "谷物" },
     });
-    expect(current.ingredients[3]!.quality).toEqual(original.ingredients[3]!.quality);
     expect(current.ingredients[3]!.quality).toMatchObject({ color: "gold" });
     expect(currentRecipeFieldSourcesById.get(current.id)?.ingredients).toEqual({
-      source: original.source,
-      userDecision: { id: "user-recipe-decisions-20261003", recipeId: current.id },
+      source: current.source,
+      userDecision: undefined,
     });
-    expect(recipeDecisions.gameVerified).toBe(false);
-    expect(current.verification).toBe("image-transcribed-game-unverified");
-    expect(recipe("梦幻金玉满堂饭").ingredients[0]!.selection).toMatchObject({
-      status: "recorded",
-      raw: "稻米",
-    });
-  });
-
-  it("新版去除的符号、蓝莓配方和厨具／阶级修订生效，其他问号不扩大确认", () => {
-    for (const [name, index, raw] of [
-      ["田园蔬荟披萨", 2, "黄瓜"],
-      ["梦幻锦绣香蔬宴", 1, "蔬菜"],
-      ["梦幻海岸虾鱼筵", 0, "虾类"],
-      ["多果流彩捞饭", 3, "谷物"],
-      ["梦幻星莓漫游派", 3, "蓝莓"],
+    for (const [name, raws] of [
+      ["漫香果麦奶", ["水果", "小麦", "奶"]],
+      ["梦幻三仙过海鱼", ["海鱼", "蘑菇", "番茄"]],
+      ["梦幻番茄汤汁面", ["大蒜", "小麦", "奶", "番茄"]],
+      ["梦幻金玉满堂饭", ["肉", "蛋", "蔬菜", "水稻"]],
+      ["梦幻星莓漫游派", ["鱼类", "小麦", "贝类", "蓝莓"]],
     ] as const)
-      expect(recipe(name).ingredients[index]!.selection).toMatchObject({ status: "recorded", raw });
-    expect(recipe("漫香果麦奶").ingredients[2]!.selection).toMatchObject({
-      status: "recorded",
-      raw: "水果",
-    });
-    expect(recipe("梦幻三仙过海鱼").ingredients[2]!.selection).toMatchObject({
-      status: "recorded",
-      raw: "番茄",
-    });
-    expect(recipe("梦幻番茄汤汁面").ingredients.map((slot) => slot.selection.raw)).toEqual([
-      "番茄",
-      "小麦",
-      "大蒜",
-      "奶",
-    ]);
+      expect(recipe(name).ingredients.map((slot) => slot.selection.raw)).toEqual(raws);
     expect(recipe("梦幻什锦饮").name.status).toBe("recorded");
     expect(recipe("珍稀什锦砂锅").energy).toMatchObject({ value: 70 });
     expect(recipe("花香蜜瓜派").cookingMethod.raw).toBe("煮锅");
-    expect(recipe("时蔬烧烤派对").specialEffect.raw).toBe("快速翻土 二阶");
     expect(getRecipeDifferences(recipe("梦幻星莓漫游派").id)).toContainEqual(
       expect.objectContaining({ field: "ingredients", current: "鱼类 + 小麦 + 贝类 + 蓝莓" }),
     );
   });
 
-  it("菜名按小铭原文显示鲜风与蔬荟，鲜笃鱼汤按两图更正", () => {
-    expect(recipeDecisions.decisions).toHaveLength(16);
-    for (const name of ["梦幻鲜风龙虾锅", "田园蔬荟披萨", "鲜笃鱼汤"]) {
+  it("按用户 2026-11-10 决定，冲突差异采用 10/14 原文", () => {
+    expect(recipeDecisions).toMatchObject({
+      id: "user-recipe-decisions-20261110",
+      statementRaw: "A，差异全部采用新图",
+      gameVerified: false,
+    });
+    expect(recipeDecisions.decisions.map((decision) => decision.nameRaw)).toEqual([
+      "甜饼果茶",
+      "时蔬烧烤派对",
+      "蒜香流心奶棉包",
+      "梦幻双色升鱼筵",
+      "红穗绛桃包",
+      "橙香桃包",
+      "斑斓桃包",
+      "蓝莓桃包",
+    ]);
+    expect(recipeDecisions.decisions.every((decision) => decision.action === "keep-primary")).toBe(
+      true,
+    );
+    const tea = recipe("甜饼果茶");
+    expect(tea.cookingMethod.raw).toBe("榨汁机");
+    expect(tea.specialEffect).toEqual({ status: "not-stated", raw: "" });
+    expect(tea.guideDetails?.acquisitionRaw).toBe("任务");
+    expect(supplementalRecipesById.get(tea.id)!.cookingMethod.raw).toBe("煮锅");
+    expect(recipe("时蔬烧烤派对").specialEffect.raw).toBe("快速翻土 三阶");
+    for (const name of [
+      "蒜香流心奶棉包",
+      "梦幻双色升鱼筵",
+      "梦幻鲜风龙虾锅",
+      "田园蔬荟披萨",
+      "鲜笃鱼汤",
+    ]) {
       const current = recipe(name);
       expect(current.name).toMatchObject({ status: "recorded", raw: name });
       expect(currentRecipeFieldSourcesById.get(current.id)?.name).toEqual({
@@ -159,10 +183,14 @@ describe("小铭 9/30 主体与历史资料的读取边界", () => {
         userDecision: undefined,
       });
     }
-    expect(currentRecipes.some((entry) => /仙风|蔬烩|鲜笋/u.test(entry.name.raw))).toBe(false);
+    expect(recipe("蒜香流心奶棉包").reviewNotes).toHaveLength(1);
+    expect(recipe("蒜香流心奶棉包").guideDetails?.levelRaw).toBe("七级");
+    expect(
+      currentRecipes.some((entry) => /仙风|蔬烩|鲜笋|奶面包|升鱼宴/u.test(entry.name.raw)),
+    ).toBe(false);
   });
 
-  it("新版食材顺序、重复槽位、合并格及品质需求一起采用", () => {
+  it("食材顺序、重复槽位、合并格及品质需求按 10/14 读取", () => {
     const cake = recipe("梦幻草莓奶蛋糕");
     expect(cake.ingredients.map((slot) => slot.selection.raw)).toEqual([
       "奶",
@@ -172,7 +200,7 @@ describe("小铭 9/30 主体与历史资料的读取边界", () => {
     ]);
     expect(cake.ingredients[3]!.quality).toMatchObject({
       color: "gold",
-      interpretationId: "xiaoming-0930-ingredient-background",
+      interpretationId: "xiaoming-1014-ingredient-background",
     });
     expect(recipe("珍蔬麦饮").ingredients.map((slot) => slot.selection.raw)).toEqual([
       "小麦",
@@ -199,7 +227,7 @@ describe("小铭 9/30 主体与历史资料的读取边界", () => {
     expect(shrimp.guideDetails?.levelRaw).toBe("七级");
     expect(currentRecipeQualitiesById.get(shrimp.id)).toMatchObject({
       color: "gold",
-      source: { guideId: "xiaoming-0930-image" },
+      source: { guideId: "xiaoming-1014-image" },
     });
     expect(currentRecipeQualitiesById.get(recipe("谷物粥").id)).toMatchObject({
       color: "blue",
@@ -214,66 +242,106 @@ describe("小铭 9/30 主体与历史资料的读取边界", () => {
     });
   });
 
-  it("秘制菜采用明天食材、友邻与力气，问号仍为未知", () => {
-    const stew = recipe("卡拉红汁炖肉");
-    expect(stew.energy).toMatchObject({ status: "recorded", value: 90 });
-    expect(stew.specialEffect.raw).toBe("快速翻土 二阶");
-    expect(recipe("百果甜甜圈").ingredients.map((slot) => slot.selection.raw)).toEqual([
+  it("秘制菜 14 行按 10/14 读取，桃包与地三鲜来自图片", () => {
+    const neighbors = currentRecipes.filter((entry) => entry.source.region === "neighbor");
+    expect(neighbors.map((entry) => entry.name.raw)).toEqual([
+      "竹香苹果冰",
+      "独角仙米面包",
+      "冬虫夏草煲",
+      "卡拉红汁炖肉",
+      "露营方便烤鱼",
+      "百果甜甜圈",
+      "云朵小饼干",
+      "地三鲜",
+      "轰炸大菇肉",
+      "红穗绛桃包",
+      "橙香桃包",
+      "斑斓桃包",
+      "蓝莓桃包",
+      "甜饼果茶",
+    ]);
+    const dish = recipe("地三鲜");
+    expect(dish.ingredients.map((slot) => [slot.selection.raw, slot.quality.status])).toEqual([
+      ["土豆", "not-stated"],
+      ["茄子", "interpreted"],
+      ["辣椒", "not-stated"],
+    ]);
+    expect(dish).toMatchObject({
+      cookingMethod: { raw: "煮锅" },
+      energy: { value: 80 },
+      specialEffect: { raw: "大力播洒 一阶" },
+      guideDetails: { acquisitionRaw: "鹤玉" },
+    });
+    expect(currentRecipeQualitiesById.get(dish.id)).toMatchObject({ color: "purple" });
+    for (const [name, fruit, effect] of [
+      ["橙香桃包", "黄色水果", "大力播洒 一阶"],
+      ["斑斓桃包", "绿色水果", ""],
+      ["蓝莓桃包", "蓝色水果", ""],
+    ] as const) {
+      const bun = recipe(name);
+      expect(bun.source.sourceId).toBe("xiaoming-1014-image");
+      expect(bun.ingredients.map((slot) => slot.selection.raw)).toEqual(["小麦", fruit]);
+      expect(bun.cookingMethod.raw).toBe("烤箱");
+      expect(bun.specialEffect.raw).toBe(effect);
+      expect(bun.guideDetails?.acquisitionRaw).toBe("蛮蛮切磋");
+      expect(bun.tags).toMatchObject({ status: "recorded", value: ["甜点"] });
+      expect(currentRecipeQualitiesById.get(bun.id)).toMatchObject({
+        status: "recorded",
+        color: "purple",
+      });
+    }
+    expect(recipe("红穗绛桃包").ingredients.map((slot) => slot.selection.raw)).toEqual([
       "小麦",
-      "水果类",
+      "水果",
     ]);
-    const incomplete = recipe("轰炸大菇肉");
-    const original = supplementalRecipesById.get(incomplete.id)!;
-    expect(original.ingredients.map((slot) => slot.selection.status)).toEqual([
-      "unknown",
-      "unknown",
-      "unknown",
+    const meatshrooms = recipe("轰炸大菇肉");
+    expect(meatshrooms.ingredients.map((slot) => slot.selection.raw)).toEqual(["蘑菇", "海鲜"]);
+    expect(meatshrooms.ingredients[1]!.quality).toMatchObject({
+      interpretationId: "xiaoming-1014-ingredient-background",
+    });
+    expect(meatshrooms).toMatchObject({
+      energy: { value: 90 },
+      specialEffect: { raw: "大力敲伐 二阶" },
+      guideDetails: { acquisitionRaw: "热贝尔" },
+    });
+    expect(currentRecipeFieldSourcesById.get(meatshrooms.id)?.reference).toBeUndefined();
+    expect(recipe("卡拉红汁炖肉").energy).toMatchObject({ status: "recorded", value: 90 });
+    expect(recipe("百果甜甜圈").ingredients.map((slot) => slot.selection.raw)).toEqual([
+      "水果",
+      "小麦",
     ]);
-    expect(original.specialEffect.status).toBe("unknown");
-    expect(incomplete.cookingMethod.raw).toBe("煮锅");
-    expect(incomplete.energy).toEqual({ status: "recorded", raw: "90", value: 90 });
-    expect(incomplete.guideDetails?.acquisitionRaw).toBe("热贝尔");
-    expect(incomplete.reviewNotes).toEqual([]);
-    expect(recipe("独角仙米面包").ingredients[0]!.selection.raw).toBe("稻米");
-    expect(recipe("红穗绛桃包").ingredients[1]!.selection.raw).toBe("红色水果");
     expect(recipe("露营方便烤鱼").ingredients.map((slot) => slot.quality.status)).toEqual([
       "interpreted",
       "not-stated",
     ]);
-    expect(recipe("甜饼果茶").guideDetails?.acquisitionRaw).toBe("最重要的消费者");
-    expect(
-      recipeSchema.safeParse({ ...incomplete, energy: { ...incomplete.energy, value: 0 } }).success,
-    ).toBe(false);
+    expect(recipeSchema.safeParse({ ...dish, energy: { ...dish.energy, value: 0 } }).success).toBe(
+      false,
+    );
   });
 
-  it("新增云朵小饼干与八种奇迹盛宴，不猜固定配方、概率或效果", () => {
-    const cookie = recipe("云朵小饼干");
-    expect(cookie.guideDetails?.acquisitionRaw).toBe("绵朵莉");
-    expect(cookie.cookingMethod.raw).toBe("烤箱");
-    expect(supplementalRecipesById.get(cookie.id)!.energy.status).toBe("unknown");
+  it("奇迹盛宴按 10/14 顺序，力气与产出由明天 9/29 补充，不猜配方或效果", () => {
     const miracles = currentRecipes.filter((entry) => entry.source.region === "miracle");
-    expect(miracles.map((entry) => entry.name.raw)).toEqual([
-      "奇迹盛宴大锅炖",
-      "奇迹盛宴大烤串",
-      "奇迹盛宴丰年饭",
-      "奇迹盛宴极火炒",
-      "奇迹盛宴甜点塔",
-      "奇迹盛宴瓦罐汤",
-      "奇迹盛宴畅饮桶",
-      "奇迹盛宴炸串碗",
-    ]);
-    expect(miracles.map((entry) => entry.tags.raw)).toEqual([
-      "炖菜",
-      "烧烤",
-      "主食",
-      "炒菜",
-      "甜点",
-      "汤羹",
-      "饮品",
-      "炸物",
+    expect(miracles.map((entry) => [entry.name.raw, entry.tags.raw])).toEqual([
+      ["奇迹盛宴大锅炖", "炖菜"],
+      ["奇迹盛宴大烤串", "烧烤"],
+      ["奇迹盛宴丰年饭", "主食"],
+      ["奇迹盛宴极火炒", "炒菜"],
+      ["奇迹盛宴甜点塔", "甜点"],
+      ["奇迹盛宴瓦罐汤", "汤羹"],
+      ["奇迹盛宴炸串碗", "炸物"],
+      ["奇迹盛宴畅饮桶", "饮品"],
     ]);
     for (const entry of miracles) {
+      const primary = primaryRecipeDataset.recipes.find((item) => item.id === entry.id)!;
+      expect(primary.energy.status).toBe("not-stated");
+      expect(primary.tags).toMatchObject({
+        status: "not-stated",
+        reason: expect.stringContaining("来源"),
+      });
       expect(entry.energy).toMatchObject({ status: "recorded", value: 180 });
+      expect(currentRecipeFieldSourcesById.get(entry.id)?.energy.source).toEqual(
+        supplementalRecipesById.get(entry.id)!.source,
+      );
       expect(entry.ingredients).toEqual([]);
       expect(entry.cookingMethod.status).toBe("not-stated");
       expect(entry.specialEffect.status).toBe("not-stated");
@@ -295,34 +363,11 @@ describe("小铭 9/30 主体与历史资料的读取边界", () => {
     }
   });
 
-  it("采用字段有准确来源，未采用的等级继续来自小铭，错误引用被拒绝", () => {
-    const donut = recipe("百果甜甜圈");
-    expect(currentRecipeFieldSourcesById.get(donut.id)?.ingredients).toMatchObject({
-      source: { sourceId: "tomorrow-20260929-image", region: "neighbor", row: 7 },
-      userDecision: { id: "user-recipe-decisions-20261003" },
-    });
-    expect(recipe("蒜香流心奶面包").guideDetails?.levelRaw).toBe("七级");
-    const broken = structuredClone(recipeDecisions);
-    const entry = broken.decisions.find((decision) => decision.action === "use-fields")!;
-    if (entry.action !== "use-fields") throw new Error("缺少字段采用样本");
-    entry.source.row = 999;
-    expect(recipeDecisionsSchema.safeParse(broken).success).toBe(false);
-    entry.source = supplementalRecipesById.get(entry.recipeId)!.source;
-    entry.fields.push(entry.fields[0]!);
-    expect(recipeDecisionsSchema.safeParse(broken).success).toBe(false);
-  });
-
-  it("用户决定拒绝重复、错槽和错原文，不能将别的食材提升为确定值", () => {
+  it("用户决定拒绝重复、错误菜谱、错误原文与错误来源引用", () => {
     const duplicate = structuredClone(recipeDecisions);
     duplicate.decisions.push(duplicate.decisions[0]!);
     expect(recipeDecisionsSchema.safeParse(duplicate).success).toBe(false);
-    for (const patch of [
-      { recipeId: "missing-id" },
-      { slot: -1 },
-      { slot: 90 },
-      { previousRaw: "错误原文" },
-      { raw: "虾类" },
-    ]) {
+    for (const patch of [{ recipeId: "missing-id" }, { nameRaw: "错误原文" }]) {
       const broken = structuredClone(recipeDecisions);
       Object.assign(broken.decisions[0]!, patch);
       expect(recipeDecisionsSchema.safeParse(broken).success).toBe(false);
@@ -330,6 +375,26 @@ describe("小铭 9/30 主体与历史资料的读取边界", () => {
     expect(
       recipeDecisionsSchema.safeParse({ ...recipeDecisions, gameVerified: true }).success,
     ).toBe(false);
+    const tea = recipe("甜饼果茶");
+    const useFields = {
+      ...recipeDecisions,
+      decisions: [
+        {
+          recipeId: tea.id,
+          nameRaw: "甜饼果茶",
+          action: "use-fields",
+          fields: ["cookingMethod"],
+          source: supplementalRecipesById.get(tea.id)!.source,
+        },
+      ],
+    };
+    expect(recipeDecisionsSchema.safeParse(useFields).success).toBe(true);
+    const wrongRow = structuredClone(useFields);
+    wrongRow.decisions[0]!.source.row = 999;
+    expect(recipeDecisionsSchema.safeParse(wrongRow).success).toBe(false);
+    const repeated = structuredClone(useFields);
+    repeated.decisions[0]!.fields.push("cookingMethod");
+    expect(recipeDecisionsSchema.safeParse(repeated).success).toBe(false);
   });
 });
 
@@ -341,7 +406,7 @@ describe("独立游戏增益证据", () => {
     expect(getEffectEvidence(recipe("谷物粥"))?.limit).toEqual({ unit: "uses", value: 6 });
     expect(getEffectEvidence(recipe("时蔬烧烤派对"))?.limit).toEqual({
       unit: "seconds",
-      value: 70,
+      value: 100,
     });
     expect(gameEffectEvidence.references).toHaveLength(3);
     expect(
@@ -414,37 +479,21 @@ describe("独立游戏增益证据", () => {
 });
 
 describe("用户要求的外部参考补齐", () => {
-  it("只填补两图问号，按 Wiki 品质名解释槽位品质并记录补齐字段", () => {
-    const meatshrooms = recipe("轰炸大菇肉");
-    expect(meatshrooms.ingredients).toEqual([
-      {
-        selection: { status: "recorded", raw: "蘑菇", value: { kind: "item", name: "蘑菇" } },
-        quality: { status: "not-stated", raw: "" },
-      },
-      {
-        selection: {
-          status: "recorded",
-          raw: "海鲜",
-          value: { kind: "unspecified", name: "海鲜" },
-        },
-        quality: {
-          status: "interpreted",
-          color: "purple",
-          interpretationId: "petitplanet-wiki-quality-names",
-        },
-      },
+  it("10/14 写明的字段改读图片，只保留图中没有的词条与甜饼果茶品质", () => {
+    expect(referenceSupplements.gameVerified).toBe(false);
+    expect(referenceSupplements.additions).toEqual([]);
+    expect(
+      referenceSupplements.recipes.map((entry) => [
+        entry.nameRaw,
+        currentRecipeFieldSourcesById.get(entry.recipeId)?.reference?.fields,
+      ]),
+    ).toEqual([
+      ["云朵小饼干", ["tags"]],
+      ["甜饼果茶", ["quality"]],
+      ["橙香桃包", ["tags"]],
+      ["斑斓桃包", ["tags"]],
+      ["蓝莓桃包", ["tags"]],
     ]);
-    expect(meatshrooms.specialEffect).toMatchObject({
-      status: "recorded",
-      value: { name: "大力敲伐", tier: 2 },
-    });
-    expect(meatshrooms.visualCues.some((cue) => cue.field.startsWith("ingredients."))).toBe(false);
-    expect(currentRecipeFieldSourcesById.get(meatshrooms.id)?.reference).toEqual({
-      id: referenceSupplements.id,
-      recipeId: meatshrooms.id,
-      fields: ["ingredients", "specialEffect"],
-    });
-
     const cookie = recipe("云朵小饼干");
     expect(cookie.ingredients.map((slot) => [slot.selection.raw, slot.quality.status])).toEqual([
       ["小麦", "interpreted"],
@@ -452,33 +501,8 @@ describe("用户要求的外部参考补齐", () => {
     ]);
     expect(cookie.energy).toEqual({ status: "recorded", raw: "70", value: 70 });
     expect(cookie.tags).toMatchObject({ status: "recorded", value: ["甜点"] });
-    expect(cookie.specialEffect).toMatchObject({ status: "not-stated", raw: "" });
-    expect(currentRecipeFieldSourcesById.get(cookie.id)?.reference?.fields).toEqual([
-      "ingredients",
-      "energy",
-      "tags",
-      "specialEffect",
-    ]);
+    expect(cookie.specialEffect).toEqual({ status: "not-stated", raw: "" });
     expect(currentRecipeFieldSourcesById.get(recipe("谷物粥").id)?.reference).toBeUndefined();
-    expect(referenceSupplements.gameVerified).toBe(false);
-  });
-
-  it("按用户要求改写红穗绛桃包与蒜香流心奶面包，甜饼果茶按 Wiki 品质名显示蓝色", () => {
-    const bun = recipe("红穗绛桃包");
-    expect(bun.ingredients.map((slot) => slot.selection.raw)).toEqual(["小麦", "红色水果"]);
-    expect(bun.ingredients[0]!.quality).toMatchObject({ status: "interpreted", color: "purple" });
-    expect(currentRecipeFieldSourcesById.get(bun.id)?.ingredients.userDecision).toBeUndefined();
-    expect(currentRecipeFieldSourcesById.get(bun.id)?.reference?.fields).toEqual(["ingredients"]);
-    const garlicBun = recipe("蒜香流心奶面包");
-    expect(garlicBun.ingredients.map((slot) => slot.selection.raw)).toEqual(["大蒜", "谷物", "奶"]);
-    expect(currentRecipeFieldSourcesById.get(garlicBun.id)?.ingredients).toEqual({
-      source: garlicBun.source,
-      userDecision: undefined,
-    });
-    expect(currentRecipeFieldSourcesById.get(garlicBun.id)?.name.userDecision).toBeDefined();
-    expect(currentRecipeFieldSourcesById.get(recipe("甜饼果茶").id)?.reference?.fields).toEqual([
-      "quality",
-    ]);
     expect([...currentRecipeQualitiesById.values()].some((q) => q.status === "unknown")).toBe(
       false,
     );
@@ -487,52 +511,61 @@ describe("用户要求的外部参考补齐", () => {
       "user-reference-request-20261102-conflicts",
       "user-reference-request-20261102-peach-buns",
     ]);
-  });
-
-  it("整条补入三道桃包，标为外部资料整理并按 Wiki 品质名显示紫色", () => {
-    const buns = currentRecipes.slice(-3);
-    expect(buns.map((entry) => entry.name.raw)).toEqual(["橙香桃包", "斑斓桃包", "蓝莓桃包"]);
-    for (const [bun, fruit, effect] of [
-      [buns[0]!, "黄色水果", "大力播洒 一阶"],
-      [buns[1]!, "绿色水果", "快速翻土 一阶"],
-      [buns[2]!, "蓝色水果", "大力播洒 一阶"],
-    ] as const) {
-      expect(bun.verification).toBe("reference-compiled-game-unverified");
-      expect(bun.source).toMatchObject({ sourceId: referenceSupplements.id, region: "neighbor" });
-      expect(bun.ingredients.map((slot) => slot.selection.raw)).toEqual(["小麦", fruit]);
-      expect(bun.ingredients[0]!.quality).toMatchObject({ status: "interpreted", color: "purple" });
-      expect(bun.cookingMethod.raw).toBe("煮锅");
-      expect(bun.energy).toEqual({ status: "recorded", raw: "80", value: 80 });
-      expect(bun.specialEffect.raw).toBe(effect);
-      expect(bun.guideDetails?.acquisitionRaw).toBe("蛮蛮");
-      expect(currentRecipeQualitiesById.get(bun.id)).toMatchObject({
-        status: "referenced",
-        color: "purple",
-      });
-      expect(currentRecipeFieldSourcesById.get(bun.id)?.reference?.fields).toEqual(["recipe"]);
-      expect(getEffectEvidence(bun)?.limit).toBeDefined();
-    }
-    const broken = structuredClone(referenceSupplements);
-    broken.additions[0]!.recipeId = broken.recipes[0]!.recipeId;
-    expect(referenceSupplementsSchema.safeParse(broken).success).toBe(false);
     const fake = structuredClone(primaryRecipeDataset);
     fake.recipes[0]!.verification = "reference-compiled-game-unverified";
     expect(recipeDatasetSchema.safeParse(fake).success).toBe(false);
   });
 
   it("改写声明的原文变化时拒绝套用", () => {
-    const stale = structuredClone(referenceSupplements);
-    stale.recipes.find((entry) => entry.nameRaw === "红穗绛桃包")!.overrides!.ingredients = [
-      "小麦",
-      "苹果",
-    ];
     const base = primaryRecipeDataset.recipes.find((entry) => entry.name.raw === "红穗绛桃包")!;
-    expect(() => applyReferenceSupplement(base, stale)).toThrow(/需重新确认改写/u);
-    expect(applyReferenceSupplement(base).ingredients[1]!.selection.raw).toBe("红色水果");
+    const override = (ingredients: string[]) => ({
+      ...referenceSupplements,
+      recipes: [
+        {
+          recipeId: base.id,
+          nameRaw: "红穗绛桃包",
+          requestId: "user-reference-request-20261102-conflicts",
+          sourceIds: [referenceSupplements.sources[0]!.id],
+          overrides: { ingredients },
+          ingredients: [
+            {
+              raw: "红色水果",
+              value: { kind: "category" as const, name: "红色水果" },
+              sourceRaw: { en: "Red Fruit", zh: "红色水果" },
+            },
+          ],
+          notes: [],
+        },
+      ],
+    });
+    expect(() => applyReferenceSupplement(base, override(["小麦", "苹果"]))).toThrow(
+      /需重新确认改写/u,
+    );
+    expect(
+      applyReferenceSupplement(base, override(["小麦", "水果"])).ingredients[0]!.selection.raw,
+    ).toBe("红色水果");
   });
 
   it("拒绝覆盖图片已有值、菜名不符、引用缺失与游戏实测声明", () => {
-    expect(() => applyReferenceSupplement(recipe("轰炸大菇肉"))).toThrow(/不能用参考资料覆盖/u);
+    const filled = structuredClone(referenceSupplements);
+    filled.recipes[0]!.energy = { raw: "70", value: 70, sourceRaw: { en: "70", zh: "70" } };
+    expect(() => applyReferenceSupplement(recipe("云朵小饼干"), filled)).toThrow(
+      /不能用参考资料覆盖/u,
+    );
+    // 词条可补齐小铭图没有的列，但空白效果不能被参考资料改写。
+    const blankEffect = structuredClone(referenceSupplements);
+    const pandan = blankEffect.recipes.find((entry) => entry.nameRaw === "斑斓桃包")!;
+    pandan.specialEffect = {
+      raw: "快速翻土 一阶",
+      value: { name: "快速翻土", tier: 1 },
+      sourceRaw: { en: "Quick Till I", zh: "" },
+    };
+    const pandanPrimary = primaryRecipeDataset.recipes.find(
+      (entry) => entry.id === pandan.recipeId,
+    )!;
+    expect(() => applyReferenceSupplement(pandanPrimary, blankEffect)).toThrow(
+      /不能用参考资料覆盖/u,
+    );
     const renamed = structuredClone(referenceSupplements);
     renamed.recipes[0]!.nameRaw = "别的菜";
     expect(() =>

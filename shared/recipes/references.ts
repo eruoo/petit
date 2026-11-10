@@ -213,8 +213,9 @@ export function applyReferenceSupplement(recipe: Recipe, dataset = referenceSupp
   const entry = dataset.recipes.find((candidate) => candidate.recipeId === recipe.id);
   if (!entry) return recipe;
   if (entry.nameRaw !== recipe.name.raw) throw new Error(`参考补充菜名不符：${entry.recipeId}`);
-  const gap = (status: string, field: string) => {
-    if (status !== "unknown")
+  // 词条只在明天图中有独立列；小铭图没有该列（not-stated）时也可补齐，其余字段只填问号。
+  const gap = (status: string, field: string, allowNotStated = false) => {
+    if (status !== "unknown" && !(allowNotStated && status === "not-stated"))
       throw new Error(`${entry.nameRaw}：${field} 已有图片值，不能用参考资料覆盖`);
   };
   if (entry.overrides) {
@@ -224,7 +225,7 @@ export function applyReferenceSupplement(recipe: Recipe, dataset = referenceSupp
   } else if (entry.ingredients)
     recipe.ingredients.forEach((slot) => gap(slot.selection.status, "食材"));
   if (entry.energy) gap(recipe.energy.status, "力气");
-  if (entry.tags) gap(recipe.tags.status, "词条");
+  if (entry.tags) gap(recipe.tags.status, "词条", true);
   if (entry.specialEffect) gap(recipe.specialEffect.status, "特殊效果");
   const effect = entry.specialEffect;
   return recipeSchema.parse({

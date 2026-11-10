@@ -26,7 +26,16 @@ import {
 } from "./references.ts";
 import type { ReferenceField } from "./references.ts";
 
-// 小铭保留原有顺序与等级；明天补充词条、概率，并按用户决定采用差异字段。
+// 小铭 10/14 奇迹盛宴区没有力气列，该区力气由明天 9/29 补充。
+export function usesSupplementalEnergy(primary: Recipe): boolean {
+  return (
+    primary.source.region === "miracle" &&
+    primary.energy.status === "not-stated" &&
+    supplementalRecipesById.has(primary.id)
+  );
+}
+
+// 小铭保留原有顺序与等级；明天补充词条、概率与奇迹盛宴力气，并按用户决定采用差异字段。
 export function resolveCurrentRecipe(primary: Recipe): Recipe {
   const supplemental = supplementalRecipesById.get(primary.id);
   return applyRecipeDecision(
@@ -34,6 +43,7 @@ export function resolveCurrentRecipe(primary: Recipe): Recipe {
       ...primary,
       tags: supplemental?.tags ?? primary.tags,
       productionChance: supplemental?.productionChance ?? primary.productionChance,
+      energy: usesSupplementalEnergy(primary) ? supplemental!.energy : primary.energy,
     }),
   );
 }
@@ -53,6 +63,7 @@ export const currentRecipeFieldSourcesById = new Map(
   currentRecipes.map((recipe) => {
     const supplemental = supplementalRecipesById.get(recipe.id);
     const decision = recipeDecisionsById.get(recipe.id);
+    const primary = primaryRecipesById.get(recipe.id);
     const fieldSource = (field: Parameters<typeof usesSupplementalField>[1]) => ({
       source: usesSupplementalField(recipe.id, field) ? supplemental!.source : recipe.source,
       userDecision: usesSupplementalField(recipe.id, field)
@@ -76,7 +87,10 @@ export const currentRecipeFieldSourcesById = new Map(
         },
         name: fieldSource("name"),
         cookingMethod: fieldSource("cookingMethod"),
-        energy: fieldSource("energy"),
+        energy:
+          primary && usesSupplementalEnergy(primary)
+            ? { source: supplemental!.source, userDecision: undefined }
+            : fieldSource("energy"),
         specialEffect: fieldSource("specialEffect"),
         effectTrigger: fieldSource("specialEffect"),
         acquisition: fieldSource("acquisition"),

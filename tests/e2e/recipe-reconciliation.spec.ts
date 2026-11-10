@@ -80,7 +80,7 @@ test("秘制菜显示配图和当前力气与效果", async ({ page }) => {
   await expect(dialog.getByRole("list", { name: "有序食材" }).getByRole("listitem")).toHaveCount(2);
 });
 
-test("外婆菜饭保留确认的金色谷物，轰炸大菇肉按参考资料补齐食材与效果", async ({ page }) => {
+test("外婆菜饭显示金色谷物，轰炸大菇肉按 10/14 图显示食材与效果", async ({ page }) => {
   await page.goto("/?q=外婆菜饭");
   await page.getByRole("button", { name: "查看外婆菜饭配方", exact: true }).click();
   const dialog = page.getByRole("dialog");
@@ -117,13 +117,13 @@ test("奇迹盛宴可分类与词条搜索，详情显示概率产出且不捏�
   await expect(dialog.locator(".effect-detail")).not.toContainText("无特殊效果");
 });
 
-test("甜饼果茶采用厨具、任务和二阶效果，云朵小饼干按参考资料补齐", async ({ page }) => {
+test("甜饼果茶按 10/14 图显示榨汁机与任务，云朵小饼干与桃包按图显示", async ({ page }) => {
   await page.goto("/?q=甜饼果茶");
   await page.getByRole("button", { name: "查看甜饼果茶配方", exact: true }).click();
   const dialog = page.getByRole("dialog");
-  await expect(dialog).toContainText("配方获取：最重要的消费者");
-  await expect(dialog.locator(".recipe-facts")).toContainText("煮锅");
-  await expect(dialog.locator(".effect-detail")).toContainText("钓鱼之力 · 二阶");
+  await expect(dialog).toContainText("配方获取：任务");
+  await expect(dialog.locator(".recipe-facts")).toContainText("榨汁机");
+  await expect(dialog.locator(".effect-detail")).toContainText("无特殊效果");
   await page.keyboard.press("Escape");
   await page.getByRole("searchbox").fill("云朵小饼干");
   await page.getByRole("button", { name: "查看云朵小饼干配方", exact: true }).click();
@@ -135,5 +135,11 @@ test("甜饼果茶采用厨具、任务和二阶效果，云朵小饼干按参�
   await expect(cookieSlots).toHaveCount(2);
   await expect(cookieSlots.nth(0)).toContainText(/小麦\s*需紫色品质/u);
   await expect(cookieSlots.nth(1)).toContainText("奶");
+  await expect(dialog.locator(".effect-detail")).toContainText("无特殊效果");
+  await page.keyboard.press("Escape");
+  await page.getByRole("searchbox").fill("斑斓桃包");
+  await page.getByRole("button", { name: "查看斑斓桃包配方", exact: true }).click();
+  await expect(dialog).toContainText("配方获取：蛮蛮切磋");
+  await expect(dialog.locator(".recipe-facts")).toContainText("烤箱");
   await expect(dialog.locator(".effect-detail")).toContainText("无特殊效果");
 });
