@@ -4,7 +4,7 @@ import type { RecipeSource } from "../../shared/recipes/schema";
 const sourceUrls = import.meta.glob<string>(
   [
     "../../docs/references/recipes/tomorrow-2026-09-29.jpg",
-    "../../docs/references/recipes/xiaoming-09-30.png",
+    "../../docs/references/recipes/xiaoming-10-14.png",
   ],
   {
     eager: true,

@@ -16,6 +16,7 @@ import {
 import {
   primaryRecipeDataset,
   supplementalRecipeDataset,
+  september30XiaomingRecipeDataset,
   previousXiaomingRecipeDataset,
 } from "../shared/recipes/primary.ts";
 import { gameEffectEvidence, collectCurrentEvidenceConflicts } from "../shared/recipes/effects.ts";
@@ -97,13 +98,13 @@ if (import.meta.main) {
   );
   console.log(`旧版快照与跨版本引用校验通过：${previousRecipeDataset.recipes.length} 条历史记录。`);
   console.log(
-    `小铭 9/27 历史转录独立校验通过：${previousXiaomingRecipeDataset.recipes.length} 行。`,
+    `小铭 9/30、9/27 历史转录独立校验通过：${september30XiaomingRecipeDataset.recipes.length}、${previousXiaomingRecipeDataset.recipes.length} 行。`,
   );
   console.log(
     `用户逐项决定及原文、来源引用校验通过：${recipeDecisions.decisions.length} 条；不代表游戏实测。`,
   );
   console.log(
-    `外部参考补齐：${referenceSupplements.recipes.length} 道菜（用户明确改写图片值 ${referenceSupplements.recipes.filter((entry) => entry.overrides).length} 道，其余只填问号或无底色字段），整条补入 ${referenceSupplements.additions.length} 道，增益有效量参考 ${gameEffectEvidence.references.length} 条；均不代表游戏实测。`,
+    `外部参考补齐：${referenceSupplements.recipes.length} 道菜（用户明确改写图片值 ${referenceSupplements.recipes.filter((entry) => entry.overrides).length} 道，其余只填问号、无底色或图中无此列的字段），整条补入 ${referenceSupplements.additions.length} 道，增益有效量参考 ${gameEffectEvidence.references.length} 条；均不代表游戏实测。`,
   );
   const qualityCounts = Object.fromEntries(
     ["blue", "purple", "gold", "unknown"].map((color) => [
@@ -136,7 +137,7 @@ if (import.meta.main) {
   );
   console.log(`食材品质底色与用户解释引用校验通过：${JSON.stringify(ingredientQualityCounts)}。`);
   console.log(
-    `当前 ${currentRecipes.length} 道：小铭 9/30 主体 ${primaryRecipeDataset.recipes.length} 道、明天补充资料 ${supplementalRecipeDataset.recipes.length} 道、外部参考补入 ${referenceSupplements.additions.length} 道；独立游戏截图 ${gameEffectEvidence.screenshots.length} 张、用户文字确认 ${gameEffectEvidence.confirmations.length} 条。`,
+    `当前 ${currentRecipes.length} 道：小铭 10/14 主体 ${primaryRecipeDataset.recipes.length} 道、明天补充资料 ${supplementalRecipeDataset.recipes.length} 道、外部参考补入 ${referenceSupplements.additions.length} 道；独立游戏截图 ${gameEffectEvidence.screenshots.length} 张、用户文字确认 ${gameEffectEvidence.confirmations.length} 条。`,
   );
   const conflicts = collectCurrentEvidenceConflicts(currentRecipes);
   console.log(
