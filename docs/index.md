@@ -8,7 +8,7 @@
 - [本地菜谱速查页面](specs/recipe-browser.md)：全站资料手册定位与星球标识、默认图标视图与列表切换、菜名／食材／词条／烹饪方式统一搜索、搜索框上方的单选分类与宽窄屏布局、旧筛选参数清理与旧食材链接兼容、按候选清单构建配图、关于页的分项来源与致谢、两份图鉴与 Viewer.js 预览、精简料理详情、组件边界与页面验收。
 - [小铭同学 10 月 14 日主图](references/recipes/xiaoming-10-14.md)：当前主图的 115 行清点、像素定位与底色核对、与上一版主图的差异。
 - [小铭同学 9 月 30 日主图](references/recipes/xiaoming-09-30.md)：上一版主图的 102 行清点、逐区复核后的文字更正、问号与未说明字段。
-- [菜品图片候选索引](references/recipes/dish-image-candidates.md)：114 道候选配图的读取规则（地三鲜暂无）、Wiki 与 TapTap 来源清单、共用原文件与候选边界。
+- [菜品图片候选索引](references/recipes/dish-image-candidates.md)：115 道候选配图的读取规则、Wiki 与 TapTap 来源清单、共用原文件与候选边界。
 
 ## 目录约定
 
